@@ -20,7 +20,6 @@ echo "
                  <ul class='dropdown-menu'>
                    <li><a href='index.php'>List All Probes</a></li>
                    <li><a href='probe-add.php'>Add a Probe</a></li>
-                   <li><a href='probe-mod.php'>Modify a Probe</a></li>
                    <li><a href='probe-del.php'>Delete a Probe</a></li>
                  </ul>
                </li>
@@ -29,7 +28,6 @@ echo "
                  <ul class='dropdown-menu'>
                    <li><a href='group-list.php'>List All Groups</a></li>
                    <li><a href='group-add.php'>Add a Group</a></li>
-                   <li><a href='group-mod.php'>Modify a Group</a></li>
                    <li><a href='group-del.php'>Delete a Group</a></li>
                  </ul>
                </li>
