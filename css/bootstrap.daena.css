@@ -11,7 +11,7 @@ input {margin:12px}
 .content {margin: 60px auto !important;}
 #container, #about {
    position:relative;
-   margin:96px 24px   
+   margin:96px 24px !important;   
 }
 .fakeinput {border-bottom-color: rgb(238, 238, 238);
 border-bottom-left-radius: 0px;
