@@ -9,8 +9,9 @@ input, .fakeinput {max-width:108px}
 h3 {margin:12px auto 0;}
 input {margin:12px}
 .content {margin: 60px auto !important;}
-#container {
+#container, #about {
    position:relative;
+   margin:96px 24px   
 }
 .fakeinput {border-bottom-color: rgb(238, 238, 238);
 border-bottom-left-radius: 0px;
