@@ -1,6 +1,5 @@
 <?php
 echo "
-
     <div class='navbar-fixed-bottom hidden-sm hidden-xs'>
         <p class='navbar-fixed-bottom-p'>Written for 
         <a href='http://www.vcu.edu/' target='_blank'>VCU</a> by 
