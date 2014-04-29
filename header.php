@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>DAENA | Data Aggregation and Emergency Notifications for Appliances</title>
