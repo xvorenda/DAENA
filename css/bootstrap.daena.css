@@ -9,6 +9,7 @@ h3 {margin:12px auto 0;}
 .content {
     margin: 60px auto !important
 }
+.field-narrow {max-width:32px !important}
 #container, #about {
    position:relative;
    margin:96px 24px !important;   
