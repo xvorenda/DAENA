@@ -1,5 +1,3 @@
-<?php
-echo "
     <div class='navbar-fixed-bottom hidden-sm hidden-xs'>
         <p class='navbar-fixed-bottom-p'>Written for 
         <a href='http://www.vcu.edu/' target='_blank'>VCU</a> by 
@@ -12,5 +10,4 @@ echo "
         DAENA is free software released under GNU/GPLv3 and/or <a href='http://creativecommons.org/licenses/by/3.0/'>CC BY 3.0</a>.</p>
     </div>  
   </body>
-</html>";
-?>  
+</html>
