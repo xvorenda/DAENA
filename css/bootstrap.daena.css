@@ -108,7 +108,8 @@ zoom: 1;
 }
 .navbar-fixed-bottom-p {
     margin: 6px; 
-    text-align:center;}
+    text-align:center;
+    color:#ccc}
     
 .gray       {color:#999 !important}  
 .violet     {color:#808 !important}  
