@@ -1,7 +1,7 @@
 <?php
 /* Get things started */
-include "header.php";
-include "urlvars.php";
+include "admin-header.php";
+include "../urlvars.php";
 echo "
 </head>
 <body>";
