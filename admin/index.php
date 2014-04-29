@@ -85,6 +85,6 @@ echo "<tr>
    
 
 /* Wrap things up */
-include 'footer.php';
+include '../footer.php';
 ?>
 	    
