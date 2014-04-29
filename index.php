@@ -1,4 +1,5 @@
 <?php
+
 /* Get things started */
 include "header.php";
 
@@ -19,8 +20,8 @@ mysql_select_db("tempurify");
 $freezercountquery = "SELECT SQL_CALC_FOUND_ROWS * 
 FROM tempurify.freezers 
 WHERE freezer_active='1'";
-$allfreezers = mysql_query($freezercountquery);
-if($allfreezers === FALSE) {
+$countfreezers = mysql_query($freezercountquery);
+if($countfreezers === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
 /* Count the active probes for density handling */
