@@ -14,6 +14,7 @@ h3 {margin:12px auto 0;}
    position:relative;
    margin:96px 24px !important;   
 }
+.stealth {display:none}
 .fakeinput, input {
     max-width:108px;
     margin:12px;
