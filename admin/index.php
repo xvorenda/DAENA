@@ -62,7 +62,7 @@ echo "<tr>
         <td><input type='text' class='input-medium search-query' name='probe_port' value='".$probe_port."'/></td>
         <td><input type='text' class='input-medium search-query field-narrow' name='freezer_active' value='".$freezer_active."'/></td>
         <td><input type='text' class='input-medium search-query color' name='freezer_color' value='".$freezer_color."'/></td>
-        <td><div type='text' class='fakeinput input-medium search-query' name='freezer_id'>".$freezer_id."</div></td>
+        <td><input type='text' class='input-medium search-query' name='freezer_id'>".$freezer_id."</div></td>
         <td><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
     </tr>";
 		$i++;};
