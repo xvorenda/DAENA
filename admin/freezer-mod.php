@@ -1,6 +1,6 @@
 <?php
 /* Get things started */
-include "header.php";
+include "admin-header.php";
 echo "
 </head>
 <body>";
