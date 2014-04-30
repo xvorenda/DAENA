@@ -75,7 +75,7 @@ echo "<tr>
         <td><input type='text' class='input-medium search-query' name='freezer_temp_range'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_host'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_port'/></td>
-        <td><input type='text' class='input-medium search-query' name='probe_active'/></td>
+        <td><input type='text' class='input-medium search-query field-narrow' name='probe_active'/></td>
         <td><input type='text' class='input-medium search-query color' name='freezer_color'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_id'/></td>
         <td><input type='submit' name='submit' class='btn' value='Add'/></form></td>
