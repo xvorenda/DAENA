@@ -56,6 +56,9 @@ h3 {margin:12px auto 0;}
     visibility: visible;
     width: 100% !important;
 }
+.btn {
+    min-width: 108px
+}
 .freezerinfo {
     margin:12px auto;
     padding: 12px 12px 0;
