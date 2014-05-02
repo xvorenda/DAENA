@@ -30,9 +30,9 @@ mysql_select_db("tempurify");
 
 /* Add a Freezer */
 $freezeradd = "INSERT INTO tempurify.freezers 
-    (freezer_active, freezer_color, freezer_location, freezer_name, freezer_temp_range, freezer_group_id)
+    (freezer_active, freezer_color, freezer_location, freezer_name, freezer_temp_range, freezer_id, freezer_group_id)
 VALUES
-    (".$freezer_active.$freezer_color.$freezer_location.$freezer_name.$freezer_temp_range.$freezer_group_id.")";
+    (".$freezer_active.", ".$freezer_color.", ".$freezer_location.", ".$freezer_name.", ".$freezer_temp_range.", ".$freezer_id.", ".$freezer_group_id.")";
 
 /* Mod a Freezer */
 $freezerupdate = "UPDATE tempurify.freezers
@@ -45,7 +45,7 @@ $onefreezer = mysql_query($freezerupdate);
 if($onefreezer === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-else {echo "Modification Success!";}}
+echo "Modification Success!";}
 
 if ($mysqlaction = "add") {
 
@@ -53,7 +53,7 @@ $onefreezer = mysql_query($freezeradd);
 if($onefreezer === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-else {echo "Addition Success!";}}
+echo "Addition Success!";}
 
 /* Wrap things up */
 include '../footer.php';
