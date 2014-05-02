@@ -32,7 +32,7 @@ mysql_select_db("tempurify");
 $freezeradd = "INSERT INTO tempurify.freezers 
     (freezer_active, freezer_color, freezer_location, freezer_name, freezer_temp_range, freezer_id, freezer_group_id)
 VALUES
-    (".$freezer_active.", ".$freezer_color.", ".$freezer_location.", ".$freezer_name.", ".$freezer_temp_range.", ".$freezer_id.", ".$freezer_group_id.")";
+    ('".$freezer_active."', '".$freezer_color."', '".$freezer_location."', '".$freezer_name."', '".$freezer_temp_range."', '".$freezer_id."', '".$freezer_group_id."')";
 
 /* Mod a Freezer */
 $freezerupdate = "UPDATE tempurify.freezers
