@@ -45,7 +45,7 @@ $onefreezer = mysql_query($freezerupdate);
 if($onefreezer === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-echo "Modification Success!";}
+else {echo "Modification Success!";}}
 
 if ($mysqlaction = "add") {
 
@@ -53,7 +53,7 @@ $onefreezer = mysql_query($freezeradd);
 if($onefreezer === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-echo "Addition Success!";}
+else {echo "Addition Success!";}}
 
 /* Wrap things up */
 include '../footer.php';
