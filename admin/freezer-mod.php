@@ -5,6 +5,7 @@ echo "
 </head>
 <body>";
 
+$mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
 $freezer_name = filter_input(INPUT_POST, 'freezer_name');
 $freezer_location = filter_input(INPUT_POST, 'freezer_location');
 $freezer_temp_range = filter_input(INPUT_POST, 'freezer_temp_range');
@@ -26,17 +27,32 @@ if ($daenaDB === FALSE) {
 }
 mysql_select_db("tempurify");
 
-/*   */
+/* Add a Freezer */
+$freezeradd = "INSERT INTO tempurify.freezers 
+    (freezer_active, freezer_color, freezer_location, freezer_name, freezer_temp_range)
+VALUES
+    (".$freezer_active.$freezer_color.$freezer_location.$freezer_name.$freezer_temp_range.")";
+
+/* Mod a Freezer */
 $freezerupdate = "UPDATE tempurify.freezers
 SET freezer_active='" . $freezer_active . "', freezer_color='" . $freezer_color . "', freezer_location='" . $freezer_location . "', freezer_name='" . $freezer_name . "', freezer_temp_range='" . $freezer_temp_range . "'
 WHERE freezer_id='" . $freezer_id . "'";
+
+if ($mysqlaction = "modify") {
 
 $onefreezer = mysql_query($freezerupdate);
 if($onefreezer === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-echo "Success!";
+echo "Modification Success!";}
 
+if ($mysqlaction = "add") {
+
+$onefreezer = mysql_query($freezeradd);
+if($onefreezer === FALSE) {
+    die(mysql_error()); // TODO: better error handling
+}
+echo "Addition Success!";}
 
 /* Wrap things up */
 include '../footer.php';
