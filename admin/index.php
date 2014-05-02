@@ -68,7 +68,7 @@ echo "<tr>
 		$i++;};
 
 echo "<tr>
-        <form action='freezer-add.php' method='POST'>
+        <form action='freezer-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='freezer_name' value='New Freezer'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_building'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_room'/></td>

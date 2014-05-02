@@ -10,6 +10,7 @@ $freezer_name = filter_input(INPUT_POST, 'freezer_name');
 $freezer_location = filter_input(INPUT_POST, 'freezer_location');
 $freezer_temp_range = filter_input(INPUT_POST, 'freezer_temp_range');
 $freezer_id = filter_input(INPUT_POST, 'freezer_id');
+$freezer_group_id = substr($freezer_id, 0, 1);
 $freezer_active = filter_input(INPUT_POST, 'freezer_active');
 $freezer_color = filter_input(INPUT_POST, 'freezer_color');
 $freezer_location_building = filter_input(INPUT_POST, 'freezer_location_building');
@@ -29,9 +30,9 @@ mysql_select_db("tempurify");
 
 /* Add a Freezer */
 $freezeradd = "INSERT INTO tempurify.freezers 
-    (freezer_active, freezer_color, freezer_location, freezer_name, freezer_temp_range)
+    (freezer_active, freezer_color, freezer_location, freezer_name, freezer_temp_range, freezer_group_id)
 VALUES
-    (".$freezer_active.$freezer_color.$freezer_location.$freezer_name.$freezer_temp_range.")";
+    (".$freezer_active.$freezer_color.$freezer_location.$freezer_name.$freezer_temp_range.$freezer_group_id.")";
 
 /* Mod a Freezer */
 $freezerupdate = "UPDATE tempurify.freezers
