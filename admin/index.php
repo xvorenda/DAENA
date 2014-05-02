@@ -5,7 +5,7 @@ include "../urlvars.php";
 echo "
 </head>
 <body>";
-$baseurl = 'index.php';
+$baseurl = '../index.php';
 include 'admin-nav.php';
 /* Start talking to MySQL and kill yourself if it ignores you */
 $daenaDB = mysql_connect("localhost", "tempurify_user", "idontcareaboutpasswordsrightnow");
