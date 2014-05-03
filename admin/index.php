@@ -48,7 +48,7 @@ $i = 0;
 echo "
 <div class='probesbox'>
 <table>
-<tr><td>Probe ID</td><td>Probe Type</td><td>Probe Range</td><td>Active</td><td>Probe Hort</td><td>Probe NTMS Port</td><td>&nbsp;</td></tr>
+<tr><td>Probe ID</td><td>Probe Type</td><td>Probe Range</td><td>Active</td><td>Probe Hostport</td><td>Probe NTMS Port</td><td>&nbsp;</td></tr>
 ";
 while(($probedata = mysql_fetch_assoc($allprobes))){
     $probe_id = $probedata['probe_id'];
