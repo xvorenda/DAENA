@@ -71,6 +71,7 @@ echo "<tr>
 
 echo "<tr>
         <form action='probe-mod.php' method='POST'>
+        <td><input type='text' class='input-medium search-query' name='probe_id'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_type'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_range'/></td>
         <td class='field-narrow'><input type='text' class='input-medium search-query field-narrow' name='probe_active'/></td>
