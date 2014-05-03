@@ -45,7 +45,7 @@ while(($probedata = mysql_fetch_assoc($allprobes))){
     $probe_hostport = $probedata['probe_hostport'];
 
 echo "<tr>
-        <form action='freezer-mod.php' method='POST'>
+        <form action='probe-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='probe_id' value='".$probe_id."'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_type' value='".$probe_type."'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_range' value='".$probe_range."'/></td>
@@ -59,7 +59,7 @@ echo "<tr>
 		$i++;};
 
 echo "<tr>
-        <form action='freezer-mod.php' method='POST'>
+        <form action='probe-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='probe_type'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_range'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_id'/></td>
