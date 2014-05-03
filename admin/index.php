@@ -14,7 +14,22 @@ if ($daenaDB === FALSE) {
 }
 mysql_select_db("tempurify");
 
-/* Ask MySQL about which probes exist and get their metadata */
+
+Ask MySQL about which probes exist and get their metadata */
+$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
+FROM tempurify.probes 
+ORDER BY ABS(probe_id)";
+$allprobes = mysql_query($allprobesquery);
+if($allprobes === FALSE) {
+    die(mysql_error()); // TODO: better error handling
+    
+/* Count the active probes for density handling */
+$countquery = "SELECT FOUND_ROWS()";
+	$countraw = mysql_query($countquery);
+	$countarray = mysql_fetch_assoc($countraw);
+	$count = implode(",",$countarray);
+}
+/* Ask MySQL about which freeers exist and get their metadata */
 $allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
 FROM tempurify.freezers 
 ORDER BY ABS(freezer_id)";
@@ -22,7 +37,7 @@ $allfreezers = mysql_query($allfreezersquery);
 if($allfreezers === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-/* Count the active probes for density handling */
+/* Count the active freezers for density handling */
 $countquery = "SELECT FOUND_ROWS()";
 	$countraw = mysql_query($countquery);
 	$countarray = mysql_fetch_assoc($countraw);
