@@ -33,7 +33,7 @@ echo "
                  <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Groups<b class='caret'></b></a>
                  <ul class='dropdown-menu'>
                    <li><a href='group-view.php'>All Groups</a></li>
-\                  <li><a href='group-del.php'>Delete a Group</a></li>
+                   <li><a href='group-del.php'>Delete a Group</a></li>
                  </ul>
                </li>
             </ul>
