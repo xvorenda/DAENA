@@ -15,7 +15,7 @@ if ($daenaDB === FALSE) {
 mysql_select_db("tempurify");
 
 
-Ask MySQL about which probes exist and get their metadata */
+/* Ask MySQL about which probes exist and get their metadata */
 $allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
 FROM tempurify.probes 
 ORDER BY ABS(probe_id)";
@@ -70,8 +70,7 @@ echo "<tr>
         <td><input type='text' class='input-medium search-query field-narrow' name='probe_ntms_port' value='".$probe_ntms_port."'/></td>
         <td><input type='text' class='input-medium search-query color' name='probe_hostport' value='".$probe_hostport."'/></td>
         <td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
-    </tr>";
-		$i++;};
+</tr>";}
 
 echo "<tr>
         <form action='probe-mod.php' method='POST'>
