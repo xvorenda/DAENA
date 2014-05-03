@@ -63,20 +63,20 @@ echo "<tr>
         <td><input type='text' class='input-medium search-query field-narrow' name='probe_id' value='".$probe_id."'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_type' value='".$probe_type."'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_range' value='".$probe_range."'/></td>
-        <td><input type='text' class='input-medium search-query field-narrow' name='probe_active' value='".$probe_active."'/></td>
-        <td><input type='text' class='input-medium search-query field-wide' name='probe_hostport' value='".$probe_hostport."'/></td>
-        <td><input type='text' class='input-medium search-query field-narrow' name='probe_ntms_port' value='".$probe_ntms_port."'/></td>
+        <td class='field-narrow'><input type='text' class='input-medium search-query field-narrow' name='probe_active' value='".$probe_active."'/></td>
+        <td class='field-wide'><input type='text' class='input-medium search-query field-wide' name='probe_hostport' value='".$probe_hostport."'/></td>
+        <td class='field-narrow'><input type='text' class='input-medium search-query field-narrow' name='probe_ntms_port' value='".$probe_ntms_port."'/></td>
         <td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 </tr>";}
 
 echo "<tr>
         <form action='probe-mod.php' method='POST'>
-        <td><input type='text' class='input-medium search-query' name='probe_id'/></td>
+        <td><input type='text' class='input-medium search-query field-narrow' name='probe_id'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_type'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_range'/></td>
-        <td><input type='text' class='input-medium search-query field-narrow' name='probe_active'/></td>
-        <td><input type='text' class='input-medium search-query field-wide' name='probe_hostport'/></td>
-        <td><input type='text' class='input-medium search-query field-narrow' name='probe_ntms_port'/></td>
+        <td class='field-narrow'><input type='text' class='input-medium search-query field-narrow' name='probe_active'/></td>
+        <td class='field-wide'><input type='text' class='input-medium search-query field-wide' name='probe_hostport'/></td>
+        <td class='field-narrow'><input type='text' class='input-medium search-query field-narrow' name='probe_ntms_port'/></td>
         <td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></td></form>
     </tr>
 </table>";
