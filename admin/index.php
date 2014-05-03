@@ -68,7 +68,7 @@ echo "<tr>
         <td><input type='text' class='input-medium search-query' name='probe_active' value='".$probe_active."'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_port' value='".$probe_port."'/></td>
         <td><input type='text' class='input-medium search-query field-narrow' name='probe_ntms_port' value='".$probe_ntms_port."'/></td>
-        <td><input type='text' class='input-medium search-query color' name='probe_hostport' value='".$probe_hostport."'/></td>
+        <td><input type='text' class='input-medium search-query' name='probe_hostport' value='".$probe_hostport."'/></td>
         <td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 </tr>";}
 
