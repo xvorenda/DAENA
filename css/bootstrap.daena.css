@@ -1,6 +1,7 @@
 table {margin: 32px auto}
 tr {border: 1px solid #000;height:48px}
-td {padding:4px !important;text-align:center !imoprtant;}
+td {text-align: center;
+    padding:4px !important}
 h3 {margin:12px auto 0;}
 .daena-logo {
     height:20px;
@@ -18,7 +19,7 @@ h3 {margin:12px auto 0;}
 .stealth {display:none}
 .fakeinput, input {
     max-width:108px;
-    margin:12px;
+    margin:12px auto;
     border-bottom-color: rgb(238, 238, 238);
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
