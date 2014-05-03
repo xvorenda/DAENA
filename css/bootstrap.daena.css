@@ -10,6 +10,7 @@ h3 {margin:12px auto 0;}
     margin: 60px auto !important
 }
 .field-narrow {max-width:32px !important}
+.field-wide {min-width:180px !important}
 #container, #about {
    position:relative;
    margin:96px 24px !important;   
