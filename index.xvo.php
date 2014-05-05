@@ -57,8 +57,8 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
         die(mysql_error()); // TODO: better error handling
     }
                             	
-	/* Get ready to do stuff */
-	$random_color = substr(md5(rand()), 0, 6);
+    /* Get ready to do stuff */
+    $random_color = substr(md5(rand()), 0, 6);
     $badzero_a = "-00";
     $badzero_b = "-0";
     $re_neg = "-";
@@ -97,11 +97,7 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
         $probe_temp = ltrim($probe_temp, '+0');};
         if (isset($probe_ping_id)) { 
             $slicemod = intval($probe_ping_id / $count);
-            while (gmp_prob_prime($slicemod) != 0)
-            {$slicemod++;};
             $time_slice = ($slicemod / $skip);
-            while (gmp_prob_prime($time_slice) != 0)
-            {$time_slice++;};
             $int_time_slice = intval($time_slice);
             $timequotient = $time_slice / $int_time_slice;};
         if (isset($probe_time)) {$probe_time *= 1000;};
