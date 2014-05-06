@@ -8,16 +8,16 @@ echo "
 $baseurl = '../index.php';
 include 'admin-nav.php';
 /* Start talking to MySQL and kill yourself if it ignores you */
-$daenaDB = mysql_connect("localhost", "tempurify_user", "idontcareaboutpasswordsrightnow");
+$daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
 if ($daenaDB === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-mysql_select_db("tempurify");
+mysql_select_db("daena_db");
 
 
 /* Ask MySQL about which probes exist and get their metadata */
 $allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
-FROM tempurify.probes 
+FROM daena_db.probes 
 ORDER BY ABS(probe_id)";
 $allprobes = mysql_query($allprobesquery);
 if($allprobes === FALSE) {
@@ -31,7 +31,7 @@ $countquery = "SELECT FOUND_ROWS()";
 }
 /* Ask MySQL about which freeers exist and get their metadata */
 $allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
-FROM tempurify.freezers 
+FROM daena_db.freezers 
 ORDER BY ABS(freezer_id)";
 $allfreezers = mysql_query($allfreezersquery);
 if($allfreezers === FALSE) {

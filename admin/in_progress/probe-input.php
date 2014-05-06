@@ -23,13 +23,13 @@ $probe_group = substr("$freezer_id", 0, 1);
 $probe_hostport = $probe_host." ".$probe_port; 
 $probe_location = $probe_location_building."<br>".$probe_location_room; 
 
-$daena = mysql_connect("localhost", "tempurify_user", "idontcareaboutpasswordsrightnow");
+$daena = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
 		if (!$daena)
 			{die("Cannot connect: " . mysql_error());}; 
       	
-    mysql_select_db("tempurify");
+    mysql_select_db("daena_db");
         
-$order = "INSERT INTO tempurify.probes (probe_freezer_name, probe_location, probe_temp_range, probe_hostport, probe_active, probe_color, freezer_id, probe_group) VALUES('$probe_freezer_name', '$probe_location', '$probe_temp_range', '$probe_hostport', '$probe_active', '$probe_color', '$freezer_id', '$probe_group')";
+$order = "INSERT INTO daena_db.probes (probe_freezer_name, probe_location, probe_temp_range, probe_hostport, probe_active, probe_color, freezer_id, probe_group) VALUES('$probe_freezer_name', '$probe_location', '$probe_temp_range', '$probe_hostport', '$probe_active', '$probe_color', '$freezer_id', '$probe_group')";
  
 $result = mysql_query($order); 
 if(!$result){

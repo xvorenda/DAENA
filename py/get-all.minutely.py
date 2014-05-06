@@ -10,12 +10,12 @@ import socket
 Terminator = "\n"
 SleepCommand = "sleep 1\n"
 ReadProbeCommand = "T\n"
-conn = mdb.connect(user='tempurify_user', passwd='idontcareaboutpasswordsrightnow', db='tempurify')
+conn = mdb.connect(user='daena_user', passwd='idontcareaboutpasswordsrightnow', db='daena_db')
 writecursor = conn.cursor()
 timetime = time.time()
 
 def putData(temp, hex):
-    writepingtodb = "INSERT INTO `tempurify`.`data` (`freezer_id`, `time`, `temp`, `temp_cksum`) VALUES ('%s', '%s', '%s', '%s');" % (freezer_id, timetime, temp, hex)
+    writepingtodb = "INSERT INTO `daena_db`.`data` (`freezer_id`, `time`, `temp`, `temp_cksum`) VALUES ('%s', '%s', '%s', '%s');" % (freezer_id, timetime, temp, hex)
     #print writepingtodb //
     writecursor.execute(writepingtodb);
     conn.commit ()

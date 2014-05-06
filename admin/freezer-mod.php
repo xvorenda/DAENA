@@ -22,20 +22,20 @@ $probe_hostport = $probe_host." ".$probe_port;
 $baseurl = '../index.php';
 include 'admin-nav.php';
 /* Start talking to MySQL and kill yourself if it ignores you */
-$daenaDB = mysql_connect("localhost", "tempurify_user", "idontcareaboutpasswordsrightnow");
+$daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
 if ($daenaDB === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-mysql_select_db("tempurify");
+mysql_select_db("daena_db");
 
 /* Add a Freezer */
-$freezeradd = "INSERT INTO tempurify.freezers 
+$freezeradd = "INSERT INTO daena_db.freezers 
     (freezer_active, freezer_color, freezer_location, freezer_name, freezer_temp_range, freezer_id, freezer_group_id)
 VALUES
     ('".$freezer_active."', '".$freezer_color."', '".$freezer_location."', '".$freezer_name."', '".$freezer_temp_range."', '".$freezer_id."', '".$freezer_group_id."')";
 
 /* Mod a Freezer */
-$freezerupdate = "UPDATE tempurify.freezers
+$freezerupdate = "UPDATE daena_db.freezers
 SET freezer_active='" . $freezer_active . "', freezer_color='" . $freezer_color . "', freezer_location='" . $freezer_location . "', freezer_name='" . $freezer_name . "', freezer_temp_range='" . $freezer_temp_range . "'
 WHERE freezer_id='" . $freezer_id . "'";
 
