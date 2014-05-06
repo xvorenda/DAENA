@@ -95,12 +95,12 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
         $probe_temp = str_replace($badzero_b, $re_neg, $probe_temp);
         $probe_temp = ltrim($probe_temp, '+00');
         $probe_temp = ltrim($probe_temp, '+0');};
-        if (isset($probe_ping_id)) { 
-            $slicemod = intval($probe_ping_id / $count);
-            $time_slice = ($slicemod / $skip);
+        if (isset($probe_time)) {
+            $probe_minute = 1000 * substr($probe_time, -3);
+            $time_slice = ($probe_time / $skip);
             $int_time_slice = intval($time_slice);
-            $timequotient = $time_slice / $int_time_slice;};
-        if (isset($probe_time)) {$probe_time *= 1000;};
+            $timequotient = $time_slice / $int_time_slice;
+        };
         if (isset($probe_time, $probe_temp)) {         	   
         $timetemp = "[".$probe_time.", ".$probe_temp."], ";
         if ($probe_time != 0 && $probe_temp != "nodata" && $timequotient == 1 && $probe_time > $viewstop){
