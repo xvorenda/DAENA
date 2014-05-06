@@ -57,8 +57,8 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
         die(mysql_error()); // TODO: better error handling
     }
                             	
-	/* Get ready to do stuff */
-	$random_color = substr(md5(rand()), 0, 6);
+    /* Get ready to do stuff */
+    $random_color = substr(md5(rand()), 0, 6);
     $badzero_a = "-00";
     $badzero_b = "-0";
     $re_neg = "-";
@@ -95,19 +95,16 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
         $probe_temp = str_replace($badzero_b, $re_neg, $probe_temp);
         $probe_temp = ltrim($probe_temp, '+00');
         $probe_temp = ltrim($probe_temp, '+0');};
-        if (isset($probe_ping_id)) { 
-            $slicemod = intval($probe_ping_id / $count);
-            while (gmp_prob_prime($slicemod) != 0)
-            {$slicemod++;};
-            $time_slice = ($slicemod / $skip);
-            while (gmp_prob_prime($time_slice) != 0)
-            {$time_slice++;};
+        if (isset($probe_time)) {
+            $probe_minute = round($probe_time / 60) * 60 * 1000;
+            $bounce = $skip * 60 * 1000;
+            $time_slice = ($probe_minute / $bounce);
             $int_time_slice = intval($time_slice);
-            $timequotient = $time_slice / $int_time_slice;};
-        if (isset($probe_time)) {$probe_time *= 1000;};
-        if (isset($probe_time, $probe_temp)) {         	   
-        $timetemp = "[".$probe_time.", ".$probe_temp."], ";
-        if ($probe_time != 0 && $probe_temp != "nodata" && $timequotient == 1 && $probe_time > $viewstop){
+            $timequotient = $time_slice / $int_time_slice;
+        };
+        if (isset($probe_minute, $probe_temp)) {         	   
+        $timetemp = "[".$probe_minute.", ".$probe_temp."], ";
+        if ($probe_minute != 0 && $probe_temp != "nodata" && $timequotient == 1 && $probe_minute > $viewstop){
             echo $timetemp;
         };
     };
