@@ -10,15 +10,15 @@ include "urlvars.php";
 include 'highcharts.php';
 
 /* Start talking to MySQL and kill yourself if it ignores you */
-$daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
+$daenaDB = mysql_connect("localhost", "tempurify_user", "idontcareaboutpasswordsrightnow");
 if ($daenaDB === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-mysql_select_db("daena_db");
+mysql_select_db("tempurify");
 
 /* Ask MySQL how many active probes total for density adjustments */
 $freezercountquery = "SELECT SQL_CALC_FOUND_ROWS * 
-FROM daena_db.freezers 
+FROM tempurify.freezers 
 WHERE freezer_active='1'";
 $countfreezers = mysql_query($freezercountquery);
 if($countfreezers === FALSE) {
@@ -32,7 +32,7 @@ $countquery = "SELECT FOUND_ROWS()";
 
 /* Ask MySQL about which probes exist and get their metadata */
 $allfreezersquery = "SELECT freezer_id,freezer_name,freezer_color,freezer_location 
-FROM daena_db.freezers 
+FROM tempurify.freezers 
 WHERE freezer_active='1'
 ".$groupfilter."
 ".$locfilter."
@@ -49,7 +49,7 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
     $freezer_name = $freezerdata['freezer_name'];
     $freezer_color = $freezerdata['freezer_color'];
     $freezer_loc = $freezerdata['freezer_location'];
-    $probequery = "(SELECT temp,time,ping_id FROM daena_db.data 
+    $probequery = "(SELECT temp,time,ping_id FROM tempurify.data 
     WHERE freezer_id='" . $freezer_id . "'
     ORDER BY time DESC " . $viewfilter . ") ORDER BY time ASC";
 	$proberesult = mysql_query($probequery);
