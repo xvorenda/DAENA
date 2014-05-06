@@ -101,7 +101,8 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
             $bounce = $skip * 60 * 1000;
             $time_slice = ($probe_minute / $bounce);
             while (gmp_prob_prime($time_slice) != 0)
-            {echo $time_slice;$time_slice++;}
+            {$time_slice++;}
+            echo $time_slice;
             $int_time_slice = intval($time_slice);
             $timequotient = $time_slice / $int_time_slice;
         };
