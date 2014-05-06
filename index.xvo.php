@@ -96,8 +96,8 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
         $probe_temp = ltrim($probe_temp, '+00');
         $probe_temp = ltrim($probe_temp, '+0');};
         if (isset($probe_time)) {
-            $probe_minute = 1000 * substr($probe_time, -3);
-            $time_slice = ($probe_time / $skip);
+            $probe_minute = 1000 * substr($probe_time, 0, -3);
+            $time_slice = ($probe_minute / $skip);
             $int_time_slice = intval($time_slice);
             $timequotient = $time_slice / $int_time_slice;
         };
