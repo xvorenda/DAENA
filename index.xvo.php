@@ -104,7 +104,7 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
         };
         if (isset($probe_minute, $probe_temp)) {         	   
         $timetemp = "[".$probe_minute.", ".$probe_temp."], ";
-        if ($probe_minute != 0 && $probe_temp != "nodata" && $probe_minute > $viewstop){
+        if ($probe_minute != 0 && $probe_temp != "nodata" && $timequotient == 1 && $probe_minute > $viewstop){
             echo $timetemp;
         };
     };
