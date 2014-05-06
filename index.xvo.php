@@ -97,8 +97,9 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
         $probe_temp = ltrim($probe_temp, '+0');};
         if (isset($probe_time)) {
             $probe_time = intval($probe_time);
-            $probe_minute = $probe_time * 1000;
-            $bounce = $skip * 60 * 1000;
+            $probe_time *= 1000;
+            $probe_minute = intval($probe_time / 60000);
+            $bounce = $skip * 60000;
             $time_slice = ($probe_minute / $bounce);
             while (gmp_prob_prime($time_slice) != 0)
             {$time_slice++;}
