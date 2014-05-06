@@ -101,14 +101,14 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
             $bounce = $skip * 60 * 1000;
             $time_slice = ($probe_minute / $bounce);
             while (gmp_prob_prime($time_slice) != 0)
-            {$time_slice++;}
+            {echo $time_slice;$time_slice++;}
             $int_time_slice = intval($time_slice);
             $timequotient = $time_slice / $int_time_slice;
         };
         if (isset($probe_time, $probe_temp)) {         	   
         $timetemp = "[".$probe_time.", ".$probe_temp."], ";
         if ($probe_time != 0 && $probe_temp != "nodata" && $timequotient == 1 && $probe_time > $viewstop){
-            echo $time_slice; echo $int_time_slice;
+            echo $timetemp;
         };
     };
 };
