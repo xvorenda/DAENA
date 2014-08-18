@@ -10,7 +10,7 @@ include "urlvars.php";
 include 'highcharts.php';
 
 /* Start talking to MySQL and kill yourself if it ignores you */
-$daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
+$daenaDB = mysql_connect("127.0.0.1", "daena_user", "idontcareaboutpasswordsrightnow");
 if ($daenaDB === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
@@ -49,6 +49,7 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
     $freezer_name = $freezerdata['freezer_name'];
     $freezer_color = $freezerdata['freezer_color'];
     $freezer_loc = $freezerdata['freezer_location'];
+    
     $probequery = "(SELECT temp,time,ping_id FROM daena_db.data 
     WHERE freezer_id='" . $freezer_id . "'
     ORDER BY time DESC " . $viewfilter . ") ORDER BY time ASC";
