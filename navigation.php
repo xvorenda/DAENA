@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php
+echo "
     <div class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
       <div class='container-fluid'>
         <div class='navbar-header'>
@@ -64,3 +65,5 @@
            </div><!--/.nav-collapse -->
          </div>
        </div>
+";
+?>

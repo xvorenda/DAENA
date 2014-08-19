@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <?php
 include 'header.php';
 $baseurl = "index.php";
-?>
+echo "
 <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
 <script src='js/bootstrap.min.js'></script>
 </head>
@@ -64,6 +63,6 @@ $baseurl = "index.php";
         <h1>Contact Us</h1>
         <p>If you have questions, comments, or suggestions, please email us at <a href='mailto:xvorenda@vcu.edu'>xvorenda@vcu.edu</a> and/or  <a href='mailto:voegtlylj@vcu.edu'>voegtlylj@vcu.edu</a>.</p>
         </div>
-<?php    
+";      
 include "footer.php";
 ?>
