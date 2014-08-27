@@ -18,9 +18,20 @@ class alarm(object)
         #readcursor.execute("""SELECT freezer_id,probe_hostport FROM probes WHERE probe_active=1 """)
         
         
-    def checkTemp(self, freezer, currentTemp)    
-        select setpoint2, setpoint1, freezerAlarmID, from freezers where freezer = freezerID
-        select alarmLevel, alarmTime from alarm where freezerAlarmID = alarmID
+    def checkTemp(self, freezer, currentTemp, setpoint1, setpoint2, freezerAlarmID)    
+    
+        
+        readcursor = conn.cursor()
+        query = ("SELECT temp, time FROM data WHERE freezer_id = %s and data.time > %s")
+        readcursor.execute(query, (freezer, time.time()-(60*10)))
+        
+        for record in readcursor:
+            if not record: break
+            print record[0]
+            if record[0]> setpoint2:
+        
+
+        
         if currentTemp > setpoint2
             # checking to see if the last 10 min of temps were above setpoint2
             select temp from data where freezerID = freezer and time < 10min
