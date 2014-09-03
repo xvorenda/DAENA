@@ -6,6 +6,7 @@ import MySQLdb as mdb
 import telnetlib
 import re
 import socket
+from alarm import alarm
 
 Terminator = "\n"
 SleepCommand = "sleep 1\n"
@@ -13,6 +14,9 @@ ReadProbeCommand = "T\n"
 conn = mdb.connect(user='daena_user', passwd='idontcareaboutpasswordsrightnow', db='daena_db')
 writecursor = conn.cursor()
 timetime = time.time()
+newAlarm = alarm()
+#print "start", time.time()
+
 
 def putData(temp, hex):
     writepingtodb = "INSERT INTO `daena_db`.`data` (`freezer_id`, `time`, `temp`, `temp_cksum`) VALUES ('%s', '%s', '%s', '%s');" % (freezer_id, timetime, temp, hex)
@@ -20,6 +24,7 @@ def putData(temp, hex):
     writecursor.execute(writepingtodb);
     conn.commit ()
     return
+
 
 def checkSum(temp, hex):
     # Need to add a space to the end of the temperature
@@ -41,7 +46,8 @@ def checkSum(temp, hex):
 
     #print "crchex", crchex
     
-    # Check if the value given is equal to the calculated value and return True or False
+    # Check if the value given is equal to the calculated value and return True 
+    # or False
     if crchex == hex:
     	return True
     else:
@@ -63,6 +69,8 @@ for record in readcursor:
     try:
         Telnet = telnetlib.Telnet(ntms_host,host_port,3)
     except socket.timeout:
+        #print "socket.timeout", freezer_id
+        newAlarm.checkComAlarm(freezer_id)
         putData("nodata", "nodata")
         continue
     
@@ -70,7 +78,9 @@ for record in readcursor:
     Telnet.write(ReadProbeCommand)
     rawtemp = Telnet.read_until(Terminator)
     
-    if not rawtemp: 
+    if not rawtemp:
+        #print "not rawtemp"
+        newAlarm.checkComAlarm(freezer_id) 
         putData("nodata", "nodata")
         continue
     
@@ -86,18 +96,27 @@ for record in readcursor:
         temp, hex = sensor
     
     except ValueError:
-	putData("nodata", "nodata")
+        #print "valueError"
+        newAlarm.checkComAlarm(freezer_id)
+        putData("nodata", "nodata")
         continue
     
     if checkSum(temp, hex):
+        #print "checking temp for", freezer_id, time.time()
+        newAlarm.checkTemp(freezer_id, float(temp))
+        #print "done checking temp", freezer_id, time.time()
         putData(temp, hex)
        #print True
     else:
+        #print "not checkSum"
+        newAlarm.checkComAlarm(freezer_id)
         putData("nodata", "nodata")
        #print False
     
 
     #putData(temp, hex)
+newAlarm.closeAlarm()
 writecursor.close ()
 conn.close ()
-
+#print "end", time.time()
+#print "total time", timetime-time.time()
