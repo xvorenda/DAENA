@@ -3,6 +3,8 @@ from __future__ import division
 import time
 import sys
 import MySQLdb as mdb
+import smtplib
+import re
 
 
 # Alarm Levels:
@@ -28,6 +30,7 @@ import MySQLdb as mdb
 class alarm(object):
 
     def __init__(self):
+    
         #create a connection with mySQL
         self.conn = mdb.connect(user='daena_user', passwd='idontcareaboutpasswordsrightnow', db='daena_db')
         
@@ -35,18 +38,23 @@ class alarm(object):
         self.writecursor = self.conn.cursor()
         self.readcursor = self.conn.cursor()   
         #print "initilized"
-    
+                
+        
     # Temperature Alarms
     
-    def checkTemp(self, freezer, currentTemp):
+    
+    def checkTemp(self, freezer, currentTemp, setpoint1 = None, setpoint2=None):
         #print "checking temp of", freezer, currentTemp, setpoint1, setpoint2
         
-        readQuery = ("select freezer_alarm_ID, freezer_setpoint1, freezer_setpoint2 from freezers where freezer_id = %s")
+        readQuery = ("select freezer_alarm_ID, freezer_setpoint1, freezer_setpoint2, freezer_location, freezer_name from freezers where freezer_id = %s")
         self.readcursor.execute(readQuery, (freezer))
         alarmIDData = self.readcursor.fetchall()
         freezerAlarmID = alarmIDData[0][0]
         setpoint1 = float(alarmIDData[0][1])
         setpoint2 = float(alarmIDData[0][2])
+        location = alarmIDData[0][3]
+        name = alarmIDData[0][4]
+        location = re.sub("<br>", ' ', location)
         #print "freezerAlarmID, setpoint1, setpoint2", freezerAlarmID, setpoint1, setpoint2
         # Takes in freezerID, currentTemp, the two setpoints, and 
         # freezerAlarmID and checks to see if freezer is in an alarm state.  
@@ -69,7 +77,7 @@ class alarm(object):
         if currentTemp > setpoint2:
             #print "currentTemp in critical range", currentTemp, setpoint2
             # check if the temperature has been in a critical range for 10 min
-            noAlarm = self.checkForNoAlarm(freezer, setpoint2, 10)
+            noAlarm = self.checkForNoAlarm(freezer, setpoint2, 15)
             
             #print "noAlarm critical 0= sound alarm 1=dont", noAlarm
             # if the temperature has been above setpoint2 send an alarm
@@ -90,16 +98,40 @@ class alarm(object):
                     else:
                         #print "reminder alarmLevel 3, time", alarmLevel, alarmTime
                         self.newAlarm(freezer, 3)
+                        
+                        readQuery = "SELECT  email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm3=1 AND freezer_id=%s"
+                        self.readcursor.execute(readQuery, (freezer))
+                        emailList = []
+                        for record in self.readcursor:
+                            if not record: break
+                            emailList += record
+                        
+                        message = "This is a remider that Freezer %s %s located in %s is currently %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  \n\nThe freezer has been in a critical range for at least 1 hour.  A reminder is sent each hour the freezer is out of range.\n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, currentTemp, setpoint2)
+
+                        subject = 'Reminder Critical Alarm for %s' % name
+                        
+                        self.sendMessage(emailList, subject, message)
+                        
+                        
                     
                 # Set alarm level to 3
                 else:
                     #print "setting alarmLevel 3, time", alarmLevel, alarmTime
                     self.newAlarm(freezer, 3)
-                                        
-                    #send new Alarm "Alarm level 3 freezer is in very critical 
-                    #range: freezer is currently currentTemp, freezerLocation, 
-                    #freezerName, freezerGroup, setpoiont2, link to 
-                    #daena.csbc.vcu.edu"
+                    
+                    readQuery = "SELECT  email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm3=1 AND freezer_id=%s"
+                    self.readcursor.execute(readQuery, (freezer))
+                    emailList = []
+                    for record in self.readcursor:
+                        if not record: break
+                        emailList += record
+                    
+                    message = "Freezer %s %s located in %s is currently in a critical temperature range at %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  The temperature has been out of range for at least 15 minutes.  A reminder will be sent every hour till the temperature is no longer in a critical range.\n\n \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, currentTemp, setpoint2)
+
+                    subject = 'Critical Alarm for %s' % name
+                    
+                    self.sendMessage(emailList, subject, message)
+                    
                     
         # currentTemp is high    
         elif currentTemp > setpoint1:
@@ -121,17 +153,39 @@ class alarm(object):
                 elif alarmLevel == 1 and alarmTime > (time.time()-(60*30)):
                     #print "alarmLevel 1 setting alarm level 2, time", alarmLevel, alarmTime
                     self.newAlarm(freezer, 2)
-                           
-                    #send new alarm  "Alarm level 2 freezer is out of normal             
-                    #range for an hour: freezer is currently currentTemp, 
-                    #freezerLocation, freezerName, freezerGroup, setpoiont1, 
-                    #link to daena.csbc.vcu.edu"
+                    
+                    readQuery = "SELECT  email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm2=1 AND freezer_id=%s"
+                    self.readcursor.execute(readQuery, (freezer))
+                    emailList = []
+                    for record in self.readcursor:
+                        if not record: break
+                        emailList += record
+                    
+                    message = "This is the final remider that Freezer %s %s located in %s is in a high temperature range at %s degrees Celsius and is above the high temperature setting of %s degrees Celsius.  \n\nThe freezer has been out of range for at least an hour. \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, currentTemp, setpoint1)
+
+                    subject = 'Final Reminder High Alarm for %s' % name
+                    
+                    self.sendMessage(emailList, subject, message)
+                    
                     
                 # freezer has been out of range for 30 min, 
                 # this is the first alarm
                 elif alarmLevel == 0 and alarmTime > (time.time()-(60*30)):
                     #print "alarmLevel 0 setting alarm level 1, time", alarmLevel, alarmTime
                     self.newAlarm(freezer, 1)
+                    
+                    readQuery = "SELECT  email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm1=1 AND freezer_id=%s"
+                    self.readcursor.execute(readQuery, (freezer))
+                    emailList = []
+                    for record in self.readcursor:
+                        if not record: break
+                        emailList += record
+                    
+                    message = "Freezer %s %s located in %s is in a high temperature range at %s degrees Celsius and is above the high temperature setting of %s degrees Celsius.  \n\nThe temperature has been out of range for at least 30 min.  A final alarm will be send when the freezer has been out of range for 1 hour.\n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, currentTemp, setpoint1)
+
+                    subject = 'High Alarm for %s' % name
+                    
+                    self.sendMessage(emailList, subject, message)
                     
                     #send new alarm  "Alarm level 1 freezer is out of normal 
                     #range: freezer is currently currentTemp, freezerLocation, 
@@ -148,12 +202,18 @@ class alarm(object):
                         #print "alarmLevel 3 or 4 freezing, time", alarmLevel, alarmTime
                         self.newAlarm(freezer, 5)
                         
-                        
-                        #send new alarm  "Alarm level 5 freezer is cooling and 
-                        #is out of critical range but still out of normal range: 
-                        #freezer is currently currentTemp, freezerLocation, 
-                        #freezerName, freezerGroup, setpoiont2, link to 
-                        #daena.csbc.vcu.edu"
+                        readQuery = "SELECT  email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm5=1 AND freezer_id=%s"
+                    self.readcursor.execute(readQuery, (freezer))
+                    emailList = []
+                    for record in self.readcursor:
+                        if not record: break
+                        emailList += record
+                    
+                    message = "Freezer %s %s located in %s has gone out of a critical temperature range and is now in a high temperature range at %s degrees Celsius which is below the critical temperature setting of %s and is above the high temperature setting of %s degrees Celsius.  \n\nThe temperature has been in the high temperature range for 30 minutes.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, currentTemp, setpoint2, setpoint1)
+
+                    subject = 'Freezer %s Out of Critical Range Notice' % name
+                    
+                    self.sendMessage(emailList, subject, message)
 
         elif currentTemp < setpoint1:
             #print "current temp normal", currentTemp, setpoint1
@@ -162,13 +222,26 @@ class alarm(object):
                 pass
             else:
                 #print "alarmLevel not 0", alarmLevel
-                freezing = self.checkForFreezing(freezer, setpoint2, 10)
+                freezing = self.checkForFreezing(freezer, setpoint2, 15)
                 
                 #print "freezing normal", freezing
                 # freezer has gone back into normal range
                 if freezing == 0:
                     #print "freezing back to normal, time", alarmLevel, alarmTime
                     self.newAlarm(freezer, 0)
+                    
+                    readQuery = "SELECT  email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm0=1 AND freezer_id=%s"
+                    self.readcursor.execute(readQuery, (freezer))
+                    emailList = []
+                    for record in self.readcursor:
+                        if not record: break
+                        emailList += record
+                    
+                    message = "Freezer %s %s located in %s has back into a normal range at %s degrees Celsius which is below the high temperature setting of %s degrees Celsius.  \n\nThe temperature has been in normal range for 15 minutes.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, currentTemp, setpoint2, setpoint1)
+
+                    subject = 'Freezer %s Back in Normal Range Notice' % name
+                    
+                    self.sendMessage(emailList, subject, message)
                     
                 else:
                     pass
@@ -321,7 +394,20 @@ class alarm(object):
             elif alarmLevel == 6:
                 if alarmTime < (time.time()-(60*60)):
                     self.newAlarm(freezer, 6)
-            
+                    
+                    readQuery = "SELECT  email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm6=1 AND freezer_id=%s"
+                    self.readcursor.execute(readQuery, (freezer))
+                    emailList = []
+                    for record in self.readcursor:
+                        if not record: break
+                        emailList += record
+                    
+                    message = "The system currently cannot get data for Freezer %s %s located in %s.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location)
+
+                    subject = 'Communication Alarm for freezer' % name
+                    
+                    self.sendMessage(emailList, subject, message)
+                    
             # If the freezer is not in a com alarm put it in a com alarm state
             else:
                 self.newAlarm(freezer, 6)
@@ -349,6 +435,24 @@ class alarm(object):
                 allNoData = 1
         return allNoData
     
+    
+    def sendMessage(self, toList, subject, message):
+        # Initilize mail Server to be used
+        mailserver = smtplib.SMTP("smtp.gmail.com:587")
+        mailserver.ehlo()
+        mailserver.starttls()
+        mailserver.ehlo()
+        mailserver.login("your@email.com", "password")
+        sender = 'your@email.com'
+        
+        header = 'From: %s\n' % sender
+        header += 'To: %s\n' % ','.join(emailList)
+        header += 'Subject: %s\n\n' % subject
+        headerMessage = header+message
+        
+        #send the message
+        mailserver.sendmail(sender, toList, headerMessage)
+         
     
     def closeAlarm(self):
         # closes the cursors used by this program
