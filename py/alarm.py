@@ -41,13 +41,41 @@ class alarm(object):
     
         #create a connection with mySQL
         p = open("/www/database_password.txt", "r")
-        self.conn = mdb.connect(user='daena_user', bz2.decompress(p.read()), db='daena_db')
+        self.conn = mdb.connect(user='daena_user', passwd=bz2.decompress(p.read()), db='daena_db')
         
         # Initialize write and read cursors to be used with mysql 
         self.writecursor = self.conn.cursor()
         self.readcursor = self.conn.cursor()   
-        #print "initilized"
+        
+        # Contants used in program
+        # Alarm Timing Constants
+        self.SIXTY_SECONDS = 60
+        self.MINUTES_FOR_CRITICAL_RANGE_REMINDER = 60
+        self.MINUTES_IN_CRITICAL_RANGE = 15
+        self.MINUTES_IN_HIGH_RANGE = 30
+        self.MINUTES_AT_ALARM_1 = 30
+        self.MINUTES_AT_ALARM_0 = 30
+        self.MINUTES_BELOW_CRITICAL_RANGE = 15
+        self.MINUTES_BELOW_HIGH_RANGE = 15
+        self.MINUTES_WITH_NO_DATA = 30
+        self.MINUTES_FOR_COM_ALARM_REMINDER = 60
+               
+        # Alarm Level Constants
+        self.NORMAL_STATE = 0
+        self.HIGH_TEMP_ALARM_1 = 1
+        self.HIGH_TEMP_ALARM_2 = 2
+        self.CRITICAL_TEMP_ALARM = 3
+        self.CRITICAL_TEMP_ALARM_SILENCED = 4
+        self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM = 5
+        self.COMMUNICATION_ALARM = 6
+        self.COMMUNICATION_ALARM_SILENCED = 7
+        
+              
+        # Close open files
         p.close()
+        
+        
+        #print "initilized"
                 
                 
 ################################################################################        
@@ -94,7 +122,7 @@ class alarm(object):
         if currentTemp > setpoint2:
             #print "currentTemp in critical range", currentTemp, setpoint2
             # check if the temperature has been in a critical range for 15 min
-            noAlarm = self.checkForNoAlarm(freezer, setpoint2, 15)
+            noAlarm = self.checkForNoAlarm(freezer, setpoint2, self.MINUTES_IN_CRITICAL_RANGE)
             
             #print "noAlarm critical 0= sound alarm 1=dont", noAlarm
             # if the temperature has been above setpoint2 send an alarm
@@ -103,18 +131,18 @@ class alarm(object):
                 # silenced alarm does not send out message anymore 
                 # need more code for this on the website
 # silenced (3 > Alarm 4)
-                if alarmLevel == 4:
-                    #print "alarmLevel 4", alarmLevel
+                if alarmLevel == self.CRITICAL_TEMP_ALARM_SILENCED:
+                    #print "alarmLevel self.CRITICAL_TEMP_ALARM_SILENCED", alarmLevel
                     pass
                     
                 # constant reminder alarm every 60min
-                elif alarmLevel == 3:
+                elif alarmLevel == self.CRITICAL_TEMP_ALARM:
                     #check to see if it has been > 60 min since the last alarm
 # Reminder 3 > Alarm 3 (1 hour)
-                    if alarmTime < (time.time()-(60*60)):
-                        #print "reminder alarmLevel 3, time", alarmLevel, alarmTime
-                        # Set alarm to 3, critical range reminder
-                        self.newAlarm(freezer, 3)
+                    if alarmTime < (time.time()-(self.SIXTY_SECONDS * self.MINUTES_FOR_CRITICAL_RANGE_REMINDER)):
+                        #print "reminder alarmLevel self.CRITICAL_TEMP_ALARM, time", alarmLevel, alarmTime
+                        # Set alarm to self.CRITICAL_TEMP_ALARM, critical range reminder
+                        self.newAlarm(freezer, self.CRITICAL_TEMP_ALARM)
                         
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -147,9 +175,9 @@ class alarm(object):
                 # Set alarm level to 3
                 else:
 # 0 > Alarm 3                       
-                    if alarmLevel == 0:
-                        #print "setting alarmLevel 3, time", alarmLevel, alarmTime
-                        self.newAlarm(freezer, 3)
+                    if alarmLevel == self.NORMAL_STATE:
+                        #print "setting alarmLevel self.CRITICAL_TEMP_ALARM, time", alarmLevel, alarmTime
+                        self.newAlarm(freezer, self.CRITICAL_TEMP_ALARM)
                     
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -178,9 +206,9 @@ class alarm(object):
                             self.sendMessage(emailList, subject, message)
                         
 # 1 or 2 > Alarm 3
-                    elif alarmLevel == 1 or alarmLevel == 2:
-                        #print "alarmLevel 1 or 2 setting alarm level 3, time", alarmLevel, alarmTime
-                        self.newAlarm(freezer, 3)
+                    elif alarmLevel == self.HIGH_TEMP_ALARM_1 or alarmLevel == self.HIGH_TEMP_ALARM_2:
+                        #print "alarmLevel self.HIGH_TEMP_ALARM_1 or self.HIGH_TEMP_ALARM_2 setting alarm level self.CRITICAL_TEMP_ALARM, time", alarmLevel, alarmTime
+                        self.newAlarm(freezer, self.CRITICAL_TEMP_ALARM)
                     
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -205,13 +233,12 @@ class alarm(object):
                         if emailList:
                             self.sendMessage(emailList, subject, message)
 # 5 > Alarm 3                        
-                    elif alarmLevel == 5:
+                    elif alarmLevel == self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM:
                         # Freezer was freezing but is now back into a critical
                         # state
-                        #print "alarmLevel was 5 now 3 freezing, time", alarmLevel, alarmTime
-                        freezing = self.checkForFreezing(freezer, setpoint2, 10)
+                        #print "alarmLevel was self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM now self.CRITICAL_TEMP_ALARM freezing, time", alarmLevel, alarmTime
                     
-                        self.newAlarm(freezer, 3)
+                        self.newAlarm(freezer, self.CRITICAL_TEMP_ALARM)
                         
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -237,9 +264,9 @@ class alarm(object):
                             self.sendMessage(emailList, subject, message)
                         
 # 6 or 7 > Alarm 3
-                    elif alarmLevel == 6 or alarmLevel == 7:
-                        #print "alarmLevel 6 or 7 setting alarm level 3, time", alarmLevel, alarmTime
-                        self.newAlarm(freezer, 3)
+                    elif alarmLevel == self.COMMUNICATION_ALARM or alarmLevel == self.COMMUNICATION_ALARM_SILENCED:
+                        #print "alarmLevel self.COMMUNICATION_ALARM or self.COMMUNICATION_ALARM_SILENCED setting alarm level self.CRITICAL_TEMP_ALARM, time", alarmLevel, alarmTime
+                        self.newAlarm(freezer, self.CRITICAL_TEMP_ALARM)
                     
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -266,8 +293,8 @@ class alarm(object):
 
 # unknown > Alarm 3 (Generic Message)      
                     else:
-                        #print "setting alarmLevel 3, time", alarmLevel, alarmTime
-                        self.newAlarm(freezer, 3)
+                        #print "setting alarmLevel self.CRITICAL_TEMP_ALARM, time", alarmLevel, alarmTime
+                        self.newAlarm(freezer, self.CRITICAL_TEMP_ALARM)
                     
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -300,7 +327,7 @@ class alarm(object):
         elif currentTemp > setpoint1:
             #print "current temp high", currentTemp, setpoint1
             # check if the current temp has been in this range for 30 min
-            noAlarm = self.checkForNoAlarm(freezer, setpoint1, 30)
+            noAlarm = self.checkForNoAlarm(freezer, setpoint1, self.MINUTES_IN_HIGH_RANGE)
             
             #print "noAlarm high", noAlarm
             # the temp has been above setpoint 1 send an alarm
@@ -309,15 +336,15 @@ class alarm(object):
                 # if freezer stays between setpoint1 and setpoint2 
                 # then it will not alarm after the first two alarms
 # Silenced ( 2 > Alarm 2)
-                if alarmLevel == 2:
+                if alarmLevel == self.HIGH_TEMP_ALARM_2:
                     #print "alarmLevel 2", alarmLevel
                     pass
                     
                 # freezer has been out of range for 1 hour
-# 1 > Alarm 2 (30 min after previous alarm)
-                elif alarmLevel == 1 and alarmTime < (time.time()-(60*30)):
-                    #print "alarmLevel 1 setting alarm level 2, time", alarmLevel, alarmTime
-                    self.newAlarm(freezer, 2)
+# 1 > Alarm 2 (at least 30 min in alarm 1 state)
+                elif alarmLevel == self.HIGH_TEMP_ALARM_1 and alarmTime < (time.time()-(self.SIXTY_SECONDS * self.MINUTES_AT_ALARM_1)):
+                    #print "alarmLevel self.HIGH_TEMP_ALARM_1 setting alarm level self.HIGH_TEMP_ALARM_2, time", alarmLevel, alarmTime
+                    self.newAlarm(freezer, self.HIGH_TEMP_ALARM_2)
                     
                     # prepare query to get email addresses
                     # alarm(alarm level number) = 1, the contact should get an
@@ -345,10 +372,10 @@ class alarm(object):
                     
                 # freezer has been out of range for 30 min, 
                 # this is the first alarm
-# 0 > Alarm 1 (30 min in alarm state)
-                elif alarmLevel == 0 and alarmTime < (time.time()-(60*30)):
+# 0 > Alarm 1 (at least 30 min in alarm 0 state)
+                elif alarmLevel == self.NORMAL_STATE and alarmTime < (time.time()-(self.SIXTY_SECONDS * self.MINUTES_AT_ALARM_0)):
                     #print "alarmLevel 0 setting alarm level 1, time", alarmLevel, alarmTime
-                    self.newAlarm(freezer, 1)
+                    self.newAlarm(freezer, self.HIGH_TEMP_ALARM_1)
                     
                     # prepare query to get email addresses
                     # alarm(alarm level number) = 1, the contact should get an
@@ -376,9 +403,9 @@ class alarm(object):
                 # if temperature is coming back down below setpoint2
 
 # 6 or 7 > Alarm 1 
-                elif alarmLevel == 6 or alarmLevel == 7:
-                    #print "alarmLevel 6 or 7 setting alarm level 1, time", alarmLevel, alarmTime
-                    self.newAlarm(freezer, 1)
+                elif alarmLevel == self.COMMUNICATION_ALARM or alarmLevel == self.COMMUNICATION_ALARM_SILENCED:
+                    #print "alarmLevel self.COMMUNICATION_ALARM or self.COMMUNICATION_ALARM_SILENCED setting alarm level self.HIGH_TEMP_ALARM_1, time", alarmLevel, alarmTime
+                    self.newAlarm(freezer, self.HIGH_TEMP_ALARM_1)
                     
                     # prepare query to get email addresses
                     # alarm(alarm level number) = 1, the contact should get an
@@ -403,14 +430,14 @@ class alarm(object):
                     if emailList:
                         self.sendMessage(emailList, subject, message)
 # 3 or 4 > Alarm 5
-                elif alarmLevel == 3 or alarmLevel == 4:
-                    #print "alarmLevel 5 freezing, time", alarmLevel, alarmTime
-                    freezing = self.checkForFreezing(freezer, setpoint2, 15)
+                elif alarmLevel == self.CRITICAL_TEMP_ALARM or alarmLevel == self.CRITICAL_TEMP_ALARM_SILENCED:
+                    #print "alarmLevel self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM freezing, time", alarmLevel, alarmTime
+                    freezing = self.checkForFreezing(freezer, setpoint2, self.MINUTES_BELOW_CRITICAL_RANGE)
                     
                     #print "freezing high", freezing
                     if freezing == 0:
-                        #print "alarmLevel 3 or 4 freezing, time", alarmLevel, alarmTime
-                        self.newAlarm(freezer, 5)
+                        #print "alarmLevel self.CRITICAL_TEMP_ALARM or self.CRITICAL_TEMP_ALARM_SILENCED freezing, time", alarmLevel, alarmTime
+                        self.newAlarm(freezer, self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM)
                         
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -439,22 +466,22 @@ class alarm(object):
         elif currentTemp < setpoint1:
             #print "current temp normal", currentTemp, setpoint1
 # 0 > Normal 0
-            if alarmLevel == 0:
-                #print "alarmLevel 0", alarmLevel
+            if alarmLevel == self.NORMAL_STATE:
+                #print "alarmLevel self.NORMAL_STATE", alarmLevel
                 pass             
             else:
-                #print "alarmLevel not 0", alarmLevel
-                freezing = self.checkForFreezing(freezer, setpoint2, 15)
+                #print "alarmLevel not self.NORMAL_STATE", alarmLevel
+                freezing = self.checkForFreezing(freezer, setpoint2, self.MINUTES_BELOW_HIGH_RANGE)
                 
                 #print "freezing normal", freezing
                 # freezer has gone back into normal range
                 if freezing == 0:
                 
 # 1 or 2 > Normal 0
-                    if alarmLevel == 1 or alarmLevel == 2:
+                    if alarmLevel == self.HIGH_TEMP_ALARM_1 or alarmLevel == self.HIGH_TEMP_ALARM_2:
                         # Freezer coming out of a High Temperature Alarm state
-                        #print "alarmLevel 1 or 2 setting alarm level 0, time", alarmLevel, alarmTime
-                        self.newAlarm(freezer, 0)
+                        #print "alarmLevel self.HIGH_TEMP_ALARM_1 or self.HIGH_TEMP_ALARM_2 setting alarm level self.NORMAL_STATE, time", alarmLevel, alarmTime
+                        self.newAlarm(freezer, self.NORMAL_STATE)
                     
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -480,10 +507,10 @@ class alarm(object):
                             self.sendMessage(emailList, subject, message)
                         
 # 3 or 4 > Normal 0
-                    elif alarmLevel == 3 or alarmLevel == 4:
+                    elif alarmLevel == self.CRITICAL_TEMP_ALARM or alarmLevel == self.CRITICAL_TEMP_ALARM_SILENCED:
                         # Freezer coming out of a Critical Temperature Alarm state
-                        #print "alarmLevel 3 or 4 setting alarm level 0, time", alarmLevel, alarmTime
-                        self.newAlarm(freezer, 0)
+                        #print "alarmLevel self.CRITICAL_TEMP_ALARM or self.CRITICAL_TEMP_ALARM_SILENCED setting alarm level self.NORMAL_STATE, time", alarmLevel, alarmTime
+                        self.newAlarm(freezer, self.NORMAL_STATE)
                     
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -509,10 +536,10 @@ class alarm(object):
                             self.sendMessage(emailList, subject, message)
                         
 # 5 > Normal 0
-                    elif alarmLevel == 5:
+                    elif alarmLevel == self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM:
                         # Freezer coming out of a High Temperature Alarm state
-                        #print "alarmLevel 3 or 4 setting alarm level 0, time", alarmLevel, alarmTime
-                        self.newAlarm(freezer, 0)
+                        #print "alarmLevel self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM setting alarm level self.NORMAL_STATE, time", alarmLevel, alarmTime
+                        self.newAlarm(freezer, self.NORMAL_STATE)
                     
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -538,10 +565,10 @@ class alarm(object):
                             self.sendMessage(emailList, subject, message)
                         
 # 6 or 7 > Normal 0
-                    elif alarmLevel == 6 or alarmLevel == 7:
+                    elif alarmLevel == self.COMMUNICATION_ALARM or alarmLevel == self.COMMUNICATION_ALARM_SILENCED:
                         # Freezer coming out of a Communication Alarm state
-                        #print "alarmLevel 6 or 7 setting alarm level 1, time", alarmLevel, alarmTime
-                        self.newAlarm(freezer, 0)
+                        #print "alarmLevel self.COMMUNICATION_ALARM or self.COMMUNICATION_ALARM_SILENCED setting alarm level 1, time", alarmLevel, alarmTime
+                        self.newAlarm(freezer, self.NORMAL_STATE)
                     
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -570,7 +597,7 @@ class alarm(object):
                     else:
                         # Freezer back in a normal state
                         #print "freezing back to normal, time", alarmLevel, alarmTime
-                        self.newAlarm(freezer, 0)
+                        self.newAlarm(freezer, self.NORMAL_STATE)
                     
                         # prepare query to get email addresses
                         # alarm(alarm level number) = 1, the contact should get an
@@ -648,9 +675,9 @@ class alarm(object):
         #are all above (setpoint)
         query = ("SELECT temp FROM data WHERE freezer_id = %s and data.time > %s")
         # executing the query with two variables.
-        self.readcursor.execute(query, (freezer, time.time()-(60*minutes)))
+        self.readcursor.execute(query, (freezer, time.time()-(self.SIXTY_SECONDS*minutes)))
         #print self.readcursor.fetchall()
-        #print query % (freezer, time.time()-(60*minutes))
+        #print query % (freezer, time.time()-(self.SIXTY_SECONDS*minutes))
         # variable to indicate if the temperature has been below the appropriate 
         #threshold 0 = all temp above threshold, 1 = at least 1 reading below 
         #threshold
@@ -687,7 +714,7 @@ class alarm(object):
         #are all above (setpoint)
         query = ("SELECT temp FROM data WHERE freezer_id = %s and data.time > %s")
         # executing the query with two variables.
-        self.readcursor.execute(query, (freezer, time.time()-(60*minutes)))
+        self.readcursor.execute(query, (freezer, time.time()-(self.SIXTY_SECONDS*minutes)))
 
         # variable to indicate if the temperature has been below the appropriate 
         #threshold 0 = all temp above threshold, 1 = at least 1 reading below 
@@ -753,23 +780,23 @@ class alarm(object):
         alarmDateTime = time.strftime("%A, %B %d, %Y, at %H:%M:%S", time.localtime(alarmTime))
         #print "alarmTime, alarmLevel:", alarmTime, alarmLevel
         
-        allNoData = self.checkForAllNoData(freezer, 30)
+        allNoData = self.checkForAllNoData(freezer, self.MINUTES_WITH_NO_DATA)
         # the past 30 min it was all "nodata"
         if allNoData == 0:
             
             # the com alarm has been silenced
 
 # Silenced (6 > Alarm 7)
-            if alarmLevel == 7:
+            if alarmLevel == self.COMMUNICATION_ALARM_SILENCED:
                 pass
             
             # there is a com alarm and it has been active for over an hour
             # send a new alarm
-            elif alarmLevel == 6:
+            elif alarmLevel == self.COMMUNICATION_ALARM:
             
 # Reminder 6 > Alarm 6 (1 hour)
-                if alarmTime < (time.time()-(60*60)):
-                    self.newAlarm(freezer, 6)
+                if alarmTime < (time.time()-(self.SIXTY_SECONDS * self.MINUTES_FOR_COM_ALARM_REMINDER)):
+                    self.newAlarm(freezer, self.COMMUNICATION_ALARM)
                     
                     # prepare query to get email addresses
                     # alarm(alarm level number) = 1, the contact should get an
@@ -797,8 +824,8 @@ class alarm(object):
             # If the freezer is not in a com alarm put it in a com alarm state
 
 # 0 > Alarm 6 
-            elif alarmLevel == 0:
-                self.newAlarm(freezer, 6)
+            elif alarmLevel == self.NORMAL_STATE:
+                self.newAlarm(freezer, self.COMMUNICATION_ALARM)
                 
                 # prepare query to get email addresses
                 # alarm(alarm level number) = 1, the contact should get an
@@ -824,8 +851,8 @@ class alarm(object):
                     self.sendMessage(emailList, subject, message)
 
 # 1 or 2 > Alarm 6 
-            elif alarmLevel == 1 or alarmLevel == 2:
-                self.newAlarm(freezer, 6)
+            elif alarmLevel == self.HIGH_TEMP_ALARM_1 or alarmLevel == self.HIGH_TEMP_ALARM_2:
+                self.newAlarm(freezer, self.COMMUNICATION_ALARM)
                 
                 # prepare query to get email addresses
                 # alarm(alarm level number) = 1, the contact should get an
@@ -851,8 +878,8 @@ class alarm(object):
                     self.sendMessage(emailList, subject, message)
                 
 # 3 or 4 > Alarm 6 
-            elif alarmLevel == 3 or alarmLevel == 4:
-                self.newAlarm(freezer, 6)
+            elif alarmLevel == self.CRITICAL_TEMP_ALARM or alarmLevel == self.CRITICAL_TEMP_ALARM_SILENCED:
+                self.newAlarm(freezer, self.COMMUNICATION_ALARM)
                 
                 # prepare query to get email addresses
                 # alarm(alarm level number) = 1, the contact should get an
@@ -878,8 +905,8 @@ class alarm(object):
                     self.sendMessage(emailList, subject, message)
 
 # 5 > Alarm 6 
-            elif alarmLevel == 5:
-                self.newAlarm(freezer, 6)
+            elif alarmLevel == self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM:
+                self.newAlarm(freezer, self.COMMUNICATION_ALARM)
                 
                 # prepare query to get email addresses
                 # alarm(alarm level number) = 1, the contact should get an
@@ -906,7 +933,7 @@ class alarm(object):
 
 # else (unknown) > Alarm 6 
             else:
-                self.newAlarm(freezer, 6)
+                self.newAlarm(freezer, self.COMMUNICATION_ALARM)
                 
                 # prepare query to get email addresses
                 # alarm(alarm level number) = 1, the contact should get an
@@ -943,7 +970,7 @@ class alarm(object):
         # select last (minutes) of temperatures from database to check if they are all "nodata"
         query = ("SELECT temp FROM data WHERE freezer_id = %s and data.time > %s")
         # executing the query with two variables.
-        self.readcursor.execute(query, (freezer, time.time()-(60*minutes)))
+        self.readcursor.execute(query, (freezer, time.time()-(self.SIXTY_SECONDS*minutes)))
 
         # variable to indicate if there was all "nodata" 0 = all "nodata", 1 = 
         #at least 1 reading not "nodata"
