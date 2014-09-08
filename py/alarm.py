@@ -636,25 +636,26 @@ class alarm(object):
         
         # prepare to create new entry into the alarm table
         writeQuery = ("""insert into alarm set freezer_id = %s, alarm_level = %s, alarm_time = %s""")  
-        something = self.writecursor.execute(writeQuery, (freezer, alarmLevel, alarmTime))
-        #print "something from write", something
+        writeError = self.writecursor.execute(writeQuery, (freezer, alarmLevel, alarmTime))
+        #print "error from write", writeError
         
         # get the alarm_id for the new alarm
         readQuery = ("""select alarm_id from alarm where alarm_time = %s""")
-        self.readcursor.execute(readQuery, (alarmTime))
-        data = self.readcursor.fetchall()
-        #print "newAlarm data new created alarm_id", data
-        alarmID = data[0][0]
+        numResults = self.readcursor.execute(readQuery, (alarmTime))
+        data = self.readcursor.fetchone()
+        #print "newAlarm data new created alarm_id", data, numResults, (readQuery % alarmTime)
+        alarmID = data[0]
         
         # update the freezer with the new alarm state
         writeQuery = ("""update freezers set freezer_alarm_id = %s where freezer_id = %s""")
-        self.writecursor.execute(writeQuery, (alarmID, freezer))
+        writeError2 = self.writecursor.execute(writeQuery, (alarmID, freezer))
+        #print "error from write2", writeError2
         
         # Check to verify the data will be correct
         readQuery = ("""select freezer_alarm_id from freezers where freezer_id = %s""")
-        self.readcursor.execute(readQuery, (freezer))
+        numResults2 = self.readcursor.execute(readQuery, (freezer))
         data = self.readcursor.fetchall()
-        #print "newAlarm data confirm alarm_id", data
+        #print "newAlarm data confirm alarm_id", data, numResults2
         if alarmID == data[0][0]:
             # commit the data to the database
             self.conn.commit()
@@ -989,9 +990,7 @@ class alarm(object):
         # password has been stored in bz2 compressed format
         p = open("/www/email_password.txt", "r")
         
-        # get email address from email.txt (plain text)
-        e = open("/www/email.txt", "r")
-        email = e.read()
+        email = "vcu.tempurity@gmail.com"
         
         # Initilize mail Server to be used
         mailserver = smtplib.SMTP("smtp.gmail.com:587")
@@ -1012,7 +1011,6 @@ class alarm(object):
         mailserver.sendmail(sender, toList, headerMessage)
         mailserver.close()
         p.close()
-        e.close()
          
  ################################################################################
    
