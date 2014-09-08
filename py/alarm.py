@@ -40,12 +40,14 @@ class alarm(object):
     def __init__(self):
     
         #create a connection with mySQL
-        self.conn = mdb.connect(user='daena_user', passwd='idontcareaboutpasswordsrightnow', db='daena_db')
+        p = open("/www/database_password.txt", "r")
+        self.conn = mdb.connect(user='daena_user', bz2.decompress(p.read()), db='daena_db')
         
         # Initialize write and read cursors to be used with mysql 
         self.writecursor = self.conn.cursor()
         self.readcursor = self.conn.cursor()   
         #print "initilized"
+        p.close()
                 
                 
 ################################################################################        
@@ -982,6 +984,8 @@ class alarm(object):
         #send the message
         mailserver.sendmail(sender, toList, headerMessage)
         mailserver.close()
+        p.close()
+        e.close()
          
  ################################################################################
    
