@@ -36,6 +36,7 @@ FROM daena_db.freezers
 WHERE freezer_active='1'
 ".$groupfilter."
 ".$locfilter."
+".$typefilter."
 ORDER BY ABS(freezer_id)";
 $allfreezers = mysql_query($allfreezersquery);
 if($allfreezers === FALSE) {
