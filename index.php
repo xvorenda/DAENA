@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 /* Get things started */
 include "header.php";
@@ -10,22 +10,24 @@ include "urlvars.php";
 include 'highcharts.php';
 
 /* Start talking to MySQL and kill yourself if it ignores you */
-$daenaDB = new mysqli("localhost", "daena_user", "idontcareaboutpasswordsrightnow", "daena_db");
+$daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
 if ($daenaDB === FALSE) {
     die(mysql_error()); // TODO: better error handling
+}
+mysql_select_db("daena_db");
 
 /* Ask MySQL how many active probes total for density adjustments */
 $freezercountquery = "SELECT SQL_CALC_FOUND_ROWS * 
 FROM daena_db.freezers 
 WHERE freezer_active='1'";
-$countfreezers = $daenaDB->query($freezercountquery);
+$countfreezers = mysql_query($freezercountquery);
 if($countfreezers === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
 /* Count the active probes for density handling */
 $countquery = "SELECT FOUND_ROWS()";
-        	$countraw = $daenaDB->query($countquery);
-        	$countarray = $countraw->fetch_assoc();
+        	$countraw = mysql_query($countquery);
+        	$countarray = mysql_fetch_assoc($countraw);
         	$count = implode(",",$countarray);
 
 /* Ask MySQL about which probes exist and get their metadata */
@@ -36,14 +38,14 @@ WHERE freezer_active='1'
 ".$locfilter."
 ".$typefilter."
 ORDER BY ABS(freezer_id)";
-$allfreezers = $daenaDB->query($allfreezersquery);
+$allfreezers = mysql_query($allfreezersquery);
 if($allfreezers === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
 
 
 /* Ask MySQL for X hours of data on each probe */
-while(($freezerdata = $allfreezers->fetch_assoc())){
+while(($freezerdata = mysql_fetch_assoc($allfreezers))){
     $freezer_id = $freezerdata['freezer_id'];
     $freezer_name = $freezerdata['freezer_name'];
     $freezer_color = $freezerdata['freezer_color'];
@@ -51,7 +53,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     $probequery = "(SELECT temp,time,ping_id FROM daena_db.data 
     WHERE freezer_id='" . $freezer_id . "'
     ORDER BY time DESC " . $viewfilter . ") ORDER BY time ASC";
-	$proberesult = $daenaDB->query($probequery);
+	$proberesult = mysql_query($probequery);
 	if($proberesult === FALSE) {
         die(mysql_error()); // TODO: better error handling
     }
@@ -87,7 +89,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     
     /* Actually get the data, clean up the strings, define density slices, and format the data for HighCharts */
     $i=1;
-    while($probe = $proberesult->fetch_array()) {
+    while($probe = mysql_fetch_array($proberesult)) {
         extract($probe, EXTR_PREFIX_SAME, "probe");
         if (isset($probe_temp)) {
         $probe_temp = str_replace($badzero_a, $re_neg, $probe_temp);
