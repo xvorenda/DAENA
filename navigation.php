@@ -58,10 +58,10 @@ echo "
                <li class='dropdown'>
                  <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Type<b class='caret'></b></a>
                  <ul class='dropdown-menu'>
-                   <li><a href='".$baseurl."?hours=".$hours."&skip=1&group=".$group."&loc=".$loc."&type=All'>All Types</a></li>
-                   <li><a href='".$baseurl."?hours=".$hours."&skip=2&group=".$group."&loc=".$loc."&type=-80'>-80 Freezers</a></li>
-                   <li><a href='".$baseurl."?hours=".$hours."&skip=4&group=".$group."&loc=".$loc."&type=-20'>-20 Freezers</a></li>
-                   <li><a href='".$baseurl."?hours=".$hours."&skip=8&group=".$group."&loc=".$loc."&type=4'>4 Fridge</a></li>
+                   <li><a href='".$baseurl."?hours=".$hours."&skip=".$skip."&group=".$group."&loc=".$loc."&type=All'>All Types</a></li>
+                   <li><a href='".$baseurl."?hours=".$hours."&skip=".$skip."&group=".$group."&loc=".$loc."&type=-80'>-80 Freezers</a></li>
+                   <li><a href='".$baseurl."?hours=".$hours."&skip=".$skip."&group=".$group."&loc=".$loc."&type=-20'>-20 Freezers</a></li>
+                   <li><a href='".$baseurl."?hours=".$hours."&skip=".$skip."&group=".$group."&loc=".$loc."&type=4'>4 Fridge</a></li>
                  </ul>
                </li>
                <li><a href='".$baseurl."'>Reset</a></li>

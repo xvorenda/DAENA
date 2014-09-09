@@ -831,7 +831,7 @@ class alarm(object):
                 # prepare query to get email addresses
                 # alarm(alarm level number) = 1, the contact should get an
                 # email at this level
-                readQuery = "SELECT  email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm6=1 AND freezer_id=%s"
+                readQuery = "SELECT  email, alt_email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm6=1 AND freezer_id=%s"
                 self.readcursor.execute(readQuery, (freezer))
                 
                 emailList = []
@@ -858,7 +858,7 @@ class alarm(object):
                 # prepare query to get email addresses
                 # alarm(alarm level number) = 1, the contact should get an
                 # email at this level
-                readQuery = "SELECT  email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND (alarm6=1 OR alarm1=1 OR alarm2=1) AND freezer_id=%s"
+                readQuery = "SELECT  email, alt_email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND (alarm6=1 OR alarm1=1 OR alarm2=1) AND freezer_id=%s"
                 self.readcursor.execute(readQuery, (freezer))
                 
                 emailList = []
@@ -939,7 +939,7 @@ class alarm(object):
                 # prepare query to get email addresses
                 # alarm(alarm level number) = 1, the contact should get an
                 # email at this level
-                readQuery = "SELECT  email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm6=1 AND freezer_id=%s"
+                readQuery = "SELECT  email, alt_email FROM contacts, freezer_alarm_contacts WHERE contacts.contact_id = freezer_alarm_contacts.contact_id AND alarm6=1 AND freezer_id=%s"
                 self.readcursor.execute(readQuery, (freezer))
                 
                 emailList = []

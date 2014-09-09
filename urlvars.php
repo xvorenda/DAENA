@@ -1,19 +1,19 @@
 <?php
 if (isset($_GET['hours'])) {
-$hours = $_GET['hours'];}
+	$hours = $_GET['hours'];}
 else $hours = 24;
-$minutes = $hours * 60;
+	$minutes = $hours * 60;
 if (isset($_GET['skip'])) {
-$skip = $_GET['skip'];}
+	$skip = $_GET['skip'];}
 else $skip = 8;
 if (isset($_GET['loc'])) {
-$loc = $_GET['loc'];}
+	$loc = $_GET['loc'];}
 else $loc = "All";
 if (isset($_GET['group'])) {
-$group = $_GET['group'];}
+	$group = $_GET['group'];}
 else $group = "All";
 if (isset($_GET['type'])) {
-$type = $_GET['type'];}
+	$type = $_GET['type'];}
 else $type = "All";
 if (strpos($hours,'All') !== false) {
     $viewfilter = "";
