@@ -41,7 +41,7 @@ class alarm(object):
     
         # Open the configuration file which has the Alarm Email and database
         # information
-        conf = open("/etc/httpd/conf.d/daena.conf", "r")
+        conf = open("/etc/daena.conf", "r")
         
         # Loop through the file
         for line in conf:
