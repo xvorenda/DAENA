@@ -47,7 +47,7 @@ echo "
                     },
                     plotOptions: {
                             line: {
-                                lineWidth: 3,
+                                lineWidth: 6,
                                 marker: {
                                     enabled: false
                                     }
