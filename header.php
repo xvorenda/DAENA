@@ -1,3 +1,4 @@
+<?PHP $starttime = microtime();?>
 <!DOCTYPE html>
 <html>
 <head>
