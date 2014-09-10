@@ -39,9 +39,44 @@ class alarm(object):
 
     def __init__(self):
     
-        #create a connection with mySQL
-        p = open("/www/database_password.txt", "r")
-        self.conn = mdb.connect(user='daena_user', passwd=bz2.decompress(p.read()), db='daena_db')
+        # Open the configuration file which has the Alarm Email and database
+        # information
+        conf = open("/etc/httpd/conf.d/daena.conf", "r")
+        
+        # Loop through the file
+        for line in conf:
+            # Remove the trailing white space (including return character)
+            line = line.rstrip()
+            # Dont waste the effort if the line is commented out
+            if re.match('^#', line):
+                pass
+            elif re.match('^email_address\s*=\s*', line):
+                #pulls out the email address from the line
+                self.email = line[re.match('^email_address\s*=\s*', line).span()[1]:len(line)]
+            elif re.match('^email_password\s*=\s*', line):
+                #pulls out the email password from the line
+                self.emailPass = line[re.match('^email_password\s*=\s*', line).span()[1]:len(line)]
+            elif re.match('^host\s*=\s*', line):
+                #pulls out the db host from the line
+                host = line[re.match('^host\s*=\s*', line).span()[1]:len(line)]
+            elif re.match('^database\s*=\s*', line):
+                #pulls out the database from the line
+                database = line[re.match('^database\s*=\s*', line).span()[1]:len(line)]
+            elif re.match('^db_user\s*=\s*', line):
+                #pulls out the database user name from the line
+                dbUser = line[re.match('^db_user\s*=\s*', line).span()[1]:len(line)]
+            elif re.match('^db_password\s*=\s*', line):
+                #pulls out the database password from the line
+                dbPass = line[re.match('^db_password\s*=\s*', line).span()[1]:len(line)]
+        
+        # Debug to make sure the passwords and such are correct
+        #print "email, emailPass, host, database, dbUser, dbPass", self.email, self.emailPass, host, database, dbUser, dbPass
+        
+        # Close the file when it is done
+        conf.close()
+        
+        # Create the connection to the database
+        self.conn = mdb.connect(user=dbUser, passwd=dbPass, db=database)
         
         # Initialize write and read cursors to be used with mysql 
         self.writecursor = self.conn.cursor()
@@ -69,11 +104,7 @@ class alarm(object):
         self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM = 5
         self.COMMUNICATION_ALARM = 6
         self.COMMUNICATION_ALARM_SILENCED = 7
-        
-              
-        # Close open files
-        p.close()
-        
+
         
         #print "initilized"
                 
@@ -988,17 +1019,14 @@ class alarm(object):
     def sendMessage(self, toList, subject, message):
         # Get email password from email_password.txt
         # password has been stored in bz2 compressed format
-        p = open("/www/email_password.txt", "r")
-        
-        email = "vcu.tempurity@gmail.com"
         
         # Initilize mail Server to be used
         mailserver = smtplib.SMTP("smtp.gmail.com:587")
         mailserver.ehlo()
         mailserver.starttls()
         mailserver.ehlo()
-        mailserver.login(email, bz2.decompress(p.read()))
-        sender = email
+        mailserver.login(self.email, self.emailPass)
+        sender = self.email
         
         header = 'From: %s\n' % sender
         header += 'To: %s\n' % ','.join(toList)
@@ -1010,7 +1038,6 @@ class alarm(object):
         #send the message
         mailserver.sendmail(sender, toList, headerMessage)
         mailserver.close()
-        p.close()
          
  ################################################################################
    
@@ -1019,3 +1046,4 @@ class alarm(object):
         self.writecursor.close()
         self.readcursor.close()
         self.conn.close ()
+
