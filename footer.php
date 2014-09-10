@@ -1,3 +1,19 @@
+ <script type="text/javascript">
+function pageload()
+{
+    var after = (new Date()).getTime();
+    var sec = (after-before)/1000;
+    var p = document.getElementById("loadingtime");
+    p.innerHTML = "Page load: " + sec + " seconds.";
+        
+}
+</script>
+<script type="text/javascript">
+    window.onload = function () 
+    { 
+        pageload();
+    }
+</script>
     <div class='navbar-fixed-bottom hidden-sm hidden-xs'>
         <p class='navbar-fixed-bottom-p'>Written for 
         <a href='http://www.vcu.edu/' target='_blank'>VCU</a> by 

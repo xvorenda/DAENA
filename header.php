@@ -4,22 +4,6 @@
 <script type="text/javascript">
 before = (new Date()).getTime();
 </script>
-<script type="text/javascript">
-function pageload()
-{
-    var after = (new Date()).getTime();
-    var sec = (after-before)/1000;
-    var p = document.getElementById("loadingtime");
-    p.innerHTML = "Page load: " + sec + " seconds.";
-        
-}
-</script>
-<script type="text/javascript">
-    window.onload = function () 
-    { 
-        pageload();
-    }
-</script>
 <title>DAENA | Data Aggregation and Emergency Notifications for Appliances</title>
 <link rel='shortcut icon' href='images/daena.png'/>
 <meta charset='utf-8'>
