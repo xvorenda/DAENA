@@ -118,7 +118,7 @@ if (mysqli_connect_errno())
         };
     };
 };
-echo "]},";
+echo "], dashStyle: 'solid'},";
         };
         
 /* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
