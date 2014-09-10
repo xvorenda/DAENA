@@ -137,9 +137,6 @@ include 'navigation.php';
 /* Actually draw the graph */
 include "graph.php";
 
-$endtime = microtime();
-$mysqltime = $endtime - $starttime;
-
 /* Wrap things up */
 include "footer.php";
 ?>
