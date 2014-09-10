@@ -10,6 +10,7 @@ include "urlvars.php";
 include 'highcharts.php';
 
 /* Start talking to MySQL and kill yourself if it ignores you */
+$starttime = microtime();
 $daenaDB = new mysqli("localhost", "daena_user", "idontcareaboutpasswordsrightnow", "daena_db");
 // Check connection
 if (mysqli_connect_errno())
@@ -56,7 +57,6 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     $freezer_name = $freezerdata['freezer_name'];
     $freezer_color = $freezerdata['freezer_color'];
     $freezer_loc = $freezerdata['freezer_location'];
-    $starttime = microtime();
     $probequery = "(SELECT temp,time FROM daena_db.data 
     WHERE freezer_id='" . $freezer_id . "'
     ORDER BY time DESC " . $viewfilter . ") ORDER BY time ASC";
