@@ -47,6 +47,8 @@ echo "
                     },
                     plotOptions: {
                             line: {
+                                dashStyle: solid,
+                                lineWidth: 3,
                                 marker: {
                                     enabled: false
                                     }
