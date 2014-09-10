@@ -1,5 +1,5 @@
     <div class='navbar-fixed-bottom hidden-sm hidden-xs'>
-        <p id="loadingtime"></p>
+        <p class='navbar-fixed-bottom-p' id="loadingtime"></p>
         <p class='navbar-fixed-bottom-p'>Written for 
         <a href='http://www.vcu.edu/' target='_blank'>VCU</a> by 
         <a href='http://www.people.vcu.edu/~xvorenda/' target='_blank'>XVO</a> and 
