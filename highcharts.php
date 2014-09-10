@@ -52,7 +52,7 @@ echo "
                                     }
                                 },
                         series: {
-                                dashStyle: solid,
+                                dashStyle: 'Solid',
                                 lineWidth: 3
                             }
                         
