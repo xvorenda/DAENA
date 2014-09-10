@@ -47,22 +47,13 @@ echo "
                     },
                     plotOptions: {
                             line: {
-                                dashStyle: solid,
-                                lineWidth: 3,
                                 marker: {
                                     enabled: false
                                     }
                                 },
-                        area: {
-                            marker: {
-                                enabled: false,
-                                symbol: 'circle',
-                                radius: 2,
-                                states: {
-                                    hover: {
-                                        enabled: true
-                                    }
-                                }
+                        series: {
+                                dashStyle: solid,
+                                lineWidth: 3
                             }
                         
                         }
