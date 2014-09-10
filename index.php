@@ -56,6 +56,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     $freezer_name = $freezerdata['freezer_name'];
     $freezer_color = $freezerdata['freezer_color'];
     $freezer_loc = $freezerdata['freezer_location'];
+    $starttime = microtime();
     $probequery = "(SELECT temp,time FROM daena_db.data 
     WHERE freezer_id='" . $freezer_id . "'
     ORDER BY time DESC " . $viewfilter . ") ORDER BY time ASC";
@@ -135,6 +136,9 @@ include 'navigation.php';
 
 /* Actually draw the graph */
 include "graph.php";
+
+$endtime = microtime();
+$mysqltime = $starttime - $endtime;
 
 /* Wrap things up */
 include "footer.php";

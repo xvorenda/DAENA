@@ -9,8 +9,8 @@ function pageload()
 {
     var after = (new Date()).getTime();
     var sec = (after-before)/1000;
-    var p = document.getElementById("loadingtime");
-    p.innerHTML = "Page load: " + sec + " seconds.";
+    var div = document.getElementById("loadingtime");
+    div.innerHTML = "Javascript page load time: " + sec + " seconds.";
         
 }
 </script>
