@@ -52,7 +52,6 @@ echo "
                                     }
                                 },
                         series: {
-                                dashStyle: 'Solid',
                                 lineWidth: 3
                             }
                         
