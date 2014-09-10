@@ -138,7 +138,7 @@ include 'navigation.php';
 include "graph.php";
 
 $endtime = microtime();
-$mysqltime = $starttime - $endtime;
+$mysqltime = $endtime - $starttime;
 
 /* Wrap things up */
 include "footer.php";

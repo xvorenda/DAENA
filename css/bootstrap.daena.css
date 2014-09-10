@@ -87,6 +87,14 @@ h3 {margin:12px auto 0;}
     text-align:center;
     color:#ccc
 }
+.pageloadleft {
+    float:left;
+    color: #fff;
+}
+.pageloadright {
+    float:right;
+    color: #fff;
+}
     
 .gray       {color:#999 !important}  
 .violet     {color:#808 !important}  

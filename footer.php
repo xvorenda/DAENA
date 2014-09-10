@@ -8,7 +8,7 @@
         <a href='http://www.highcharts.com/' target='_blank'>HighCharts</a>, and 
         <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a> for use with telnet-capable devices and probes.<br>
         DAENA is free software released under GNU/GPLv3 and/or <a href='http://creativecommons.org/licenses/by/3.0/'>CC BY 3.0</a>.</p>
-        <div class='navbar-fixed-bottom-p' id="loadingtime"></div><div class='navbar-fixed-bottom-p'>MySQL load time: <?PHP echo $mysqltime;?></div>
+        <div class='pageloadleft' id="loadingtime"></div><div class='pageloadright'>MySQL load time: <?PHP echo $mysqltime;?> seconds.</div>
     </div>  
 <script type="text/javascript">
     window.onload = function () 
