@@ -46,6 +46,11 @@ echo "
                         pointFormat: '{series.name} reported <b>{point.y:,.0f}°C</b><br/>at {point.x}'
                     },
                     plotOptions: {
+                            line: {
+                                marker: {
+                                    enabled: false
+                                    }
+                                },
                         area: {
                             marker: {
                                 enabled: false,
@@ -57,6 +62,7 @@ echo "
                                     }
                                 }
                             }
+                        
                         }
                     },
                     series: [";
