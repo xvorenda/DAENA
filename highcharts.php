@@ -47,15 +47,11 @@ echo "
                     },
                     plotOptions: {
                             line: {
+                                lineWidth: 3,
                                 marker: {
                                     enabled: false
                                     }
-                                },
-                        series: {
-                                lineWidth: 3
-                            }
-                        
-                        }
+                                }
                     },
                     series: [";
 ?>
