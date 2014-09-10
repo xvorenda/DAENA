@@ -26,5 +26,21 @@ function pageload()
         DAENA is free software released under GNU/GPLv3 and/or <a href='http://creativecommons.org/licenses/by/3.0/'>CC BY 3.0</a>.</p>
         <p id = "loadingtime"></p>
     </div>  
+ <script type="text/javascript">
+function pageload()
+{
+    var after = (new Date()).getTime();
+    var sec = (after-before)/1000;
+    var p = document.getElementById("loadingtime");
+    p.innerHTML = "Page load: " + sec + " seconds.";
+        
+}
+</script>
+<script type="text/javascript">
+    window.onload = function () 
+    { 
+        pageload();
+    }
+</script>
   </body>
 </html>
