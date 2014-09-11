@@ -10,7 +10,6 @@ require_once("classes/Login.php");
 $login = new Login();
 include "views/admin-header.php";
 include 'views/admin-nav.php';
-$baseurl = '../index.php';
 
 $mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
 $freezer_name = filter_input(INPUT_POST, 'freezer_name');

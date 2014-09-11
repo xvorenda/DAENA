@@ -40,7 +40,7 @@ if ($login->isUserLoggedIn() == true) {
                </li>
             </ul>
              <ul class='nav navbar-nav navbar-right'>
-               <li><a href='../about.php'>About</a></li>
+               <li><a href='register.php'>Register</a></li>
                 <li><a href='index.php?logout'>Logout</a></li>";
 }else {
     echo "<div class='navbar-collapse collapse'>

@@ -10,7 +10,7 @@ require_once("classes/Login.php");
 $login = new Login();
 include "views/admin-header.php";
 include 'views/admin-nav.php';
-$baseurl = '../index.php';
+
 
 // show potential errors / feedback (from login object)
 if (isset($login)) {
@@ -39,5 +39,3 @@ if (isset($login)) {
     <input type="submit"  name="login" value="Log in" />
 
 </form>
-
-<a href="register.php">Register new account</a>
