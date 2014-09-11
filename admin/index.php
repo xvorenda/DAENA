@@ -39,6 +39,7 @@ if ($login->isUserLoggedIn() == true) {
 } else {
     // the user is not logged in. you can do whatever you want here.
     // for demonstration purposes, we simply show the "you are not logged in" view.
+    include ("admin-header.php");
     include ("admin-nav.php");
     include("views/not_logged_in.php");
 }
