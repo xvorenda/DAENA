@@ -1,8 +1,8 @@
 <?php
 /* Get things started */
-include "views/admin-header.php";
+include "admin-header.php";
 $baseurl = '../index.php';
-include 'views/admin-nav.php';
+include 'admin-nav.php';
 /* Start talking to MySQL and kill yourself if it ignores you */
 $daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
 if ($daenaDB === FALSE) {
