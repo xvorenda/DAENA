@@ -1,9 +1,6 @@
 <?php
 /* Get things started */
 include "views/admin-header.php";
-echo "
-</head>
-<body>";
 $baseurl = '../index.php';
 include 'views/admin-nav.php';
 /* Start talking to MySQL and kill yourself if it ignores you */
