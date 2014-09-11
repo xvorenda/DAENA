@@ -44,7 +44,7 @@ if ($login->isUserLoggedIn() == true) {
                 <li><a href='index.php?logout'>Logout</a></li>";
 }else {
     echo "<div class='navbar-collapse collapse'>
-            <ul class='nav navbar-nav'>
+            <ul class='nav navbar-nav navbar-right'>
             <li><a href='index.php'>Login</a></li>";
 }
 echo "
