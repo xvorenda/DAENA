@@ -12,7 +12,9 @@ echo "
           <a class='navbar-brand white' href='".$baseurl."' title='Data Aggregation and Emergency Notifications for Appliances'>
           <img src='../images/daena.png' class='daena-logo'>DAENA Monitoring System
           </a>
-        </div>
+        </div>";
+if ($login->isUserLoggedIn() == true) {
+    echo "
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
                <li class='dropdown'>
@@ -38,11 +40,12 @@ echo "
                </li>
             </ul>
              <ul class='nav navbar-nav navbar-right'>
-               <li><a href='../about.php'>About</a></li>";
-if ($login->isUserLoggedIn() == true) {
-    echo "<li><a href='index.php?logout'>Logout</a></li>";
+               <li><a href='../about.php'>About</a></li>
+                <li><a href='index.php?logout'>Logout</a></li>";
 }else {
-    echo "<li><a href='index.php'>Login</a></li>";
+    echo "<div class='navbar-collapse collapse'>
+            <ul class='nav navbar-nav'>
+            <li><a href='index.php'>Login</a></li>";
 }
 echo "
              </ul>
