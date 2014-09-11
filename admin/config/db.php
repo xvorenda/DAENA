@@ -12,6 +12,6 @@
  * DB_PASS: the password of the above user
  */
 define("DB_HOST", "localhost");
-define("DB_NAME", "daena_auth_db");
-define("DB_USER", "daena_auth_user");
+define("DB_NAME", "daena_db");
+define("DB_USER", "daena_user");
 define("DB_PASS", "idontcareaboutpasswordsrightnow");
