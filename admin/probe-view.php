@@ -8,9 +8,10 @@ require_once("classes/Login.php");
 // create a login object. when this object is created, it will do all login/logout stuff automatically
 // so this single line handles the entire login process. in consequence, you can simply ...
 $login = new Login();
-include "admin-header.php";
+include "views/admin-header.php";
+include 'views/admin-nav.php';
 $baseurl = '../index.php';
-include 'admin-nav.php';
+
 /* Start talking to MySQL and kill yourself if it ignores you */
 $daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
 if ($daenaDB === FALSE) {

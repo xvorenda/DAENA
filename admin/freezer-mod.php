@@ -1,9 +1,16 @@
 <?php
 /* Get things started */
-include "admin-header.php";
-echo "
-</head>
-<body>";
+require_once("libraries/password_compatibility_library.php");
+// include the configs / constants for the database connection
+require_once("config/db.php");
+// load the login class
+require_once("classes/Login.php");
+// create a login object. when this object is created, it will do all login/logout stuff automatically
+// so this single line handles the entire login process. in consequence, you can simply ...
+$login = new Login();
+include "views/admin-header.php";
+include 'views/admin-nav.php';
+$baseurl = '../index.php';
 
 $mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
 $freezer_name = filter_input(INPUT_POST, 'freezer_name');
@@ -19,8 +26,7 @@ $freezer_location = $freezer_location_building."<br>".$freezer_location_room;
 $probe_host = filter_input(INPUT_POST, 'probe_host');
 $probe_port = filter_input(INPUT_POST, 'probe_port');
 $probe_hostport = $probe_host." ".$probe_port;
-$baseurl = '../index.php';
-include 'admin-nav.php';
+
 /* Start talking to MySQL and kill yourself if it ignores you */
 $daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
 if ($daenaDB === FALSE) {

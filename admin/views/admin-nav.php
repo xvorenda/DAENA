@@ -20,22 +20,22 @@ if ($login->isUserLoggedIn() == true) {
                <li class='dropdown'>
                  <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Probes<b class='caret'></b></a>
                  <ul class='dropdown-menu'>
-                   <li><a href='views/probe-view.php'>All Probes</a></li>
-                   <li><a href='views/probe-del.php'>Delete a Probe</a></li>
+                   <li><a href='probe-view.php'>All Probes</a></li>
+                   <li><a href='probe-del.php'>Delete a Probe</a></li>
                  </ul>
                </li>
                <li class='dropdown'>
                  <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Freezers<b class='caret'></b></a>
                  <ul class='dropdown-menu'>
-                   <li><a href='views/freezer-view.php'>All Freezers</a></li>
-                   <li><a href='views/freezer-del.php'>Delete a Freezer</a></li>
+                   <li><a href='freezer-view.php'>All Freezers</a></li>
+                   <li><a href='freezer-del.php'>Delete a Freezer</a></li>
                  </ul>
                </li>
                <li class='dropdown'>
                  <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Groups<b class='caret'></b></a>
                  <ul class='dropdown-menu'>
-                   <li><a href='views/group-view.php'>All Groups</a></li>
-                   <li><a href='views/group-del.php'>Delete a Group</a></li>
+                   <li><a href='group-view.php'>All Groups</a></li>
+                   <li><a href='group-del.php'>Delete a Group</a></li>
                  </ul>
                </li>
             </ul>
