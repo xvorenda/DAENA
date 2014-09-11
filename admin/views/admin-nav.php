@@ -1,5 +1,5 @@
 <?php
-echo "<body>
+echo "
     <div class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
       <div class='container-fluid'>
         <div class='navbar-header'>
@@ -9,7 +9,7 @@ echo "<body>
             <span class='icon-bar'></span>
             <span class='icon-bar'></span>
           </button>
-          <a class='navbar-brand white' href='".$baseurl."' title='Data Aggregation and Emergency Notifications for Appliances'>
+          <a class='navbar-brand white' href='index.php' title='Data Aggregation and Emergency Notifications for Appliances'>
           <img src='../images/daena.png' class='daena-logo'>DAENA Monitoring System
           </a>
         </div>";
