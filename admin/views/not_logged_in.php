@@ -12,7 +12,7 @@ if (isset($login)) {
         }
     }
 }
-include "../admin-nav.php"?>
+include ("../admin-nav.php");?>
 
 <!-- login form box -->
 <form method="post" action="index.php" name="loginform">
