@@ -38,7 +38,13 @@ echo "
                </li>
             </ul>
              <ul class='nav navbar-nav navbar-right'>
-               <li><a href='../about.php'>About</a></li>
+               <li><a href='../about.php'>About</a></li>";
+if ($login->isUserLoggedIn() == true) {
+    echo "<li><a href='index.php?logout'>Logout</a></li>";
+}else {
+    echo "<li><a href='index.php'>Login</a></li>";
+}
+echo "
              </ul>
            </div><!--/.nav-collapse -->
          </div>

@@ -26,6 +26,8 @@ require_once("config/db.php");
 // load the login class
 require_once("classes/Login.php");
 
+include("admin-nav");
+
 // create a login object. when this object is created, it will do all login/logout stuff automatically
 // so this single line handles the entire login process. in consequence, you can simply ...
 $login = new Login();
