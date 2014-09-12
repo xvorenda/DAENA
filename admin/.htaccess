@@ -1,3 +1,4 @@
+<FilesMatch "register.php">
 AuthName "Authorized Personnel Only"
 AuthType Basic
 AuthUserFile /var/www/html/admin/.htpasswd
