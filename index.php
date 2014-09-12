@@ -1,13 +1,13 @@
 <?php
 
 /* Get things started */
-include "header.php";
+include 'assets/header.php';
 
 /* Teach PHP how to read URL parameters, plus add defaults */
-include "urlvars.php";
+include 'assets/urlvars.php';
 
 /* Define the HighChart */
-include 'highcharts.php';
+include 'assets/highcharts.php';
 
 /* Start talking to MySQL and kill yourself if it ignores you */
 include 'admin/config/db.php';
@@ -132,11 +132,11 @@ echo "]
 </script>
 </head>
 <body>";
-include 'navigation.php';
+include 'assets/navigation.php';
 
 /* Actually draw the graph */
-include "graph.php";
+include "assets/graph.php";
 
 /* Wrap things up */
-include "footer.php";
+include "assets/footer.php";
 ?>
