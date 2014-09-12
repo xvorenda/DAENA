@@ -4,39 +4,38 @@ include "assets/admin-header.php";
 include 'assets/admin-nav.php';
 
 /* Start talking to MySQL and kill yourself if it ignores you */
-$daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
-if ($daenaDB === FALSE) {
-    die(mysql_error()); // TODO: better error handling
-}
-mysql_select_db("daena_db");
+include 'admin/config/db.php';
+$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
 
 
 /* Ask MySQL about which probes exist and get their metadata */
 $allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
 FROM daena_db.probes 
 ORDER BY ABS(probe_id)";
-$allprobes = mysql_query($allprobesquery);
-if($allprobes === FALSE) {
-    die(mysql_error()); // TODO: better error handling
+$allprobes = $daenaDB->query($allprobesquery);
     
 /* Count the active probes for density handling */
 $countquery = "SELECT FOUND_ROWS()";
-	$countraw = mysql_query($countquery);
-	$countarray = mysql_fetch_assoc($countraw);
+	$countraw = $daenaDB->query($countquery);
+	$countarray = $countraw->fetch_assoc();
 	$count = implode(",",$countarray);
-}
+
 /* Ask MySQL about which freeers exist and get their metadata */
 $allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
 FROM daena_db.freezers 
 ORDER BY ABS(freezer_id)";
-$allfreezers = mysql_query($allfreezersquery);
-if($allfreezers === FALSE) {
-    die(mysql_error()); // TODO: better error handling
-}
+$allfreezers = $daenaDB->query($allfreezersquery);
+
 /* Count the active freezers for density handling */
 $countquery = "SELECT FOUND_ROWS()";
-	$countraw = mysql_query($countquery);
-	$countarray = mysql_fetch_assoc($countraw);
+	$countraw = $daenaDB->query($countquery);
+	$countarray = $countraw->fetch_assoc();
 	$count = implode(",",$countarray);
 $i = 0;
 
@@ -46,7 +45,7 @@ echo "
 <table>
 <tr><td>Freezer Name</td><td>Building</td><td>Room Number</td><td>Temperature Range</td><td>NTMS Host</td><td>NTMS Port</td><td>Active</td><td>Graph Color</td><td>Freezer ID</td><td>&nbsp;</td></tr>
 ";
-while(($freezerdata = mysql_fetch_assoc($allfreezers))){
+while(($freezerdata = $allfreezers->fetch_assoc())){
     $freezer_name = $freezerdata['freezer_name'];
     $freezer_location = $freezerdata['freezer_location'];
     $freezer_temp_range = $freezerdata['freezer_temp_range'];
@@ -58,8 +57,8 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
         $freezer_location_room = $location[1];
     $probequery = "SELECT probe_hostport FROM daena_db.probes 
     WHERE freezer_id='" . $freezer_id . "'";
-    $proberesult = mysql_query($probequery);
-    while($probe = mysql_fetch_array($proberesult)) {
+    $proberesult = $daenaDB->query($probequery);
+    while($probe = $proberesult->fetch_array()) {
     $probe_hostport = $probe['probe_hostport'];
     $hostport = explode(" ", $probe_hostport);
         $probe_host = $hostport[0];

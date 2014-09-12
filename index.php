@@ -23,11 +23,6 @@ $freezercountquery = "SELECT SQL_CALC_FOUND_ROWS *
 FROM daena_db.freezers 
 WHERE freezer_active='1'";
 $countfreezers = $daenaDB->query($freezercountquery);
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
   
 /* Count the active probes for density handling */
 $countquery = "SELECT FOUND_ROWS()";
@@ -44,11 +39,6 @@ WHERE freezer_active='1'
 ".$typefilter."
 ORDER BY ABS(freezer_id)";
 $allfreezers = $daenaDB->query($allfreezersquery);
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
 
 
 /* Ask MySQL for X hours of data on each probe */
@@ -61,12 +51,8 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     WHERE freezer_id='" . $freezer_id . "'
     ORDER BY time DESC " . $viewfilter . ") ORDER BY time ASC";
 	$proberesult = $daenaDB->query($probequery);
-	// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
-                            	
+
+        
     /* Get ready to do stuff */
     $random_color = substr(md5(rand()), 0, 6);
     $badzero_a = "-00";
