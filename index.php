@@ -10,7 +10,8 @@ include "urlvars.php";
 include 'highcharts.php';
 
 /* Start talking to MySQL and kill yourself if it ignores you */
-$daenaDB = new mysqli("localhost", "daena_user", "idontcareaboutpasswordsrightnow", "daena_db");
+include 'admin/config/db.php';
+$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 // Check connection
 if (mysqli_connect_errno())
   {
