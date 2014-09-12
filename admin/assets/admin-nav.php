@@ -10,8 +10,8 @@ echo "
             <span class='icon-bar'></span>
           </button>
           <a class='navbar-brand white' href='../index.php' title='Data Aggregation and Emergency Notifications for Appliances'>
-          <img src='../images/daena.png' class='daena-logo'>DAENA</a>
-          <a href='index.php'</a>
+          <img src='../images/daena.png' class='daena-logo'>DAENA</a>&nbsp;|&nbsp;
+          <a  class='navbar-brand white' href='index.php'>Admin</a>
         </div>";
 if ($login->isUserLoggedIn() == true) {
     echo "
