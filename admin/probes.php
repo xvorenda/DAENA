@@ -55,7 +55,7 @@ while(($probedata = mysql_fetch_assoc($allprobes))){
     $probe_ntms_port = $probedata['probe_ntms_port'];
     $probe_hostport = $probedata['probe_hostport'];
 
-echo "<tr>
+echo "<tr class='borderless'>
         <form action='probe-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query field-narrow' name='probe_id' value='".$probe_id."'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_type' value='".$probe_type."'/></td>
@@ -66,7 +66,7 @@ echo "<tr>
         <td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 </tr>";}
 
-echo "<tr>
+echo "<tr class='borderless'>
         <form action='probe-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query field-narrow' name='probe_id'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_type'/></td>
