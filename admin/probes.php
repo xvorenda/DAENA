@@ -6,39 +6,41 @@ include 'assets/admin-nav.php';
 if ($login->isUserLoggedIn() == true) {
 
 /* Start talking to MySQL and kill yourself if it ignores you */
-$daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
-if ($daenaDB === FALSE) {
-    die(mysql_error()); // TODO: better error handling
-}
-mysql_select_db("daena_db");
+include 'admin/config/db.php';
+$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
 
 
 /* Ask MySQL about which probes exist and get their metadata */
 $allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
 FROM daena_db.probes 
 ORDER BY ABS(probe_id)";
-$allprobes = mysql_query($allprobesquery);
+$allprobes = $daenaDB->query($allprobesquery);
 if($allprobes === FALSE) {
-    die(mysql_error()); // TODO: better error handling
+    die(mysqli_error()); // TODO: better error handling
     
 /* Count the active probes for density handling */
 $countquery = "SELECT FOUND_ROWS()";
-	$countraw = mysql_query($countquery);
-	$countarray = mysql_fetch_assoc($countraw);
+	$countraw = $daenaDB->query($countquery);
+	$countarray = $countraw->fetch_assoc();
 	$count = implode(",",$countarray);
 }
 /* Ask MySQL about which freeers exist and get their metadata */
 $allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
 FROM daena_db.freezers 
 ORDER BY ABS(freezer_id)";
-$allfreezers = mysql_query($allfreezersquery);
+$allfreezers = $daenaDB->query($allfreezersquery);
 if($allfreezers === FALSE) {
-    die(mysql_error()); // TODO: better error handling
+    die(mysqli_error()); // TODO: better error handling
 }
 /* Count the active freezers for density handling */
 $countquery = "SELECT FOUND_ROWS()";
-	$countraw = mysql_query($countquery);
-	$countarray = mysql_fetch_assoc($countraw);
+	$countraw = $daenaDB->query($countquery);
+	$countarray = $countraw->fetch_assoc();
 	$count = implode(",",$countarray);
 $i = 0;
 
@@ -48,7 +50,7 @@ echo "
 <table class='borderless'>
 <tr><td>Probe ID</td><td>Probe Type</td><td>Probe Range</td><td>Active</td><td>Probe Hostport</td><td>Probe NTMS Port</td><td>&nbsp;</td></tr>
 ";
-while(($probedata = mysql_fetch_assoc($allprobes))){
+while(($probedata = $allprobes->fetch_assoc())){
     $probe_id = $probedata['probe_id'];
     $probe_type = $probedata['probe_type'];
     $probe_range = $probedata['probe_range'];
