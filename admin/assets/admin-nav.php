@@ -10,8 +10,8 @@ echo "
             <span class='icon-bar'></span>
           </button>
           <a class='navbar-brand white' href='../index.php' title='Data Aggregation and Emergency Notifications for Appliances'>
-          <img src='../images/daena.png' class='daena-logo'>DAENA Monitoring System
-          </a>
+          <img src='../images/daena.png' class='daena-logo'>DAENA</a>
+          <a href='index.php'</a>
         </div>";
 if ($login->isUserLoggedIn() == true) {
     echo "
@@ -21,20 +21,18 @@ if ($login->isUserLoggedIn() == true) {
              
                    <li><a href='freezers.php'>Freezers</a></li>
 
-               <li class='dropdown'>
-                 <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Groups<b class='caret'></b></a>
-                 <ul class='dropdown-menu'>
-                   <li><a href='group-view.php'>All Groups</a></li>
-                   <li><a href='group-del.php'>Delete a Group</a></li>
-                 </ul>
-               </li>
+                   <li><a href='groups.php'>Groups</a></li>
+               
+                   <li><a href='alarms.php'>Alarms</a></li>
+                   
+                   <li><a href='users.php'>Users</a></li>
             </ul>
              <ul class='nav navbar-nav navbar-right'>
-               <li><a href='register.php'>Register</a></li>
                 <li><a href='index.php?logout'>Logout</a></li>";
 }else {
     echo "<div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav navbar-right'>
+            <li><a href='register.php'>Register</a></li>
             <li><a href='index.php'>Login</a></li>";
 }
 echo "
