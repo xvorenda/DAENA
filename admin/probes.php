@@ -80,6 +80,6 @@ echo "<tr>
    
 
 /* Wrap things up */
-include '../footer.php';
+include 'assets/admin-footer.php';
 ?>
 	    
