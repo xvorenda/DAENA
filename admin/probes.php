@@ -44,7 +44,7 @@ $i = 0;
 /* Draw Probe Mod Area */
 echo "
 <div class='probesbox'>
-<table>
+<table class='borderless'>
 <tr><td>Probe ID</td><td>Probe Type</td><td>Probe Range</td><td>Active</td><td>Probe Hostport</td><td>Probe NTMS Port</td><td>&nbsp;</td></tr>
 ";
 while(($probedata = mysql_fetch_assoc($allprobes))){

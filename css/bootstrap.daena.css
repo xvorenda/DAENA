@@ -95,6 +95,9 @@ h3 {margin:12px auto 0;}
     float:right;
     color: #fff;
 }
+.borderless {
+    border: none;
+}
     
 .gray       {color:#999 !important}  
 .violet     {color:#808 !important}  
