@@ -1,19 +1,6 @@
-<head>
-<script type="text/javascript">
-<!--
-function Redirect()
-{
-    window.location="http://www.newlocation.com";
-}
-
-document.write("You will be redirected to main page in 1 sec.");
-setTimeout('Redirect()', 1000);
-//-->
-</script>
-</head>
-
-    <?php
+<?php
 /* Get things started */
+
 $mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
 $freezer_name = filter_input(INPUT_POST, 'freezer_name');
 $freezer_location = filter_input(INPUT_POST, 'freezer_location');
@@ -53,7 +40,9 @@ $onefreezer = mysql_query($freezerupdate);
 if($onefreezer === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-echo "Modification Success!";}
+echo "Modification Success!";
+echo '<script>window.location.replace("http://daena.csbc.vcu.edu/admin/");</script>';
+}
 
 if ($mysqlaction = "add") {
 
@@ -61,7 +50,9 @@ $onefreezer = mysql_query($freezeradd);
 if($onefreezer === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
-echo "Addition Success!";}
+echo 'Addition Success!';
+echo '<script>window.location.replace("http://daena.csbc.vcu.edu/admin/");</script>';
+}
 
 /* Wrap things up */
 include '../footer.php';
