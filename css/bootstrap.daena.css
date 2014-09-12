@@ -98,6 +98,10 @@ h3 {margin:12px auto 0;}
 .borderless {
     border: none;
 }
+.admin-auth {
+    margin: 0 auto;
+    width: 200px;
+}
     
 .gray       {color:#999 !important}  
 .violet     {color:#808 !important}  

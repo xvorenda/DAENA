@@ -16,7 +16,7 @@ if (isset($login)) {
 ?>
 
 <!-- login form box -->
-<div class="content">
+<div class="admin-auth">
 <form method="post" action="index.php" name="loginform">
 
     <label for="login_input_username">Username</label><br>
