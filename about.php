@@ -1,7 +1,9 @@
 <?php
-include 'header.php';
-$baseurl = "index.php";
-include 'navigation.php';
+
+/* Get things started */
+include 'assets/header.php';
+include 'assets/navigation.php';
+
 echo "
     <div id='about'>
         <h1>About DAENA</h1>
@@ -10,5 +12,7 @@ echo "
         <h1>Contact Us</h1>
         <p>If you have questions, comments, or suggestions, please email us at <a href='mailto:xvorenda@vcu.edu'>xvorenda@vcu.edu</a> and/or  <a href='mailto:voegtlylj@vcu.edu'>voegtlylj@vcu.edu</a>.</p>
     </div>";      
-include "footer.php";
+
+/* Wrap things up */
+include "assets/footer.php";
 ?>
