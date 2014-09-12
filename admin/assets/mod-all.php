@@ -1,8 +1,4 @@
 <?php
-/* Get things started */
-include "assets/admin-header.php";
-include 'assets/admin-nav.php';
-
 /* Start talking to MySQL and kill yourself if it ignores you */
 $daenaDB = new mysqli("localhost", "daena_user", "idontcareaboutpasswordsrightnow", "daena_db");
 if ($daenaDB === FALSE) {

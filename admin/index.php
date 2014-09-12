@@ -18,10 +18,15 @@ $login = new Login();
 if ($login->isUserLoggedIn() == true) {
     // the user is logged in. you can do whatever you want here.
     // for demonstration purposes, we simply show the "you are logged in" view.
-    include("mod-all.php");
+    /* Get things started */
+    include "assets/admin-header.php";
+    include "assets/admin-nav.php";
+    include "assets/mod-all.php";
 
 } else {
     // the user is not logged in. you can do whatever you want here.
     // for demonstration purposes, we simply show the "you are not logged in" view.
-    include("views/auth.php");
+    include "assets/admin-header.php";
+    include "assets/admin-nav.php";
+    include "assets/auth.php";
 }
