@@ -123,7 +123,7 @@ echo "], dashStyle: 'solid'},";
         };
         
 /* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
-include "url.php";
+include "assets/url.php";
 $url = curPageURL();
 $baseurl = substr($url, 0, strpos($url, "?"));
 echo "]            
