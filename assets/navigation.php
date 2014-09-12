@@ -15,6 +15,7 @@ echo "
         </div>
         <div class='navbar-collapse collapse'>
              <ul class='nav navbar-nav'>
+               <li><a href='".$baseurl."'>Home</a></li>
                <li class='dropdown'>
                  <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Location<b class='caret'></b></a>
                  <ul class='dropdown-menu'>
@@ -64,7 +65,6 @@ echo "
                    <li><a href='".$baseurl."?hours=".$hours."&skip=".$skip."&group=".$group."&loc=".$loc."&type=4'>4 Fridge</a></li>
                  </ul>
                </li>
-               <li><a href='".$baseurl."'>Reset</a></li>
             </ul>
              <ul class='nav navbar-nav navbar-right'>
                <li><a href='admin'>Admin</a></li>
