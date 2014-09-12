@@ -3,6 +3,7 @@
 include "assets/admin-header.php";
 include 'assets/admin-nav.php';
 
+if ($login->isUserLoggedIn() == true) {
 
 /* Start talking to MySQL and kill yourself if it ignores you */
 $daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
@@ -77,8 +78,12 @@ echo "<tr class='borderless'>
         <td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></td></form>
     </tr>
 </table></div></div>";	
-   
-
+}else {
+echo "<div id='content'>"
+    . "<h1>Unauthorized Access</h1>"
+    . "<p>Please <a href='index.php'>log in</a> to access this page.</p>"
+        . "</div>";   
+}
 /* Wrap things up */
 include 'assets/admin-footer.php';
 ?>
