@@ -81,8 +81,8 @@ echo "<tr class='borderless'>
 }else {
 echo "<div id='content'>"
     . "<h1>Unauthorized Access</h1>"
-    . "<p>Please <a href='index.php'>log in</a> to access this page.</p>"
-        . "</div>";   
+    . "<h3>Please <a href='index.php'>log in</a> to access this page.</h3>"
+    . "</div>";   
 }
 /* Wrap things up */
 include 'assets/admin-footer.php';
