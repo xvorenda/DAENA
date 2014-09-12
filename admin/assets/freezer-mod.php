@@ -42,7 +42,7 @@ if($onefreezer === FALSE) {
 }
 echo "Modification Success!";
 echo '<script>window.location.replace("';
-$pageUrl='http://';
+$pageURL = 'http://';
 if ($_SERVER["SERVER_PORT"] != "80") {
   $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
  } else {
