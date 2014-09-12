@@ -1,7 +1,7 @@
 <?php
 /* Get things started */
-include "views/admin-header.php";
-include 'views/admin-nav.php';
+include "assets/admin-header.php";
+include 'assets/admin-nav.php';
 
 $mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
 $freezer_name = filter_input(INPUT_POST, 'freezer_name');

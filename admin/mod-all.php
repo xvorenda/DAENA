@@ -1,7 +1,7 @@
 <?php
 /* Get things started */
-include "views/admin-header.php";
-include 'views/admin-nav.php';
+include "assets/admin-header.php";
+include 'assets/admin-nav.php';
 
 /* Start talking to MySQL and kill yourself if it ignores you */
 $daenaDB = new mysqli("localhost", "daena_user", "idontcareaboutpasswordsrightnow", "daena_db");
@@ -104,7 +104,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
         $probe_port = $hostport[1]; };
 
 echo "<tr>
-        <form action='freezer-mod.php' method='POST'>
+        <form action='assets/freezer-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='freezer_name' value='".$freezer_name."'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_building' value='".$freezer_location_building."'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_room' value='".$freezer_location_room."'/></td>
@@ -119,7 +119,7 @@ echo "<tr>
 		$i++;};
 
 echo "<tr>
-        <form action='freezer-mod.php' method='POST'>
+        <form action='assets/freezer-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='freezer_name' value='New Freezer'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_building'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_room'/></td>

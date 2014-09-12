@@ -17,9 +17,16 @@ if ($login->isUserLoggedIn() == true) {
     echo "
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
-                <li><a href='probes.php'>Probes</a></li>
-                <li><a href='freezers.php'>Freezers</a></li>
-                <li class='dropdown'>
+                   <li><a href='probes.php'>Probes</a></li>
+               </li>
+               <li class='dropdown'>
+                 <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Freezers<b class='caret'></b></a>
+                 <ul class='dropdown-menu'>
+                   <li><a href='freezer-view.php'>All Freezers</a></li>
+                   <li><a href='freezer-del.php'>Delete a Freezer</a></li>
+                 </ul>
+               </li>
+               <li class='dropdown'>
                  <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Groups<b class='caret'></b></a>
                  <ul class='dropdown-menu'>
                    <li><a href='group-view.php'>All Groups</a></li>
