@@ -1,8 +1,19 @@
-<?php
-/* Get things started */
-include "assets/admin-header.php";
-include 'assets/admin-nav.php';
+<head>
+<script type="text/javascript">
+<!--
+function Redirect()
+{
+    window.location="http://www.newlocation.com";
+}
 
+document.write("You will be redirected to main page in 1 sec.");
+setTimeout('Redirect()', 1000);
+//-->
+</script>
+</head>
+
+    <?php
+/* Get things started */
 $mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
 $freezer_name = filter_input(INPUT_POST, 'freezer_name');
 $freezer_location = filter_input(INPUT_POST, 'freezer_location');
