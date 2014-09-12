@@ -67,9 +67,8 @@ echo "
                </li>
             </ul>
              <ul class='nav navbar-nav navbar-right'>
-               <li><a href='admin'>Admin</a></li>
                <li><a href='about.php'>About</a></li>
-
+               <li><a href='admin'>Admin</a></li>
              </ul>
            </div><!--/.nav-collapse -->
          </div>
