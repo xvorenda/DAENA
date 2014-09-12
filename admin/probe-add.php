@@ -1,11 +1,8 @@
 <?php
 /* Get things started */
-include 'header.php';
-echo "
-</head>
-<body>";
-$baseurl = 'index.php';
-include 'admin-nav.php';
+include "views/admin-header.php";
+include 'views/admin-nav.php';
+
 echo "	<div class='content'>
         <div class='probeinfo'>
 		<form action='probe-input.php' method='POST'>

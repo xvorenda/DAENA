@@ -1,13 +1,8 @@
 <?php
 /* Get things started */
-include "header.php";
-include "urlvars.php";
-echo "
-</head>
-<body>";
-$baseurl = 'index.php';
-include 'admin-nav.php';
-echo "<div class='content'>";
+include "views/admin-header.php";
+include 'views/admin-nav.php';
+
 /* Start talking to MySQL and kill yourself if it ignores you */
 $daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
 if ($daenaDB === FALSE) {
@@ -49,7 +44,8 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
     $hostport = explode(" ", $probe_hostport);
         $probe_host = $hostport[0];
         $probe_port = $hostport[1]; };
-echo "<div class='probeinfo'>
+echo "<div class='content'>
+        <div class='probeinfo'>
             <table>
 		        <h3>Add a Probe</h3>
 		        <tr>
