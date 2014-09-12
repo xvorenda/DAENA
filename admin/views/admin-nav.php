@@ -17,12 +17,7 @@ if ($login->isUserLoggedIn() == true) {
     echo "
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
-               <li class='dropdown'>
-                 <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Probes<b class='caret'></b></a>
-                 <ul class='dropdown-menu'>
-                   <li><a href='probe-view.php'>All Probes</a></li>
-                   <li><a href='probe-del.php'>Delete a Probe</a></li>
-                 </ul>
+                   <li><a href='probes.php'>Probes</a></li>
                </li>
                <li class='dropdown'>
                  <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Freezers<b class='caret'></b></a>
