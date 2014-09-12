@@ -70,7 +70,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
 
     /* Define each freezer graph */
     echo "',
-                    dashStyle: 'ShortDash',
+                    dashStyle: 'solid',
                     pointInterval: ".$skip." * 60 * 1000,
                     data: [";
     /* Limit displayed points to within view window */
@@ -105,7 +105,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
         };
     };
 };
-echo "], dashStyle: 'solid'},";
+echo "]},";
         };
         
 /* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
