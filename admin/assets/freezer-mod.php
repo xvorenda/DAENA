@@ -41,7 +41,15 @@ if($onefreezer === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
 echo "Modification Success!";
-echo '<script>window.location.replace("http://daena.csbc.vcu.edu/admin/");</script>';
+echo '<script>window.location.replace("';
+$pageUrl='http://';
+if ($_SERVER["SERVER_PORT"] != "80") {
+  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+ } else {
+  $pageURL .= $_SERVER["SERVER_NAME"];
+ }
+ return $pageURL;
+ echo '/admin/");</script>';
 }
 
 if ($mysqlaction = "add") {
