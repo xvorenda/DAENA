@@ -49,7 +49,7 @@ while(($probedata = $allprobes->fetch_assoc())){
     $probe_hostport = $probedata['probe_hostport'];
 
 echo "<tr>
-        <form action='probe-mod.php' method='POST'>
+        <form action='handlers/probe-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query field-narrow' name='probe_id' value='".$probe_id."'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_type' value='".$probe_type."'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_range' value='".$probe_range."'/></td>
@@ -60,7 +60,7 @@ echo "<tr>
 </tr>";}
 
 echo "<tr>
-        <form action='probe-mod.php' method='POST'>
+        <form action='handlers/probe-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query field-narrow' name='probe_id'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_type'/></td>
         <td><input type='text' class='input-medium search-query' name='probe_range'/></td>
@@ -100,7 +100,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
         $probe_port = $hostport[1]; };
 
 echo "<tr>
-        <form action='assets/freezer-mod.php' method='POST'>
+        <form action='handlers/freezer-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='freezer_name' value='".$freezer_name."'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_building' value='".$freezer_location_building."'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_room' value='".$freezer_location_room."'/></td>
@@ -115,7 +115,7 @@ echo "<tr>
 		$i++;};
 
 echo "<tr>
-        <form action='assets/freezer-mod.php' method='POST'>
+        <form action='handlers/freezer-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='freezer_name' value='New Freezer'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_building'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_room'/></td>
@@ -132,6 +132,6 @@ echo "<tr>
    
 
 /* Wrap things up */
-include '../footer.php';
+include 'assets/admin-footer.php';
 ?>
 	    

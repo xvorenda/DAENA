@@ -66,7 +66,7 @@ while(($freezerdata = mysql_fetch_assoc($allfreezers))){
         $probe_port = $hostport[1]; };
 
 echo "<tr>
-        <form action='assets/freezer-mod.php' method='POST'>
+        <form action='handlers/freezer-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='freezer_name' value='".$freezer_name."'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_building' value='".$freezer_location_building."'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_room' value='".$freezer_location_room."'/></td>
@@ -81,7 +81,7 @@ echo "<tr>
 		$i++;};
 
 echo "<tr>
-        <form action='assets/freezer-mod.php' method='POST'>
+        <form action='handlers/freezer-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='freezer_name' value='New Freezer'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_building'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_location_room'/></td>
@@ -98,5 +98,5 @@ echo "<tr>
    
 
 /* Wrap things up */
-include '../footer.php';
+include 'assets/admin-footer.php';
 ?>
