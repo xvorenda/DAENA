@@ -48,7 +48,7 @@ if ($_SERVER["SERVER_PORT"] != "80") {
  } else {
   $pageURL .= $_SERVER["SERVER_NAME"];
  }
- return $pageURL;
+ echo $pageURL;
  echo '/admin/");</script>';
 }
 
