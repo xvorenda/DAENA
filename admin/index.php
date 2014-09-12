@@ -21,7 +21,8 @@ if ($login->isUserLoggedIn() == true) {
     /* Get things started */
     include "assets/admin-header.php";
     include "assets/admin-nav.php";
-    include "assets/mod-all.php";
+    include "assets/home.php";
+    include "assets/admin-footer.php";
 
 } else {
     // the user is not logged in. you can do whatever you want here.
@@ -29,4 +30,5 @@ if ($login->isUserLoggedIn() == true) {
     include "assets/admin-header.php";
     include "assets/admin-nav.php";
     include "assets/auth.php";
+    include "assets/admin-footer.php";
 }
