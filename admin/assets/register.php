@@ -15,6 +15,7 @@ if (isset($registration)) {
 ?>
 
 <!-- register form -->
+<div class="registration-box">
 <form method="post" action="register.php" name="registerform">
 
     <!-- the user name input field uses a HTML5 pattern check -->
@@ -33,6 +34,6 @@ if (isset($registration)) {
     <input type="submit"  name="register" value="Register" />
 
 </form>
-
+</div>
 <!-- backlink -->
 <a href="index.php">Back to Login Page</a>

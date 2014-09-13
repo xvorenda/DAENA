@@ -13,3 +13,4 @@ $registration = new Registration();
 
 // show the register view (with the registration form, and messages/errors)
 include("assets/register.php");
+include 'assets/admin-footer.php';

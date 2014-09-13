@@ -98,7 +98,7 @@ h3 {margin:12px auto 0;}
 .borderless {
     border: none;
 }
-.admin-auth {
+.admin-auth, .registration-box {
     margin: 0 auto;
     width: 200px;
 }
