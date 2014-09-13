@@ -26,7 +26,7 @@ $groupupdate = "UPDATE daena_db.groups
 SET group_name='" . $group_name . "', group_desc='" . $group_desc . "'
 WHERE group_id='" . $group_id . "'";
 
-if ($mysqlaction = "modify") {
+if ($mysqlaction == "modify") {
 
 $onegroup = $daenaDB->query($groupupdate);
 
@@ -42,7 +42,7 @@ if ($_SERVER["SERVER_PORT"] != "80") {
  echo '/admin/groups.php");</script>';*/
 }
 
-if ($mysqlaction = "add") {
+if ($mysqlaction == "add") {
 
 $onegroup = $daenaDB->query($groupadd);
 
