@@ -16,10 +16,10 @@ if (mysqli_connect_errno())
 
 
 /* Ask MySQL about which probes exist and get their metadata */
-$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
+$allgroupsquery = "SELECT SQL_CALC_FOUND_ROWS *
 FROM daena_db.groups 
 ORDER BY ABS(group_id)";
-$allprobes = $daenaDB->query($allprobesquery);
+$allgroups = $daenaDB->query($allgroupsquery);
 
 
 /* Draw Freezer Mod Area */
@@ -28,7 +28,7 @@ echo "
 <table>
 <tr><td>Group ID</td><td>Group Name</td><td>Group Description</td></tr>
 ";
-while(($groupdata = $allgroupss->fetch_assoc())){
+while(($groupdata = $allgroups->fetch_assoc())){
     $group_name = $groupdata['group_name'];
     $group_id = $groupdata['group_id'];
     $group_desc = $groupdata['group_desc'];
