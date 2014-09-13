@@ -10,10 +10,10 @@ $group_desc = filter_input(INPUT_POST, 'group_desc');
 include('../config/db.php');
 $daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 // Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+if ($daenaDB->connect_errno) {
+    printf("Connect failed: %s\n", $daenaDB->connect_error);
+    exit();
+}
 
   /* Add a Group */
 $groupadd = "INSERT INTO daena_db.groups 
@@ -30,11 +30,11 @@ if ($mysqlaction == "modify") {
 
 $onegroup = $daenaDB->query();
 if (!$daenaDB->query("$groupupdate")) {
-    printf("Errormessage: %s\n", $mysqli->error);
+    printf("Errormessage: %s\n", $daenaDB->error);
 }
 
 echo "Modification Success!";
-/*echo '<script>window.location.replace("';
+echo '<script>window.location.replace("';
 $pageURL = 'http://';
 if ($_SERVER["SERVER_PORT"] != "80") {
   $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
@@ -42,15 +42,16 @@ if ($_SERVER["SERVER_PORT"] != "80") {
   $pageURL .= $_SERVER["SERVER_NAME"];
  }
  echo $pageURL;
- echo '/admin/groups.php");</script>';*/
+ echo '/admin/groups.php");</script>';
 }
 
 if ($mysqlaction == "add") {
 
-$onegroup = $daenaDB->query($groupadd);
-
+if (!$daenaDB->query($groupadd)) {
+    printf("Errormessage: %s\n", $daenaDB->error);
+}
 echo 'Addition Success!';
-/*echo '<script>window.location.replace("';
+echo '<script>window.location.replace("';
 $pageURL = 'http://';
 if ($_SERVER["SERVER_PORT"] != "80") {
   $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
@@ -58,6 +59,6 @@ if ($_SERVER["SERVER_PORT"] != "80") {
   $pageURL .= $_SERVER["SERVER_NAME"];
  }
  echo $pageURL;
- echo '/admin/groups.php");</script>';*/
+ echo '/admin/groups.php");</script>';
 }
 ?>
