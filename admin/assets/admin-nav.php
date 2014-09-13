@@ -27,7 +27,7 @@ if ($login->isUserLoggedIn() == true) {
                
                    <li><a href='alarms.php'>Alarms</a></li>
                    
-                   <li><a href='users.php'>Users</a></li>
+                   <li><a href='contacts.php'>Contacts</a></li>
             </ul>
              <ul class='nav navbar-nav navbar-right'>
              
