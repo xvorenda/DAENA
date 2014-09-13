@@ -7,7 +7,7 @@ $group_name = filter_input(INPUT_POST, 'group_name');
 $group_desc = filter_input(INPUT_POST, 'group_desc');
 
 /* Start talking to MySQL and kill yourself if it ignores you */
-include 'config/db.php';
+include '/admin/config/db.php';
 $daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 // Check connection
 if (mysqli_connect_errno())
