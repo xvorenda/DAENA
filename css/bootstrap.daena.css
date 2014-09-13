@@ -103,7 +103,7 @@ h3 {margin:12px auto 0;}
     margin: 0 auto;
     width: 200px;
 }
-.input-medium {
+.input-medium, .input-wide {
     min-height: 32px;
     display: inline-block;
     padding: 6px 12px;
@@ -116,7 +116,9 @@ h3 {margin:12px auto 0;}
     background-color: #eee;
     border: 1px solid transparent;
     border-radius: 4px;
-
+}
+.input-wide {
+    min-width: 300px;
 }
 .gray       {color:#999 !important}  
 .violet     {color:#808 !important}  

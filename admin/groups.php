@@ -45,7 +45,7 @@ echo "<tr>
         <form action='handlers/group-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='group_id'/></td>
         <td><input type='text' class='input-medium search-query' name='group_name' value='New Group'/></td>
-        <td><input type='text' class='input-medium search-query' name='group_desc'/></td>
+        <td><input type='text' class='input-wide search-query' name='group_desc'/></td>
         <td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></form></td>
     </tr>
 </table>
