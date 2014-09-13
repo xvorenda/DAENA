@@ -9,10 +9,10 @@ if ($login->isUserLoggedIn() == true) {
 include 'config/db.php';
 $daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 // Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+if ($daenaDB->connect_errno) {
+    printf("Connect failed: %s\n", $daenaDB->connect_error);
+    exit();
+}
 
 
 /* Ask MySQL about which probes exist and get their metadata */
