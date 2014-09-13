@@ -47,7 +47,7 @@ echo "<tr>
 echo "<tr>
         <form action='handlers/contact-mod.php' method='POST'>
         <td><input type='text' class='input-medium search-query' name='contact_id'/></td>
-        <td><input type='text' class='input-medium search-query' name='contact_name' value='New Group'/></td>
+        <td><input type='text' class='input-medium search-query' name='contact_name' value='New Contact'/></td>
         <td><input type='text' class='input-wide search-query' name='contact_email'/></td>
         <td><input type='text' class='input-wide search-query' name='contact_alt_email'/></td>
         <td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></form></td>
