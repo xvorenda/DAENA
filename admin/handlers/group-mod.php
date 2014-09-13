@@ -29,11 +29,9 @@ WHERE group_id='" . $group_id . "'";
 if ($mysqlaction = "modify") {
 
 $onegroup = $daenaDB->query($groupupdate);
-if($onegroup === FALSE) {
-    die(mysqli_error()); // TODO: better error handling
-}
+
 echo "Modification Success!";
-/*echo '<script>window.location.replace("';
+echo '<script>window.location.replace("';
 $pageURL = 'http://';
 if ($_SERVER["SERVER_PORT"] != "80") {
   $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
@@ -41,15 +39,13 @@ if ($_SERVER["SERVER_PORT"] != "80") {
   $pageURL .= $_SERVER["SERVER_NAME"];
  }
  echo $pageURL;
- echo '/admin/groups.php");</script>';*/
+ echo '/admin/groups.php");</script>';
 }
 
 if ($mysqlaction = "add") {
 
 $onegroup = $daenaDB->query($groupadd);
-if($onegroup === FALSE) {
-    die(mysqli_error()); // TODO: better error handling
-}
+
 echo 'Addition Success!';
 echo '<script>window.location.replace("';
 $pageURL = 'http://';
