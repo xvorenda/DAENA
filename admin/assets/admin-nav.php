@@ -18,19 +18,13 @@ if ($login->isUserLoggedIn() == true) {
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
                    <li><a href='index.php'>Home</a></li>
-            
                    <li><a href='probes.php'>Probes</a></li>
-             
                    <li><a href='freezers.php'>Freezers</a></li>
-
                    <li><a href='groups.php'>Groups</a></li>
-               
-                   <li><a href='alarms.php'>Alarms</a></li>
-                   
                    <li><a href='contacts.php'>Contacts</a></li>
+                   <li><a href='alarms.php'>Alarms</a></li>
             </ul>
              <ul class='nav navbar-nav navbar-right'>
-             
                 <li><a href='index.php?logout'>Logout</a></li>";
 }else {
     echo "<div class='navbar-collapse collapse'>
