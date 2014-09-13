@@ -31,6 +31,7 @@ if (isset($registration)) {
 
     <label for="login_input_password_repeat">Repeat password</label>
     <input id="login_input_password_repeat" class="login_input" type="password" name="user_password_repeat" pattern=".{6,}" required autocomplete="off" />
+    <br><br>
     <input type="submit"  name="register" class= "btn" value="Register" />
 
 </form>
