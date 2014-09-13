@@ -20,10 +20,10 @@ if (isset($login)) {
 <form method="post" action="index.php" name="loginform">
 
     <label for="login_input_username">Username</label><br>
-    <input id="login_input_username" class="login_input" type="text" class="input-medium" name="user_name" required />
+    <input id="login_input_username" class="input-medium" type="text" name="user_name" required />
     <br><br>
     <label for="login_input_password">Password</label><br>
-    <input id="login_input_password" class="login_input" type="password" class="input-medium" name="user_password" autocomplete="off" required />
+    <input id="login_input_password" class="input-medium" type="password" name="user_password" autocomplete="off" required />
     <br><br>
     <input class="btn" type="submit"  name="login" value="Log in" />
 
