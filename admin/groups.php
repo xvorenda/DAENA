@@ -26,7 +26,7 @@ $allgroups = $daenaDB->query($allgroupsquery);
 echo "
 <div class='groupsbox'>
 <table>
-<tr><td>Group ID</td><td>Group Name</td><td class='td-wide'>Group Description</td></tr>
+<tr><td>Group ID</td><td>Group Name</td><td class='td-wide'>Group Description</td><td>&nbsp;</td></tr>
 ";
 while(($groupdata = $allgroups->fetch_assoc())){
     $group_name = $groupdata['group_name'];
