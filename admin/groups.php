@@ -35,8 +35,8 @@ while(($groupdata = $allgroups->fetch_assoc())){
 
 echo "<tr>
         <form action='handlers/group-mod.php' method='POST'>
-        <td><input type='text' class='input-medium search-query' name='group_id' value='".$group_id_id."'/></td>
-        <td><input type='text' class='input-medium search-query' name='group_name' value='".$group_id_name."'/></td>
+        <td><input type='text' class='input-medium search-query' name='group_id' value='".$group_id."'/></td>
+        <td><input type='text' class='input-medium search-query' name='group_name' value='".$group_name."'/></td>
         <td><input type='text' class='input-medium search-query' name='group_desc' value='".$group_desc."'/></td>
         <td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
     </tr>";};
