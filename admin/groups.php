@@ -15,6 +15,41 @@ if (mysqli_connect_errno())
   }
 
 
+/* Ask MySQL about which probes exist and get their metadata */
+$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
+FROM daena_db.groups 
+ORDER BY ABS(group_id)";
+$allprobes = $daenaDB->query($allprobesquery);
+
+
+/* Draw Freezer Mod Area */
+echo "
+<div class='groupsbox'>
+<table>
+<tr><td>Group ID</td><td>Group Name</td><td>Group Description</td></tr>
+";
+while(($groupdata = $allgroupss->fetch_assoc())){
+    $group_name = $groupdata['group_name'];
+    $group_id = $groupdata['group_id'];
+    $group_desc = $groupdata['group_desc'];
+
+echo "<tr>
+        <form action='handlers/group-mod.php' method='POST'>
+        <td><input type='text' class='input-medium search-query' name='group_id' value='".$group_id_id."'/></td>
+        <td><input type='text' class='input-medium search-query' name='group_name' value='".$group_id_name."'/></td>
+        <td><input type='text' class='input-medium search-query' name='group_desc' value='".$group_desc."'/></td>
+        <td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
+    </tr>";};
+
+echo "<tr>
+        <form action='handlers/group-mod.php' method='POST'>
+        <td><input type='text' class='input-medium search-query' name='group_id'/></td>
+        <td><input type='text' class='input-medium search-query' name='group_name' value='New Group'/></td>
+        <td><input type='text' class='input-medium search-query' name='group_desc'/></td>
+        <td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></form></td>
+    </tr>
+</table>
+</div></div>";	
 }else {
 echo "<div id='content'>"
     . "<h1>Unauthorized Access</h1>"
@@ -24,5 +59,3 @@ echo "<div id='content'>"
 /* Wrap things up */
 include 'assets/admin-footer.php';
 ?>
-	    
- 
