@@ -28,7 +28,10 @@ WHERE group_id='" . $group_id . "'";
 
 if ($mysqlaction == "modify") {
 
-$onegroup = $daenaDB->query($groupupdate);
+$onegroup = $daenaDB->query();
+if (!$daenaDB->query("$groupupdate")) {
+    printf("Errormessage: %s\n", $mysqli->error);
+}
 
 echo "Modification Success!";
 /*echo '<script>window.location.replace("';
