@@ -119,6 +119,7 @@ h3 {margin:12px auto 0;}
 }
 .input-wide, .wide {
     min-width: 300px;
+    clear: right
 }
 .gray       {color:#999 !important}  
 .violet     {color:#808 !important}  
