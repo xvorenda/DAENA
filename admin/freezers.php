@@ -3,9 +3,12 @@
 include "assets/admin-header.php";
 include 'assets/admin-nav.php';
 
+
+/* Make sure user is logged in */
 if ($login->isUserLoggedIn() == true) {
 
-/* Start talking to MySQL and kill yourself if it ignores you */
+    
+/* Start talking to MySQL */
 include 'admin/config/db.php';
 $daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 // Check connection
@@ -15,18 +18,12 @@ if (mysqli_connect_errno())
   }
 
 
-
 /* Ask MySQL about which probes exist and get their metadata */
 $allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
 FROM daena_db.probes 
 ORDER BY ABS(probe_id)";
 $allprobes = $daenaDB->query($allprobesquery);
     
-/* Count the active probes for density handling */
-$countquery = "SELECT FOUND_ROWS()";
-	$countraw = $daenaDB->query($countquery);
-	$countarray = $countraw->fetch_assoc();
-	$count = implode(",",$countarray);
 
 /* Ask MySQL about which freeers exist and get their metadata */
 $allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
@@ -34,19 +31,23 @@ FROM daena_db.freezers
 ORDER BY ABS(freezer_id)";
 $allfreezers = $daenaDB->query($allfreezersquery);
 
-/* Count the active freezers for density handling */
-$countquery = "SELECT FOUND_ROWS()";
-	$countraw = $daenaDB->query($countquery);
-	$countarray = $countraw->fetch_assoc();
-	$count = implode(",",$countarray);
-$i = 0;
 
-/* Draw Freezer Mod Area */
-echo "
-<div class='freezersbox'>
-<table>
-<tr><td>Freezer Name</td><td>Building</td><td>Room Number</td><td>Temperature Range</td><td>NTMS Host</td><td>NTMS Port</td><td>Active</td><td>Graph Color</td><td>Freezer ID</td><td>&nbsp;</td></tr>
-";
+/* Draw Freezer Display/Mod Area */
+echo "<div class='freezersbox'>
+    <table>
+        <tr>
+            <td>Freezer Name</td>
+            <td>Building</td>
+            <td>Room Number</td>
+            <td>Temperature Range</td>
+            <td>NTMS Host</td>
+            <td>NTMS Port</td>
+            <td>Active</td>
+            <td>Graph Color</td>
+            <td>Freezer ID</td>
+            <td>&nbsp;</td>
+        </tr>";
+
 while(($freezerdata = $allfreezers->fetch_assoc())){
     $freezer_name = $freezerdata['freezer_name'];
     $freezer_location = $freezerdata['freezer_location'];
@@ -78,8 +79,7 @@ echo "<tr>
         <td><input type='text' class='input-medium search-query color' name='freezer_color' value='".$freezer_color."'/></td>
         <td><input type='text' class='input-medium search-query' name='freezer_id' value='".$freezer_id."'/></td>
         <td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
-    </tr>";
-		$i++;};
+    </tr>";};
 
 echo "<tr>
         <form action='handlers/freezer-mod.php' method='POST'>
@@ -95,8 +95,9 @@ echo "<tr>
         <td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></form></td>
     </tr>
 </table>
-</div></div>";	
-}else {
+</div>
+</div>";	
+} else {
 echo "<div id='content'>"
     . "<h1>Unauthorized Access</h1>"
     . "<h3>Please <a href='index.php'>log in</a> to access this page.</h3>"
@@ -105,4 +106,3 @@ echo "<div id='content'>"
 /* Wrap things up */
 include 'assets/admin-footer.php';
 ?>
-	    
