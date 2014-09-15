@@ -84,7 +84,7 @@ echo "
 						echo "'
 						, dashStyle: 'ShortDash',".
 							/*pointInterval: ".$skip." * 60 * 1000,*/
-						"data: [".$chart['time'].",".$chart[$freezer_array['id'][$index]]."]";
+						"data: [".$chart['Time'].",".$chart[$freezer_array['id'][$index]]."]";
 			
 			
 						echo "dashStyle: 'solid'
