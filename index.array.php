@@ -3,8 +3,7 @@
 /* Get things started */
 include "assets/header.php";
 
- 
-include "assets/gc.array.php";
+
 /* Teach PHP how to read URL parameters, plus add defaults */
 include "assets/urlvars.php";
 
@@ -240,8 +239,8 @@ while($freezerdata = $allfreezers->fetch_assoc())
 
 /* Define the HighChart */
 $index = 0;
-include 'assets/highcharts.array.php';       
- 
+#include 'assets/highcharts.array.php';       
+include "assets/gc.array.php";
 /* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
 include "assets/url.php";
 $url = curPageURL();
@@ -259,7 +258,7 @@ echo"
 <!--Div that will hold the pie chart-->
     <div id='chart_div' style='width:400; height:300'></div>
 ";
-#include 'assets/navigation.php';
+include 'assets/navigation.php';
 
 /* Actually draw the graph */
 include "assets/graph.php";
