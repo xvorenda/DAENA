@@ -3,6 +3,8 @@
 /* Get things started */
 include "assets/header.php";
 
+ 
+include "/assets/gc.array.php";
 /* Teach PHP how to read URL parameters, plus add defaults */
 include "assets/urlvars.php";
 
@@ -254,8 +256,9 @@ echo"
 </head>
 
 <body>";
-
-include 'assets/navigation.php';
+<!--Div that will hold the pie chart-->
+    <div id="chart_div" style="width:400; height:300"></div>
+#include 'assets/navigation.php';
 
 /* Actually draw the graph */
 include "assets/graph.php";
