@@ -65,12 +65,9 @@ echo "
                    <li><a href='".$baseurl."?hours=".$hours."&skip=".$skip."&group=".$group."&loc=".$loc."&type=4'>4 Fridge</a></li>
                  </ul>
                </li>
-<<<<<<< HEAD:assets/navigation.php
             </ul>
-=======
                <li><a href='".$baseurl."'>Reset</a></li>
              </ul>
->>>>>>> LoganArrayImplementation:navigation.php
              <ul class='nav navbar-nav navbar-right'>
                <li><a href='about.php'>About</a></li>
                <li><a href='admin'>Admin</a></li>
