@@ -73,7 +73,7 @@ echo "
 			[";
 			
 				/* Loop through freezers and prepare data */
-				foreach ($index in $freezer_array['id'])
+				foreach ($freezer_array["id"] as $index)
 				{
 					echo"
 					{
