@@ -238,7 +238,7 @@ while($freezerdata = $allfreezers->fetch_assoc())
 
 /* Define the HighChart */
 $index = 0;
-include 'assets/highcharts.php';       
+include 'assets/highcharts.array.php';       
  
 /* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
 include "assets/url.php";
