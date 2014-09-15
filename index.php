@@ -59,11 +59,9 @@ if ($hours !='All') {
 	$viewstop = $now - $timespan;}
 else $viewstop = 0;
 */
-$chart = array()
+$chart = array();
 
-$time = time();
-
-$final_minute = round($time/60);
+$final_minute = round(time()/60);
 
 /* Determine what the first time will be */
 if ($hours == 'All')
