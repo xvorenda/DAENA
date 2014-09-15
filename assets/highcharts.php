@@ -73,7 +73,8 @@ echo "
 			[";
 			
 				/* Loop through freezers and prepare data */
-				foreach ($freezer_array["id"] as $index)
+				$index = 0;
+				foreach ($freezer_array["id"] as $id)
 				{
 					echo"
 					{
@@ -88,6 +89,7 @@ echo "
 			
 						echo "dashStyle: 'solid'
 					},";
+					$index ++;
 				}
 			echo "
 			]            
