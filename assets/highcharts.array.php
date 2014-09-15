@@ -77,9 +77,9 @@ echo "
 					, dashStyle: 'ShortDash',".
 					"data: 
 					{
-						x: [".join($chart['Time'], ',')."],
-						y: ["join($chart[$freezer_array['id'][$index]] ',')."]     
-					}
+						x: [".join($chart['Time'], ',')."]".
+					#	y: ["join($chart[$freezer_array['id'][$index]] ',')."]     
+					"}
 				}".
 				
 			
