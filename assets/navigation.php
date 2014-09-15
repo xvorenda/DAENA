@@ -10,7 +10,7 @@ echo "
             <span class='icon-bar'></span>
           </button>
           <a class='navbar-brand white' href='".$baseurl."' title='Data Aggregation and Emergency Notifications for Appliances'>
-          	<img src='images/daena.png' class='daena-logo'>DAENA Monitoring System
+          <img src='images/daena.png' class='daena-logo'>DAENA Monitoring System
           </a>
         </div>
         <div class='navbar-collapse collapse'>
@@ -70,8 +70,8 @@ echo "
                <li><a href='about.php'>About</a></li>
                <li><a href='admin'>Admin</a></li>
              </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
+           </div><!--/.nav-collapse -->
+         </div>
+       </div>
 ";
 ?>
