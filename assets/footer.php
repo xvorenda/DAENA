@@ -8,7 +8,7 @@
         <a href='http://www.php-login.net/' target='_blank'>PHP-Login</a>, 
         <a href='http://www.highcharts.com/' target='_blank'>HighCharts</a>, and 
         <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a> for use with telnet-capable devices and probes.<br>
-        DAENA is free software released under GNU/GPLv3 and/or <a href='http://creativecommons.org/licenses/by/4.0/'>CC BY 4.0 and/or the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+        DAENA is free software released under the GNU/GPLv3 License. <a href='http://shop.highsoft.com/faq/non-commercial' target='_blank'>HighCharts JS</a> is <b>not</b> free for commercial use.</p>
         <div class='pageloadleft' id="loadingtime"></div><div class='pageloadright'>MySQL load time: <?PHP 
             $endtime = microtime();
             $mysqltime = $endtime - $starttime;

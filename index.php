@@ -1,6 +1,6 @@
 <?php
 
-/** Get things started */
+/* Get things started */
 include 'assets/header.php';
 
 /* Teach PHP how to read URL parameters, plus add defaults */
