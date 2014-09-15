@@ -1,10 +1,10 @@
 <?php
 
 /* Get things started */
-include "header.php";
+include "assets/header.php";
 
 /* Teach PHP how to read URL parameters, plus add defaults */
-include "urlvars.php";
+include "assets/urlvars.php";
 
 /* Start talking to MySQL and kill yourself if it ignores you */
 $daenaDB = new mysqli("localhost", "daena_user", "idontcareaboutpasswordsrightnow", "daena_db");
@@ -237,7 +237,7 @@ while($freezerdata = $allfreezers->fetch_assoc())
 } # End while loop to fetch each freezer
 
 /* Define the HighChart */
-include 'highcharts.php';       
+include 'assets/highcharts.php';       
  
 /* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
 include "url.php";
@@ -254,11 +254,11 @@ echo"
 
 <body>";
 
-include 'navigation.php';
+include 'assets/navigation.php';
 
 /* Actually draw the graph */
-include "graph.php";
+include "assets/graph.php";
 
 /* Wrap things up */
-include "footer.php";
+include "assets/footer.php";
 ?>
