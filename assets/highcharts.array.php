@@ -78,7 +78,7 @@ echo "
 					"data: 
 					{
 						x: [".join($chart['Time'], ',')."],
-						y: [".join($chart[$freezer_array['id'][$index]], ',')."]     
+						y: [".  \join($chart[$freezer_array['id'][$index]], ',')."]     
 					}
 				}".
 				
