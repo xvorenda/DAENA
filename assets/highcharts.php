@@ -84,7 +84,7 @@ echo "
 						echo "'
 						, dashStyle: 'solid',".
 							/*pointInterval: ".$skip." * 60 * 1000,*/
-						"data: [".$chart['Time'].",".$chart[$freezer_array['id'][$index]]."]";
+						"data: [".join($chart[$freezer_array['id'][$index]], ",") ."]]";
 			
 			
 					echo "
