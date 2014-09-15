@@ -94,6 +94,7 @@ for record in readcursor:
         #print "sensor", sensor
     
         temp, hex = sensor
+        temp = temp.replace('-0','-')
     
     except ValueError:
         #print "valueError"

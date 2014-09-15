@@ -1,11 +1,4 @@
 <?php
-echo "
-<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([";
 
 /* Start talking to MySQL and kill yourself if it ignores you */
 include 'admin/config/db.php';
@@ -80,15 +73,21 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     
     };
 };
-echo "]);";
+echo "
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(".$datatable.");";
         };
 
 
- /*       ['Year', 'Sales', 'Expenses'],
-          ['2004',  1000,      400],
-          ['2005',  1170,      460],
-          ['2006',  660,       1120],
-          ['2007',  1030,      540] */
+ /*       ['EpochTime', 'Freezer1001', 'Freezer1002', FreezerXXXX'],
+          ['1410799002',  -80.2,       -21.4,           2.3],
+          ['1410799062',  -80.4,       -20.8            0.4],
+          ['1410799122',  -80.2,       -19.9           -4.1],
+          ['1410799182',  -80.4,            ,          -8.4] */
 
 
         var options = {
