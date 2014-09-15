@@ -71,8 +71,25 @@ echo "
 			},
 			series: 
 			[";
+			
+			$index = 0;
+			echo"
+				{
+					name: '" . $freezer_array['name'][$index] . "<br>" . $freezer_array['location'][$index] . "',
+					color: '#" . $freezer_array['color'][$index]."
+					, dashStyle: 'ShortDash',".
+					"data: 
+					{
+						x: [".join($chart['Time'], ",")."]
+						y: ["join($chart[$freezer_array['id'][$index]], ",")."]      
+					}
+				}";
+				
+			
+			/*
 				$index = 0;
 				/* Loop through freezers and prepare data */
+			/*
 				foreach ($freezer_array['id'] as $id)
 				{
 					echo"
@@ -80,19 +97,22 @@ echo "
 						name: '" . $freezer_array['name'][$index] . "<br>" . $freezer_array['location'][$index] . "',
 						color: '#" . $freezer_array['color'][$index];
 						/* Define each freezer graph */
+			/*			
 						echo "'
 						, dashStyle: 'ShortDash',".
 							/*pointInterval: ".$skip." * 60 * 1000,*/
+			/*
 						"data: 
 						{
 							x: [".join($chart['Time'], ",")."]
 							y: ["join($chart[$freezer_array['id'][$index]], ",")."]      
 						}";
 			
-						echo "dashStyle: 'solid'
+						echo "
 					},";
 					$index ++
 				}
+			*/
 			echo "
 			]            
 		}); 
