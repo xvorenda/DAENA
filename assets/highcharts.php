@@ -87,7 +87,7 @@ echo "
 						"data: [".$chart['Time'].",".$chart[$freezer_array['id'][$index]]."]";
 			
 			
-						echo "dashStyle: 'solid'
+						echo ", dashStyle: 'solid'
 					},";
 					$index ++;
 				}
