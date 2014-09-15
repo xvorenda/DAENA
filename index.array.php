@@ -58,7 +58,7 @@ if ($hours !='All') {
 	$viewstop = $now - $timespan;}
 else $viewstop = 0;
 */
-$chart = array()
+$chart = array();
 
 $final_minute = round(time()/60);
 
@@ -100,12 +100,12 @@ $freezer_array = array();
 /* Ask MySQL for X hours of data on each probe and prepare data for graph*/
 while($freezerdata = $allfreezers->fetch_assoc())
 {
-	/*
+
     $freezer_id = $freezerdata['freezer_id'];
     $freezer_name = $freezerdata['freezer_name'];
     $freezer_color = $freezerdata['freezer_color'];
     $freezer_loc = $freezerdata['freezer_location'];
-    */
+    
     /* Order Desc, then Limit number of rows, then final output ASCENDING*/
     $probequery = "(SELECT temp,time FROM daena_db.data 
     	WHERE freezer_id='" . $freezer_id . "'
