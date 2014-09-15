@@ -5,15 +5,15 @@
 <script type="text/javascript">
 before = (new Date()).getTime();
 </script>
- <script type="text/javascript">
-function pageload()
-{
-    var after = (new Date()).getTime();
-    var sec = (after-before)/1000;
-    var div = document.getElementById("loadingtime");
-    div.innerHTML = "Javascript page load time: " + sec + " seconds.";
-        
-}
+<script type="text/javascript">
+	function pageload()
+	{
+		var after = (new Date()).getTime();
+		var sec = (after-before)/1000;
+		var div = document.getElementById("loadingtime");
+		div.innerHTML = "Javascript page load time: " + sec + " seconds.";
+		
+	}
 </script>
 <title>DAENA | Data Aggregation and Emergency Notifications for Appliances</title>
 <link rel='shortcut icon' href='images/daena.png'/>

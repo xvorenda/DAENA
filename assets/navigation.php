@@ -10,7 +10,7 @@ echo "
             <span class='icon-bar'></span>
           </button>
           <a class='navbar-brand white' href='".$baseurl."' title='Data Aggregation and Emergency Notifications for Appliances'>
-          <img src='images/daena.png' class='daena-logo'>DAENA Monitoring System
+          	<img src='images/daena.png' class='daena-logo'>DAENA Monitoring System
           </a>
         </div>
         <div class='navbar-collapse collapse'>
@@ -65,13 +65,18 @@ echo "
                    <li><a href='".$baseurl."?hours=".$hours."&skip=".$skip."&group=".$group."&loc=".$loc."&type=4'>4 Fridge</a></li>
                  </ul>
                </li>
+<<<<<<< HEAD:assets/navigation.php
             </ul>
+=======
+               <li><a href='".$baseurl."'>Reset</a></li>
+             </ul>
+>>>>>>> LoganArrayImplementation:navigation.php
              <ul class='nav navbar-nav navbar-right'>
                <li><a href='about.php'>About</a></li>
                <li><a href='admin'>Admin</a></li>
              </ul>
-           </div><!--/.nav-collapse -->
-         </div>
-       </div>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
 ";
 ?>
