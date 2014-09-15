@@ -61,7 +61,9 @@ else $viewstop = 0;
 */
 $chart = array()
 
-$final_minute = round(time()/60);
+$time = time();
+
+$final_minute = round($time/60);
 
 /* Determine what the first time will be */
 if ($hours == 'All')
