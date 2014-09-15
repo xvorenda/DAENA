@@ -4,7 +4,7 @@
 include "assets/header.php";
 
  
-include "/assets/gc.array.php";
+include "assets/gc.array.php";
 /* Teach PHP how to read URL parameters, plus add defaults */
 include "assets/urlvars.php";
 
