@@ -237,6 +237,7 @@ while($freezerdata = $allfreezers->fetch_assoc())
 } # End while loop to fetch each freezer
 
 /* Define the HighChart */
+$index = 0;
 include 'assets/highcharts.php';       
  
 /* Set up navigation for different graphs || TODO: groups table, dynamically generate || */

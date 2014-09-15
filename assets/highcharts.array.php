@@ -70,10 +70,7 @@ echo "
 					}
 			},
 			series: 
-			[".
-			
-			$index = 0;.
-			"
+			[
 				{
 					name: '" . $freezer_array['name'][$index] . "<br>" . $freezer_array['location'][$index] . "',
 					color: '#" . $freezer_array['color'][$index]."
