@@ -255,9 +255,10 @@ echo "]
 echo"
 </head>
 
-<body>";
+<body>
 <!--Div that will hold the pie chart-->
-    <div id="chart_div" style="width:400; height:300"></div>
+    <div id='chart_div' style='width:400; height:300'></div>
+";
 #include 'assets/navigation.php';
 
 /* Actually draw the graph */
