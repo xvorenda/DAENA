@@ -82,12 +82,12 @@ echo "
 						color: '#" . $freezer_array['color'][$index];
 						/* Define each freezer graph */
 						echo "'
-						, dashStyle: 'ShortDash',".
+						, dashStyle: 'solid',".
 							/*pointInterval: ".$skip." * 60 * 1000,*/
 						"data: [".$chart['Time'].",".$chart[$freezer_array['id'][$index]]."]";
 			
 			
-						echo ", dashStyle: 'solid'
+					echo "
 					},";
 					$index ++;
 				}
