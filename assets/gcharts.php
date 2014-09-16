@@ -33,7 +33,7 @@ $pings = $daenaDB->query($pingquery);
 
 while ($row = $pings->fetch_assoc()) {
       $pingtime = $row["time"];
-      echo $pingtime;
+      echo $pingtime."/n";
   }
 
 /* Count the active probes for density handling
