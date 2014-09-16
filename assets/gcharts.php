@@ -38,6 +38,7 @@ while ($row = $pings->fetch_assoc()) {
           WHERE time = ".$pingtime."
           ORDER BY freezer_id";
       $data = $daenaDB->query($pingquery);
+      while ($row = $pings->fetch_assoc()) {
           echo $pingtime;
           echo $data[temp];
           echo $data[freezer_id];
@@ -46,7 +47,7 @@ while ($row = $pings->fetch_assoc()) {
 
 
 
-    }
+}}
 
 /* Count the active probes for density handling
 $countquery = "SELECT FOUND_ROWS()";
