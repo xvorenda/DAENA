@@ -30,7 +30,7 @@ $columnnames = array();
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
-    $freezername = $datarow["temp"];
+    $freezername = $freezerrow["freezer_id"];
     array_push($columnnames,$freezername);
 }
 print_r($columnnames);
@@ -51,7 +51,7 @@ $pings = $daenaDB->query($pingquery);
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["time"];
       $dataquery = "
-          SELECT temp,freezer_id
+          SELECT temp
           FROM daena_db.data
           WHERE time = ".$pingtime."
           ORDER BY freezer_id";
