@@ -23,7 +23,7 @@ LIMIT '".$timespan."'";
     
 $pings = $daenaDB->query($pingquery);
 
-echo $pings;
+printr($pings);
     
 /* Count the active probes for density handling
 $countquery = "SELECT FOUND_ROWS()";
