@@ -22,10 +22,10 @@ $pingquery = "SELECT time
 FROM (
    SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
    FROM daena_db.data
+   LIMIT ".$limit."
       JOIN (SELECT @rowNumber:= 0) r
 ) t 
-WHERE rn % ".$skip." = 1 
-LIMIT ".$limit;
+WHERE rn % ".$skip." = 1"; 
 
 echo $pingquery;
 
