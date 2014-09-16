@@ -23,10 +23,9 @@ LIMIT ".$timespan;
 $pings = $daenaDB->query($pingquery);
 print_r ($pings);
 
-while ($row = pg_fetch_array($pings)) 
-{ 
-     echo "data: ".$row["data"]; 
-} 
+  while ($row = $pings->fetch_assoc()) {
+        printf ("%s \n", $row["time"]);
+    }
 
 /* Count the active probes for density handling
 $countquery = "SELECT FOUND_ROWS()";
