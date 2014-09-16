@@ -38,8 +38,10 @@ while ($row = $pings->fetch_assoc()) {
           WHERE time = ".$pingtime."
           ORDER BY freezer_id";
       $data = $daenaDB->query($pingquery);
-      $datarow = $data->fetch_assoc();
-          print_r($datarow);
+          echo $pingtime;
+          echo $data["temp"];
+          echo $data["freezer_id"];
+          echo "\n";
 
 
 
