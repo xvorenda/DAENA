@@ -36,16 +36,16 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 print_r($columnnames);
         
 /* Ask MySQL for X number of minutes worth of ping data */
-$pingquery = "
-    SELECT time
-FROM (
-   (SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
-   FROM daena_db.data
-      JOIN (SELECT @rowNumber:= 0) r
-) ORDER BY time DESC) t 
-WHERE rn % ".$skip." = 1
+$pingquery = "(SELECT DISTINCT *
+FROM ( 
+    (SELECT DISTINCT
+        @row := @row +1 AS rownum, time 
+    FROM ( 
+        SELECT DISTINCT @row :=0) r, daena_db.data 
+) ORDER BY rownum DESC) ranked 
+WHERE rownum % ".$skip." = 1
 ".$limit."
-ORDER BY time ASC";
+)ORDER BY time ASC";
 
 echo $pingquery;
 
