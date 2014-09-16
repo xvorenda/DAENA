@@ -42,7 +42,7 @@ $pingquery = "
        (SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
        FROM daena_db.data
           JOIN (SELECT @rowNumber:= 0) r
-          ".$sqllimit." ) ORDER BY time ASC
+          ".$limit." ) ORDER BY time ASC
     ) t 
     WHERE rn % ".$skip." = 1) ORDER BY time ASC"; 
 
