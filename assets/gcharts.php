@@ -20,11 +20,9 @@ $pingquery = "SELECT DISTINCT time
 FROM daena_db.data 
 LIMIT ".$timespan;
 
-echo $pingquery;
 $pings = $daenaDB->query($pingquery);
-echo $pings;
-$pingarray = $pings->fetch_assoc();
-print_r($pingarray);
+print_r ($pings);
+
     
 /* Count the active probes for density handling
 $countquery = "SELECT FOUND_ROWS()";
