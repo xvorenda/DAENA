@@ -42,9 +42,9 @@ FROM (
    (SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
    FROM daena_db.data
       JOIN (SELECT @rowNumber:= 0) r
-      ".$limit."
 ) ORDER BY time DESC) t 
-WHERE rn % ".$skip." = 1"; 
+WHERE rn % ".$skip." = 1
+".$limit;
 
 echo $pingquery;
 
