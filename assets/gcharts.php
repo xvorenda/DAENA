@@ -14,18 +14,25 @@ if (mysqli_connect_errno())
         {$timespan = $hours * 3600 + 1;}
   else 
         {$timespan = "";}
+        
+  $limit = intval($timespan / $skip);
   
 /* Ask MySQL for X number of minutes worth of ping data */
 $pingquery = "SELECT DISTINCT time
-FROM daena_db.data 
-LIMIT ".$timespan;
+FROM (
+   SELECT time, @rowNumber:=@rowNumber+ 1 rn
+   FROM daena_db.data
+      JOIN (SELECT @rowNumber:= 0) r
+) t 
+WHERE rn % ".$skip." = 1 
+LIMIT ".$limit;
 
 $pings = $daenaDB->query($pingquery);
-print_r ($pings);
 
-  while ($row = $pings->fetch_assoc()) {
-        printf ("%s \n", $row["time"]);
-    }
+while ($row = $pings->fetch_assoc()) {
+      $pingtime = $row["time"];
+
+  }
 
 /* Count the active probes for density handling
 $countquery = "SELECT FOUND_ROWS()";
