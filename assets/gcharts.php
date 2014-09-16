@@ -18,7 +18,7 @@ if (mysqli_connect_errno())
 /* Ask MySQL for X number of minutes worth of ping data */
 $pingquery = "SELECT DISTINCT time
 FROM daena_db.data 
-LIMIT '".$timespan."'";
+LIMIT ".$timespan;
 
 echo $pingquery;
 $pings = $daenaDB->query($pingquery);
