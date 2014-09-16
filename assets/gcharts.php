@@ -9,14 +9,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-/* Limit displayed points to within view window */
-  if ($hours !='All') 
-        {$timespan = $hours * 3600 + 1;
-        $limit = "LIMIT ".$timespan;
-        }
-  else 
-        {$limit = "";}
-
+  
 /* Ask MySQL which freezers are active */
 $freezerquery = "SELECT freezer_id,freezer_name,freezer_color,freezer_location 
 FROM daena_db.freezers 
@@ -34,6 +27,16 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($columnnames,$freezername);
 }
 print_r($columnnames);
+  
+
+/* Limit displayed points to within view window */
+  if ($hours !='All') 
+        {$timespan = $hours * 3600 + 1;
+        $limit = "LIMIT ".$timespan;
+        }
+  else 
+        {$limit = "";}
+
         
 /* Ask MySQL for X number of minutes worth of ping data */
 $pingquery = "
@@ -42,9 +45,11 @@ $pingquery = "
        (SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
        FROM daena_db.data
           JOIN (SELECT @rowNumber:= 0) r
-          ".$limit." ) ORDER BY time ASC
-    ) t 
+          ".$limit." 
+    ) t ) ORDER BY time ASC
     WHERE rn % ".$skip." = 1) ORDER BY time ASC"; 
+
+echo $pingquery;
 
 $pings = $daenaDB->query($pingquery);
 
