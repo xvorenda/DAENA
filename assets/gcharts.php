@@ -39,7 +39,7 @@ print_r($columnnames);
 $pingquery = "
     SELECT time
 FROM (
-   (SELECT time, @rowNumber:=@rowNumber+ 1 rn
+   (SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
    FROM data
       JOIN (SELECT @rowNumber:= 0) r
       ".$limit."
