@@ -32,15 +32,15 @@ WHERE rn % ".$skip." = 1";
 $pings = $daenaDB->query($pingquery);
 
 while ($row = $pings->fetch_assoc()) {
-      $pingtime = $row["time"];
+      $pingtime = $row[time];
       $dataquery = "SELECT temp,freezer_id
           FROM daena_db.data
           WHERE time = ".$pingtime."
           ORDER BY freezer_id";
       $data = $daenaDB->query($pingquery);
           echo $pingtime;
-          echo $data["temp"];
-          echo $data["freezer_id"];
+          echo $data[temp];
+          echo $data[freezer_id];
           echo "\n";
 
 
