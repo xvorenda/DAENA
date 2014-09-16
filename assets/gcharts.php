@@ -11,7 +11,7 @@ if (mysqli_connect_errno())
 
 /* Limit displayed points to within view window */
   if ($hours !='All') 
-        {$timespan = $hours * 3600;}
+        {$timespan = $hours * 3600 + 1;}
   else 
         {$timespan = "";}
   
