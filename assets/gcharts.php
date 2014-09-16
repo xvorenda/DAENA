@@ -12,43 +12,59 @@ if (mysqli_connect_errno())
 /* Limit displayed points to within view window */
   if ($hours !='All') 
         {$timespan = $hours * 3600 + 1;
-        $limit = intval($timespan / $skip);
-        $sqllimit = "LIMIT ".$limit;
+        $limit = "LIMIT ".$timespan;
         }
   else 
-        {$sqllimit = "";}
+        {$limit = "";}
 
-  
+/* Ask MySQL which freezers are active */
+$freezerquery = "SELECT freezer_id,freezer_name,freezer_color,freezer_location 
+FROM daena_db.freezers 
+WHERE freezer_active='1'
+".$groupfilter."
+".$locfilter."
+".$typefilter."
+ORDER BY ABS(freezer_id)";
+
+$columnnames = array();
+array_push($columnnames,"Time");
+$freezers = $daenaDB->query($freezerquery);
+while ($freezerrow = $freezers->fetch_assoc()) {
+    $freezername = $datarow["temp"];
+    array_push($columnnames,$freezername);
+}
+print_r($columnnames);
+        
 /* Ask MySQL for X number of minutes worth of ping data */
-$pingquery = "SELECT time
-FROM (
-   SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
-   FROM daena_db.data
-      JOIN (SELECT @rowNumber:= 0) r
-      ".$sqllimit."
-) t 
-WHERE rn % ".$skip." = 1"; 
-echo $pingquery;
+$pingquery = "
+    SELECT time
+    FROM (
+       SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
+       FROM daena_db.data
+          JOIN (SELECT @rowNumber:= 0) r
+          ".$sqllimit."
+    ) t 
+    WHERE rn % ".$skip." = 1"; 
+
 $pings = $daenaDB->query($pingquery);
 
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["time"];
-      $dataquery = "SELECT temp,freezer_id
+      $dataquery = "
+          SELECT temp,freezer_id
           FROM daena_db.data
           WHERE time = ".$pingtime."
-                    ORDER BY freezer_id";
+          ORDER BY freezer_id";
       echo $pingtime;
       $data = $daenaDB->query($dataquery);
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
-          $datafreezer = $datarow["freezer_id"];
           
-          echo $datatemp.$datafreezer."\n";
+          echo $datatemp."\n";
 
 
-
-
-}}
+      }
+}
 
 /* Count the active probes for density handling
 $countquery = "SELECT FOUND_ROWS()";
