@@ -41,14 +41,14 @@ print_r($columnnames);
 /* Ask MySQL for X number of minutes worth of ping data */
 $pingquery = "
     (SELECT time
-    FROM (
-       (SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
-       FROM daena_db.data
-          JOIN (SELECT @rowNumber:= 0) r
-          ".$limit." 
-    ) t ) ORDER BY time ASC
+        FROM ((SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
+                FROM daena_db.data
+                JOIN (
+                    SELECT @rowNumber:= 0
+                ) r
+                ".$limit." ORDER BY time ASC)
+            ) t 
     WHERE rn % ".$skip." = 1) ORDER BY time ASC"; 
-
 echo $pingquery;
 
 $pings = $daenaDB->query($pingquery);
