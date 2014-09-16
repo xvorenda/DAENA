@@ -40,7 +40,7 @@ $pingquery = "
     SELECT time
 FROM (
    (SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
-   FROM data
+   FROM daena_db.data
       JOIN (SELECT @rowNumber:= 0) r
       ".$limit."
 ) ORDER BY time DESC) t 
