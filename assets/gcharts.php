@@ -35,14 +35,15 @@ while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["time"];
       $dataquery = "SELECT temp,freezer_id
           FROM daena_db.data
-          WHERE time = ".$pingtime."
+          WHERE time = 1396921261.38
           ORDER BY freezer_id";
       echo $pingtime;
       $data = $daenaDB->query($pingquery);
       while ($datarow = $data->fetch_assoc()) {
-          echo $datarow["temp"];
-          echo $datarow["freezer_id"];
-          echo "\n";
+          $datatemp = $datarow["temp"];
+          $datafreezer = $datarow["freezer_id"];
+          
+          echo $datatemp.$datafreezer."\n";
 
 
 
