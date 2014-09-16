@@ -44,11 +44,12 @@ FROM (
       JOIN (SELECT @rowNumber:= 0) r
 ) ORDER BY time DESC) t 
 WHERE rn % ".$skip." = 1
-".$limit;
+".$limit."
+ORDER BY time ASC";
 
 echo $pingquery;
 
-$pings = $daenaDB->query($pingquery);
+/*$pings = $daenaDB->query($pingquery);
 
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["time"];
