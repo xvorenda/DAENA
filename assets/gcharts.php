@@ -22,8 +22,8 @@ WHERE freezer_active='1'
 LIMIT '".$timespan."'";
     
 $pings = $daenaDB->query($pingquery);
-
-print_r($pings);
+$pingarray = $pings->fetch_assoc();
+print_r($pingarray);
     
 /* Count the active probes for density handling
 $countquery = "SELECT FOUND_ROWS()";
