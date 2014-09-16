@@ -27,6 +27,8 @@ FROM (
 WHERE rn % ".$skip." = 1 
 LIMIT ".$limit;
 
+echo $pingquery;
+/*
 $pings = $daenaDB->query($pingquery);
 
 while ($row = $pings->fetch_assoc()) {
