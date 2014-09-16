@@ -28,12 +28,12 @@ WHERE rn % ".$skip." = 1
 LIMIT ".$limit;
 
 echo $pingquery;
-/*
+
 $pings = $daenaDB->query($pingquery);
 
 while ($row = $pings->fetch_assoc()) {
       $pingtime = $row["time"];
-
+      echo $pingtime;
   }
 
 /* Count the active probes for density handling
@@ -92,5 +92,9 @@ echo "
 
         chart.draw(data, options);
       }
-    </script>";
+    </script>"; 
+ */
+</script>
+</head>
+<body>"
 ?>

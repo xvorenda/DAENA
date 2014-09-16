@@ -13,12 +13,7 @@ include 'assets/gcharts.php';
 include "assets/url.php";
 $url = curPageURL();
 $baseurl = substr($url, 0, strpos($url, "?"));
-echo "]            
-            }); 
-        });
-</script>
-</head>
-<body>";
+
 include 'assets/navigation.php';
 
 /* Actually draw the graph */
