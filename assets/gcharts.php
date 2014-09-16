@@ -20,7 +20,8 @@ $pingquery = "SELECT DISTINCT time
 FROM daena_db.data 
 WHERE freezer_active='1'
 LIMIT '".$timespan."'";
-    
+
+echo $pingquery;
 $pings = $daenaDB->query($pingquery);
 $pingarray = $pings->fetch_assoc();
 print_r($pingarray);
