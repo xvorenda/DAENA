@@ -22,6 +22,7 @@ LIMIT '".$timespan."'";
 
 echo $pingquery;
 $pings = $daenaDB->query($pingquery);
+echo $pings;
 $pingarray = $pings->fetch_assoc();
 print_r($pingarray);
     
