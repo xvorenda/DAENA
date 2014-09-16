@@ -18,9 +18,9 @@ if (mysqli_connect_errno())
   $limit = intval($timespan / $skip);
   
 /* Ask MySQL for X number of minutes worth of ping data */
-$pingquery = "SELECT DISTINCT time
+$pingquery = "SELECT time
 FROM (
-   SELECT time, @rowNumber:=@rowNumber+ 1 rn
+   SELECT DISTINCT time, @rowNumber:=@rowNumber+ 1 rn
    FROM daena_db.data
       JOIN (SELECT @rowNumber:= 0) r
 ) t 
