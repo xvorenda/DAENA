@@ -39,24 +39,24 @@ print_r($columnnames);
 $pingquery = "(SELECT DISTINCT *
 FROM ( 
     (SELECT DISTINCT
-        @row := @row +1 AS rownum, time 
+        @row := @row +1 AS rownum, int_time 
     FROM ( 
         SELECT DISTINCT @row :=0) r, daena_db.data 
 ) ORDER BY rownum DESC) ranked 
 WHERE rownum % ".$skip." = 1
 ".$limit."
-)ORDER BY time ASC";
+)ORDER BY int_time ASC";
 
 echo $pingquery;
 
 $pings = $daenaDB->query($pingquery);
 
 while ($pingrow = $pings->fetch_assoc()) {
-      $pingtime = $pingrow["time"];
+      $pingtime = $pingrow["int_time"];
       $dataquery = "
           SELECT temp
           FROM daena_db.data
-          WHERE time = ".$pingtime."
+          WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
       echo $pingtime;
       $data = $daenaDB->query($dataquery);
