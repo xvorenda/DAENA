@@ -75,7 +75,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
                     data: [";
     /* Limit displayed points to within view window */
     if ($hours !='All') {
-    $now = time() * 1000;
+    $now = time();
     $timespan = $hours * 60 * 60 * 1000;
     $viewstop = $now - $timespan;}
     else $viewstop = 0;
@@ -92,7 +92,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
         $probe_temp = ltrim($probe_temp, '+00');
         $probe_temp = ltrim($probe_temp, '+0');};
         if (isset($probe_time)) {
-            $probe_minute = round($probe_time / 60) * 60 * 1000;
+            $probe_minute = round($probe_time / 60) * 60;
             $bounce = $skip * 60 * 1000;
             $time_slice = ($probe_minute / $bounce);
             $int_time_slice = intval($time_slice);
