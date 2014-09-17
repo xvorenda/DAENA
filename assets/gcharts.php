@@ -74,7 +74,7 @@ while ($pingrow = $pings->fetch_assoc()) {
       
       echo "['".$pingtime."'";
       $data = $daenaDB->query($dataquery);
-      $freezercount = count($freezers) + 1;
+      $freezercount = count($freezers);
       $datacount = count($data);
       
       if ($datacount == $freezercount){
