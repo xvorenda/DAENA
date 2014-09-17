@@ -72,11 +72,11 @@ while ($pingrow = $pings->fetch_assoc()) {
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
       
-      echo "['".$pingtime."'";
+      /*echo "['".$pingtime."'";*/
       $data = $daenaDB->query($dataquery);
       $columncount = count($columnnames);
       $datacount = count($data);
-      echo $columncount.$datacount;
+      echo $columncount."=columncount".$datacount."=datacount";
       
 }/*if ($datacount == $columncount){
       while ($datarow = $data->fetch_assoc()) {
