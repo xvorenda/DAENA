@@ -49,7 +49,7 @@ WHERE rownum % ".$skip." = 1
 
 echo $pingquery;
 
-/*$pings = $daenaDB->query($pingquery);
+$pings = $daenaDB->query($pingquery);
 
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["time"];
