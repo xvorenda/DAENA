@@ -43,7 +43,7 @@ echo "
       function drawChart() {
         var data = google.visualization.arrayToDataTable(";
 
-echo "[".$columnheader."]\n";
+echo "[".$columnheader."],\n";
         
 /* Ask MySQL for X number of minutes worth of ping data */
 $pingquery = "(SELECT DISTINCT *
