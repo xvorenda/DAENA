@@ -41,7 +41,7 @@ echo "
       google.load('visualization', '1', {packages:['corechart']});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data = google.visualization.arrayToDataTable(";
+        var data = google.visualization.arrayToDataTable([";
 
 echo "['".$columnheader."'],\n";
         
@@ -86,8 +86,7 @@ while ($pingrow = $pings->fetch_assoc()) {
       }
       echo "],\n";
 }
-echo "
-            );
+echo "]);
 
         var options = {
           title: '".$group." Freezers <br>Location: ".$loc."<br>".$hours." Hour View | 1/".$skip." Density'
