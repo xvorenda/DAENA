@@ -76,7 +76,9 @@ while ($pingrow = $pings->fetch_assoc()) {
       $data = $daenaDB->query($dataquery);
       $columncount = count($columnnames);
       $datacount = count($data);
-      if ($datacount == $columncount){
+      echo $columncount.$datacount;
+      
+      /*if ($datacount == $columncount){
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
