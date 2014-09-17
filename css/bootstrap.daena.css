@@ -15,7 +15,8 @@ h3 {margin:12px auto 0;}
 .field-narrow, .field-wide {margin:12px auto !important}
 #container, #about {
    position:relative;
-   margin:96px 24px !important;   
+   margin:96px 24px !important;  
+   min-height: 600px;
 }
 .stealth {display:none}
 .fakeinput, input {
