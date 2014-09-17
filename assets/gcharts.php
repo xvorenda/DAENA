@@ -34,6 +34,15 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($columnnames,$freezername);
 }
 $columnheader = implode (", ",$columnnames);
+
+echo "
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['corechart']});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(";
+
 echo "[".$columnheader."]\n";
         
 /* Ask MySQL for X number of minutes worth of ping data */
@@ -68,7 +77,18 @@ while ($pingrow = $pings->fetch_assoc()) {
       }
       echo "]\n";
 }
+echo "
+            );
 
+        var options = {
+          title: '".$group." Freezers <br>Location: ".$loc."<br>".$hours." Hour View | 1/".$skip." Density'
+            };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>";
 /* Count the active probes for density handling
 $countquery = "SELECT FOUND_ROWS()";
         	$countraw = $daenaDB->query($countquery);
@@ -106,26 +126,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     if ($freezer_color == null) {
         $freezer_color = substr(md5(rand()), 0, 6);
         }
-    };
-
-echo "
-<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-    <script type='text/javascript'>
-      google.load('visualization', '1', {packages:['corechart']});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable(".$datatable."
-            );
-
-        var options = {
-          title: '".$group." Freezers <br>Location: ".$loc."<br>".$hours." Hour View | 1/".$skip." Density'
-            };
-
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-
-        chart.draw(data, options);
-      }
-    </script>"; 
+    }; 
  */
 </script>
 </head>
