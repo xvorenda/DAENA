@@ -78,7 +78,7 @@ while ($pingrow = $pings->fetch_assoc()) {
       $datacount = count($data);
       echo $columncount.$datacount;
       
-      /*if ($datacount == $columncount){
+}/*if ($datacount == $columncount){
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
@@ -102,7 +102,7 @@ echo "]);
         var chart = new google.visualization.LineChart(document.getElementById('container'));
 
         chart.draw(data, options);
-      }
+      }*/echo "
     </script>
   </head>
 <body>";
