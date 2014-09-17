@@ -33,7 +33,8 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     $freezername = $freezerrow["freezer_id"];
     array_push($columnnames,$freezername);
 }
-print_r($columnnames);
+$columnheader = implode (" ,",$columnnames);
+echo $columnheader;
         
 /* Ask MySQL for X number of minutes worth of ping data */
 $pingquery = "(SELECT DISTINCT *
@@ -46,8 +47,6 @@ FROM (
 WHERE rownum % ".$skip." = 1
 ".$limit."
 )ORDER BY int_time ASC";
-
-echo $pingquery;
 
 $pings = $daenaDB->query($pingquery);
 
