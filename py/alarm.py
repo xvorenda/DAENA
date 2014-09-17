@@ -1005,7 +1005,7 @@ class alarm(object):
         # select last (minutes) of temperatures from database to check if they are all "nodata"
         query = ("SELECT temp FROM data WHERE freezer_id = %s and data.time > %s")
         # executing the query with two variables.
-        self.readcursor.execute(query, (freezer, ((time.time()-(self.SIXTY_SECONDS*minutes))*self.TIME_THOUSAND))
+        self.readcursor.execute(query, (freezer, ((time.time()-(self.SIXTY_SECONDS*minutes))*self.TIME_THOUSAND)))
 
         # variable to indicate if there was all "nodata" 0 = all "nodata", 1 = 
         #at least 1 reading not "nodata"
