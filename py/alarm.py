@@ -367,7 +367,7 @@ class alarm(object):
             # the temp has been above setpoint 1 send an alarm
             if noAlarm == 0:
                 #print "noAlarm == 0"
-                # if freezer stays between setpoint1 and setpoint2 
+                # if a freezer stays between setpoint1 and setpoint2 
                 # then it will not alarm after the first two alarms
 # Silenced ( 2 > Alarm 2)
                 if alarmLevel == self.HIGH_TEMP_ALARM_2:
