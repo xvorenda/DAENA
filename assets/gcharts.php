@@ -43,7 +43,7 @@ echo "
       function drawChart() {
         var data = google.visualization.arrayToDataTable(";
 
-echo "[".$columnheader."],\n";
+echo "['".$columnheader."'],\n";
         
 /* Ask MySQL for some number of minutes worth of ping data */
 $pingquery = "(SELECT DISTINCT *
@@ -70,7 +70,7 @@ while ($pingrow = $pings->fetch_assoc()) {
           FROM daena_db.data
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
-      echo "[".$pingtime;
+      echo "['".$pingtime."'";
       $data = $daenaDB->query($dataquery);
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
