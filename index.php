@@ -47,10 +47,9 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     $freezer_name = $freezerdata['freezer_name'];
     $freezer_color = $freezerdata['freezer_color'];
     $freezer_loc = $freezerdata['freezer_location'];
-    $probequery = "(SELECT temp,int_time FROM daena_db.data 
+    $probequery = "(SELECT temp,time FROM daena_db.data 
     WHERE freezer_id='" . $freezer_id . "'
-    ORDER BY int_time DESC " . $viewfilter . ") ORDER BY int_time ASC";
-    echo $probequery;
+    ORDER BY time DESC " . $viewfilter . ") ORDER BY time ASC";
 	$proberesult = $daenaDB->query($probequery);
 
         
