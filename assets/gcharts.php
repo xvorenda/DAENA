@@ -58,15 +58,16 @@ while ($pingrow = $pings->fetch_assoc()) {
           FROM daena_db.data
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
-      echo $pingtime;
+      echo "[".$pingtime;
       $data = $daenaDB->query($dataquery);
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
           
-          echo $datatemp."\n";
+          echo ", ".$datatemp."\n";
 
 
       }
+      echo "]";
 }
 
 /* Count the active probes for density handling
