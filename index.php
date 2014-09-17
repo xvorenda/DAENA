@@ -93,7 +93,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
         $probe_temp = ltrim($probe_temp, '+0');};
         if (isset($probe_time)) {
             $probe_minute = round($probe_time / 60) * 60;
-            $bounce = $skip * 60 * 1000;
+            $bounce = $skip * 60;
             $time_slice = ($probe_minute / $bounce);
             $int_time_slice = intval($time_slice);
             $timequotient = $time_slice / $int_time_slice;
