@@ -78,6 +78,8 @@ while ($pingrow = $pings->fetch_assoc()) {
           $datatemp = str_replace($badneg_b, $re_neg, $datatemp);
           $datatemp = ltrim($datatemp, '+00');
           $datatemp = ltrim($datatemp, '+0');
+          if ($datatemp == "nodata"){
+          unset ($datatemp);}
           echo ", ".$datatemp;
 
 
