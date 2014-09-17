@@ -59,6 +59,9 @@ WHERE rownum % ".$skip." = 1
 
 $pings = $daenaDB->query($pingquery);
 
+$badneg_a = "-00";
+$badneg_b = "-0";
+
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
       $dataquery = "
@@ -70,7 +73,10 @@ while ($pingrow = $pings->fetch_assoc()) {
       $data = $daenaDB->query($dataquery);
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
-          
+          $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
+          $datatemp = str_replace($badneg_b, $re_neg, $datatemp);
+          $datatemp = ltrim($datatemp, '+00');
+          $datatemp = ltrim($datatemp, '+0');
           echo ", ".$datatemp;
 
 
