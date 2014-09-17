@@ -63,11 +63,11 @@ while ($pingrow = $pings->fetch_assoc()) {
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
           
-          echo ", ".$datatemp."\n";
+          echo ", ".$datatemp;
 
 
       }
-      echo "]";
+      echo "]\n";
 }
 
 /* Count the active probes for density handling
