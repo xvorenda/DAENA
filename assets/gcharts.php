@@ -45,7 +45,7 @@ echo "
 
 echo "[".$columnheader."],\n";
         
-/* Ask MySQL for X number of minutes worth of ping data */
+/* Ask MySQL for some number of minutes worth of ping data */
 $pingquery = "(SELECT DISTINCT *
 FROM ( 
     (SELECT DISTINCT
