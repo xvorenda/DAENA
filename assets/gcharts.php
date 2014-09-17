@@ -33,7 +33,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     $freezername = $freezerrow["freezer_id"];
     array_push($columnnames,$freezername);
 }
-$columnheader = implode (" ,",$columnnames);
+$columnheader = implode (", ",$columnnames);
 echo "[".$columnheader."]\n";
         
 /* Ask MySQL for X number of minutes worth of ping data */
