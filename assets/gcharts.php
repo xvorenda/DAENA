@@ -35,6 +35,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 }
 $columnheader = implode ("', '",$columnnames);
 
+
 echo "
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
     <script type='text/javascript'>
@@ -70,8 +71,12 @@ while ($pingrow = $pings->fetch_assoc()) {
           FROM daena_db.data
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
+      
       echo "['".$pingtime."'";
       $data = $daenaDB->query($dataquery);
+      $count = count($columnnames);
+      $datacount = count($datarow);
+      if ($datacount == $count){
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
@@ -81,11 +86,11 @@ while ($pingrow = $pings->fetch_assoc()) {
           if ($datatemp == "nodata"){
           unset ($datatemp);}
           echo ", ".$datatemp;
-
+          
 
       }
       echo "],\n";
-}
+}}
 echo "]);
 
         var options = {
