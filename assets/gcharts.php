@@ -75,7 +75,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 
 
       }
-      echo "]\n";
+      echo "],\n";
 }
 echo "
             );
