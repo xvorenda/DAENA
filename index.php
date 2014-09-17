@@ -50,6 +50,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     $probequery = "(SELECT temp,int_time FROM daena_db.data 
     WHERE freezer_id='" . $freezer_id . "'
     ORDER BY int_time DESC " . $viewfilter . ") ORDER BY int_time ASC";
+    echo $probequery;
 	$proberesult = $daenaDB->query($probequery);
 
         
