@@ -61,6 +61,7 @@ $pings = $daenaDB->query($pingquery);
 
 $badneg_a = "-00";
 $badneg_b = "-0";
+$re_neg = "-";
 
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
