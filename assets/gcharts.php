@@ -72,13 +72,12 @@ while ($pingrow = $pings->fetch_assoc()) {
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
       
-      /*echo "['".$pingtime."'";*/
+      echo "['".$pingtime."'";
       $data = $daenaDB->query($dataquery);
-      $columncount = count($columnnames);
+      $freezercount = count($freezers) + 1;
       $datacount = count($data);
-      echo $columncount."=columncount".$datacount."=datacount";
       
-}/*if ($datacount == $columncount){
+      if ($datacount == $freezercount){
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
@@ -102,7 +101,7 @@ echo "]);
         var chart = new google.visualization.LineChart(document.getElementById('container'));
 
         chart.draw(data, options);
-      }*/echo "
+      }
     </script>
   </head>
 <body>";
