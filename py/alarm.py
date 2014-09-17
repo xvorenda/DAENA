@@ -104,6 +104,9 @@ class alarm(object):
         self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM = 5
         self.COMMUNICATION_ALARM = 6
         self.COMMUNICATION_ALARM_SILENCED = 7
+        
+        # Used to make time into an int which is how time is stored in the database (time.time()*1000)
+        self.TIME_THOUSAND = 1000
 
         
         #print "initilized"
@@ -145,7 +148,7 @@ class alarm(object):
         
         # retrieve the data from the query
         data = self.readcursor.fetchall()
-        alarmTime = float(data[0][0])
+        alarmTime = int(data[0][0])
         alarmLevel = (data[0][1])
         #print "alarmTime, alarmLevel:", alarmTime, alarmLevel
         
@@ -170,7 +173,7 @@ class alarm(object):
                 elif alarmLevel == self.CRITICAL_TEMP_ALARM:
                     #check to see if it has been > 60 min since the last alarm
 # Reminder 3 > Alarm 3 (1 hour)
-                    if alarmTime < (time.time()-(self.SIXTY_SECONDS * self.MINUTES_FOR_CRITICAL_RANGE_REMINDER)):
+                    if alarmTime < (((time.time())-(self.SIXTY_SECONDS * self.MINUTES_FOR_CRITICAL_RANGE_REMINDER))*self.TIME_THOUSAND):
                         #print "reminder alarmLevel self.CRITICAL_TEMP_ALARM, time", alarmLevel, alarmTime
                         # Set alarm to self.CRITICAL_TEMP_ALARM, critical range reminder
                         self.newAlarm(freezer, self.CRITICAL_TEMP_ALARM)
@@ -373,7 +376,7 @@ class alarm(object):
                     
                 # freezer has been out of range for 1 hour
 # 1 > Alarm 2 (at least 30 min in alarm 1 state)
-                elif alarmLevel == self.HIGH_TEMP_ALARM_1 and alarmTime < (time.time()-(self.SIXTY_SECONDS * self.MINUTES_AT_ALARM_1)):
+                elif alarmLevel == self.HIGH_TEMP_ALARM_1 and alarmTime < ((time.time()-(self.SIXTY_SECONDS * self.MINUTES_AT_ALARM_1)) *self.TIME_THOUSAND):
                     #print "alarmLevel self.HIGH_TEMP_ALARM_1 setting alarm level self.HIGH_TEMP_ALARM_2, time", alarmLevel, alarmTime
                     self.newAlarm(freezer, self.HIGH_TEMP_ALARM_2)
                     
@@ -404,7 +407,7 @@ class alarm(object):
                 # freezer has been out of range for 30 min, 
                 # this is the first alarm
 # 0 > Alarm 1 (at least 30 min in alarm 0 state)
-                elif alarmLevel == self.NORMAL_STATE and alarmTime < (time.time()-(self.SIXTY_SECONDS * self.MINUTES_AT_ALARM_0)):
+                elif alarmLevel == self.NORMAL_STATE and alarmTime < ((time.time()-(self.SIXTY_SECONDS * self.MINUTES_AT_ALARM_0)) *self.TIME_THOUSAND):
                     #print "alarmLevel 0 setting alarm level 1, time", alarmLevel, alarmTime
                     self.newAlarm(freezer, self.HIGH_TEMP_ALARM_1)
                     
@@ -663,7 +666,7 @@ class alarm(object):
     def newAlarm(self, freezer, alarmLevel):
         #print "newAlarm", freezer, alarmLevel
         # get the time for the new alarm
-        alarmTime = time.time()
+        alarmTime = time.time()*self.TIME_THOUSAND
         
         # prepare to create new entry into the alarm table
         writeQuery = ("""insert into alarm set freezer_id = %s, alarm_level = %s, alarm_time = %s""")  
@@ -707,7 +710,7 @@ class alarm(object):
         #are all above (setpoint)
         query = ("SELECT temp FROM data WHERE freezer_id = %s and data.time > %s")
         # executing the query with two variables.
-        self.readcursor.execute(query, (freezer, time.time()-(self.SIXTY_SECONDS*minutes)))
+        self.readcursor.execute(query, (freezer, ((time.time()-(self.SIXTY_SECONDS*minutes))*self.TIME_THOUSAND)))
         #print self.readcursor.fetchall()
         #print query % (freezer, time.time()-(self.SIXTY_SECONDS*minutes))
         # variable to indicate if the temperature has been below the appropriate 
@@ -746,7 +749,7 @@ class alarm(object):
         #are all above (setpoint)
         query = ("SELECT temp FROM data WHERE freezer_id = %s and data.time > %s")
         # executing the query with two variables.
-        self.readcursor.execute(query, (freezer, time.time()-(self.SIXTY_SECONDS*minutes)))
+        self.readcursor.execute(query, (freezer, ((time.time()-(self.SIXTY_SECONDS*minutes))*self.TIME_THOUSAND)))
 
         # variable to indicate if the temperature has been below the appropriate 
         #threshold 0 = all temp above threshold, 1 = at least 1 reading below 
@@ -794,8 +797,8 @@ class alarm(object):
         self.readcursor.execute(readQuery, (freezer))
         tempData = self.readcursor.fetchall()
         lastTemp = tempData[0][0]
-        lastTime = float(tempData[0][1])
-        lastDateTime = time.strftime("%A, %B %d, %Y, at %H:%M:%S", time.localtime(lastTime))
+        lastTime = int(tempData[0][1])
+        lastDateTime = time.strftime("%A, %B %d, %Y, at %H:%M:%S", time.localtime(lastTime/1000))
         
         # get data for most recent alarm level
         readQuery = ("select alarm_time, alarm_level from alarm where alarm_id = %s")
@@ -807,9 +810,9 @@ class alarm(object):
         
         # retrieve the data from the query
         data = self.readcursor.fetchall()
-        alarmTime = float(data[0][0])
+        alarmTime = int(data[0][0])
         alarmLevel = (data[0][1])
-        alarmDateTime = time.strftime("%A, %B %d, %Y, at %H:%M:%S", time.localtime(alarmTime))
+        alarmDateTime = time.strftime("%A, %B %d, %Y, at %H:%M:%S", time.localtime(alarmTime/1000))
         #print "alarmTime, alarmLevel:", alarmTime, alarmLevel
         
         allNoData = self.checkForAllNoData(freezer, self.MINUTES_WITH_NO_DATA)
@@ -827,7 +830,7 @@ class alarm(object):
             elif alarmLevel == self.COMMUNICATION_ALARM:
             
 # Reminder 6 > Alarm 6 (1 hour)
-                if alarmTime < (time.time()-(self.SIXTY_SECONDS * self.MINUTES_FOR_COM_ALARM_REMINDER)):
+                if alarmTime < ((time.time()-(self.SIXTY_SECONDS * self.MINUTES_FOR_COM_ALARM_REMINDER))*self.TIME_THOUSAND):
                     self.newAlarm(freezer, self.COMMUNICATION_ALARM)
                     
                     # prepare query to get email addresses
@@ -1002,7 +1005,7 @@ class alarm(object):
         # select last (minutes) of temperatures from database to check if they are all "nodata"
         query = ("SELECT temp FROM data WHERE freezer_id = %s and data.time > %s")
         # executing the query with two variables.
-        self.readcursor.execute(query, (freezer, time.time()-(self.SIXTY_SECONDS*minutes)))
+        self.readcursor.execute(query, (freezer, ((time.time()-(self.SIXTY_SECONDS*minutes))*self.TIME_THOUSAND))
 
         # variable to indicate if there was all "nodata" 0 = all "nodata", 1 = 
         #at least 1 reading not "nodata"

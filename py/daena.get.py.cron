@@ -13,7 +13,7 @@ SleepCommand = "sleep 1\n"
 ReadProbeCommand = "T\n"
 conn = mdb.connect(user='daena_user', passwd='idontcareaboutpasswordsrightnow', db='daena_db')
 writecursor = conn.cursor()
-timetime = time.time()
+timetime = time.time()*1000
 newAlarm = alarm()
 #print "start", time.time()
 
