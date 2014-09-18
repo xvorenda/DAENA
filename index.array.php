@@ -133,7 +133,7 @@ foreach ($arraytime as $datatime)
 	$freezertemp["time"] = $datatime;
 	foreach ($freezer_array['id'] as $freezerid)
 	{
-		$tempquery = "(SELECT data.temp FROM daena_db.data
+		$tempquery = "SELECT data.temp FROM daena_db.data
 			WHERE freezer_id= ". $freezerid ." AND int_time = ".$datatime;
 		echo $tempquery;
 		$tempresult = $daenaDB->query($tempquery);
