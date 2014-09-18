@@ -28,7 +28,8 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 }
 $columnheader = implode ("', '",$columnnames);
 
-echo "<script type='text/javascript'>
+echo "
+  <script type='text/javascript'>
   g = new Dygraph(
 
     // containing div
@@ -56,7 +57,7 @@ while ($pingrow = $pings->fetch_assoc()) {
       
       
       
-      echo "['".$pingtime."'";
+      echo "[".$pingtime."";
       $data = $daenaDB->query($dataquery);
       $freezercount = count($freezers);
       $datacount = count($data);
@@ -79,7 +80,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 }}
 echo "],
               {
-                labels: ['".$columnheader."']
+                labels: [\"".$columnheader."\"]
               });
 </script>";
 ?>
