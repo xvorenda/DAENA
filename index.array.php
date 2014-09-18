@@ -127,6 +127,13 @@ echo "',
 				data: [";
 */
 $json_chart = array();
+$json_row[] = "time";
+foreach ($freezer_array['id'] as $freezerid)
+{
+	$json_row[] = $freezerid;
+}
+$json_chart[]=$json_row;
+
 foreach ($arraytime as $datatime)
 {
 	$freezertemp = array();
@@ -289,10 +296,12 @@ echo"
 </head>
 
 <body>
-<!--Div that will hold the pie chart-->
+include 'assets/navigation.php';
+
+<!--Div that will hold the  chart-->
     <div id='chart_div' style='width:400; height:300'></div>
 ";
-include 'assets/navigation.php';
+
 
 /* Actually draw the graph */
 include "assets/graph.php";
