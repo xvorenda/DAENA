@@ -28,8 +28,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 }
 $columnheader = implode ("', '",$columnnames);
 
-echo "<div id='container'></div>
-<script type='text/javascript'>
+echo "<script type='text/javascript'>
   g = new Dygraph(
 
     // containing div
@@ -82,7 +81,5 @@ echo "],
               {
                 labels: ['".$columnheader."']
               });
-</script>
-</body>
-</html>";
+</script>";
 ?>

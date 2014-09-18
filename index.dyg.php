@@ -16,6 +16,8 @@ $baseurl = substr($url, 0, strpos($url, "?"));
 
 include 'assets/navigation.php';
 
+echo "<div id='container'></div>";
+
 /* Actually draw the graph */
 include "assets/graph.dyg.php";
 
