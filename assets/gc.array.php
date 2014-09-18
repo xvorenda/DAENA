@@ -16,13 +16,8 @@ echo"
   function drawChart() {
 
   // Create the data table.
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2004',  1000,      400],
-          ['2005',  1170,      460],
-          ['2006',  660,       1120],
-          ['2007',  1030,      540]
-        ]);
+  var data = new google.visualization.arrayToDataTable(".json_encode($json_chart).");
+
 
 
   // Set chart options
