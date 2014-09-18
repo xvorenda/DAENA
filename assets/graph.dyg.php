@@ -34,7 +34,7 @@ echo "
 
     // containing div
     document.getElementById(\"container\"),
-        [";
+        [\n";
 
         
 /* Ask MySQL for some number of minutes worth of ping data */
