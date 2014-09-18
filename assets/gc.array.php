@@ -16,7 +16,7 @@ echo"
   function drawChart() {
 
   // Create the data table.
-  var data = new google.visualization.DataTable(".$json_chart.");
+  var data = new google.visualization.DataTable(".json_encode($json_chart).");
 
 
 
