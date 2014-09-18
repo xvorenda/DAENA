@@ -59,43 +59,33 @@ if ($hours !='All') {
 	$viewstop = $now - $timespan;}
 else $viewstop = 0;
 */
-$chart = array();
+$arraytime = array();
 
 # $final_minute = round(time()/60);
 
 /* Determine what the times will be */
-
-$gettimequery = "(SELECT DISTINCT data.time 
-	FROM daena_db.data 
-	ORDER BY data.time DESC" . $viewfilter . ")ORDER BY data.time ASC";
+$firsttime = (time()*1000)-($hours*60*60*1000);
+$gettimequery = "SELECT DISTINCT int_time 
+	FROM daena_db.data where int_time >= ". $firsttime. "
+	ORDER BY int_time ASC";
 $timeresult = $daenaDB->query($getfirsttimequery);
 if (mysqli_connect_errno())
 {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$firsttime = (time()*1000)-($hours*60*60*1000);
+
 $skipcount=0;
 /* Populate Chart with times */
 while($time = $timeresult->fetch_array()
 {
-	# Time needs to be compatible with javascript
-	$time = $time*1000;
-	# check to see if time is before the start time
-	if ($firsttime > $time)
+	# Skip every x time
+	if($skipcount % $skip == 0)
 	{
-		continue;
+		# load data into chart which will hold data for time
+		$chart ['Time'][]=$time;
 	}
-	else
-	{	
-		# Skip every x time
-		if($skipcount % $skip == 0)
-		{
-			# load data into chart which will hold data for time
-			$chart ['Time'][]=$time;
-		}
-		$skipcount ++;
-	}
+	$skipcount ++;
 }
 
 $freezer_array = array();
@@ -135,113 +125,153 @@ echo "',
 				pointInterval: ".$skip." * 60 * 1000,
 				data: [";
 */
-
-/* Order Desc, then Limit number of rows, then final output ASCENDING*/
-$probequery = "(SELECT temp,time FROM daena_db.data 
-	WHERE freezer_id='" . $freezer_id . "'
-	ORDER BY time DESC " . $viewfilter . ") ORDER BY time ASC";
-$proberesult = $daenaDB->query($probequery);
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
-
-/* Actually get the data, clean up the strings, define density slices, and format the data for HighCharts */
-$i=1;
-$charttimeindex = 0;
-while($probe = $proberesult->fetch_array()) 
+$json_chart = array();
+foreach ($arraytime as $datatime)
 {
-	extract($probe, EXTR_PREFIX_SAME, "probe");
-	
-	if(isset($probe_time))
+	$freezertemp = array();
+	$freezertemp["time"] = $datatime;
+	foreach ($freezer_array['id'] as $freezerid)
 	{
-		$probe_minute = $probe_time * 1000; 
-		/* 
-			Time on the chart is greater than the probe time 
-			continue to the next iteration but do not increment 
-			the chart time index or freezer data index.
-		*/ 
-		if($chart['Time'][$charttimeindex] > $probe_minute)
+		$tempquery = "(SELECT temp FROM daena_db.data
+			WHERE freezer_id= ". $freezerid ." AND int_time = ".$datatime."
+			LIMIT 1";
+		$tempresult = $daenaDB->query($tempquery);
+		if (mysqli_connect_errno())
+		  {
+		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		  }
+		if ($tempresult -> num_rows == 0)
 		{
-			continue;
+			$freezertemp[$freezerid] = "null";
 		}
-		/* 
-			Time on the chart is less than the probe time 
-			insert null data for freezer at that chart index time
-			increment the chart time index continue to 
-			the next iteration.
-		*/ 
-		elseif($chart['Time'][$charttimeindex] < $probe_minute)
+		else
 		{
-			$chart [$freezer_id][$charttimeindex]=null;
-			$charttimeindex = $charttimeindex+1;
-			continue;
-		}
-		/* 
-			Time on the chart equals the probe time 
-			check for temperature data and add it to the chart
-			increment the chart time index continue to 
-			the next iteration.
-		*/ 
-		elseif($chart['Time'][$charttimeindex] == $probe_minute)
-		{
-			if(isset($probe_temp))
+			$temparray = $tempresult->fetch_array();
+			if($temparray[0] == 'nodata')
 			{
+				$freezertemp[$freezerid] = "null";
+			}
+			else
+			{
+				$probe_temp = $temparray[0];
 				$probe_temp = str_replace($badzero_a, $re_neg, $probe_temp);
 				$probe_temp = str_replace($badzero_b, $re_neg, $probe_temp);
 				$probe_temp = ltrim($probe_temp, '+00');
 				$probe_temp = ltrim($probe_temp, '+0');
-				if ($probe_temp == "nodata")
-				{
-					$chart [$freezer_id][$charttimeindex]=null;
-					$charttimeindex = $charttimeindex+1;
-					continue;
-				}
-				else
-				{
-					$chart [$freezer_id][$charttimeindex]=$probe_temp;
-					$charttimeindex = $charttimeindex+1;
-					continue;
-				}
+				$freezertemp[$freezerid] = $probe_temp;
 			}
 		}
-	} /* End of if probetime is set */
-	
-	
-	/*
-	if (isset($probe_temp)) 
-	{
-		$probe_temp = str_replace($badzero_a, $re_neg, $probe_temp);
-		$probe_temp = str_replace($badzero_b, $re_neg, $probe_temp);
-		$probe_temp = ltrim($probe_temp, '+00');
-		$probe_temp = ltrim($probe_temp, '+0');
-	};
-	if (isset($probe_time)) 
-	{
-	
-		/* Round the probe time to the nearest minute */
-	/*
-		$probe_minute = round($probe_time / 60) * 60 * 1000;  
-	*/           
-		/* Determine how many minutes to skip */
-	/*
-		$bounce = $skip * 60 * 1000;
-		$time_slice = ($probe_minute / $bounce);
-		$int_time_slice = intval($time_slice);
-		$timequotient = $time_slice / $int_time_slice;
-	};
-	if (isset($probe_minute, $probe_temp)) 
-	{         	   
-		$timetemp = "[".$probe_minute.", ".$probe_temp."], ";
-		if ($probe_minute != 0 && $probe_temp != "nodata" && $timequotient == 1 && $probe_minute > $viewstop){
-			echo $timetemp;
-		};
-	};
-	*/
-} # End while loop to fetch data
-# echo "], dashStyle: 'solid'},";
-#} # End while loop to fetch each freezer
+	}
+	array_push($json_chart, $freezertemp);
+}
+#json_encode($json_chart);
+// 
+// /* Order Desc, then Limit number of rows, then final output ASCENDING*/
+// $probequery = "(SELECT temp,int_time FROM daena_db.data 
+// 	WHERE freezer_id='" . $freezer_id . "'
+// 	ORDER BY time DESC " . $viewfilter . ") ORDER BY time ASC";
+// $proberesult = $daenaDB->query($probequery);
+// // Check connection
+// if (mysqli_connect_errno())
+//   {
+//   echo "Failed to connect to MySQL: " . mysqli_connect_error();
+//   }
+// 
+// /* Actually get the data, clean up the strings, define density slices, and format the data for HighCharts */
+// $i=1;
+// $charttimeindex = 0;
+// while($probe = $proberesult->fetch_array()) 
+// {
+// 	extract($probe, EXTR_PREFIX_SAME, "probe");
+// 	
+// 	if(isset($probe_time))
+// 	{
+// 		$probe_minute = $probe_time * 1000; 
+// 		/* 
+// 			Time on the chart is greater than the probe time 
+// 			continue to the next iteration but do not increment 
+// 			the chart time index or freezer data index.
+// 		*/ 
+// 		if($chart['Time'][$charttimeindex] > $probe_minute)
+// 		{
+// 			continue;
+// 		}
+// 		/* 
+// 			Time on the chart is less than the probe time 
+// 			insert null data for freezer at that chart index time
+// 			increment the chart time index continue to 
+// 			the next iteration.
+// 		*/ 
+// 		elseif($chart['Time'][$charttimeindex] < $probe_minute)
+// 		{
+// 			$chart [$freezer_id][$charttimeindex]=null;
+// 			$charttimeindex = $charttimeindex+1;
+// 			continue;
+// 		}
+// 		/* 
+// 			Time on the chart equals the probe time 
+// 			check for temperature data and add it to the chart
+// 			increment the chart time index continue to 
+// 			the next iteration.
+// 		*/ 
+// 		elseif($chart['Time'][$charttimeindex] == $probe_minute)
+// 		{
+// 			if(isset($probe_temp))
+// 			{
+// 				$probe_temp = str_replace($badzero_a, $re_neg, $probe_temp);
+// 				$probe_temp = str_replace($badzero_b, $re_neg, $probe_temp);
+// 				$probe_temp = ltrim($probe_temp, '+00');
+// 				$probe_temp = ltrim($probe_temp, '+0');
+// 				if ($probe_temp == "nodata")
+// 				{
+// 					$chart [$freezer_id][$charttimeindex]=null;
+// 					$charttimeindex = $charttimeindex+1;
+// 					continue;
+// 				}
+// 				else
+// 				{
+// 					$chart [$freezer_id][$charttimeindex]=$probe_temp;
+// 					$charttimeindex = $charttimeindex+1;
+// 					continue;
+// 				}
+// 			}
+// 		}
+// 	} /* End of if probetime is set */
+// 	
+// 	
+// 	/*
+// 	if (isset($probe_temp)) 
+// 	{
+// 		$probe_temp = str_replace($badzero_a, $re_neg, $probe_temp);
+// 		$probe_temp = str_replace($badzero_b, $re_neg, $probe_temp);
+// 		$probe_temp = ltrim($probe_temp, '+00');
+// 		$probe_temp = ltrim($probe_temp, '+0');
+// 	};
+// 	if (isset($probe_time)) 
+// 	{
+// 	
+// 		/* Round the probe time to the nearest minute */
+// 	/*
+// 		$probe_minute = round($probe_time / 60) * 60 * 1000;  
+// 	*/           
+// 		/* Determine how many minutes to skip */
+// 	/*
+// 		$bounce = $skip * 60 * 1000;
+// 		$time_slice = ($probe_minute / $bounce);
+// 		$int_time_slice = intval($time_slice);
+// 		$timequotient = $time_slice / $int_time_slice;
+// 	};
+// 	if (isset($probe_minute, $probe_temp)) 
+// 	{         	   
+// 		$timetemp = "[".$probe_minute.", ".$probe_temp."], ";
+// 		if ($probe_minute != 0 && $probe_temp != "nodata" && $timequotient == 1 && $probe_minute > $viewstop){
+// 			echo $timetemp;
+// 		};
+// 	};
+// 	*/
+// } # End while loop to fetch data
+// # echo "], dashStyle: 'solid'},";
+// #} # End while loop to fetch each freezer
 
 /* Define the HighChart */
 $index = 0;
