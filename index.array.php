@@ -151,6 +151,7 @@ foreach ($arraytime as $datatime)
 				$probe_temp = ltrim($probe_temp, '+0');
 				$freezertemp[$freezerid] = $probe_temp;
 			}
+		}
 		else
 		{
 			$freezertemp[$freezerid] = "null";
