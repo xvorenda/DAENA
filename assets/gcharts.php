@@ -48,7 +48,7 @@ echo "
 echo "['".$columnheader."'],\n";
         
 /* Ask MySQL for some number of minutes worth of ping data */
-$pingquery = "(SELECT int_time FROM daena_db.data 
+$pingquery = "(SELECT DISTINCT int_time FROM daena_db.data 
     ORDER BY int_time DESC " . $viewfilter . ") ORDER BY int_time ASC";
 
 $pings = $daenaDB->query($pingquery);
