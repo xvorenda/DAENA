@@ -134,16 +134,18 @@ foreach ($arraytime as $datatime)
 	{
 		$tempquery = "(SELECT data.temp FROM daena_db.data
 			WHERE freezer_id= ". $freezerid ." AND int_time = ".$datatime;
+		echo $tempquery;
 		if($tempresult = $daenaDB->query($tempquery))
 		{
 			$temparray = $tempresult->fetch_array();
-			if($temparray[0] == 'nodata')
+			$tempdata = $temparray[0];
+			if($tempdata == 'nodata')
 			{
 				$freezertemp[$freezerid] = "null";
 			}
 			else
 			{
-				$probe_temp = $temparray[0];
+				$probe_temp = $tempdata;
 				$probe_temp = str_replace($badzero_a, $re_neg, $probe_temp);
 				$probe_temp = str_replace($badzero_b, $re_neg, $probe_temp);
 				$probe_temp = ltrim($probe_temp, '+00');
@@ -153,7 +155,8 @@ foreach ($arraytime as $datatime)
 			$tempresult->close();
 		}
 		else
-		{
+		{	
+			echo "QUERY DID NOTHING";
 			$freezertemp[$freezerid] = "null";
 		}
 	}
