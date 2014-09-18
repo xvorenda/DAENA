@@ -35,7 +35,7 @@ echo "
     // containing div
     document.getElementById(\"container\"),
         [
-        ";
+            ";
 
         
 /* Ask MySQL for some number of minutes worth of ping data */
@@ -59,7 +59,7 @@ while ($pingrow = $pings->fetch_assoc()) {
       
       
       
-      echo "[".$pingtime."";
+      echo "            [".$pingtime;
       $data = $daenaDB->query($dataquery);
       $freezercount = count($freezers);
       $datacount = count($data);
