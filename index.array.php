@@ -140,7 +140,8 @@ foreach ($arraytime as $datatime)
 		  {
 		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 		  }
-		if ($tempresult -> num_rows == 0)
+		$num_rows = $tempresult -> num_rows
+		if ($num_rows == 0)
 		{
 			$freezertemp[$freezerid] = "null";
 		}
