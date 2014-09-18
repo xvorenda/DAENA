@@ -58,7 +58,7 @@ while ($pingrow = $pings->fetch_assoc()) {
       
       
       
-      echo "            [ new Date(\"".$pingtime."\")";
+      echo "            [".$pingtime;
       $data = $daenaDB->query($dataquery);
       $freezercount = count($freezers);
       $datacount = count($data);
@@ -81,7 +81,10 @@ while ($pingrow = $pings->fetch_assoc()) {
 }}
 echo "        ],
               {
-                labels: [\"".$columnheader."\"]
+                labels: [\"".$columnheader."\"],
+                xValueFormatter: Dygraph.dateString_,
+                xValueParser: function(x) { return parseInt(x); },
+                xTicker: Dygraph.dateTicker
               });
 </script>
 ";
