@@ -73,8 +73,9 @@ while ($pingrow = $pings->fetch_assoc()) {
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
       
-      $jsDateTS = strtotime($pingtime);
-      $readabletime =  date('Y-m-d', $jsDateTS );
+        $epoch = $pingtime / 1000;
+        $dt = new DateTime("@$epoch");
+        $readabletime = $dt->format('Y-m-d H:i:s');
 
       echo "['".$readabletime."'";
       $data = $daenaDB->query($dataquery);
