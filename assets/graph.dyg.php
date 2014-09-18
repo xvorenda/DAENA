@@ -28,7 +28,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 }
 $columnheader = implode ("\", \"",$columnnames);
 
-echo "
+echo "<div id='container'></div>
 <script type='text/javascript'>
   g = new Dygraph(
 
@@ -87,6 +87,5 @@ echo "        ],
                 xTicker: Dygraph.dateTicker
               });
 </script>
-<div id='container'></div>
 ";
 ?>
