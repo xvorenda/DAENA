@@ -79,7 +79,7 @@ while ($pingrow = $pings->fetch_assoc()) {
       }
       echo "],\n";
 }}
-echo "],
+echo "        ],
               {
                 labels: [\"".$columnheader."\"],
                 xValueFormatter: Dygraph.dateString_,
