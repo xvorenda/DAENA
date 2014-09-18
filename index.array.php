@@ -83,7 +83,7 @@ while($time = $timeresult->fetch_array())
 	if($skipcount % $skip == 0)
 	{
 		# load data into chart which will hold data for time
-		$arraytime[] = $time;
+		$arraytime[] = $time[0];
 	}
 	$skipcount ++;
 }
