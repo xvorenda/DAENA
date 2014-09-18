@@ -130,7 +130,7 @@ $json_chart = array();
 foreach ($arraytime as $datatime)
 {
 	$freezertemp = array();
-	$freezertemp["time"] = $datatime;
+	$freezertemp[] = $datatime;
 	foreach ($freezer_array['id'] as $freezerid)
 	{
 		$tempquery = "SELECT data.temp FROM daena_db.data
@@ -142,7 +142,7 @@ foreach ($arraytime as $datatime)
 			$tempdata = $temparray[0];
 			if($tempdata == 'nodata')
 			{
-				$freezertemp[$freezerid] = "null";
+				$freezertemp[] = "null";
 			}
 			else
 			{
@@ -157,7 +157,7 @@ foreach ($arraytime as $datatime)
 		}
 		else
 		{	
-			$freezertemp[$freezerid] = "null";
+			$freezertemp[] = "null";
 		}
 	}
 	array_push($json_chart, $freezertemp);
