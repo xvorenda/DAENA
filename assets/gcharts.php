@@ -9,14 +9,6 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-/* Limit displayed points to within view window */
-  if ($hours !='All') 
-        {$timespan = $hours * 3600;
-        $skipspan = $timespan / $skip + 1;
-        $limit = "LIMIT ".$skipspan;
-        }
-  else 
-        {$limit = "";}
 
 /* Ask MySQL which freezers are active */
 $freezerquery = "SELECT freezer_id,freezer_name,freezer_color,freezer_location 
