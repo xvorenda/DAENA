@@ -48,25 +48,17 @@ echo "
 echo "['".$columnheader."'],\n";
         
 /* Ask MySQL for some number of minutes worth of ping data */
-$pingquery = "(SELECT DISTINCT *
-FROM ( 
-    (SELECT DISTINCT
-        @row := @row +1 AS rownum, int_time 
-    FROM ( 
-        SELECT DISTINCT @row :=0) r, daena_db.data 
-) ORDER BY rownum DESC) ranked 
-WHERE rownum % ".$skip." = 1
-".$limit."
-)ORDER BY int_time ASC";
+$pingquery = "(SELECT int_time FROM daena_db.data 
+    ORDER BY int_time DESC " . $viewfilter . ") ORDER BY int_time ASC";
 
 $pings = $daenaDB->query($pingquery);
+$uniquepings = array_unique($pings);
 
 $badneg_a = "-00";
 $badneg_b = "-0";
 $re_neg = "-";
 
-while ($pingrow = $pings->fetch_assoc()) {
-      $pingtime = $pingrow["int_time"];
+foreach ($uniquepings as $pingtime) {
       $dataquery = "
           SELECT temp
           FROM daena_db.data
