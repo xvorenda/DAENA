@@ -135,18 +135,7 @@ foreach ($arraytime as $datatime)
 		$tempquery = "(SELECT temp FROM daena_db.data
 			WHERE freezer_id= ". $freezerid ." AND int_time = ".$datatime."
 			LIMIT 1";
-		$tempresult = $daenaDB->query($tempquery);
-		if (mysqli_connect_errno())
-		  {
-		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-		  }
-		//$num_rows = $tempresult -> num_rows;
-		$num_rows = 1;
-		if ($num_rows == 0)
-		{
-			$freezertemp[$freezerid] = "null";
-		}
-		else
+		if($tempresult = $daenaDB->query($tempquery))
 		{
 			$temparray = $tempresult->fetch_array();
 			if($temparray[0] == 'nodata')
@@ -162,6 +151,9 @@ foreach ($arraytime as $datatime)
 				$probe_temp = ltrim($probe_temp, '+0');
 				$freezertemp[$freezerid] = $probe_temp;
 			}
+		else
+		{
+			$freezertemp[$freezerid] = "null";
 		}
 		$tempresult->close();
 	}
