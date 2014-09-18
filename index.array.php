@@ -65,6 +65,7 @@ $arraytime = array();
 
 /* Determine what the times will be */
 $firsttime = (time()*1000)-($hours*60*60*1000);
+echo $firsttime;
 $gettimequery = "SELECT DISTINCT int_time 
 	FROM daena_db.data where int_time >= ". $firsttime. "
 	ORDER BY int_time ASC";
