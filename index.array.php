@@ -87,7 +87,7 @@ while($time = $timeresult->fetch_array())
 	}
 	$skipcount ++;
 }
-
+echo $arraytime;
 $freezer_array = array();
 
 /* Ask MySQL for X hours of data on each probe and prepare data for graph*/
