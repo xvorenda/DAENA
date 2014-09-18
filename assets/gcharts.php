@@ -45,13 +45,14 @@ $pingquery = "(SELECT DISTINCT int_time FROM daena_db.data
 
 echo $pingquery;
 $pings = $daenaDB->query($pingquery);
-$uniquepings = array_unique($pings);
+
 
 $badneg_a = "-00";
 $badneg_b = "-0";
 $re_neg = "-";
 
-foreach ($uniquepings as $pingtime) {
+while ($pingrow = $pings->fetch_assoc()) {
+      $pingtime = $pingrow["int_time"];
       $dataquery = "
           SELECT temp
           FROM daena_db.data
@@ -64,7 +65,6 @@ foreach ($uniquepings as $pingtime) {
       $data = $daenaDB->query($dataquery);
       $freezercount = count($freezers);
       $datacount = count($data);
-      echo "Freezer Count: ".$freezercount."\n"."Data Count: ".$datacount;
       
       
       if ($datacount == $freezercount){
