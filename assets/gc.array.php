@@ -21,15 +21,15 @@ echo"
 
 
   // Set chart options
-//  var options = {'title':'How Much Pizza I Ate Last Night',
-//				 'width':400,
-//				 'height':300};
+  var options = {'title':'Temperatures....',
+	 			 'width':400,
+				 'height':300};
 
   // Instantiate and draw our chart, passing in some options.
   var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
   chart.draw(data, options);
 }
 </script>
-</head>
+
 "
 ?>
