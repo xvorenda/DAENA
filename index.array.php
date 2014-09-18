@@ -163,6 +163,7 @@ foreach ($arraytime as $datatime)
 				$freezertemp[$freezerid] = $probe_temp;
 			}
 		}
+		$tempresult->close();
 	}
 	array_push($json_chart, $freezertemp);
 }
