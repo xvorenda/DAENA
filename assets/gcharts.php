@@ -73,7 +73,10 @@ while ($pingrow = $pings->fetch_assoc()) {
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
       
-      echo "['".$pingtime."'";
+      $jsDateTS = strtotime($pingtime);
+      $readabletime =  date('Y-m-d', $jsDateTS );
+
+      echo "['".$readabletime."'";
       $data = $daenaDB->query($dataquery);
       $freezercount = count($freezers);
       $datacount = count($data);
