@@ -16,7 +16,7 @@ echo"
   function drawChart() {
 
   // Create the data table.
-  var data = new google.visualization.DataTable(".json_encode($json_chart).");
+  var data = new google.visualization.DataTable(['.2','9001':'24.4'},{'time':'1411051621870','1001':'-79.6','1002':'-76.2','1003':'-80.2','1004':'.9','1005':'-80.9','2001':'-60.2','2002':'-63.4','2003':'-65.8','3001':'-20.4','3002':'-17.7','3003':'-25.6','3004']);
 
 
 
