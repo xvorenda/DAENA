@@ -137,7 +137,6 @@ foreach ($arraytime as $datatime)
 			WHERE freezer_id= ". $freezerid ." AND int_time = ".$datatime;
 		echo $tempquery;
 		$tempresult = $daenaDB->query($tempquery);
-		echo $tempresult;
 		$temparray = $tempresult->fetch_array();
 		$tempdata = $temparray[0];
 		if($tempdata == 'nodata')
