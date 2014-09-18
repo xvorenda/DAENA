@@ -68,7 +68,7 @@ $firsttime = (time()*1000)-($hours*60*60*1000);
 $gettimequery = "SELECT DISTINCT int_time 
 	FROM daena_db.data where int_time >= ". $firsttime. "
 	ORDER BY int_time ASC";
-$timeresult = $daenaDB->query($getfirsttimequery);
+$timeresult = $daenaDB->query($gettimequery);
 if (mysqli_connect_errno())
 {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
