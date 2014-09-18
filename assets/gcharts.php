@@ -43,6 +43,7 @@ echo "['".$columnheader."'],\n";
 $pingquery = "(SELECT DISTINCT int_time FROM daena_db.data 
     ORDER BY int_time DESC " . $viewfilter . ") ORDER BY int_time ASC";
 
+echo $pingquery;
 $pings = $daenaDB->query($pingquery);
 $uniquepings = array_unique($pings);
 
@@ -63,6 +64,8 @@ foreach ($uniquepings as $pingtime) {
       $data = $daenaDB->query($dataquery);
       $freezercount = count($freezers);
       $datacount = count($data);
+      echo "Freezer Count: ".$freezercount."\n"."Data Count: ".$datacount;
+      
       
       if ($datacount == $freezercount){
       while ($datarow = $data->fetch_assoc()) {
