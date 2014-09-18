@@ -132,9 +132,8 @@ foreach ($arraytime as $datatime)
 	$freezertemp["time"] = $datatime;
 	foreach ($freezer_array['id'] as $freezerid)
 	{
-		$tempquery = "(SELECT temp FROM daena_db.data
-			WHERE freezer_id= ". $freezerid ." AND int_time = ".$datatime."
-			LIMIT 1";
+		$tempquery = "(SELECT data.temp FROM daena_db.data
+			WHERE freezer_id= ". $freezerid ." AND int_time = ".$datatime;
 		if($tempresult = $daenaDB->query($tempquery))
 		{
 			$temparray = $tempresult->fetch_array();
@@ -160,7 +159,7 @@ foreach ($arraytime as $datatime)
 	}
 	array_push($json_chart, $freezertemp);
 }
-#json_encode($json_chart);
+echo json_encode($json_chart);
 // 
 // /* Order Desc, then Limit number of rows, then final output ASCENDING*/
 // $probequery = "(SELECT temp,int_time FROM daena_db.data 
