@@ -16,7 +16,6 @@ h3 {margin:12px auto 0;}
 #container, #about {
    position:relative;
    margin:96px 24px !important;  
-   min-height: 600px;
 }
 .stealth {display:none}
 .fakeinput, input {
