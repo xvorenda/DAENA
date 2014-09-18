@@ -7,7 +7,7 @@ include 'assets/header.php';
 include 'assets/urlvars.php';
 
 /* Define the HighChart */
-include 'assets/gcharts.php';
+include 'assets/gc.php';
         
 /* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
 include "assets/url.php";
