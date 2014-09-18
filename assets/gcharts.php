@@ -48,9 +48,14 @@ echo "
 echo "['".$columnheader."'],\n";
         
 /* Ask MySQL for some number of minutes worth of ping data */
-$pingquery = "(SELECT DISTINCT (int_time) AS int_time
-FROM daena_db.data 
-WHERE int_time % ".$skip." = 1 
+$pingquery = "(SELECT DISTINCT *
+FROM ( 
+    (SELECT DISTINCT
+        @row := @row +1 AS rownum, int_time 
+    FROM ( 
+        SELECT DISTINCT @row :=0) r, daena_db.data 
+) ORDER BY rownum DESC) ranked 
+WHERE rownum % ".$skip." = 1
 ".$limit."
 )ORDER BY int_time ASC";
 
