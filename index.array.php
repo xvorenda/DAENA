@@ -77,7 +77,7 @@ if (mysqli_connect_errno())
 
 $skipcount=0;
 /* Populate Chart with times */
-while($time = $timeresult->fetch_array()
+while($time = $timeresult->fetch_array())
 {
 	# Skip every x time
 	if($skipcount % $skip == 0)
