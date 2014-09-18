@@ -76,14 +76,14 @@ if (mysqli_connect_errno())
 
 
 $skipcount=0;
-/* Populate Chart with times */
+/* Populate arraytime with times */
 while($time = $timeresult->fetch_array())
 {
 	# Skip every x time
 	if($skipcount % $skip == 0)
 	{
 		# load data into chart which will hold data for time
-		$arraytime = $time;
+		$arraytime[] = $time;
 	}
 	$skipcount ++;
 }
