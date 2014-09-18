@@ -20,7 +20,7 @@ WHERE freezer_active='1'
 ORDER BY ABS(freezer_id)";
 
 $columnnames = array();
-array_push($columnnames,"Time");
+array_push($columnnames,"Date");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
     $freezername = $freezerrow["freezer_id"];
@@ -33,7 +33,7 @@ echo "
   g = new Dygraph(
 
     // containing div
-    document.getElementById('container'),[
+    document.getElementById(\"container\"),[
 ";
 
         
@@ -81,7 +81,10 @@ while ($pingrow = $pings->fetch_assoc()) {
 }}
 echo "],
               {
-                labels: [\"".$columnheader."\"]
+                labels: [\"".$columnheader."\"],
+                xValueFormatter: Dygraph.dateString_,
+                xValueParser: function(x) { return parseInt(x); },
+                xTicker: Dygraph.dateTicker
               });
 </script>
 <div id='container'></div>
