@@ -26,7 +26,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     $freezername = $freezerrow["freezer_id"];
     array_push($columnnames,$freezername);
 }
-$columnheader = implode ("', '",$columnnames);
+$columnheader = implode ("\", \"",$columnnames);
 
 echo "
   <script type='text/javascript'>
