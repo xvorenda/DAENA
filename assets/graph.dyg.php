@@ -33,7 +33,8 @@ echo "
   g = new Dygraph(
 
     // containing div
-    document.getElementById('container'),";
+    document.getElementById('container'),
+    ";
 
         
 /* Ask MySQL for some number of minutes worth of ping data */

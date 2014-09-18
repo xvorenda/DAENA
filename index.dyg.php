@@ -10,17 +10,17 @@ include 'assets/urlvars.php';
 include 'assets/dyg.php';
         
 /* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
-include "assets/url.php";
+include 'assets/url.php';
 $url = curPageURL();
 $baseurl = substr($url, 0, strpos($url, "?"));
 
 include 'assets/navigation.php';
 
+/* Actually draw the graph */
+include 'assets/graph.dyg.php';
+
 echo "<div id='container'></div>";
 
-/* Actually draw the graph */
-include "assets/graph.dyg.php";
-
 /* Wrap things up */
-include "assets/footer.php";
+include 'assets/footer.php';
 ?>
