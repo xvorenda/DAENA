@@ -87,7 +87,7 @@ while($time = $timeresult->fetch_array())
 	}
 	$skipcount ++;
 }
-echo $arraytime;
+print_r( $arraytime);
 $freezer_array = array();
 
 /* Ask MySQL for X hours of data on each probe and prepare data for graph*/
@@ -162,7 +162,7 @@ foreach ($arraytime as $datatime)
 	}
 	array_push($json_chart, $freezertemp);
 }
-echo json_encode($json_chart);
+print_r($json_chart);
 // 
 // /* Order Desc, then Limit number of rows, then final output ASCENDING*/
 // $probequery = "(SELECT temp,int_time FROM daena_db.data 
