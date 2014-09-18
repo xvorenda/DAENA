@@ -65,7 +65,7 @@ $arraytime = array();
 
 /* Determine what the times will be */
 $firsttime = (time()*1000)-($hours*60*60*1000);
-echo $firsttime;
+//echo $firsttime;
 $gettimequery = "SELECT DISTINCT int_time 
 	FROM daena_db.data where int_time >= ". $firsttime. "
 	ORDER BY int_time ASC";
@@ -88,7 +88,7 @@ while($time = $timeresult->fetch_array())
 	}
 	$skipcount ++;
 }
-print_r( $arraytime);
+//print_r( $arraytime);
 $freezer_array = array();
 
 /* Ask MySQL for X hours of data on each probe and prepare data for graph*/
@@ -135,30 +135,34 @@ foreach ($arraytime as $datatime)
 	{
 		$tempquery = "SELECT data.temp FROM daena_db.data
 			WHERE freezer_id= ". $freezerid ." AND int_time = ".$datatime;
-		echo $tempquery;
-		$tempresult = $daenaDB->query($tempquery);
-		$temparray = $tempresult->fetch_array();
-		$tempdata = $temparray[0];
-		if($tempdata == 'nodata')
+
+		if($tempresult = $daenaDB->query($tempquery))
 		{
-			$freezertemp[$freezerid] = "null";
+			$temparray = $tempresult->fetch_array();
+			$tempdata = $temparray[0];
+			if($tempdata == 'nodata')
+			{
+				$freezertemp[$freezerid] = "null";
+			}
+			else
+			{
+				$probe_temp = $tempdata;
+				$probe_temp = str_replace($badzero_a, $re_neg, $probe_temp);
+				$probe_temp = str_replace($badzero_b, $re_neg, $probe_temp);
+				$probe_temp = ltrim($probe_temp, '+00');
+				$probe_temp = ltrim($probe_temp, '+0');
+				$freezertemp[$freezerid] = $probe_temp;
+			}
+			$tempresult->close();
 		}
 		else
-		{
-			$probe_temp = $tempdata;
-			$probe_temp = str_replace($badzero_a, $re_neg, $probe_temp);
-			$probe_temp = str_replace($badzero_b, $re_neg, $probe_temp);
-			$probe_temp = ltrim($probe_temp, '+00');
-			$probe_temp = ltrim($probe_temp, '+0');
-			$freezertemp[$freezerid] = $probe_temp;
+		{	
+			$freezertemp[$freezerid] = "null";
 		}
-		$tempresult->close();
-		
-
 	}
 	array_push($json_chart, $freezertemp);
 }
-print_r($json_chart);
+//print_r($json_chart);
 // 
 // /* Order Desc, then Limit number of rows, then final output ASCENDING*/
 // $probequery = "(SELECT temp,int_time FROM daena_db.data 
