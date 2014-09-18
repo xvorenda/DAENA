@@ -75,9 +75,8 @@ while ($pingrow = $pings->fetch_assoc()) {
       
         $epoch = $pingtime / 1000;
         $dt = new DateTime("@$epoch");
-        $readabletime = $dt->format('Y-m-d H:i:s');
 
-      echo "['".$readabletime."'";
+      echo "['".$dt->format('Y-m-d H:i:s')."'";
       $data = $daenaDB->query($dataquery);
       $freezercount = count($freezers);
       $datacount = count($data);
