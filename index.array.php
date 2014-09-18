@@ -151,12 +151,12 @@ foreach ($arraytime as $datatime)
 				$probe_temp = ltrim($probe_temp, '+0');
 				$freezertemp[$freezerid] = $probe_temp;
 			}
+			$tempresult->close();
 		}
 		else
 		{
 			$freezertemp[$freezerid] = "null";
 		}
-		$tempresult->close();
 	}
 	array_push($json_chart, $freezertemp);
 }
