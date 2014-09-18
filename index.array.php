@@ -151,7 +151,7 @@ foreach ($arraytime as $datatime)
 				$probe_temp = str_replace($badzero_b, $re_neg, $probe_temp);
 				$probe_temp = ltrim($probe_temp, '+00');
 				$probe_temp = ltrim($probe_temp, '+0');
-				$freezertemp[$freezerid] = $probe_temp;
+				$freezertemp[] = $probe_temp;
 			}
 			$tempresult->close();
 		}
