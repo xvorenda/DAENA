@@ -11,8 +11,9 @@ if (mysqli_connect_errno())
 
 /* Limit displayed points to within view window */
   if ($hours !='All') 
-        {$timespan = $hours * 3600 + 1;
-        $limit = "LIMIT ".$timespan;
+        {$timespan = $hours * 3600;
+        $skipspan = $timespan / $skip + 1;
+        $limit = "LIMIT ".$skipspan;
         }
   else 
         {$limit = "";}
@@ -85,7 +86,7 @@ while ($pingrow = $pings->fetch_assoc()) {
           $datatemp = ltrim($datatemp, '+00');
           $datatemp = ltrim($datatemp, '+0');
           if ($datatemp == "nodata"){
-          unset ($datatemp);}
+          $datatemp = "null";}
           echo ", ".$datatemp;
           
 
