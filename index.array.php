@@ -296,8 +296,9 @@ echo"
 </head>
 
 <body>
+";
 include 'assets/navigation.php';
-
+echo"
 <!--Div that will hold the  chart-->
     <div id='chart_div' style='width:400; height:300'></div>
 ";
