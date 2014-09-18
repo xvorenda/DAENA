@@ -49,13 +49,8 @@ echo "['".$columnheader."'],\n";
         
 /* Ask MySQL for some number of minutes worth of ping data */
 $pingquery = "(SELECT DISTINCT *
-FROM ( 
-    (SELECT DISTINCT
-        @row := @row +1 AS rownum, int_time 
-    FROM ( 
-        SELECT DISTINCT @row :=0) r, daena_db.data 
-) ORDER BY rownum DESC) ranked 
-WHERE rownum % ".$skip." = 1
+FROM daena_db.data 
+WHERE ping_id % ".$skip." = 1
 ".$limit."
 )ORDER BY int_time ASC";
 
@@ -73,10 +68,9 @@ while ($pingrow = $pings->fetch_assoc()) {
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
       
-        $epoch = $pingtime / 1000;
-        $dt = new DateTime("@$epoch");
-
-      echo "['".$dt->format('Y-m-d H:i:s')."'";
+      
+      
+      echo "['".$pingtime."'";
       $data = $daenaDB->query($dataquery);
       $freezercount = count($freezers);
       $datacount = count($data);
