@@ -5,7 +5,7 @@ echo"
   new Dygraph(document.getElementById('graph'),
 			".json_encode($json_chart)."
             ,{
-            labels: ". json_encode($labels)."
+            labels: ". json_encode($labelsarray)."
             }
               
               );
