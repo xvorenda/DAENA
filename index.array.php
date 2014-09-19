@@ -59,7 +59,7 @@ if ($hours !='All') {
 	$viewstop = $now - $timespan;}
 else $viewstop = 0;
 */
-$timechart = array();
+$arraytime = array();
 
 # $final_minute = round(time()/60);
 
@@ -89,18 +89,18 @@ if (mysqli_connect_errno())
 
 
 $skipcount=0;
-/* Populate timechart with times */
+/* Populate arraytime with times */
 while($time = $timeresult->fetch_array())
 {
 	# Skip every x time
 	if($skipcount % $skip == 0)
 	{
-		# load data into timechart which will hold data for time
-		$timechart[] = $time[0];
+		# load data into arraytime which will hold data for time
+		$arraytime[] = $time[0];
 	}
 	$skipcount ++;
 }
-//print_r( $timechart);
+//print_r( $arraytime);
 $freezer_array = array();
 
 /* Ask MySQL for X hours of data on each probe and prepare data for graph*/
