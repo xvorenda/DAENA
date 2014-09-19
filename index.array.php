@@ -96,7 +96,7 @@ while($time = $timeresult->fetch_array())
 	if($skipcount % $skip == 0)
 	{
 		# load data into arraytime which will hold data for time
-		$arraytime[] = $time[0];
+		$arraytime[] = (int)$time[0];
 	}
 	$skipcount ++;
 }
