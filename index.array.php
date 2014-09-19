@@ -149,7 +149,7 @@ foreach ($arraytime as $datatime)
 			}
 			else
 			{
-				$freezertemp[] = (float)$probe_temp;
+				$freezertemp[] = (float)$tempdata;
 			}
 			$tempresult->close();
 		}
