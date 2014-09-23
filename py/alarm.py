@@ -136,7 +136,7 @@ class alarm(object):
         send_alarm = alarmIDData[0][6]
         if send_alarm == True:
             print send_alarm
-        else
+        else:
             print send_alarm
         
         location = re.sub("<br>", ' ', location)
