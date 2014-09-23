@@ -74,7 +74,11 @@ if ($login->isUserLoggedIn() == true)
                                   ORDER BY int_time DESC
                                   LIMIT 1";
                 
-                $last_temp = $daenaDB->query($lasttempquery);
+                $lasttempdata = $daenaDB->query($lasttempquery);
+                while($lasttemprow = $lasttempdata->fetch_assoc())
+                {
+                    $last_temp = $lasttemprow['temp'];
+                };
 
 		echo "<tr class='borderless'>
 				<form action='handlers/alarm-mod.php' method='POST'>
