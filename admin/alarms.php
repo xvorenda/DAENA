@@ -25,7 +25,7 @@ if ($login->isUserLoggedIn() == true)
 	/* Draw Alarm Mod Area */
 	echo "
 	<div class='alarmbox table-responsive'>
-	<table class='table'>
+	<table>
 	<tr>
 		<td>Freezer ID</td>
 		<td>Freezer Name</td>
