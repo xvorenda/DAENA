@@ -17,7 +17,7 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Ask MySQL about which freeers exist and get their metadata */
 	$allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
-		FROM daena_db.freezers WHERE active = 1
+		FROM daena_db.freezers WHERE freezer_active = 1
 		ORDER BY ABS(freezer_id)";
 	$allfreezers = $daenaDB->query($allfreezersquery);
 
