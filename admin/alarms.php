@@ -15,22 +15,9 @@ if ($login->isUserLoggedIn() == true)
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	  }
 
-
-	/* Ask MySQL about which probes exist and get their metadata */
-	$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
-	FROM daena_db.probes
-	ORDER BY ABS(probe_id)";
-	$allprobes = $daenaDB->query($allprobesquery);
-	if($allprobes === FALSE)
-	{
-		die(mysqli_error()); // TODO: better error handling
-	}
-
-
-
 	/* Ask MySQL about which freeers exist and get their metadata */
 	$allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
-		FROM daena_db.freezers
+		FROM daena_db.freezers WHERE active = 1
 		ORDER BY ABS(freezer_id)";
 	$allfreezers = $daenaDB->query($allfreezersquery);
 
@@ -70,7 +57,8 @@ if ($login->isUserLoggedIn() == true)
                 };
 
                 $lasttempquery = "SELECT temp FROM daena_db.data
-                                  WHERE freezer_id='".$freezer_id."'
+                                  WHERE freezer_id='".$freezer_id."' AND
+                                  temp not REGEXP('nodata')
                                   ORDER BY int_time DESC
                                   LIMIT 1";
 
@@ -87,9 +75,9 @@ if ($login->isUserLoggedIn() == true)
 				<td class='field-narrow'>".$alarm_level."</td>
 				<td class='field-wide'>".$alarm_time."</td>
 				<td>".$last_temp."</td>
-                                <td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
+                <td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
-                                <td class='field-narrow'><input type='text' class='input-medium search-query' name='freezer_send_alarm' value='".$freezer_send_alarm."'/></td>
+                <td class='field-narrow'><input type='text' class='input-medium search-query' name='freezer_send_alarm' value='".$freezer_send_alarm."'/></td>
 				<td><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 			   </tr>";
 	}

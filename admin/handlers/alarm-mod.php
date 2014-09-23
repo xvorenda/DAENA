@@ -25,18 +25,18 @@ $alarmupdate = "UPDATE daena_db.freezers
 	WHERE freezer_id='" . $freezer_id . "'";
 
 
-	$freezeralarm = $daenaDB->query($alarmupdate);
-	
-	echo "Modification Success!";
-	echo '<script>window.location.replace("';
-	$pageURL = 'http://';
-	if ($_SERVER["SERVER_PORT"] != "80") 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	} 
-	else 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"];
-	}
-	 echo $pageURL;
-	 echo '/admin/alarms.php");</script>';
+$freezeralarm = $daenaDB->query($alarmupdate);
+
+echo "Modification Success!";
+echo '<script>window.location.replace("';
+$pageURL = 'http://';
+if ($_SERVER["SERVER_PORT"] != "80") 
+{
+  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+} 
+else 
+{
+  $pageURL .= $_SERVER["SERVER_NAME"];
+}
+ echo $pageURL;
+ echo '/admin/alarms.php");</script>';
