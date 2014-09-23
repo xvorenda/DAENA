@@ -61,7 +61,7 @@ if ($login->isUserLoggedIn() == true)
 		$freezer_send_alarm = $freezerdata['freezer_send_alarm'];
 		
 		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarms
-			WHERE alarm_id=".$freezer_alarm_id;
+			WHERE alarm_id='".$freezer_alarm_id."'";
 		$alarmdata = $daenaDB->query($alarm_query);
                 while($alarmdata = $alarm_query->fetch_assoc())
                 {
@@ -75,7 +75,7 @@ if ($login->isUserLoggedIn() == true)
 				<td>".$freezer_name."</td>
 				<td class='field-narrow'><input type='text' class='input-medium search-query ' name='probe_active' value='".$alarm_level."'/></td>
 				<td class='field-wide'><input type='text' class='input-medium search-query ' name='probe_hostport' value='".$alarm_time."'/></td>
-				<td><input type='text' class='input-medium search-query ' name='last_temp' value='"."'/></td>
+				<td><input type='text' class='input-medium search-query ' name='last_temp' value='".$last_temp."'/></td>
                                 <td><input type='text' class='input-medium search-query' name='freezer_setpiont1' value='".$freezer_setpoint1."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
                                 <td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port' value='".$send_alarm."'/></td>
