@@ -27,7 +27,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($columnnames,$freezername);
 }
 $columnheader = implode ("', '",$columnnames);
-$freezercount = mysql_num_fields($freezers);
+$freezercount = $freezers->field_count;
 
 echo "
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
@@ -64,7 +64,7 @@ while ($pingrow = $pings->fetch_assoc()) {
       echo "['".$pingtime."'";
       $data = $daenaDB->query($dataquery);
 
-      $datacount = mysql_num_fields($data);
+      $datacount = $data->field_count;
 
 
       if ($datacount == $freezercount){
@@ -77,11 +77,9 @@ while ($pingrow = $pings->fetch_assoc()) {
           if ($datatemp == "nodata"){
               $datatemp = "null";}
           echo ", ".$datatemp;
-          echo "Datacount: ".$datacount."\nFreezercount: ".$freezercount;
-
       }
       echo "],\n";
-    }
+  }else{echo "Datacount: ".$datacount."\nFreezercount: ".$freezercount;}
 }
 echo "]);
 
