@@ -125,12 +125,12 @@ h3 {margin:12px auto 0;}
 .white-cell {
   background-color:#fff !important;
 }
-tr td:first-child {
+.round-first {
   border-top-left-radius: 4px !important;
   border-bottom-left-radius: 4px !important;
 }
 
-tr td:last-child {
+.round-last {
 border-top-right-radius: 4px !important;
 border-bottom-right-radius: 4px !important;
 

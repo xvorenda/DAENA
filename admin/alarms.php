@@ -103,12 +103,12 @@ if ($login->isUserLoggedIn() == true)
 
 		echo "<tr class='alarm-table-row'>
 				<form action='handlers/alarm-mod.php' method='POST'>
-				<td class='".$row_color."'><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
+				<td class='".$row_color." round-first'><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 				<td class='".$row_color."'>".$freezer_name."</td>
 				<td class='".$row_color." field-narrow'>".$alarm_level."</td>
 				<td class='".$row_color." field-wide'>".$alarm_date_time."</td>
 				<td class='".$row_color."'>".$last_temp."</td>
-				<td class='".$row_color."'>".$last_reading."</td>
+				<td class='".$row_color." round-last'>".$last_reading."</td>
         <td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
         <td class='field-narrow'><input type='text' class='input-medium search-query' name='freezer_send_alarm' value='".$freezer_send_alarm."'/></td>
