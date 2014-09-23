@@ -60,9 +60,8 @@ if ($login->isUserLoggedIn() == true)
 		$freezer_alarm_id = $freezerdata['freezer_alarm_id'];
 		$freezer_send_alarm = $freezerdata['freezer_send_alarm'];
 		
-		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarms
+		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarm
 			WHERE alarm_id='".$freezer_alarm_id."'";
-                echo $alarm_query;
 		$alarmdata = $daenaDB->query($alarm_query);
                 while($alarmdata = $alarm_query->fetch_assoc())
                 {
