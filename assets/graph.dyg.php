@@ -39,7 +39,7 @@ echo "<div id='container'></div>
 
 /* Ask MySQL for some number of minutes worth of ping data */
 $pingquery = "SELECT DISTINCT int_time FROM daena_db.data
-              WHERE int_time > ".$viewwindow."
+              WHERE int_time > ".$viewstart."
               ORDER BY int_time ASC";
 
 $pings = $daenaDB->query($pingquery);
