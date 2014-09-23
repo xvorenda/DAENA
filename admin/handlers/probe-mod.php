@@ -12,8 +12,10 @@ $probe_ntms_port = filter_input(INPUT_POST, 'probe_ntms_port');
 
 
 /* Start talking to MySQL and kill yourself if it ignores you */
-$daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
-if ($daenaDB === FALSE) {
+include '../config/db.php';
+$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+if ($daenaDB === FALSE) 
+{
     die(mysql_error()); // TODO: better error handling
 }
 mysql_select_db("daena_db");
