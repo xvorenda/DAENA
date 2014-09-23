@@ -51,7 +51,7 @@ if ($login->isUserLoggedIn() == true)
 		$freezer_id = $probedata['freezer_id'];
 
 		echo "<tr class='borderless'>
-				<form action='probe-mod.php' method='POST'>
+				<form action='assets/probe-mod.php' method='POST'>
 				<td><input type='text' class='input-medium search-query' name='probe_id' value='".$probe_id."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_id' value='".$freezer_id."'/></td>
 				<td><input type='text' class='input-medium search-query' name='probe_type' value='".$probe_type."'/></td>
@@ -64,7 +64,7 @@ if ($login->isUserLoggedIn() == true)
 	}
 
 	echo "<tr class='borderless'>
-			<form action='probe-mod.php' method='POST'>
+			<form action='assets/probe-mod.php' method='POST'>
 			<td><input type='text' class='input-medium search-query' name='probe_id'/></td>
 			<td><input type='text' class='input-medium search-query' name='freezer_id'/></td>
 			<td><input type='text' class='input-medium search-query' name='probe_type'/></td>
