@@ -25,7 +25,7 @@ if ($login->isUserLoggedIn() == true)
 	/* Draw Alarm Mod Area */
 	echo "
 	<div class='alarmbox'>
-	<table class='borderless'>
+	<table class='table'>
 	<tr>
 		<td>Freezer ID</td>
 		<td>Freezer Name</td>
@@ -96,7 +96,7 @@ if ($login->isUserLoggedIn() == true)
 			$last_temp = $lasttemprow['temp'];
 		};
 
-		echo "<tr class='inverse'>
+		echo "<tr class='table table-success'>
 				<form action='handlers/alarm-mod.php' method='POST'>
 				<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 				<td>".$freezer_name."</td>
