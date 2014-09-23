@@ -75,7 +75,7 @@ while ($pingrow = $pings->fetch_assoc()) {
           $datatemp = ltrim($datatemp, '+00');
           $datatemp = ltrim($datatemp, '+0');
           if ($datatemp == "nodata"){
-          $datatemp = "null";}
+              $datatemp = "null";} else {echo "Datacount: ".$datacount."\nFreezercount: ".$freezercount;}
           echo ", ".$datatemp;
 
 
