@@ -80,8 +80,8 @@ if ($login->isUserLoggedIn() == true)
 				<td><input type='text' class='input-medium search-query' name='freezer_location_building' value='".$freezer_location_building."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_location_room' value='".$freezer_location_room."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_temp_range' value='".$freezer_temp_range."'/></td>
-				<td>'".$probe_host."'</td>
-				<td>'".$probe_port."'</td>
+				<td>".$probe_host."</td>
+				<td>".$probe_port."</td>
 				<td class='field-narrow'><input type='text' class='input-medium search-query' name='freezer_active' value='".$freezer_active."'/></td>
 				<td><input type='text' class='input-medium search-query color' name='freezer_color' value='".$freezer_color."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_id' value='".$freezer_id."'/></td>
@@ -95,8 +95,8 @@ if ($login->isUserLoggedIn() == true)
 			<td><input type='text' class='input-medium search-query' name='freezer_location_building'/></td>
 			<td><input type='text' class='input-medium search-query' name='freezer_location_room'/></td>
 			<td><input type='text' class='input-medium search-query' name='freezer_temp_range'/></td>
-			<td>'probe_host'</td>
-			<td>'probe_port'</td>
+			<td></td>
+			<td></td>
 			<td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_active'/></td>
 			<td><input type='text' class='input-medium search-query color' name='freezer_color'/></td>
 			<td><input type='text' class='input-medium search-query' name='freezer_id'/></td>
