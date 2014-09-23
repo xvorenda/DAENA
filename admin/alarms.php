@@ -101,17 +101,17 @@ if ($login->isUserLoggedIn() == true)
 			$last_temp = $lasttemprow['temp'];
 		};
 
-		echo "<tr class='".$row_color." alarm-table-row'>
+		echo "<tr class='alarm-table-row'>
 				<form action='handlers/alarm-mod.php' method='POST'>
 				<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
-				<td>".$freezer_name."</td>
-				<td class='field-narrow'>".$alarm_level."</td>
-				<td class='field-wide'>".$alarm_date_time."</td>
-				<td>".$last_temp."</td>
-				<td>".$last_reading."</td>
-                <td><input type='text' class='input-medium search-query white-cell' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
+				<td class='".$row_color."'>".$freezer_name."</td>
+				<td class='".$row_color." field-narrow'>".$alarm_level."</td>
+				<td class='".$row_color." field-wide'>".$alarm_date_time."</td>
+				<td class='".$row_color."'>".$last_temp."</td>
+				<td class='".$row_color."'>".$last_reading."</td>
+        <td><input type='text' class='input-medium search-query white-cell' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
 				<td><input type='text' class='input-medium search-query white-cell' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
-                <td class='field-narrow'><input type='text' class='input-medium search-query white-cell' name='freezer_send_alarm' value='".$freezer_send_alarm."'/></td>
+        <td class='field-narrow'><input type='text' class='input-medium search-query white-cell' name='freezer_send_alarm' value='".$freezer_send_alarm."'/></td>
 				<td><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 			   </tr>";
 	}
