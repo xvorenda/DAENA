@@ -125,10 +125,10 @@ h3 {margin:12px auto 0;}
 .white-cell {
   background-color:#fff !important;
 }
-.alarmbox {
-  border: none !important;
+.alarm-table-row {
+  border: 1px solid transparent;}
+table.table {
   border-radius: 40px !important;
-  margin: 4px 0;
 }
 .gray       {color:#999 !important}
 .violet     {color:#808 !important}
