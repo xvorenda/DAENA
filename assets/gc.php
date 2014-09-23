@@ -77,11 +77,11 @@ while ($pingrow = $pings->fetch_assoc()) {
           if ($datatemp == "nodata"){
               $datatemp = "null";}
           echo ", ".$datatemp;
-
+          echo "Datacount: ".$datacount."\nFreezercount: ".$freezercount;
 
       }
       echo "],\n";
-}else {echo "Datacount: ".$datacount."\nFreezercount: ".$freezercount;}
+    }
 }
 echo "]);
 
