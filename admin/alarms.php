@@ -43,6 +43,7 @@ if ($login->isUserLoggedIn() == true)
 		<td>Freezer ID</td>
 		<td>Freezer Name</td>
 		<td>Alarm Level</td>
+		<td>Alarm Time</td>
 		<td>Last Temp</td>
 		<td>Setpoint 1</td>
 		<td>Setpoint 2</td>
@@ -58,13 +59,17 @@ if ($login->isUserLoggedIn() == true)
 		$freezer_setpoint2 = $freezerdata['freezer_setpoint2'];
 		$freezer_alarm_id = $freezerdata['freezer_alarm_id'];
 		$freezer_send_alarm = $freezerdata['freezer_send_alarm'];
-
+		
+		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarms
+			WHERE alarm_id=".$freezer_alarm_id;
+		$alarmdata = $daenaDB->query($alarm_query);
 
 		echo "<tr class='borderless'>
 				<form action='handlers/probe-mod.php' method='POST'>
-				<td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_id' value='".$probe_id."'/></td>
-				<td><input type='text' class='input-medium search-query' name='freezer_id' value='".$freezer_id."'/></td>
-				<td><input type='text' class='input-medium search-query' name='probe_type' value='".$probe_type."'/></td>
+				<td>".$freezer_id."</td>
+				<td>".$freezer_name."</td>
+				<td><input type='text' class='input-medium search-query' name='freezer_setpiont1' value='".$freezer_setpoint1."'/></td>
+				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
 				<td><input type='text' class='input-medium search-query' name='probe_range' value='".$probe_range."'/></td>
 				<td class='field-narrow'><input type='text' class='input-medium search-query ' name='probe_active' value='".$probe_active."'/></td>
 				<td class='field-wide'><input type='text' class='input-medium search-query ' name='probe_hostport' value='".$probe_hostport."'/></td>
