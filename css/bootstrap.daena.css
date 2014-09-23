@@ -137,7 +137,7 @@ border-bottom-right-radius: 20px !important;
 }
 .table > tbody > tr > td {
   border-top: none !important;
-  vertical-align: bottom !important}
+  vertical-align: middle !important}
 table.table{
   border-spacing: 0 8 !important;
   border-collapse: separate !important
