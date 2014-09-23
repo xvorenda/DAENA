@@ -3,7 +3,7 @@
 include "assets/admin-header.php";
 include 'assets/admin-nav.php';
 
-if ($login->isUserLoggedIn() == true) 
+if ($login->isUserLoggedIn() == true)
 {
 
 	/* Start talking to MySQL and kill yourself if it ignores you */
@@ -18,10 +18,10 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Ask MySQL about which probes exist and get their metadata */
 	$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
-	FROM daena_db.probes 
+	FROM daena_db.probes
 	ORDER BY ABS(probe_id)";
 	$allprobes = $daenaDB->query($allprobesquery);
-	if($allprobes === FALSE) 
+	if($allprobes === FALSE)
 	{
 		die(mysqli_error()); // TODO: better error handling
 	}
@@ -29,7 +29,7 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Ask MySQL about which probes exist and get their metadata */
 	$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
-		FROM daena_db.probes 
+		FROM daena_db.probes
 		ORDER BY ABS(freezer_id)";
 	$allprobes = $daenaDB->query($allprobesquery);
 
@@ -37,7 +37,7 @@ if ($login->isUserLoggedIn() == true)
 	/* Draw Probe Mod Area */
 	echo "
 	<div class='probesbox'>
-	<table class='borderless'>
+	<table class='table'>
 	<tr><td>Probe ID</td><td>Freezer ID</td><td>Probe Type</td><td>Probe Range</td><td>Active</td><td>Probe Hostport</td><td>Probe NTMS Port</td><td>&nbsp;</td></tr>
 	";
 	while(($probedata = $allprobes->fetch_assoc()))
@@ -74,16 +74,15 @@ if ($login->isUserLoggedIn() == true)
 			<td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port'/></td>
 			<td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></td></form>
 		 </tr>
-	  </table></div></div>";	
+	  </table></div></div>";
 }
-else 
+else
 {
 	echo "<div id='content'>"
 		. "<h1>Unauthorized Access</h1>"
 		. "<h3>Please <a href='index.php'>log in</a> to access this page.</h3>"
-		. "</div>";   
+		. "</div>";
 }
 /* Wrap things up */
 include 'assets/admin-footer.php';
 ?>
-	    

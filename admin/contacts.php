@@ -17,7 +17,7 @@ if ($daenaDB->connect_errno) {
 
 /* Ask MySQL about which probes exist and get their metadata */
 $allcontactsquery = "SELECT SQL_CALC_FOUND_ROWS *
-FROM daena_db.contacts 
+FROM daena_db.contacts
 ORDER BY ABS(contact_id)";
 $allcontacts = $daenaDB->query($allcontactsquery);
 
@@ -25,7 +25,7 @@ $allcontacts = $daenaDB->query($allcontactsquery);
 /* Draw Freezer Mod Area */
 echo "
 <div class='contactsbox'>
-<table>
+<table class='table'>
 <tr><td>Contact ID</td><td>Name</td><td>Email</td><td>Alt Email</td><td>&nbsp;</td></tr>
 ";
 while(($contactdata = $allcontacts->fetch_assoc())){
@@ -53,12 +53,12 @@ echo "<tr>
         <td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></form></td>
     </tr>
 </table>
-</div></div>";	
+</div></div>";
 }else {
 echo "<div id='content'>"
     . "<h1>Unauthorized Access</h1>"
     . "<h3>Please <a href='index.php'>log in</a> to access this page.</h3>"
-    . "</div>";   
+    . "</div>";
 }
 /* Wrap things up */
 include 'assets/admin-footer.php';

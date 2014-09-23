@@ -5,10 +5,10 @@ include 'assets/admin-nav.php';
 
 
 /* Make sure user is logged in */
-if ($login->isUserLoggedIn() == true) 
+if ($login->isUserLoggedIn() == true)
 {
 
-	
+
 	/* Start talking to MySQL */
 	//include 'admin/config/db.php';
 	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
@@ -21,21 +21,21 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Ask MySQL about which probes exist and get their metadata */
 	$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
-		FROM daena_db.probes 
+		FROM daena_db.probes
 		ORDER BY ABS(probe_id)";
 	$allprobes = $daenaDB->query($allprobesquery);
-	
+
 
 	/* Ask MySQL about which freeers exist and get their metadata */
 	$allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
-		FROM daena_db.freezers 
+		FROM daena_db.freezers
 		ORDER BY ABS(freezer_id)";
 	$allfreezers = $daenaDB->query($allfreezersquery);
 
 
 	/* Draw Freezer Display/Mod Area */
 	echo "<div class='freezersbox'>
-		<table>
+		<table class'table'>
 			<tr>
 				<td>Freezer Name</td>
 				<td>Building</td>
@@ -57,21 +57,21 @@ if ($login->isUserLoggedIn() == true)
 		$freezer_id = $freezerdata['freezer_id'];
 		$freezer_active = $freezerdata['freezer_active'];
 		$freezer_color = $freezerdata['freezer_color'];
-	
+
 		$location = explode("<br>", $freezer_location);
 		$freezer_location_building = $location[0];
 		$freezer_location_room = $location[1];
-	
-		$probequery = "SELECT probe_id, probe_hostport FROM daena_db.probes 
+
+		$probequery = "SELECT probe_id, probe_hostport FROM daena_db.probes
 		WHERE freezer_id='" . $freezer_id . "'";
 		$proberesult = $daenaDB->query($probequery);
-	
-		while($probe = $proberesult->fetch_array()) 
+
+		while($probe = $proberesult->fetch_array())
 		{
 			$probe_hostport = $probe['probe_hostport'];
 			$hostport = explode(" ", $probe_hostport);
 				$probe_host = $hostport[0];
-				$probe_port = $hostport[1]; 
+				$probe_port = $hostport[1];
 		}
 
 		echo "<tr>
@@ -104,14 +104,14 @@ if ($login->isUserLoggedIn() == true)
 		</tr>
 	</table>
 	</div>
-	</div>";	
-} 
-else 
+	</div>";
+}
+else
 {
 	echo "<div id='content'>"
 		. "<h1>Unauthorized Access</h1>"
 		. "<h3>Please <a href='index.php'>log in</a> to access this page.</h3>"
-		. "</div>";   
+		. "</div>";
 }
 /* Wrap things up */
 include 'assets/admin-footer.php';

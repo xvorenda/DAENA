@@ -17,7 +17,7 @@ if ($daenaDB->connect_errno) {
 
 /* Ask MySQL about which probes exist and get their metadata */
 $allgroupsquery = "SELECT SQL_CALC_FOUND_ROWS *
-FROM daena_db.groups 
+FROM daena_db.groups
 ORDER BY ABS(group_id)";
 $allgroups = $daenaDB->query($allgroupsquery);
 
@@ -25,7 +25,7 @@ $allgroups = $daenaDB->query($allgroupsquery);
 /* Draw Freezer Mod Area */
 echo "
 <div class='groupsbox'>
-<table>
+<table class='table'>
 <tr><td>Group ID</td><td>Group Name</td><td class='td-wide'>Group Description</td><td>&nbsp;</td></tr>
 ";
 while(($groupdata = $allgroups->fetch_assoc())){
@@ -49,12 +49,12 @@ echo "<tr>
         <td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></form></td>
     </tr>
 </table>
-</div></div>";	
+</div></div>";
 }else {
 echo "<div id='content'>"
     . "<h1>Unauthorized Access</h1>"
     . "<h3>Please <a href='index.php'>log in</a> to access this page.</h3>"
-    . "</div>";   
+    . "</div>";
 }
 /* Wrap things up */
 include 'assets/admin-footer.php';
