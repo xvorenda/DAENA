@@ -109,9 +109,9 @@ if ($login->isUserLoggedIn() == true)
 				<td class='".$row_color." field-wide'>".$alarm_date_time."</td>
 				<td class='".$row_color."'>".$last_temp."</td>
 				<td class='".$row_color."'>".$last_reading."</td>
-        <td><input type='text' class='input-medium search-query white-cell' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
-				<td><input type='text' class='input-medium search-query white-cell' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
-        <td class='field-narrow'><input type='text' class='input-medium search-query white-cell' name='freezer_send_alarm' value='".$freezer_send_alarm."'/></td>
+        <td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
+				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
+        <td class='field-narrow'><input type='text' class='input-medium search-query' name='freezer_send_alarm' value='".$freezer_send_alarm."'/></td>
 				<td><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 			   </tr>";
 	}
