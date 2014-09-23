@@ -135,9 +135,9 @@ h3 {margin:12px auto 0;}
 border-top-right-radius: 20px !important;
 border-bottom-right-radius: 20px !important;
 }
-.table > tbody > tr > td{
+.table > tbody > tr > td {
   border-top: none !important;
-  vertical-align: center !important}
+  vertical-align: bottom !important}
 table.table{
   border-spacing: 0 8 !important;
   border-collapse: separate !important
