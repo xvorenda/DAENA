@@ -3,17 +3,16 @@
 include "assets/admin-header.php";
 include 'assets/admin-nav.php';
 
-if ($login->isUserLoggedIn() == true) 
-{
+if ($login->isUserLoggedIn() == true) {
 
-	/* Start talking to MySQL and kill yourself if it ignores you */
-	include 'config/db.php';
-	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-	// Check connection
-	if (mysqli_connect_errno())
-	  {
-	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	  }
+/* Start talking to MySQL and kill yourself if it ignores you */
+include 'admin/config/db.php';
+$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
   
   
 }else {
