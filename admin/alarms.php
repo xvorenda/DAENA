@@ -32,6 +32,7 @@ if ($login->isUserLoggedIn() == true)
 		<td>Alarm Level</td>
 		<td>Alarm Time</td>
 		<td>Last Temp</td>
+		<td>Last Reading</td>
 		<td>Setpoint 1</td>
 		<td>Setpoint 2</td>
 		<td>Send Alarm</td>
@@ -50,31 +51,59 @@ if ($login->isUserLoggedIn() == true)
 		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarm
 			WHERE alarm_id='".$freezer_alarm_id."'";
 		$alarmdata = $daenaDB->query($alarm_query);
-                while($alarmrow = $alarmdata->fetch_assoc())
-                {
-                    $alarm_level = $alarmrow['alarm_level'];
-                    $alarm_time = $alarmrow['alarm_time'];
-                };
+		while($alarmrow = $alarmdata->fetch_assoc())
+		{
+			$alarm_level = $alarmrow['alarm_level'];
+			$alarm_time = $alarmrow['alarm_time'];
+		};
+		if ($alarm_level == 0)
+		{
+			$row_color = "success";
+		}
+		elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
+		{
+			$row_color="warning"
+		}
+		elseif($alarm_level==3 || $alarm_level==4)
+		{
+			$row_color="danger"
+		}
+		elseif($alarm_level==6 || $alarm_level==7)
+		{
+			$row_color="inverse"
+		}
+		
+		$lasttempquery = "SELECT temp FROM daena_db.data
+			WHERE freezer_id='".$freezer_id."'
+			ORDER BY int_time DESC
+			LIMIT 1";
 
-                $lasttempquery = "SELECT temp FROM daena_db.data
-                                  WHERE freezer_id='".$freezer_id."' AND
-                                  temp not REGEXP('nodata')
-                                  ORDER BY int_time DESC
-                                  LIMIT 1";
+		$lasttempdata = $daenaDB->query($lasttempquery);
+		while($lasttemprow = $lasttempdata->fetch_assoc())
+		{
+			$last_reading = $lasttemprow['temp'];
+		};
 
-                $lasttempdata = $daenaDB->query($lasttempquery);
-                while($lasttemprow = $lasttempdata->fetch_assoc())
-                {
-                    $last_temp = $lasttemprow['temp'];
-                };
+		$lasttempquery = "SELECT temp FROM daena_db.data
+			WHERE freezer_id='".$freezer_id."' AND
+			temp not REGEXP('nodata')
+			ORDER BY int_time DESC
+			LIMIT 1";
 
-		echo "<tr class='borderless'>
+		$lasttempdata = $daenaDB->query($lasttempquery);
+		while($lasttemprow = $lasttempdata->fetch_assoc())
+		{
+			$last_temp = $lasttemprow['temp'];
+		};
+
+		echo "<tr class='borderless ".$row_color."'>
 				<form action='handlers/alarm-mod.php' method='POST'>
 				<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 				<td>".$freezer_name."</td>
 				<td class='field-narrow'>".$alarm_level."</td>
 				<td class='field-wide'>".$alarm_time."</td>
 				<td>".$last_temp."</td>
+				<td>".$last_reading."</td>
                 <td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
                 <td class='field-narrow'><input type='text' class='input-medium search-query' name='freezer_send_alarm' value='".$freezer_send_alarm."'/></td>
