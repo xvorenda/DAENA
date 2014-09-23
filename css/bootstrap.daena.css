@@ -119,6 +119,7 @@ h3 {margin:12px auto 0;}
     background-color: #eee;
     border: 1px solid transparent;
     border-radius: 20px;
+    margin: 4px 0;
 }
 .input-wide, .wide {
     min-width: 300px;
