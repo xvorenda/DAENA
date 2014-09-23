@@ -89,7 +89,7 @@ if ($login->isUserLoggedIn() == true)
 				<td><input type='text' class='input-medium search-query ' name='last_temp' value='".$last_temp."'/></td>
                                 <td><input type='text' class='input-medium search-query' name='freezer_setpiont1' value='".$freezer_setpoint1."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
-                                <td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port' value='".$send_alarm."'/></td>
+                                <td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port' value='".$freezer_send_alarm."'/></td>
 				<td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 			   </tr>";
 	}
