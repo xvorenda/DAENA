@@ -52,7 +52,7 @@ if ($login->isUserLoggedIn() == true)
 
 		echo "<tr class='borderless'>
 				<form action='handlers/probe-mod.php' method='POST'>
-				<td><input type='text' class='input-medium search-query' name='probe_id' value='".$probe_id."'/></td>
+				<td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_id' value='".$probe_id."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_id' value='".$freezer_id."'/></td>
 				<td><input type='text' class='input-medium search-query' name='probe_type' value='".$probe_type."'/></td>
 				<td><input type='text' class='input-medium search-query' name='probe_range' value='".$probe_range."'/></td>
@@ -65,7 +65,7 @@ if ($login->isUserLoggedIn() == true)
 
 	echo "<tr class='borderless'>
 			<form action='handlers/probe-mod.php' method='POST'>
-			<td><input type='text' class='input-medium search-query' name='probe_id'/></td>
+			<td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_id'/></td>
 			<td><input type='text' class='input-medium search-query' name='freezer_id'/></td>
 			<td><input type='text' class='input-medium search-query' name='probe_type'/></td>
 			<td><input type='text' class='input-medium search-query' name='probe_range'/></td>
