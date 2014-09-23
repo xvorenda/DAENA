@@ -24,7 +24,7 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Draw Alarm Mod Area */
 	echo "
-	<div class='alarmbox'>
+	<div class='alarmbox table-responsive'>
 	<table class='table'>
 	<tr>
 		<td>Freezer ID</td>
@@ -96,7 +96,7 @@ if ($login->isUserLoggedIn() == true)
 			$last_temp = $lasttemprow['temp'];
 		};
 
-		echo "<tr class='table table-success'>
+		echo "<tr class='success'>
 				<form action='handlers/alarm-mod.php' method='POST'>
 				<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 				<td>".$freezer_name."</td>
