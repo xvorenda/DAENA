@@ -82,7 +82,7 @@ class alarm(object):
         self.writecursor = self.conn.cursor()
         self.readcursor = self.conn.cursor()   
         
-        # Contants used in program
+        # Contants used in program        
         # Alarm Timing Constants
         self.SIXTY_SECONDS = 60
         self.MINUTES_FOR_CRITICAL_RANGE_REMINDER = 60
@@ -119,7 +119,7 @@ class alarm(object):
     def checkTemp(self, freezer, currentTemp, setpoint1 = None, setpoint2=None):
         #print "checking temp of", freezer, currentTemp, setpoint1, setpoint2
         
-        readQuery = ("select freezer_alarm_ID, freezer_setpoint1, freezer_setpoint2, freezer_location, freezer_name, freezer_description from freezers where freezer_id = %s")
+        readQuery = ("select freezer_alarm_ID, freezer_setpoint1, freezer_setpoint2, freezer_location, freezer_name, freezer_description, freezer_send_alarm from freezers where freezer_id = %s")
         self.readcursor.execute(readQuery, (freezer))
         alarmIDData = self.readcursor.fetchall()
         #print alarmIDData
@@ -131,6 +131,10 @@ class alarm(object):
         location = alarmIDData[0][3]
         name = alarmIDData[0][4]
         description = alarmIDData[0][5]
+        
+        # Send Alarm = 0 it will not sound an alarm
+        send_alarm = alarmIDData[0][6]
+        
         location = re.sub("<br>", ' ', location)
         #print "freezerAlarmID, setpoint1, setpoint2", freezerAlarmID, setpoint1, setpoint2
         # Takes in freezerID, currentTemp, the two setpoints, and 
@@ -203,7 +207,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
                              
                 # Set alarm level to 3
@@ -236,7 +240,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
                         
 # 1 or 2 > Alarm 3
@@ -264,7 +268,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
 # 5 > Alarm 3                        
                     elif alarmLevel == self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM:
@@ -294,7 +298,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
                         
 # 6 or 7 > Alarm 3
@@ -322,7 +326,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
 
 # unknown > Alarm 3 (Generic Message)      
@@ -353,7 +357,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
                     
                     
@@ -400,7 +404,7 @@ class alarm(object):
                     emailList = filter(None, emailList)
                         
                     # send the email
-                    if emailList:
+                    if emailList && send_alarm:
                         self.sendMessage(emailList, subject, message)
                     
                     
@@ -431,7 +435,7 @@ class alarm(object):
                     emailList = filter(None, emailList)
                     
                     # send the email
-                    if emailList:
+                    if emailList && send_alarm:
                         self.sendMessage(emailList, subject, message)
                     
                 # if temperature is coming back down below setpoint2
@@ -461,7 +465,7 @@ class alarm(object):
                     emailList = filter(None, emailList)
                     
                     # send the email
-                    if emailList:
+                    if emailList && send_alarm:
                         self.sendMessage(emailList, subject, message)
 # 3 or 4 > Alarm 5
                 elif alarmLevel == self.CRITICAL_TEMP_ALARM or alarmLevel == self.CRITICAL_TEMP_ALARM_SILENCED:
@@ -493,7 +497,7 @@ class alarm(object):
                     emailList = filter(None, emailList)
                     
                     # send the email
-                    if emailList:
+                    if emailList && send_alarm:
                         self.sendMessage(emailList, subject, message)
 
 
@@ -537,7 +541,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
                         
 # 3 or 4 > Normal 0
@@ -566,7 +570,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
                         
 # 5 > Normal 0
@@ -595,7 +599,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
                         
 # 6 or 7 > Normal 0
@@ -624,7 +628,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
 
 # else (unknown) > Normal 0                        
@@ -653,7 +657,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList:
+                        if emailList && send_alarm:
                             self.sendMessage(emailList, subject, message)
                     
                 else:
@@ -781,7 +785,7 @@ class alarm(object):
         # checks and sets communication alarm
         
         # Get necessary information from database 
-        readQuery = ("select freezer_alarm_ID, freezer_setpoint1, freezer_setpoint2, freezer_location, freezer_name, freezer_description from freezers where freezer_id = %s")
+        readQuery = ("select freezer_alarm_ID, freezer_setpoint1, freezer_setpoint2, freezer_location, freezer_name, freezer_description, freezer_send_alarm from freezers where freezer_id = %s")
         self.readcursor.execute(readQuery, (freezer))
         alarmIDData = self.readcursor.fetchall()
         freezerAlarmID = alarmIDData[0][0]
@@ -790,6 +794,10 @@ class alarm(object):
         location = alarmIDData[0][3]
         name = alarmIDData[0][4]
         description = alarmIDData[0][5]
+        
+        # Send Alarm = 0 it will not sound an alarm
+        send_alarm = alarmIDData[0][6]
+        
         location = re.sub("<br>", ' ', location)
         
         #get last temperature reading and the time it was taken
@@ -853,7 +861,7 @@ class alarm(object):
                     emailList = filter(None, emailList)
                     
                     # send the email
-                    if emailList:
+                    if emailList && send_alarm:
                         self.sendMessage(emailList, subject, message)
                     
             # If the freezer is not in a com alarm put it in a com alarm state
@@ -882,7 +890,7 @@ class alarm(object):
                 emailList = filter(None, emailList)
                 
                 # send the email
-                if emailList:
+                if emailList && send_alarm:
                     self.sendMessage(emailList, subject, message)
 
 # 1 or 2 > Alarm 6 
@@ -909,7 +917,7 @@ class alarm(object):
                 emailList = filter(None, emailList)
                 
                 # send the email
-                if emailList:
+                if emailList && send_alarm:
                     self.sendMessage(emailList, subject, message)
                 
 # 3 or 4 > Alarm 6 
@@ -936,7 +944,7 @@ class alarm(object):
                 emailList = filter(None, emailList)
                 
                 # send the email
-                if emailList:
+                if emailList && send_alarm:
                     self.sendMessage(emailList, subject, message)
 
 # 5 > Alarm 6 
@@ -963,7 +971,7 @@ class alarm(object):
                 emailList = filter(None, emailList)
                 
                 # send the email
-                if emailList:
+                if emailList && send_alarm:
                     self.sendMessage(emailList, subject, message)
 
 # else (unknown) > Alarm 6 
@@ -990,7 +998,7 @@ class alarm(object):
                 emailList = filter(None, emailList)
                 
                 # send the email
-                if emailList:
+                if emailList && send_alarm:
                     self.sendMessage(emailList, subject, message)
         
 ################################################################################
