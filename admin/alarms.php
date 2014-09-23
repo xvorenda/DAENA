@@ -35,7 +35,7 @@ if ($login->isUserLoggedIn() == true)
 	$allfreezers = $daenaDB->query($allfreezersquery);
 
 
-	/* Draw Probe Mod Area */
+	/* Draw Alarm Mod Area */
 	echo "
 	<div class='alarmbox'>
 	<table class='borderless'>
@@ -63,17 +63,22 @@ if ($login->isUserLoggedIn() == true)
 		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarms
 			WHERE alarm_id=".$freezer_alarm_id;
 		$alarmdata = $daenaDB->query($alarm_query);
+                while($alarmdata = $alarm_query->fetch_assoc())
+                {
+                    $alarm_level = $alarmdata['alarm_level'];
+                    $alarm_time = $alarmdata['alarm_time'];
+                }
 
 		echo "<tr class='borderless'>
-				<form action='handlers/probe-mod.php' method='POST'>
+				<form action='handlers/alarm-mod.php' method='POST'>
 				<td>".$freezer_id."</td>
 				<td>".$freezer_name."</td>
-				<td><input type='text' class='input-medium search-query' name='freezer_setpiont1' value='".$freezer_setpoint1."'/></td>
-				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
-				<td><input type='text' class='input-medium search-query' name='probe_range' value='".$probe_range."'/></td>
-				<td class='field-narrow'><input type='text' class='input-medium search-query ' name='probe_active' value='".$probe_active."'/></td>
-				<td class='field-wide'><input type='text' class='input-medium search-query ' name='probe_hostport' value='".$probe_hostport."'/></td>
-				<td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port' value='".$probe_ntms_port."'/></td>
+				<td class='field-narrow'><input type='text' class='input-medium search-query ' name='probe_active' value='".$alarm_level."'/></td>
+				<td class='field-wide'><input type='text' class='input-medium search-query ' name='probe_hostport' value='".$alarm_time."'/></td>
+				<td><input type='text' class='input-medium search-query ' name='Last Temp' value='".$last_temp."'/></td>
+                                <td><input type='text' class='input-medium search-query' name='freezer_setpiont1' value='".$freezer_setpoint1."'/></td>
+				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>                                "
+                        . "     <td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port' value='".$send_alarm."'/></td>
 				<td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 			   </tr>";
 	}
