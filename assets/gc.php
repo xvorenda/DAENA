@@ -27,7 +27,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($columnnames,$freezername);
 }
 $columnheader = implode ("', '",$columnnames);
-$freezercount = $freezers->field_count;
+$freezercount = count($colunmheader);
 
 echo "
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
@@ -79,7 +79,7 @@ while ($pingrow = $pings->fetch_assoc()) {
           echo ", ".$datatemp;
       }
       echo "],\n";
-  }else{echo "Datacount: ".$datacount."\nFreezercount: ".$freezercount;}
+  }
 }
 echo "]);
 
