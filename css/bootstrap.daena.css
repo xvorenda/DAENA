@@ -137,7 +137,7 @@ border-bottom-right-radius: 40px !important;
 .table > tbody > tr > td{border-top: none !important}
 table.table{
   border-spacing: 0 8 !important;
-  border-collapse: none!important
+  border-collapse: separate !important
 }
 
 .gray       {color:#999 !important}
