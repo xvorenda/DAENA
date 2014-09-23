@@ -39,4 +39,4 @@ $alarmupdate = "UPDATE daena_db.freezers
 	  $pageURL .= $_SERVER["SERVER_NAME"];
 	}
 	 echo $pageURL;
-	 echo '/admin/freezers.php");</script>';
+	 echo '/admin/alarms.php");</script>';
