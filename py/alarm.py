@@ -363,7 +363,7 @@ class alarm(object):
                     
         # currentTemp is high    
         elif currentTemp > setpoint1:
-            print "current temp high", currentTemp, setpoint1
+            #print "current temp high", currentTemp, setpoint1
             # check if the current temp has been in this range for 30 min
             noAlarm = self.checkForNoAlarm(freezer, setpoint1, self.MINUTES_IN_HIGH_RANGE)
             
@@ -412,7 +412,7 @@ class alarm(object):
                 # this is the first alarm
 # 0 > Alarm 1 (at least 30 min in alarm 0 state)
                 elif alarmLevel == self.NORMAL_STATE and alarmTime < ((time.time()-(self.SIXTY_SECONDS * self.MINUTES_AT_ALARM_0)) *self.TIME_THOUSAND):
-                    print "alarmLevel 0 setting alarm level 1, time", alarmLevel, alarmTime
+                    #print "alarmLevel 0 setting alarm level 1, time", alarmLevel, alarmTime
                     self.newAlarm(freezer, self.HIGH_TEMP_ALARM_1)
                     
                     # prepare query to get email addresses
@@ -469,7 +469,7 @@ class alarm(object):
                         self.sendMessage(emailList, subject, message)
 # 3 or 4 > Alarm 5
                 elif alarmLevel == self.CRITICAL_TEMP_ALARM or alarmLevel == self.CRITICAL_TEMP_ALARM_SILENCED:
-                    #print "alarmLevel self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM freezing, time", alarmLevel, alarmTime
+                    print "alarmLevel self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM freezing, time", alarmLevel, alarmTime
                     freezing = self.checkForFreezing(freezer, setpoint2, self.MINUTES_BELOW_CRITICAL_RANGE)
                     
                     #print "freezing high", freezing
@@ -497,7 +497,8 @@ class alarm(object):
                     emailList = filter(None, emailList)
                     
                     # send the email
-                    if emailList == True and send_alarm == True:
+                    print send_alarm, emailList
+                    if emailList and send_alarm:
                         self.sendMessage(emailList, subject, message)
 
 
