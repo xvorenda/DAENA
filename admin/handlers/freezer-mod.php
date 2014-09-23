@@ -34,42 +34,52 @@ $freezerupdate = "UPDATE daena_db.freezers
 SET freezer_active='" . $freezer_active . "', freezer_color='" . $freezer_color . "', freezer_location='" . $freezer_location . "', freezer_name='" . $freezer_name . "', freezer_temp_range='" . $freezer_temp_range . "'
 WHERE freezer_id='" . $freezer_id . "'";
 
-if ($mysqlaction = "modify") {
+if ($mysqlaction = "modify") 
+{
 
-$onefreezer = mysql_query($freezerupdate);
-if($onefreezer === FALSE) {
-    die(mysql_error()); // TODO: better error handling
-}
-echo "Modification Success!";
-echo '<script>window.location.replace("';
-$pageURL = 'http://';
-if ($_SERVER["SERVER_PORT"] != "80") {
-  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
- } else {
-  $pageURL .= $_SERVER["SERVER_NAME"];
- }
- echo $pageURL;
- echo '/admin/freezers.php");</script>';
+	$onefreezer = mysql_query($freezerupdate);
+	if($onefreezer === FALSE) 
+	{
+		die(mysql_error()); // TODO: better error handling
+	}	
+	echo "Modification Success!";
+	echo '<script>window.location.replace("';
+	$pageURL = 'http://';
+	if ($_SERVER["SERVER_PORT"] != "80") 
+	{
+	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+	} 
+	else 
+	{
+	  $pageURL .= $_SERVER["SERVER_NAME"];
+	}
+	 echo $pageURL;
+	 echo '/admin/freezers.php");</script>';
 }
 
-if ($mysqlaction = "add") {
+if ($mysqlaction = "add") 
+{
 
-$onefreezer = mysql_query($freezeradd);
-if($onefreezer === FALSE) {
-    die(mysql_error()); // TODO: better error handling
-}
-echo 'Addition Success!';
-echo '<script>window.location.replace("';
-$pageURL = 'http://';
-if ($_SERVER["SERVER_PORT"] != "80") {
-  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
- } else {
-  $pageURL .= $_SERVER["SERVER_NAME"];
- }
- echo $pageURL;
- echo '/admin/freezers.php");</script>';
+	$onefreezer = mysql_query($freezeradd);
+	if($onefreezer === FALSE) 
+	{
+		die(mysql_error()); // TODO: better error handling
+	}
+	echo 'Addition Success!';
+	echo '<script>window.location.replace("';
+	$pageURL = 'http://';
+	if ($_SERVER["SERVER_PORT"] != "80") 
+	{
+	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+	} 
+	else 
+	{
+	  $pageURL .= $_SERVER["SERVER_NAME"];
+	}
+	 echo $pageURL;
+	 echo '/admin/freezers.php");</script>';
 }
 
 /* Wrap things up */
-include '../footer.php';
+//include '../assets/admin-footer.php';
 ?>
