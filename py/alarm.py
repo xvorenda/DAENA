@@ -134,6 +134,10 @@ class alarm(object):
         
         # Send Alarm = 0 it will not sound an alarm
         send_alarm = alarmIDData[0][6]
+        if send_alarm == True:
+            print send_alarm
+        else
+            print send_alarm
         
         location = re.sub("<br>", ' ', location)
         #print "freezerAlarmID, setpoint1, setpoint2", freezerAlarmID, setpoint1, setpoint2
