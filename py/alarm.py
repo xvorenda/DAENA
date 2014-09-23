@@ -367,7 +367,7 @@ class alarm(object):
             # the temp has been above setpoint 1 send an alarm
             if noAlarm == 0:
                 #print "noAlarm == 0"
-                # if a freezer stays between setpoint1 and setpoint2 
+                # if freezer stays between setpoint1 and setpoint2 
                 # then it will not alarm after the first two alarms
 # Silenced ( 2 > Alarm 2)
                 if alarmLevel == self.HIGH_TEMP_ALARM_2:
@@ -708,11 +708,7 @@ class alarm(object):
         
         # select last (minutes) of temperatures from database to check if they 
         #are all above (setpoint)
-<<<<<<< HEAD
         query = ("SELECT temp FROM data WHERE freezer_id = %s and data.int_time > %s")
-=======
-        query = ("SELECT temp FROM data WHERE freezer_id = %s and int_time > %s")
->>>>>>> 619cf7afa9c75aa6fce4aac0c4bb97fe04553e3a
         # executing the query with two variables.
         self.readcursor.execute(query, (freezer, ((time.time()-(self.SIXTY_SECONDS*minutes))*self.TIME_THOUSAND)))
         #print self.readcursor.fetchall()
@@ -751,11 +747,7 @@ class alarm(object):
         #print "checkForFreezing freezer, setpoint, minutes", freezer, setpoint, minutes
         # select last (minutes) of temperatures from database to check if they 
         #are all above (setpoint)
-<<<<<<< HEAD
         query = ("SELECT temp FROM data WHERE freezer_id = %s and data.int_time > %s")
-=======
-        query = ("SELECT temp FROM data WHERE freezer_id = %s and int_time > %s")
->>>>>>> 619cf7afa9c75aa6fce4aac0c4bb97fe04553e3a
         # executing the query with two variables.
         self.readcursor.execute(query, (freezer, ((time.time()-(self.SIXTY_SECONDS*minutes))*self.TIME_THOUSAND)))
 
@@ -801,11 +793,7 @@ class alarm(object):
         location = re.sub("<br>", ' ', location)
         
         #get last temperature reading and the time it was taken
-<<<<<<< HEAD
         readQuery = "SELECT data.temp, data.int_time FROM data, freezers WHERE freezers.freezer_id = %s AND freezers.freezer_id = data.freezer_id AND data.temp != 'nodata' ORDER BY data.int_time DESC LIMIT 0,1"
-=======
-        readQuery = "SELECT data.temp, int_time FROM data, freezers WHERE freezers.freezer_id = %s AND freezers.freezer_id = data.freezer_id AND data.temp != 'nodata' ORDER BY int_time DESC LIMIT 0,1"
->>>>>>> 619cf7afa9c75aa6fce4aac0c4bb97fe04553e3a
         self.readcursor.execute(readQuery, (freezer))
         tempData = self.readcursor.fetchall()
         lastTemp = tempData[0][0]
@@ -1015,11 +1003,7 @@ class alarm(object):
         
         #print "checkForAllNoData freezer, minutes", freezer, minutes
         # select last (minutes) of temperatures from database to check if they are all "nodata"
-<<<<<<< HEAD
         query = ("SELECT temp FROM data WHERE freezer_id = %s and data.int_time > %s")
-=======
-        query = ("SELECT temp FROM data WHERE freezer_id = %s and int_time > %s")
->>>>>>> 619cf7afa9c75aa6fce4aac0c4bb97fe04553e3a
         # executing the query with two variables.
         self.readcursor.execute(query, (freezer, ((time.time()-(self.SIXTY_SECONDS*minutes))*self.TIME_THOUSAND)))
 
