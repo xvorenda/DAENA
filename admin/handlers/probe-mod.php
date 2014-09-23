@@ -52,7 +52,7 @@ if ($mysqlaction = "modify")
 	  $pageURL .= $_SERVER["SERVER_NAME"];
 	}
 	 echo $pageURL;
-	 echo '/admin/freezers.php");</script>';
+	 echo '/admin/probes.php");</script>';
 }
 
 if ($mysqlaction = "add") 
@@ -75,7 +75,7 @@ if ($mysqlaction = "add")
 	  $pageURL .= $_SERVER["SERVER_NAME"];
 	}
 	 echo $pageURL;
-	 echo '/admin/freezers.php");</script>';
+	 echo '/admin/probes.php");</script>';
 }
 
 /* Wrap things up */
