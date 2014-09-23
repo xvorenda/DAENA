@@ -35,7 +35,7 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Draw Freezer Display/Mod Area */
 	echo "<div class='freezersbox'>
-		<table class'table'>
+		<table class='table'>
 			<tr>
 				<td>Freezer Name</td>
 				<td>Building</td>
