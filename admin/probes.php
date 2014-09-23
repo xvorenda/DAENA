@@ -3,66 +3,69 @@
 include "assets/admin-header.php";
 include 'assets/admin-nav.php';
 
-if ($login->isUserLoggedIn() == true) {
-
-/* Start talking to MySQL and kill yourself if it ignores you */
-include 'config/db.php';
-$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
-
-
-/* Ask MySQL about which probes exist and get their metadata */
-$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
-FROM daena_db.probes 
-ORDER BY ABS(probe_id)";
-$allprobes = $daenaDB->query($allprobesquery);
-if($allprobes === FALSE) 
+if ($login->isUserLoggedIn() == true) 
 {
-    die(mysqli_error()); // TODO: better error handling
-}
+
+	/* Start talking to MySQL and kill yourself if it ignores you */
+	include 'config/db.php';
+	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+	// Check connection
+	if (mysqli_connect_errno())
+	  {
+	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	  }
 
 
-/* Ask MySQL about which probes exist and get their metadata */
-$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
+	/* Ask MySQL about which probes exist and get their metadata */
+	$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
 	FROM daena_db.probes 
 	ORDER BY ABS(probe_id)";
-$allprobes = $daenaDB->query($allprobesquery);
+	$allprobes = $daenaDB->query($allprobesquery);
+	if($allprobes === FALSE) 
+	{
+		die(mysqli_error()); // TODO: better error handling
+	}
 
 
-/* Draw Probe Mod Area */
-echo "
-<div class='probesbox'>
-<table class='borderless'>
-<tr><td>Probe ID</td><td>Freezer ID</td><td>Probe Type</td><td>Probe Range</td><td>Active</td><td>Probe Hostport</td><td>Probe NTMS Port</td><td>&nbsp;</td></tr>
-";
-while(($probedata = $allprobes->fetch_assoc())){
-    $probe_id = $probedata['probe_id'];
-    $probe_type = $probedata['probe_type'];
-    $probe_range = $probedata['probe_range'];
-    $probe_active = $probedata['probe_active'];
-    $probe_ntms_port = $probedata['probe_ntms_port'];
-    $probe_hostport = $probedata['probe_hostport'];
-    $freezer_id = $probedata['freezer_id'];
+	/* Ask MySQL about which probes exist and get their metadata */
+	$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
+		FROM daena_db.probes 
+		ORDER BY ABS(probe_id)";
+	$allprobes = $daenaDB->query($allprobesquery);
+
+
+	/* Draw Probe Mod Area */
+	echo "
+	<div class='probesbox'>
+	<table class='borderless'>
+	<tr><td>Probe ID</td><td>Freezer ID</td><td>Probe Type</td><td>Probe Range</td><td>Active</td><td>Probe Hostport</td><td>Probe NTMS Port</td><td>&nbsp;</td></tr>
+	";
+	while(($probedata = $allprobes->fetch_assoc()))
+	{
+		$probe_id = $probedata['probe_id'];
+		$probe_type = $probedata['probe_type'];
+		$probe_range = $probedata['probe_range'];
+		$probe_active = $probedata['probe_active'];
+		$probe_ntms_port = $probedata['probe_ntms_port'];
+		$probe_hostport = $probedata['probe_hostport'];
+		$freezer_id = $probedata['freezer_id'];
+
+		echo "<tr class='borderless'>
+				<form action='probe-mod.php' method='POST'>
+				<td><input type='text' class='input-medium search-query' name='probe_id' value='".$probe_id."'/></td>
+				<td><input type='text' class='input-medium search-query' name='freezer_id' value='".$freezer_id."'/></td>
+				<td><input type='text' class='input-medium search-query' name='probe_type' value='".$probe_type."'/></td>
+				<td><input type='text' class='input-medium search-query' name='probe_range' value='".$probe_range."'/></td>
+				<td class='field-narrow'><input type='text' class='input-medium search-query field-narrow' name='probe_active' value='".$probe_active."'/></td>
+				<td class='field-wide'><input type='text' class='input-medium search-query field-wide' name='probe_hostport' value='".$probe_hostport."'/></td>
+				<td class='field-narrow'><input type='text' class='input-medium search-query field-narrow' name='probe_ntms_port' value='".$probe_ntms_port."'/></td>
+				<td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
+			   </tr>";
+	}
 
 	echo "<tr class='borderless'>
 			<form action='probe-mod.php' method='POST'>
-			<td><input type='text' class='input-medium search-query field-narrow' name='probe_id' value='".$probe_id."'/></td>
-			<td><input type='text' class='input-medium search-query' name='freezer_id' value='".$freezer_id."'/></td>
-			<td><input type='text' class='input-medium search-query' name='probe_type' value='".$probe_type."'/></td>
-			<td><input type='text' class='input-medium search-query' name='probe_range' value='".$probe_range."'/></td>
-			<td class='field-narrow'><input type='text' class='input-medium search-query field-narrow' name='probe_active' value='".$probe_active."'/></td>
-			<td class='field-wide'><input type='text' class='input-medium search-query field-wide' name='probe_hostport' value='".$probe_hostport."'/></td>
-			<td class='field-narrow'><input type='text' class='input-medium search-query field-narrow' name='probe_ntms_port' value='".$probe_ntms_port."'/></td>
-			<td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
-		   </tr>";}
-
-	echo "<tr class='borderless'>
-			<form action='probe-mod.php' method='POST'>
-			<td><input type='text' class='input-medium search-query field-narrow' name='probe_id'/></td>
+			<td><input type='text' class='input-medium search-query' name='probe_id'/></td>
 			<td><input type='text' class='input-medium search-query' name='freezer_id'/></td>
 			<td><input type='text' class='input-medium search-query' name='probe_type'/></td>
 			<td><input type='text' class='input-medium search-query' name='probe_range'/></td>
