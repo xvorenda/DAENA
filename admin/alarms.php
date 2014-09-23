@@ -47,15 +47,20 @@ if ($login->isUserLoggedIn() == true)
 		$freezer_setpoint2 = $freezerdata['freezer_setpoint2'];
 		$freezer_alarm_id = $freezerdata['freezer_alarm_id'];
 		$freezer_send_alarm = $freezerdata['freezer_send_alarm'];
-
+		
 		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarm
 			WHERE alarm_id='".$freezer_alarm_id."'";
 		$alarmdata = $daenaDB->query($alarm_query);
 		while($alarmrow = $alarmdata->fetch_assoc())
 		{
 			$alarm_level = $alarmrow['alarm_level'];
-			$alarm_time = $alarmrow['alarm_time'];
+			$ms_epoch_time = $alarmrow['alarm_time'];
 		};
+		
+		$epoch_time = $ms_epoch_time/1000;
+		$dt = new DateTime("$epoch_time");
+		$alarm_date_time = $dt->format('Y-m-d H:i:s');
+		
 		if ($alarm_level == 0)
 		{
 			$row_color = "success";
@@ -101,7 +106,7 @@ if ($login->isUserLoggedIn() == true)
 				<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 				<td>".$freezer_name."</td>
 				<td class='field-narrow'>".$alarm_level."</td>
-				<td class='field-wide'>".$alarm_time."</td>
+				<td class='field-wide'>".$alarm_date_time."</td>
 				<td>".$last_temp."</td>
 				<td>".$last_reading."</td>
                 <td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
