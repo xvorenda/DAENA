@@ -84,9 +84,9 @@ if ($login->isUserLoggedIn() == true)
 				<form action='handlers/alarm-mod.php' method='POST'>
 				<td>".$freezer_id."</td>
 				<td>".$freezer_name."</td>
-				<td class='field-narrow'><input type='text' class='input-medium search-query ' name='probe_active' value='".$alarm_level."'/></td>
-				<td class='field-wide'><input type='text' class='input-medium search-query ' name='probe_hostport' value='".$alarm_time."'/></td>
-				<td><input type='text' class='input-medium search-query ' name='last_temp' value='".$last_temp."'/></td>
+				<td class='field-narrow'>".$alarm_level."/></td>
+				<td class='field-wide'>".$alarm_time."/></td>
+				<td>".$last_temp."/></td>
                                 <td><input type='text' class='input-medium search-query' name='freezer_setpiont1' value='".$freezer_setpoint1."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
                                 <td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port' value='".$freezer_send_alarm."'/></td>
