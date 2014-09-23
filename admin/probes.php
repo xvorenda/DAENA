@@ -30,7 +30,7 @@ if ($login->isUserLoggedIn() == true)
 	/* Ask MySQL about which probes exist and get their metadata */
 	$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
 		FROM daena_db.probes 
-		ORDER BY ABS(probe_id)";
+		ORDER BY ABS(freezer_id)";
 	$allprobes = $daenaDB->query($allprobesquery);
 
 
