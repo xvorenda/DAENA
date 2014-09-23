@@ -15,9 +15,18 @@ else $group = "All";
 if (isset($_GET['type'])) {
 	$type = $_GET['type'];}
 else $type = "All";
+
 if (strpos($hours,'All') !== false) {
     $viewfilter = "";
 } else $viewfilter = "LIMIT $minutes";
+
+if (strpos($hours,'All') !== false) {
+		$viewwindow = "0";
+} else {
+	$now = microtime(true)*1000;
+	$viewspan = $hours * 60 * 60 * 1000;
+	$viewstart = $now - $viewspan;
+};
 
 if (strpos($group,'All') !== false) {
     $groupfilter = "";

@@ -19,11 +19,11 @@ if (mysqli_connect_errno())
   }
 
 /* Ask MySQL how many active probes total for density adjustments */
-$freezercountquery = "SELECT SQL_CALC_FOUND_ROWS * 
-FROM daena_db.freezers 
+$freezercountquery = "SELECT SQL_CALC_FOUND_ROWS *
+FROM daena_db.freezers
 WHERE freezer_active='1'";
 $countfreezers = $daenaDB->query($freezercountquery);
-  
+
 /* Count the active probes for density handling */
 $countquery = "SELECT FOUND_ROWS()";
         	$countraw = $daenaDB->query($countquery);
@@ -31,8 +31,8 @@ $countquery = "SELECT FOUND_ROWS()";
         	$count = implode(",",$countarray);
 
 /* Ask MySQL about which probes exist and get their metadata */
-$allfreezersquery = "SELECT freezer_id,freezer_name,freezer_color,freezer_location 
-FROM daena_db.freezers 
+$allfreezersquery = "SELECT freezer_id,freezer_name,freezer_color,freezer_location
+FROM daena_db.freezers
 WHERE freezer_active='1'
 ".$groupfilter."
 ".$locfilter."
@@ -47,12 +47,12 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     $freezer_name = $freezerdata['freezer_name'];
     $freezer_color = $freezerdata['freezer_color'];
     $freezer_loc = $freezerdata['freezer_location'];
-    $probequery = "(SELECT temp,int_time FROM daena_db.data 
-    WHERE freezer_id='" . $freezer_id . "'
-    ORDER BY int_time DESC " . $viewfilter . ") ORDER BY int_time ASC";
+    $probequery = "SELECT temp,int_time FROM daena_db.data
+    WHERE freezer_id='" . $freezer_id . "' AND int_time > ".$viewstart."
+    ORDER BY int_time ASC";
 	$proberesult = $daenaDB->query($probequery);
 
-        
+
     /* Get ready to do stuff */
     $random_color = substr(md5(rand()), 0, 6);
     $badzero_a = "-00";
@@ -65,7 +65,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
                     color: '#";
     if ($freezer_color != null) {
         echo $freezer_color;}
-    else 
+    else
         echo $random_color;
 
     /* Define each freezer graph */
@@ -81,7 +81,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     else $viewstop = 0;
 
 
-    
+
     /* Actually get the data, clean up the strings, define density slices, and format the data for HighCharts */
     $i=1;
     while($probe = $proberesult->fetch_array()) {
@@ -98,7 +98,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
             $int_time_slice = intval($time_slice);
             $timequotient = $time_slice / $int_time_slice;
         };
-        if (isset($probe_minute, $probe_temp)) {         	   
+        if (isset($probe_minute, $probe_temp)) {
         $timetemp = "[".$probe_minute.", ".$probe_temp."], ";
         if ($probe_minute != 0 && $probe_temp != "nodata" && $timequotient == 1 && $probe_minute > $viewstop){
             echo $timetemp;
@@ -107,13 +107,13 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
 };
 echo "]},";
         };
-        
+
 /* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
 include "assets/url.php";
 $url = curPageURL();
 $baseurl = substr($url, 0, strpos($url, "?"));
-echo "]            
-            }); 
+echo "]
+            });
         });
 </script>
 </head>
