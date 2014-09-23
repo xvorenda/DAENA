@@ -10,7 +10,7 @@ if ($login->isUserLoggedIn() == true)
 
 	
 	/* Start talking to MySQL */
-	include 'admin/config/db.php';
+	//include 'admin/config/db.php';
 	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 	// Check connection
 	if (mysqli_connect_errno())

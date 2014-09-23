@@ -15,7 +15,7 @@ $freezer_location = $freezer_location_building."<br>".$freezer_location_room;
 
 
 /* Start talking to MySQL and kill yourself if it ignores you */
-$daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
+$daenaDB = mysql_connect(DB_HOST,DB_USER,DB_PASS);
 if ($daenaDB === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
