@@ -11,8 +11,8 @@ if (mysqli_connect_errno())
 
 
 /* Ask MySQL which freezers are active */
-$freezerquery = "SELECT freezer_id,freezer_name,freezer_color,freezer_location 
-FROM daena_db.freezers 
+$freezerquery = "SELECT freezer_id,freezer_name,freezer_color,freezer_location
+FROM daena_db.freezers
 WHERE freezer_active='1'
 ".$groupfilter."
 ".$locfilter."
@@ -38,10 +38,11 @@ echo "
         var data = google.visualization.arrayToDataTable([";
 
 echo "['".$columnheader."'],\n";
-        
+
 /* Ask MySQL for some number of minutes worth of ping data */
-$pingquery = "(SELECT DISTINCT int_time FROM daena_db.data 
-    ORDER BY int_time DESC " . $viewfilter . ") ORDER BY int_time ASC";
+$pingquery = "SELECT DISTINCT int_time FROM daena_db.data
+                  WHERE int_time > ".$viewwindow."
+                  ORDER BY int_time ASC";
 
 $pings = $daenaDB->query($pingquery);
 
@@ -57,15 +58,15 @@ while ($pingrow = $pings->fetch_assoc()) {
           FROM daena_db.data
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
-      
-      
-      
+
+
+
       echo "['".$pingtime."'";
       $data = $daenaDB->query($dataquery);
       $freezercount = count($freezers);
       $datacount = count($data);
-      
-      
+
+
       if ($datacount == $freezercount){
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
@@ -76,7 +77,7 @@ while ($pingrow = $pings->fetch_assoc()) {
           if ($datatemp == "nodata"){
           $datatemp = "null";}
           echo ", ".$datatemp;
-          
+
 
       }
       echo "],\n";
