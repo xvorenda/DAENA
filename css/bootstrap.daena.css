@@ -127,7 +127,7 @@ h3 {margin:12px auto 0;}
 }
 .alarm-table-row {
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 4px !important;
 }
 .gray       {color:#999 !important}
 .violet     {color:#808 !important}
