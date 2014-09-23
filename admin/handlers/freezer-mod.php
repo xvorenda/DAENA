@@ -12,9 +12,7 @@ $freezer_color = filter_input(INPUT_POST, 'freezer_color');
 $freezer_location_building = filter_input(INPUT_POST, 'freezer_location_building');
 $freezer_location_room = filter_input(INPUT_POST, 'freezer_location_room');
 $freezer_location = $freezer_location_building."<br>".$freezer_location_room;
-$probe_host = filter_input(INPUT_POST, 'probe_host');
-$probe_port = filter_input(INPUT_POST, 'probe_port');
-$probe_hostport = $probe_host." ".$probe_port;
+
 
 /* Start talking to MySQL and kill yourself if it ignores you */
 $daenaDB = mysql_connect("localhost", "daena_user", "idontcareaboutpasswordsrightnow");
@@ -25,14 +23,18 @@ mysql_select_db("daena_db");
 
 /* Add a Freezer */
 $freezeradd = "INSERT INTO daena_db.freezers 
-    (freezer_active, freezer_color, freezer_location, freezer_name, freezer_temp_range, freezer_id, freezer_group_id)
-VALUES
-    ('".$freezer_active."', '".$freezer_color."', '".$freezer_location."', '".$freezer_name."', '".$freezer_temp_range."', '".$freezer_id."', '".$freezer_group_id."')";
+    (freezer_active, freezer_color, freezer_location, 
+    	freezer_name, freezer_temp_range, freezer_id, freezer_group_id)
+	VALUES
+    ('".$freezer_active."', '".$freezer_color."', '".$freezer_location."', '"
+    	.$freezer_name."', '".$freezer_temp_range."', '".$freezer_id."', '".$freezer_group_id."')";
 
 /* Mod a Freezer */
 $freezerupdate = "UPDATE daena_db.freezers
-SET freezer_active='" . $freezer_active . "', freezer_color='" . $freezer_color . "', freezer_location='" . $freezer_location . "', freezer_name='" . $freezer_name . "', freezer_temp_range='" . $freezer_temp_range . "'
-WHERE freezer_id='" . $freezer_id . "'";
+	SET freezer_active='" . $freezer_active . "', freezer_color='" . $freezer_color . "', 
+		freezer_location='" . $freezer_location . "', freezer_name='" . $freezer_name . "', 
+		freezer_temp_range='" . $freezer_temp_range . "'
+	WHERE freezer_id='" . $freezer_id . "'";
 
 if ($mysqlaction = "modify") 
 {
