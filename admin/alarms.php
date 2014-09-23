@@ -90,7 +90,7 @@ if ($login->isUserLoggedIn() == true)
                                 <td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
                                 <td class='field-narrow'><input type='text' class='input-medium search-query' name='freezer_send_alarm' value='".$freezer_send_alarm."'/></td>
-				<td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
+				<td><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 			   </tr>";
 	}
 
