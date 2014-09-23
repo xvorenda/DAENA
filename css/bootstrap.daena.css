@@ -1,5 +1,5 @@
 table {margin: 32px auto}
-tr {height:48px}
+
 td {text-align: center;
     padding:4px !important}
 h3 {margin:12px auto 0;}
@@ -135,6 +135,7 @@ border-top-right-radius: 40px !important;
 border-bottom-right-radius: 40px !important;
 }
 .table > tbody > tr > td{border-top: none !important}
+table.table{border-spacing: 0 8 !important}
 
 .gray       {color:#999 !important}
 .violet     {color:#808 !important}
