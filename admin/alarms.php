@@ -62,15 +62,15 @@ if ($login->isUserLoggedIn() == true)
 		}
 		elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
 		{
-			$row_color="warning"
+			$row_color="warning";
 		}
 		elseif($alarm_level==3 || $alarm_level==4)
 		{
-			$row_color="danger"
+			$row_color="danger";
 		}
 		elseif($alarm_level==6 || $alarm_level==7)
 		{
-			$row_color="inverse"
+			$row_color="inverse";
 		}
 		
 		$lasttempquery = "SELECT temp FROM daena_db.data
