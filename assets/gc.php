@@ -64,11 +64,10 @@ while ($pingrow = $pings->fetch_assoc()) {
       echo "['".$pingtime."'";
       $data = $daenaDB->query($dataquery);
 
-      $datacount = $data->field_count;
-
 
       if ($datacount == $freezercount){
       while ($datarow = $data->fetch_assoc()) {
+          $datacount = $datarow->field_count;
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
           $datatemp = str_replace($badneg_b, $re_neg, $datatemp);
