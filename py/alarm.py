@@ -134,10 +134,6 @@ class alarm(object):
         
         # Send Alarm = 0 it will not sound an alarm
         send_alarm = alarmIDData[0][6]
-        if send_alarm == True:
-            print "true", send_alarm
-        else:
-            print "false", send_alarm
         
         location = re.sub("<br>", ' ', location)
         #print "freezerAlarmID, setpoint1, setpoint2", freezerAlarmID, setpoint1, setpoint2
@@ -367,7 +363,7 @@ class alarm(object):
                     
         # currentTemp is high    
         elif currentTemp > setpoint1:
-            #print "current temp high", currentTemp, setpoint1
+            print "current temp high", currentTemp, setpoint1
             # check if the current temp has been in this range for 30 min
             noAlarm = self.checkForNoAlarm(freezer, setpoint1, self.MINUTES_IN_HIGH_RANGE)
             
@@ -416,7 +412,7 @@ class alarm(object):
                 # this is the first alarm
 # 0 > Alarm 1 (at least 30 min in alarm 0 state)
                 elif alarmLevel == self.NORMAL_STATE and alarmTime < ((time.time()-(self.SIXTY_SECONDS * self.MINUTES_AT_ALARM_0)) *self.TIME_THOUSAND):
-                    #print "alarmLevel 0 setting alarm level 1, time", alarmLevel, alarmTime
+                    print "alarmLevel 0 setting alarm level 1, time", alarmLevel, alarmTime
                     self.newAlarm(freezer, self.HIGH_TEMP_ALARM_1)
                     
                     # prepare query to get email addresses
