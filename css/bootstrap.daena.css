@@ -85,7 +85,7 @@ h3 {margin:12px auto 0;}
     clear:both !important;
 }
 .navbar-fixed-bottom-p {
-    margin: 6px; 
+    margin: 6px;
     text-align:center;
     color:#ccc
 }
@@ -122,13 +122,19 @@ h3 {margin:12px auto 0;}
     min-width: 300px;
     clear: right
 }
-.gray       {color:#999 !important}  
-.violet     {color:#808 !important}  
-.indigo     {color:#408 !important}  
-.blue       {color:#288ccc !important}  
-.green      {color:#080 !important}  
-.yellow     {color:#880 !important}  
-.orange     {color:#840 !important}  
+.white-cell {
+  background-color:#fff !important;
+}
+.alarm-table-row {
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.gray       {color:#999 !important}
+.violet     {color:#808 !important}
+.indigo     {color:#408 !important}
+.blue       {color:#288ccc !important}
+.green      {color:#080 !important}
+.yellow     {color:#880 !important}
+.orange     {color:#840 !important}
 .red        {color:#800 !important}
-.white      {color:#FFF !important}  
-
+.white      {color:#FFF !important}
