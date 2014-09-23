@@ -3,7 +3,7 @@
 include "assets/admin-header.php";
 include 'assets/admin-nav.php';
 
-if ($login->isUserLoggedIn() == true) 
+if ($login->isUserLoggedIn() == true)
 {
 
 	/* Start talking to MySQL and kill yourself if it ignores you */
@@ -18,10 +18,10 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Ask MySQL about which probes exist and get their metadata */
 	$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
-	FROM daena_db.probes 
+	FROM daena_db.probes
 	ORDER BY ABS(probe_id)";
 	$allprobes = $daenaDB->query($allprobesquery);
-	if($allprobes === FALSE) 
+	if($allprobes === FALSE)
 	{
 		die(mysqli_error()); // TODO: better error handling
 	}
@@ -30,7 +30,7 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Ask MySQL about which freeers exist and get their metadata */
 	$allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
-		FROM daena_db.freezers 
+		FROM daena_db.freezers
 		ORDER BY ABS(freezer_id)";
 	$allfreezers = $daenaDB->query($allfreezersquery);
 
@@ -59,7 +59,7 @@ if ($login->isUserLoggedIn() == true)
 		$freezer_setpoint2 = $freezerdata['freezer_setpoint2'];
 		$freezer_alarm_id = $freezerdata['freezer_alarm_id'];
 		$freezer_send_alarm = $freezerdata['freezer_send_alarm'];
-		
+
 		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarm
 			WHERE alarm_id='".$freezer_alarm_id."'";
 		$alarmdata = $daenaDB->query($alarm_query);
@@ -68,12 +68,12 @@ if ($login->isUserLoggedIn() == true)
                     $alarm_level = $alarmrow['alarm_level'];
                     $alarm_time = $alarmrow['alarm_time'];
                 };
-                
+
                 $lasttempquery = "SELECT temp FROM daena_db.data
                                   WHERE freezer_id='".$freezer_id."'
                                   ORDER BY int_time DESC
                                   LIMIT 1";
-                
+
                 $lasttempdata = $daenaDB->query($lasttempquery);
                 while($lasttemprow = $lasttempdata->fetch_assoc())
                 {
@@ -95,16 +95,17 @@ if ($login->isUserLoggedIn() == true)
 	}
 
 	echo "
-	  </table></div></div>";	
+	  </table>
+	</div>
+</div>";
 }
-else 
+else
 {
 	echo "<div id='content'>"
 		. "<h1>Unauthorized Access</h1>"
 		. "<h3>Please <a href='index.php'>log in</a> to access this page.</h3>"
-		. "</div>";   
+		. "</div>";
 }
 /* Wrap things up */
 include 'assets/admin-footer.php';
 ?>
-	    
