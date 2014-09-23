@@ -82,7 +82,7 @@ if ($login->isUserLoggedIn() == true)
 				<td><input type='text' class='input-medium search-query' name='freezer_temp_range' value='".$freezer_temp_range."'/></td>
 				<td><input type='text' class='input-medium search-query' name='probe_host' value='".$probe_host."'/></td>
 				<td><input type='text' class='input-medium search-query' name='probe_port' value='".$probe_port."'/></td>
-				<td><input type='text' class='input-medium search-query field-narrow' name='freezer_active' value='".$freezer_active."'/></td>
+				<td class='field-narrow'><input type='text' class='input-medium search-query' name='freezer_active' value='".$freezer_active."'/></td>
 				<td><input type='text' class='input-medium search-query color' name='freezer_color' value='".$freezer_color."'/></td>
 				<td><input type='text' class='input-medium search-query' name='freezer_id' value='".$freezer_id."'/></td>
 				<td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
@@ -97,7 +97,7 @@ if ($login->isUserLoggedIn() == true)
 			<td><input type='text' class='input-medium search-query' name='freezer_temp_range'/></td>
 			<td><input type='text' class='input-medium search-query' name='probe_host'/></td>
 			<td><input type='text' class='input-medium search-query' name='probe_port'/></td>
-			<td><input type='text' class='input-medium search-query field-narrow' name='probe_active'/></td>
+			<td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_active'/></td>
 			<td><input type='text' class='input-medium search-query color' name='freezer_color'/></td>
 			<td><input type='text' class='input-medium search-query' name='freezer_id'/></td>
 			<td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></form></td>
