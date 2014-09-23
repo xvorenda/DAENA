@@ -469,7 +469,7 @@ class alarm(object):
                         self.sendMessage(emailList, subject, message)
 # 3 or 4 > Alarm 5
                 elif alarmLevel == self.CRITICAL_TEMP_ALARM or alarmLevel == self.CRITICAL_TEMP_ALARM_SILENCED:
-                    print "alarmLevel self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM freezing, time", alarmLevel, alarmTime
+                    #print "alarmLevel self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM freezing, time", alarmLevel, alarmTime
                     freezing = self.checkForFreezing(freezer, setpoint2, self.MINUTES_BELOW_CRITICAL_RANGE)
                     
                     #print "freezing high", freezing
