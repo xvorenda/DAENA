@@ -19,7 +19,7 @@ newAlarm = alarm()
 
 
 def putData(temp, hex):
-    writepingtodb = "INSERT INTO `daena_db`.`data` (`freezer_id`, `time`, `temp`, `temp_cksum`) VALUES ('%s', '%s', '%s', '%s');" % (freezer_id, timetime, temp, hex)
+    writepingtodb = "INSERT INTO `daena_db`.`data` (`freezer_id`, `int_time`, `temp`, `temp_cksum`) VALUES ('%s', '%s', '%s', '%s');" % (freezer_id, timetime, temp, hex)
     #print writepingtodb //
     writecursor.execute(writepingtodb);
     conn.commit ()
@@ -54,7 +54,8 @@ def checkSum(temp, hex):
     	return False
 
 readcursor = conn.cursor()
-readcursor.execute("""SELECT freezer_id,probe_hostport FROM probes WHERE probe_active=1 """)
+readcursor.execute("""SELECT freezers.freezer_id,probe_hostport FROM probes, freezers WHERE probe_active=1 AND freezer_active = 1 AND freezers.freezer_id=probes.freezer_id
+ """)
 #result = conn.store_result()
 #rowcount = readcursor.rowcount
 
@@ -94,8 +95,6 @@ for record in readcursor:
         #print "sensor", sensor
     
         temp, hex = sensor
-        temp = temp.replace('-00','-')
-        temp = temp.replace('-0','-')
     
     except ValueError:
         #print "valueError"
@@ -107,7 +106,7 @@ for record in readcursor:
         #print "checking temp for", freezer_id, time.time()
         newAlarm.checkTemp(freezer_id, float(temp))
         #print "done checking temp", freezer_id, time.time()
-        putData(temp, hex)
+        putData(float(temp), hex)
        #print True
     else:
         #print "not checkSum"
