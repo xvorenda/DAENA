@@ -68,6 +68,13 @@ if ($login->isUserLoggedIn() == true)
                     $alarm_level = $alarmrow['alarm_level'];
                     $alarm_time = $alarmrow['alarm_time'];
                 };
+                
+                $lasttempquery = "SELECT temp FROM daena_db.data
+                                  WHERE freezer_id='".$freezer_id."'
+                                  ORDER BY int_time DESC
+                                  LIMIT 1";
+                
+                $last_temp = $daenaDB->query($lasttempquery);
 
 		echo "<tr class='borderless'>
 				<form action='handlers/alarm-mod.php' method='POST'>
