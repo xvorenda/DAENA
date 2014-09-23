@@ -96,7 +96,7 @@ if ($login->isUserLoggedIn() == true)
 			$last_temp = $lasttemprow['temp'];
 		};
 
-		echo "<tr class='borderless ".$row_color."'>
+		echo "<tr class='borderless inverse'>
 				<form action='handlers/alarm-mod.php' method='POST'>
 				<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 				<td>".$freezer_name."</td>
