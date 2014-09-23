@@ -126,15 +126,16 @@ h3 {margin:12px auto 0;}
   background-color:#fff !important;
 }
 .round-first {
-  border-top-left-radius: 4px !important;
-  border-bottom-left-radius: 4px !important;
+  border-top-left-radius: 40px !important;
+  border-bottom-left-radius: 40px !important;
 }
 
 .round-last {
-border-top-right-radius: 4px !important;
-border-bottom-right-radius: 4px !important;
-
+border-top-right-radius: 40px !important;
+border-bottom-right-radius: 40px !important;
 }
+.table > tbody > tr > td{border-top: none !important}
+
 .gray       {color:#999 !important}
 .violet     {color:#808 !important}
 .indigo     {color:#408 !important}
