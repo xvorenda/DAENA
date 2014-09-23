@@ -82,8 +82,8 @@ if ($login->isUserLoggedIn() == true)
 
 		echo "<tr class='borderless'>
 				<form action='handlers/alarm-mod.php' method='POST'>
-				<td>".$freezer_id."</td>
-				<td>".$freezer_name."</td>
+				<td class='fakeinput'>".$freezer_id."</td>
+				<td class='fakeinput'>".$freezer_name."</td>
 				<td class='field-narrow'><input type='text' class='input-medium search-query ' name='probe_active' value='".$alarm_level."'/></td>
 				<td class='field-wide'><input type='text' class='input-medium search-query ' name='probe_hostport' value='".$alarm_time."'/></td>
 				<td><input type='text' class='input-medium search-query ' name='last_temp' value='".$last_temp."'/></td>
