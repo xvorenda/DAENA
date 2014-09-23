@@ -58,7 +58,7 @@ if ($login->isUserLoggedIn() == true)
 		};
 		
 		$epoch_time = $ms_epoch_time/1000;
-		$dt = new DateTime("@$epoch_time");
+		$dt = new DateTime("@$ms_epoch_time");
 		$alarm_date_time = $dt->format('Y-m-d H:i:s');
 		
 		if ($alarm_level == 0)
