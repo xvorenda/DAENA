@@ -12,7 +12,7 @@ $probe_ntms_port = filter_input(INPUT_POST, 'probe_ntms_port');
 
 
 /* Start talking to MySQL and kill yourself if it ignores you */
-include '../config/db.php';
+//include '../config/db.php';
 $daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 if ($daenaDB === FALSE) 
 {
