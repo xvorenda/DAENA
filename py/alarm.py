@@ -207,7 +207,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
                              
                 # Set alarm level to 3
@@ -240,7 +240,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
                         
 # 1 or 2 > Alarm 3
@@ -268,7 +268,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
 # 5 > Alarm 3                        
                     elif alarmLevel == self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM:
@@ -298,7 +298,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
                         
 # 6 or 7 > Alarm 3
@@ -326,7 +326,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
 
 # unknown > Alarm 3 (Generic Message)      
@@ -357,7 +357,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
                     
                     
@@ -404,7 +404,7 @@ class alarm(object):
                     emailList = filter(None, emailList)
                         
                     # send the email
-                    if emailList == True and send_alarm == True:
+                    if emailList and send_alarm:
                         self.sendMessage(emailList, subject, message)
                     
                     
@@ -435,7 +435,7 @@ class alarm(object):
                     emailList = filter(None, emailList)
                     
                     # send the email
-                    if emailList == True and send_alarm == True:
+                    if emailList and send_alarm:
                         self.sendMessage(emailList, subject, message)
                     
                 # if temperature is coming back down below setpoint2
@@ -465,7 +465,7 @@ class alarm(object):
                     emailList = filter(None, emailList)
                     
                     # send the email
-                    if emailList == True and send_alarm == True:
+                    if emailList and send_alarm:
                         self.sendMessage(emailList, subject, message)
 # 3 or 4 > Alarm 5
                 elif alarmLevel == self.CRITICAL_TEMP_ALARM or alarmLevel == self.CRITICAL_TEMP_ALARM_SILENCED:
@@ -495,9 +495,7 @@ class alarm(object):
                     
                     # Filter blank email addresses
                     emailList = filter(None, emailList)
-                    
-                    # send the email
-                    print send_alarm, emailList
+
                     if emailList and send_alarm:
                         self.sendMessage(emailList, subject, message)
 
@@ -542,7 +540,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
                         
 # 3 or 4 > Normal 0
@@ -571,7 +569,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
                         
 # 5 > Normal 0
@@ -600,7 +598,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
                         
 # 6 or 7 > Normal 0
@@ -629,7 +627,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
 
 # else (unknown) > Normal 0                        
@@ -658,7 +656,7 @@ class alarm(object):
                         emailList = filter(None, emailList)
                         
                         # send the email
-                        if emailList == True and send_alarm == True:
+                        if emailList and send_alarm:
                             self.sendMessage(emailList, subject, message)
                     
                 else:
@@ -862,7 +860,7 @@ class alarm(object):
                     emailList = filter(None, emailList)
                     
                     # send the email
-                    if emailList == True and send_alarm == True:
+                    if emailList and send_alarm:
                         self.sendMessage(emailList, subject, message)
                     
             # If the freezer is not in a com alarm put it in a com alarm state
@@ -891,7 +889,7 @@ class alarm(object):
                 emailList = filter(None, emailList)
                 
                 # send the email
-                if emailList == True and send_alarm == True:
+                if emailList and send_alarm:
                     self.sendMessage(emailList, subject, message)
 
 # 1 or 2 > Alarm 6 
@@ -918,7 +916,7 @@ class alarm(object):
                 emailList = filter(None, emailList)
                 
                 # send the email
-                if emailList == True and send_alarm == True:
+                if emailList and send_alarm:
                     self.sendMessage(emailList, subject, message)
                 
 # 3 or 4 > Alarm 6 
@@ -945,7 +943,7 @@ class alarm(object):
                 emailList = filter(None, emailList)
                 
                 # send the email
-                if emailList == True and send_alarm == True:
+                if emailList and send_alarm:
                     self.sendMessage(emailList, subject, message)
 
 # 5 > Alarm 6 
@@ -972,7 +970,7 @@ class alarm(object):
                 emailList = filter(None, emailList)
                 
                 # send the email
-                if emailList == True and send_alarm == True:
+                if emailList and send_alarm:
                     self.sendMessage(emailList, subject, message)
 
 # else (unknown) > Alarm 6 
@@ -999,7 +997,7 @@ class alarm(object):
                 emailList = filter(None, emailList)
                 
                 # send the email
-                if emailList == True and send_alarm == True:
+                if emailList and send_alarm:
                     self.sendMessage(emailList, subject, message)
         
 ################################################################################
