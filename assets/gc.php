@@ -67,7 +67,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 
       if ($datacount == $freezercount){
       while ($datarow = $data->fetch_assoc()) {
-          $datacount = $datarow->field_count;
+          $datacount = $datarow->num_rows;
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
           $datatemp = str_replace($badneg_b, $re_neg, $datatemp);
