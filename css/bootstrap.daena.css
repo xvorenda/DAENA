@@ -1,7 +1,8 @@
 table {margin: 32px auto}
 
 td {text-align: center;
-    padding:4px !important}
+    padding: 0 4px !important}
+tr {margin-top: 4px !important}
 h3 {margin:12px auto 0;}
 .daena-logo {
     height:20px;
@@ -134,7 +135,9 @@ h3 {margin:12px auto 0;}
 border-top-right-radius: 20px !important;
 border-bottom-right-radius: 20px !important;
 }
-.table > tbody > tr > td{border-top: none !important}
+.table > tbody > tr > td{
+  border-top: none !important;
+  vertical-align: center !important}
 table.table{
   border-spacing: 0 8 !important;
   border-collapse: separate !important
