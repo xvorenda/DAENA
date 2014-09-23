@@ -67,7 +67,7 @@ if ($login->isUserLoggedIn() == true)
                 {
                     $alarm_level = $alarmdata['alarm_level'];
                     $alarm_time = $alarmdata['alarm_time'];
-                }
+                };
 
 		echo "<tr class='borderless'>
 				<form action='handlers/alarm-mod.php' method='POST'>
@@ -75,10 +75,10 @@ if ($login->isUserLoggedIn() == true)
 				<td>".$freezer_name."</td>
 				<td class='field-narrow'><input type='text' class='input-medium search-query ' name='probe_active' value='".$alarm_level."'/></td>
 				<td class='field-wide'><input type='text' class='input-medium search-query ' name='probe_hostport' value='".$alarm_time."'/></td>
-				<td><input type='text' class='input-medium search-query ' name='Last Temp' value='".$last_temp."'/></td>
+				<td><input type='text' class='input-medium search-query ' name='last_temp' value='"."'/></td>
                                 <td><input type='text' class='input-medium search-query' name='freezer_setpiont1' value='".$freezer_setpoint1."'/></td>
-				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>                                "
-                        . "     <td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port' value='".$send_alarm."'/></td>
+				<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
+                                <td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port' value='".$send_alarm."'/></td>
 				<td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 			   </tr>";
 	}
