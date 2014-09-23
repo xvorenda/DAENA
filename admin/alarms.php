@@ -103,7 +103,7 @@ if ($login->isUserLoggedIn() == true)
 
 		echo "<tr class='alarm-table-row'>
 				<form action='handlers/alarm-mod.php' method='POST'>
-				<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
+				<td class='".$row_color."'><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 				<td class='".$row_color."'>".$freezer_name."</td>
 				<td class='".$row_color." field-narrow'>".$alarm_level."</td>
 				<td class='".$row_color." field-wide'>".$alarm_date_time."</td>
