@@ -70,7 +70,7 @@ if ($login->isUserLoggedIn() == true)
 		}
 		elseif($alarm_level==6 || $alarm_level==7)
 		{
-			$row_color="inverse";
+			$row_color="info";
 		}
 		
 		$lasttempquery = "SELECT temp FROM daena_db.data
@@ -96,7 +96,7 @@ if ($login->isUserLoggedIn() == true)
 			$last_temp = $lasttemprow['temp'];
 		};
 
-		echo "<tr class='inverse'>
+		echo "<tr class='".$row_color."'>
 				<form action='handlers/alarm-mod.php' method='POST'>
 				<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 				<td>".$freezer_name."</td>
