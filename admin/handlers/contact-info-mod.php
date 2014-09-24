@@ -31,8 +31,6 @@ $contactupdate = "UPDATE daena_db.contacts
 
 if ($mysqlaction == "modify") 
 {
-
-	$onecontact = $daenaDB->query();
 	if (!$daenaDB->query($contactupdate)) 
 	{
 		printf("Errormessage: %s\n", $daenaDB->error);

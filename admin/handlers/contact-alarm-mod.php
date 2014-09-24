@@ -51,18 +51,18 @@ foreach( $_POST['freezer_id'] as $current_freezer_id)
 
 	if ($mysqlaction == "modify") 
 	{
-
-		$onecontact = $daenaDB->query();
 		if (!$daenaDB->query($contactupdate)) 
 		{
 			printf("Errormessage: %s\n", $daenaDB->error);
 		}
-
-		
+		else
+		{
+			echo "Modification Success!";
+		}
 	}
 }
 
-echo "Modification Success!";
+
 echo '<script>window.location.replace("';
 $pageURL = 'http://';
 	if ($_SERVER["SERVER_PORT"] != "80") 
