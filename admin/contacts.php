@@ -181,14 +181,14 @@ if ($login->isUserLoggedIn() == true)
 									<tr class='alarm-table-row'>
 										<td>".$freezer_name."</td>
 										<td><input type='text' class='stealth' name='freezer_id[]' value='".$freezer_id."'/>".$freezer_id."</td>
-										<td><input type='checkbox'  name='".$freezer_id."alarm0'  value='1'/></td>
-										<td><input type='checkbox'  name='".$freezer_id."alarm1'  value='1'/></td>
-										<td><input type='checkbox'  name='".$freezer_id."alarm2'  value='1'/></td>
-										<td><input type='checkbox'  name='".$freezer_id."alarm3'  value='1'/></td>
-										<td><input type='checkbox'  name='".$freezer_id."alarm4'  value='1'/></td>
-										<td><input type='checkbox'  name='".$freezer_id."alarm5'  value='1'/></td>
-										<td><input type='checkbox'  name='".$freezer_id."alarm6'  value='1'/></td>
-										<td><input type='checkbox'  name='".$freezer_id."alarm7'  value='1'/></td>
+										<td class='success'><input type='checkbox'  name='".$freezer_id."alarm0'  value='1'/></td>
+										<td class='warning'><input type='checkbox'  name='".$freezer_id."alarm1'  value='1'/></td>
+										<td class='warning'><input type='checkbox'  name='".$freezer_id."alarm2'  value='1'/></td>
+										<td class='danger'><input type='checkbox'  name='".$freezer_id."alarm3'  value='1'/></td>
+										<td class='danger'><input type='checkbox'  name='".$freezer_id."alarm4'  value='1'/></td>
+										<td class='warning'><input type='checkbox'  name='".$freezer_id."alarm5'  value='1'/></td>
+										<td class='info'><input type='checkbox'  name='".$freezer_id."alarm6'  value='1'/></td>
+										<td class='info'><input type='checkbox'  name='".$freezer_id."alarm7'  value='1'/></td>
 									</tr>
 									";
 						
