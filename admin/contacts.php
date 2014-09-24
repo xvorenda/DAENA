@@ -44,12 +44,12 @@ if ($login->isUserLoggedIn() == true)
 				<div class='panel panel-default'>
 					<div class='panel-heading'>
 						<h2 class='panel-title'>
-							<a data-toggle='collapse'  href='#".$contact_name."'>
+							<a data-toggle='collapse'  href='#".$contact_id."'>
 							".$contact_name."
 							</a>
 						</h2>
 					</div>
-					<div id='".$contact_name."' class='panel-collapse collapse'>
+					<div id='".$contact_id."' class='panel-collapse collapse'>
 						<div class='panel-body'>
 							<table class='table'>
 								<tr><td>Contact ID</td><td>Name</td><td>Email</td><td>Alt Email</td><td>&nbsp;</td></tr>
