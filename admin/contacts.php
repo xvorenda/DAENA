@@ -50,7 +50,7 @@ if ($login->isUserLoggedIn() == true)
 						</h2>
 					</div>
 					<div id='".$contact_id."' class='panel-collapse collapse'>
-						<div class='panel-body'>
+						<div class='panel-body table-responsive'>
 							<div class='table-responsive'>
 								<table class='table-responsive'>
 									<tr><td>Contact ID</td><td>Name</td><td>Email</td><td>Alt Email</td><td>&nbsp;</td></tr>
@@ -71,16 +71,16 @@ if ($login->isUserLoggedIn() == true)
 								<div class'table-responsive'>
 									<table class='table table-striped table-hover'>
 										<tr>
-											<td>Freezer Name</td>
-											<td>Freezer ID</td>
-											<td>Normal State</td>
-											<td>High Alarm 1</td>
-											<td>High Alarm 2</td>
-											<td>Critical Alarm</td>
-											<td>Silenced Critical Alarm</td>
-											<td>Critical to High Alarm</td>
-											<td>Com Alarm</td>
-											<td>Silenced Com Alarm</td>
+											<td class='field-narrow'>Freezer Name</td>
+											<td class='field-narrow'>Freezer ID</td>
+											<td class='field-narrow'>Normal State</td>
+											<td class='field-narrow'>High Alarm 1</td>
+											<td class='field-narrow'>High Alarm 2</td>
+											<td class='field-narrow'>Critical Alarm</td>
+											<td class='field-narrow'>Silenced Critical Alarm</td>
+											<td class='field-narrow'>Critical to High Alarm</td>
+											<td class='field-narrow'>Com Alarm</td>
+											<td class='field-narrow'>Silenced Com Alarm</td>
 										</tr>";
 								
 							
