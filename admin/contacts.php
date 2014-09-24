@@ -81,7 +81,6 @@ if ($login->isUserLoggedIn() == true)
 											<td>Critical to High Alarm</td>
 											<td>Com Alarm</td>
 											<td>Silenced Com Alarm</td>
-											<td>&nbsp;</td>
 										</tr>";
 								
 							
