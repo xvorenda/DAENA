@@ -103,7 +103,7 @@ if ($login->isUserLoggedIn() == true)
 								<tr class='alarm-table-row'>
 									<form action='handlers/contacts-mod.php' method='POST'>
 									<td>".$freezer_name."</td>
-									<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
+									<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 									<td class='field-narrow'><input type='checkbox' class='input-medium' name='".$freezer_id."alarm0' ".$alarm0." value='1'/></td>
 									<td class='field-narrow'><input type='checkbox' class='input-medium' name='".$freezer_id."alarm1' ".$alarm1." value='1'/></td>
 									<td class='field-narrow'><input type='checkbox' class='input-medium' name='".$freezer_id."alarm2' ".$alarm2." value='1'/></td>
