@@ -13,7 +13,7 @@ h3 {margin:12px auto 0;}
     margin: 60px auto !important
 }
 .field-narrow {max-width:32px !important}
-.field-medium {min-width:100px !important}
+.field-medium {min-width:75px !important}
 .field-wide {min-width:180px !important}
 .field-narrow, .field-wide {margin:12px auto !important}
 #container, #about {
