@@ -49,7 +49,7 @@ foreach( $_POST['freezer_id'] as $current_freezer_id)
 	
 
 
-	if ($mysqlaction == "nothing") 
+	if ($mysqlaction == "modify") 
 	{
 
 		$onecontact = $daenaDB->query();
@@ -58,21 +58,23 @@ foreach( $_POST['freezer_id'] as $current_freezer_id)
 			printf("Errormessage: %s\n", $daenaDB->error);
 		}
 
-		echo "Modification Success!";
-		echo '<script>window.location.replace("';
-		$pageURL = 'http://';
-		if ($_SERVER["SERVER_PORT"] != "80") 
-		{
-		  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-		} 
-		else 
-		{
-		  $pageURL .= $_SERVER["SERVER_NAME"];
-		}
-		 echo $pageURL;
-		 echo '/admin/contacts.php");</script>';
+		
 	}
 }
+
+echo "Modification Success!";
+echo '<script>window.location.replace("';
+$pageURL = 'http://';
+	if ($_SERVER["SERVER_PORT"] != "80") 
+	{
+	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+	} 
+	else 
+	{
+	  $pageURL .= $_SERVER["SERVER_NAME"];
+	}
+	 echo $pageURL;
+	 echo '/admin/contacts.php");</script>';
 
 /*
 if ($mysqlaction == "add") 
