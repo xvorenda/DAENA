@@ -69,7 +69,7 @@ if ($login->isUserLoggedIn() == true)
 							<h3> Select freezers and alarm levels for ".$contact_name." to get notifications. </h3>
 							<form action='handlers/contact-alarm-mod.php' method='POST'>
 								<div class'table-responsive'>
-									<table class='table table-striped table-bordered table-hover'>
+									<table class='table table-striped table-hover'>
 										<tr>
 											<td>Freezer Name</td>
 											<td>Freezer ID</td>
