@@ -62,7 +62,7 @@ foreach( $_POST['freezer_id'] as $current_freezer_id)
 	}
 }
 
-
+/*
 echo '<script>window.location.replace("';
 $pageURL = 'http://';
 	if ($_SERVER["SERVER_PORT"] != "80") 
@@ -75,6 +75,7 @@ $pageURL = 'http://';
 	}
 	 echo $pageURL;
 	 echo '/admin/contacts.php");</script>';
+*/
 
 /*
 if ($mysqlaction == "add") 
