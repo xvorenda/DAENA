@@ -36,7 +36,7 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Draw Probe Mod Area */
 	echo "
-	<div class='probesbox'>
+	<div class='probesbox table-responsive'>
 	<table class='table'>
 	<tr><td>Probe ID</td><td>Freezer ID</td><td>Probe Type</td><td>Probe Range</td><td>Active</td><td>Probe Hostport</td><td>Probe NTMS Port</td><td>&nbsp;</td></tr>
 	";
