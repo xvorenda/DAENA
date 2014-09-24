@@ -50,7 +50,7 @@ if ($login->isUserLoggedIn() == true)
 						</h2>
 					</div>
 					<div id='".$contact_id."' class='panel-collapse collapse'>
-						<div class='panel-body '>
+						<div class='panel-body table-responsive'>
 							<div class='table-responsive'>
 								<table class='table'>
 									<tr><td>Contact ID</td><td>Name</td><td>Email</td><td>Alt Email</td><td>&nbsp;</td></tr>
