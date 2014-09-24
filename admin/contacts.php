@@ -51,7 +51,7 @@ if ($login->isUserLoggedIn() == true)
 					</div>
 					<div id='".$contact_id."' class='panel-collapse collapse'>
 						<div class='panel-body'>
-							<table class='table'>
+							<table class='table table-striped-bordered-hover'>
 								<tr><td>Contact ID</td><td>Name</td><td>Email</td><td>Alt Email</td><td>&nbsp;</td></tr>
 								<tr>
 									<form action='handlers/contact-mod.php' method='POST'>
