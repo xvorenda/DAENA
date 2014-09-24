@@ -62,6 +62,61 @@ if ($login->isUserLoggedIn() == true)
 									<td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 								</tr>
 							</table>
+							<h3> Select freezers and alarm levels for ".$contact_name." to get notifications. </h3>
+							<table class='table'>
+								<tr>
+									<td>Freezer Name</td>
+									<td>Freezer ID</td>
+									<td>Normal State</td>
+									<td>High Alarm 1</td>
+									<td>High Alarm 2</td>
+									<td>Critical Alarm</td>
+									<td>Silenced Critical Alarm</td>
+									<td>Critical to High Alarm</td>
+									<td>Com Alarm</td>
+									<td>Silenced Com Alarm</td>
+									<td>&nbsp;</td>
+								</tr>";
+								
+							
+							$freezeralarmquery = "SELECT freezers.freezer_name, freezer_alarm_contacts.* 
+								FROM freezer_alarm_contacts, freezers 
+								WHERE contact_id = ".$contact_id." 
+									AND freezers.freezer_id = freezer_alarm_contacts.freezer_id 
+									AND freezers.freezer_active = 1 
+								ORDER BY freezers.freezer_id"
+							while(($alarmdata = $freezeralarmquery->fetch_assoc()))
+							{
+								$freezer_name = $alarmdata['freezer_name'];
+								$freezer_id = $alarmdata['freezer_id'];
+								if($alarmdata['alarm0']==0){$alarm0 = "checked";}else{$alarm0="unchecked";}
+								if($alarmdata['alarm1']==0){$alarm1 = "checked";}else{$alarm1="unchecked";}
+								if($alarmdata['alarm2']==0){$alarm2 = "checked";}else{$alarm2="unchecked";}
+								if($alarmdata['alarm3']==0){$alarm3 = "checked";}else{$alarm3="unchecked";}
+								if($alarmdata['alarm4']==0){$alarm4 = "checked";}else{$alarm4="unchecked";}
+								if($alarmdata['alarm5']==0){$alarm5 = "checked";}else{$alarm5="unchecked";}
+								if($alarmdata['alarm6']==0){$alarm6 = "checked";}else{$alarm6="unchecked";}
+								if($alarmdata['alarm7']==0){$alarm7 = "checked";}else{$alarm7="unchecked";}
+								
+								echo"
+								<tr class='alarm-table-row'>
+									<form action='handlers/contacts-mod.php' method='POST'>
+									<td>".$freezer_name."</td>
+									<td>".$freezer_id."</td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm0' ".$alarm0." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm1' ".$alarm1." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm2' ".$alarm2." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm3' ".$alarm3." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm4' ".$alarm4." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm5' ".$alarm5." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm6' ".$alarm6." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm7' ".$alarm7." value='1'/></td>
+								</tr>
+								";
+								
+							}
+							echo "
+							</table>
 						</div>
 					</div>
 				</div>
