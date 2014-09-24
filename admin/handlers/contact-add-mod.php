@@ -32,7 +32,7 @@ $error = 0;
 
 if ($mysqlaction == "add") 
 {
-	if (!$daenaDB->query($contactupdate)) 
+	if (!$daenaDB->query($contactadd)) 
 	{
 		printf("Errormessage: %s\n", $daenaDB->error);
 		$error=1;
