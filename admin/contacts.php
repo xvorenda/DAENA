@@ -67,8 +67,8 @@ if ($login->isUserLoggedIn() == true)
 								</table>
 							</div>
 							<h3> Select freezers and alarm levels for ".$contact_name." to get notifications. </h3>
-							<div class'table table-responsive'
-								<form action='handlers/contact-alarm-mod.php' method='POST'>
+							<form action='handlers/contact-alarm-mod.php' method='POST'>
+								<div class'table table-responsive'>
 									<table class='table table-striped table-bordered table-hover'>
 										<tr>
 											<td>Freezer Name</td>
@@ -124,10 +124,10 @@ if ($login->isUserLoggedIn() == true)
 									}
 									echo "
 									</table>
-									<input type='text' class='stealth' name='mysqlaction' value='modify'/>
-									<input type='submit' name='update_alarm' class='btn' value='Modify'/>
-								</form>
-							</div>
+								</div>
+								<input type='text' class='stealth' name='mysqlaction' value='modify'/>
+								<input type='submit' name='update_alarm' class='btn' value='Modify'/>
+							</form>
 						</div>
 					</div>
 				</div>
