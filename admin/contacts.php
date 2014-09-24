@@ -52,7 +52,7 @@ if ($login->isUserLoggedIn() == true)
 					<div id='".$contact_id."' class='panel-collapse collapse'>
 						<div class='panel-body'>
 							<div class='table-responsive'>
-								<table class='table table-responsive'>
+								<table class='table-responsive'>
 									<tr><td>Contact ID</td><td>Name</td><td>Email</td><td>Alt Email</td><td>&nbsp;</td></tr>
 									<tr>
 										<form action='handlers/contact-info-mod.php' method='POST'>
@@ -68,7 +68,7 @@ if ($login->isUserLoggedIn() == true)
 							</div>
 							<h3> Select freezers and alarm levels for ".$contact_name." to get notifications. </h3>
 							<form action='handlers/contact-alarm-mod.php' method='POST'>
-								<div class'table table-responsive'>
+								<div class'table-responsive'>
 									<table class='table table-striped table-bordered table-hover'>
 										<tr>
 											<td>Freezer Name</td>
