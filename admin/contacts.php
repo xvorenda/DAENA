@@ -126,7 +126,7 @@ if ($login->isUserLoggedIn() == true)
 						</div>
 					</div>
 				</div>
-			</div> <--close panel group-->
+			</div> 
 		";
 	} // end while loop
 	echo"
@@ -201,7 +201,7 @@ if ($login->isUserLoggedIn() == true)
 						</div>
 					</div>
 				</div>
-			</div> <--close panel group-->
+			</div> 
 		";
 		/*
 		echo "<tr>
