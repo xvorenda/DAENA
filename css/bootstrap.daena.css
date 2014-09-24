@@ -121,6 +121,9 @@ h3 {margin:12px auto 0;}
     border: 1px solid transparent;
     border-radius: 20px;
 }
+.input-large, .wide {
+    min-width: 150px;
+    clear: right
 .input-wide, .wide {
     min-width: 300px;
     clear: right
