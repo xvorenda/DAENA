@@ -148,7 +148,9 @@ table.table{
   border-spacing: 0 8 !important;
   border-collapse: separate !important
 }
-
+input[type="checkbox"] {
+  width: auto !important;
+}
 .gray       {color:#999 !important}
 .violet     {color:#808 !important}
 .indigo     {color:#408 !important}
