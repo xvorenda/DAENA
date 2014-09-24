@@ -7,7 +7,7 @@ if ($login->isUserLoggedIn() == true)
 {
 
 	/* Start talking to MySQL and kill yourself if it ignores you */
-	include 'config/db.php';
+	//include 'config/db.php';
 	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 	// Check connection
 	if ($daenaDB->connect_errno) 
@@ -55,7 +55,7 @@ if ($login->isUserLoggedIn() == true)
 								<tr><td>Contact ID</td><td>Name</td><td>Email</td><td>Alt Email</td><td>&nbsp;</td></tr>
 								<tr>
 									<form action='handlers/contact-mod.php' method='POST'>
-									<td><input type='text' class='input-medium search-query' name='contact_id' value='".$contact_id."'/></td>
+									<td>".$contact_id."</td>
 									<td><input type='text' class='input-medium search-query' name='contact_name' value='".$contact_name."'/></td>
 									<td><input type='text' class='input-wide search-query' name='contact_email' value='".$contact_email."'/></td>
 									<td><input type='text' class='input-wide search-query' name='contact_alt_email' value='".$contact_alt_email."'/></td>
@@ -85,18 +85,19 @@ if ($login->isUserLoggedIn() == true)
 									AND freezers.freezer_id = freezer_alarm_contacts.freezer_id 
 									AND freezers.freezer_active = 1 
 								ORDER BY freezers.freezer_id";
-							while(($alarmdata = $freezeralarmquery->fetch_assoc()))
+							$allalarmdata = $daenaDB->query($freezeralarmquery);
+							while(($alarmdata = $allalarmdata->fetch_assoc()))
 							{
 								$freezer_name = $alarmdata['freezer_name'];
 								$freezer_id = $alarmdata['freezer_id'];
-								if($alarmdata['alarm0']==0){$alarm0 = "checked";}else{$alarm0="unchecked";}
-								if($alarmdata['alarm1']==0){$alarm1 = "checked";}else{$alarm1="unchecked";}
-								if($alarmdata['alarm2']==0){$alarm2 = "checked";}else{$alarm2="unchecked";}
-								if($alarmdata['alarm3']==0){$alarm3 = "checked";}else{$alarm3="unchecked";}
-								if($alarmdata['alarm4']==0){$alarm4 = "checked";}else{$alarm4="unchecked";}
-								if($alarmdata['alarm5']==0){$alarm5 = "checked";}else{$alarm5="unchecked";}
-								if($alarmdata['alarm6']==0){$alarm6 = "checked";}else{$alarm6="unchecked";}
-								if($alarmdata['alarm7']==0){$alarm7 = "checked";}else{$alarm7="unchecked";}
+								if($alarmdata['alarm0']==0){$alarm0 = "unchecked";}else{$alarm0="checked";}
+								if($alarmdata['alarm1']==0){$alarm1 = "unchecked";}else{$alarm1="checked";}
+								if($alarmdata['alarm2']==0){$alarm2 = "unchecked";}else{$alarm2="checked";}
+								if($alarmdata['alarm3']==0){$alarm3 = "unchecked";}else{$alarm3="checked";}
+								if($alarmdata['alarm4']==0){$alarm4 = "unchecked";}else{$alarm4="checked";}
+								if($alarmdata['alarm5']==0){$alarm5 = "unchecked";}else{$alarm5="checked";}
+								if($alarmdata['alarm6']==0){$alarm6 = "unchecked";}else{$alarm6="checked";}
+								if($alarmdata['alarm7']==0){$alarm7 = "unchecked";}else{$alarm7="checked";}
 								
 								echo"
 								<tr class='alarm-table-row'>
