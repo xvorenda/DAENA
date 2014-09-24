@@ -63,7 +63,7 @@ if ($login->isUserLoggedIn() == true)
 								</tr>
 							</table>
 							<h3> Select freezers and alarm levels for ".$contact_name." to get notifications. </h3>
-							<table class='table table-striped'>
+							<table class='table table-striped table-bordered table-hover'>
 								<tr>
 									<td>Freezer Name</td>
 									<td>Freezer ID</td>
