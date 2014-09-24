@@ -54,15 +54,18 @@ if ($login->isUserLoggedIn() == true)
 							<table class='table'>
 								<tr><td>Contact ID</td><td>Name</td><td>Email</td><td>Alt Email</td><td>&nbsp;</td></tr>
 								<tr>
-									<form action='handlers/contact-mod.php' method='POST'>
-									<td>".$contact_id."</td>
-									<td><input type='text' class='input-medium search-query' name='contact_name' value='".$contact_name."'/></td>
-									<td><input type='text' class='input-wide search-query' name='contact_email' value='".$contact_email."'/></td>
-									<td><input type='text' class='input-wide search-query' name='contact_alt_email' value='".$contact_alt_email."'/></td>
-									<td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
+									<form action='handlers/contact-info-mod.php' method='POST'>
+										<td><input type='text' class='stealth' name='contact_id' value='".$contact_id."'/>".$contact_id."</td>
+										<td><input type='text' class='input-medium search-query' name='contact_name' value='".$contact_name."'/></td>
+										<td><input type='text' class='input-wide search-query' name='contact_email' value='".$contact_email."'/></td>
+										<td><input type='text' class='input-wide search-query' name='contact_alt_email' value='".$contact_alt_email."'/></td>
+										<td><input type='text' class='stealth' name='mysqlaction' value='modify'/>
+										<input type='submit' name='submit' class='btn' value='Modify'/></td>
+									</form>
 								</tr>
 							</table>
 							<h3> Select freezers and alarm levels for ".$contact_name." to get notifications. </h3>
+							<form action='handlers/contact-alarm-mod.php' method='POST'>
 							<table class='table table-striped table-bordered table-hover'>
 								<tr>
 									<td>Freezer Name</td>
@@ -101,7 +104,7 @@ if ($login->isUserLoggedIn() == true)
 								
 								echo"
 								<tr class='alarm-table-row'>
-									<form action='handlers/contacts-mod.php' method='POST'>
+									<form action='handlers/contact-alarm-mod.php' method='POST'>
 									<td>".$freezer_name."</td>
 									<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 									<td class='field-narrow'><input type='checkbox' class='input-medium' name='".$freezer_id."alarm0' ".$alarm0." value='1'/></td>
