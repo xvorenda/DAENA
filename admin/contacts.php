@@ -71,16 +71,16 @@ if ($login->isUserLoggedIn() == true)
 								<div class'table-responsive'>
 									<table class='table table-striped table-hover'>
 										<tr>
-											<td class='field-narrow'>Freezer Name</td>
-											<td class='field-narrow'>Freezer ID</td>
-											<td class='field-narrow'>Normal State</td>
-											<td class='field-narrow'>High Alarm 1</td>
-											<td class='field-narrow'>High Alarm 2</td>
-											<td class='field-narrow'>Critical Alarm</td>
-											<td class='field-narrow'>Silenced Critical Alarm</td>
-											<td class='field-narrow'>Critical to High Alarm</td>
-											<td class='field-narrow'>Com Alarm</td>
-											<td class='field-narrow'>Silenced Com Alarm</td>
+											<td class='field-medium'>Freezer Name</td>
+											<td class='field-medium'>Freezer ID</td>
+											<td class='field-medium'>Normal State</td>
+											<td class='field-medium'>High Alarm 1</td>
+											<td class='field-medium'>High Alarm 2</td>
+											<td class='field-medium'>Critical Alarm</td>
+											<td class='field-medium'>Silenced Critical Alarm</td>
+											<td class='field-medium'>Critical to High Alarm</td>
+											<td class='field-medium'>Com Alarm</td>
+											<td class='field-medium'>Silenced Com Alarm</td>
 										</tr>";
 								
 							
@@ -109,14 +109,14 @@ if ($login->isUserLoggedIn() == true)
 											<input type='text' class='stealth' name='contact_id' value='".$contact_id."'/>
 											<td>".$freezer_name."</td>
 											<td><input type='text' class='stealth' name='freezer_id[]' value='".$freezer_id."'/>".$freezer_id."</td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm0' ".$alarm0." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm1' ".$alarm1." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm2' ".$alarm2." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm3' ".$alarm3." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm4' ".$alarm4." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm5' ".$alarm5." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm6' ".$alarm6." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm7' ".$alarm7." value='1'/></td>
+											<td><input type='checkbox'  name='".$freezer_id."alarm0' ".$alarm0." value='1'/></td>
+											<td><input type='checkbox'  name='".$freezer_id."alarm1' ".$alarm1." value='1'/></td>
+											<td><input type='checkbox'  name='".$freezer_id."alarm2' ".$alarm2." value='1'/></td>
+											<td><input type='checkbox'  name='".$freezer_id."alarm3' ".$alarm3." value='1'/></td>
+											<td><input type='checkbox'  name='".$freezer_id."alarm4' ".$alarm4." value='1'/></td>
+											<td><input type='checkbox'  name='".$freezer_id."alarm5' ".$alarm5." value='1'/></td>
+											<td><input type='checkbox'  name='".$freezer_id."alarm6' ".$alarm6." value='1'/></td>
+											<td><input type='checkbox'  name='".$freezer_id."alarm7' ".$alarm7." value='1'/></td>
 										</tr>
 										";
 								
