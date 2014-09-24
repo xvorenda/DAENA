@@ -145,9 +145,9 @@ if ($login->isUserLoggedIn() == true)
 								<table class='table'>
 									<tr><td>Name</td><td>Email</td><td>Alt Email</td></tr>
 									<tr>
-											<td><input type='text' class='input-large search-query' name='contact_name' value='".$contact_name."'/></td>
-											<td><input type='text' class='input-large search-query' name='contact_email' value='".$contact_email."'/></td>
-											<td><input type='text' class='input-large search-query' name='contact_alt_email' value='".$contact_alt_email."'/></td>
+											<td><input type='text' class='input-large search-query' name='contact_name' /></td>
+											<td><input type='text' class='input-large search-query' name='contact_email' /></td>
+											<td><input type='text' class='input-large search-query' name='contact_alt_email' /></td>
 										</form>
 									</tr>
 								</table>
