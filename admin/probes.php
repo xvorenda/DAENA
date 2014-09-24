@@ -68,7 +68,8 @@ if ($login->isUserLoggedIn() == true)
 				<td class='field-narrow'><input type='checkbox' class='input-medium' name='probe_active' ".$probe_active_checkbox." value='1'/></td>
 				<td class='field-wide'><input type='text' class='input-medium search-query ' name='probe_hostport' value='".$probe_hostport."'/></td>
 				<td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port' value='".$probe_ntms_port."'/></td>
-				<td><input type='text' class='stealth' name='mysqlaction' value='modify'/><input type='submit' name='submit' class='btn' value='Modify'/></td></form>
+				<td><input type='text' class='stealth' name='mysqlaction' value='modify'/>
+				<input type='submit' name='submit' class='btn' value='Modify'/></td></form>
 			   </tr>";
 	}
 

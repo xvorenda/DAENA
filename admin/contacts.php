@@ -103,21 +103,22 @@ if ($login->isUserLoggedIn() == true)
 								<tr class='alarm-table-row'>
 									<form action='handlers/contacts-mod.php' method='POST'>
 									<td>".$freezer_name."</td>
-									<td>".$freezer_id."</td>
-									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm0' ".$alarm0." value='1'/></td>
-									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm1' ".$alarm1." value='1'/></td>
-									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm2' ".$alarm2." value='1'/></td>
-									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm3' ".$alarm3." value='1'/></td>
-									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm4' ".$alarm4." value='1'/></td>
-									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm5' ".$alarm5." value='1'/></td>
-									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm6' ".$alarm6." value='1'/></td>
-									<td class='field-narrow'><input type='checkbox' class='input-medium' name='alarm7' ".$alarm7." value='1'/></td>
+									<td><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='"$freezer_id."alarm0' ".$alarm0." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='"$freezer_id."alarm1' ".$alarm1." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='"$freezer_id."alarm2' ".$alarm2." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='"$freezer_id."alarm3' ".$alarm3." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='"$freezer_id."alarm4' ".$alarm4." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='"$freezer_id."alarm5' ".$alarm5." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='"$freezer_id."alarm6' ".$alarm6." value='1'/></td>
+									<td class='field-narrow'><input type='checkbox' class='input-medium' name='"$freezer_id."alarm7' ".$alarm7." value='1'/></td>
 								</tr>
 								";
 								
 							}
 							echo "
 							</table>
+							<input type='submit' name='submit' class='btn' value='Modify'/>
 						</div>
 					</div>
 				</div>
