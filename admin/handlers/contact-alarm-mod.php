@@ -2,7 +2,6 @@
 /* Get things started */
 
 $mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
-$freezer_id = filter_input(INPUT_POST, 'freezer_id');
 $contact_id = filter_input(INPUT_POST, 'contact_id');
 
 /* Start talking to MySQL and kill yourself if it ignores you */
@@ -22,9 +21,12 @@ $groupadd = "INSERT INTO daena_db.groups
 	VALUES
     ('".$group_id."', '".$group_name."', '".$group_desc."')";
 */
-echo $freezer_id;
-foreach ($freezer_id as $current_freezer_id)
+
+foreach( $_POST['freezer_id'] as $current_freezer_id) 
 {
+
+	echo $current_freezer_id;
+
 	$alarm0 = (isset($_POST[$current_freezer_id.'alarm0'])) ? 1 : 0;
 	$alarm1 = (isset($_POST[$current_freezer_id.'alarm1'])) ? 1 : 0;
 	$alarm2 = (isset($_POST[$current_freezer_id.'alarm2'])) ? 1 : 0;
