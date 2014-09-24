@@ -148,7 +148,6 @@ if ($login->isUserLoggedIn() == true)
 											<td><input type='text' class='input-large search-query' name='contact_name' /></td>
 											<td><input type='text' class='input-large search-query' name='contact_email' /></td>
 											<td><input type='text' class='input-large search-query' name='contact_alt_email' /></td>
-										</form>
 									</tr>
 								</table>
 								<h3> Select freezers and alarm levels for the new person to get notifications. </h3>
