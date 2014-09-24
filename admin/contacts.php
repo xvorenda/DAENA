@@ -57,7 +57,7 @@ if ($login->isUserLoggedIn() == true)
 									<tr>
 										<form action='handlers/contact-info-mod.php' method='POST'>
 											<td><input type='text' class='stealth' name='contact_id' value='".$contact_id."'/>".$contact_id."</td>
-											<td><input type='text' class='input-medium search-query' name='contact_name' value='".$contact_name."'/></td>
+											<td><input type='text' class='input-wide search-query' name='contact_name' value='".$contact_name."'/></td>
 											<td><input type='text' class='input-wide search-query' name='contact_email' value='".$contact_email."'/></td>
 											<td><input type='text' class='input-wide search-query' name='contact_alt_email' value='".$contact_alt_email."'/></td>
 											<td><input type='text' class='stealth' name='mysqlaction' value='modify'/>
@@ -109,14 +109,14 @@ if ($login->isUserLoggedIn() == true)
 											<input type='text' class='stealth' name='contact_id' value='".$contact_id."'/>
 											<td>".$freezer_name."</td>
 											<td><input type='text' class='stealth' name='freezer_id[]' value='".$freezer_id."'/>".$freezer_id."</td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm0' ".$alarm0." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm1' ".$alarm1." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm2' ".$alarm2." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm3' ".$alarm3." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm4' ".$alarm4." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm5' ".$alarm5." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm6' ".$alarm6." value='1'/></td>
-											<td><input type='checkbox' class='input-medium' name='".$freezer_id."alarm7' ".$alarm7." value='1'/></td>
+											<td><input type='checkbox' name='".$freezer_id."alarm0' ".$alarm0." value='1'/></td>
+											<td><input type='checkbox' name='".$freezer_id."alarm1' ".$alarm1." value='1'/></td>
+											<td><input type='checkbox' name='".$freezer_id."alarm2' ".$alarm2." value='1'/></td>
+											<td><input type='checkbox' name='".$freezer_id."alarm3' ".$alarm3." value='1'/></td>
+											<td><input type='checkbox' name='".$freezer_id."alarm4' ".$alarm4." value='1'/></td>
+											<td><input type='checkbox' name='".$freezer_id."alarm5' ".$alarm5." value='1'/></td>
+											<td><input type='checkbox' name='".$freezer_id."alarm6' ".$alarm6." value='1'/></td>
+											<td><input type='checkbox' name='".$freezer_id."alarm7' ".$alarm7." value='1'/></td>
 										</tr>
 										";
 								
