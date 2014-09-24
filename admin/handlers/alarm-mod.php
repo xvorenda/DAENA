@@ -4,7 +4,8 @@
 $freezer_id = filter_input(INPUT_POST, 'freezer_id');
 $freezer_setpoint1 = filter_input(INPUT_POST, 'freezer_setpoint1');
 $freezer_setpoint2 = filter_input(INPUT_POST, 'freezer_setpoint2');
-$freezer_send_alarm = filter_input(INPUT_POST, 'freezer_send_alarm');
+//$freezer_send_alarm = filter_input(INPUT_POST, 'freezer_send_alarm');
+$freezer_send_alarm = (isset($_POST['freezer_send_alarm'])) ? 1 : 0;
 
 
 /* Start talking to MySQL and kill yourself if it ignores you */
@@ -25,18 +26,18 @@ $alarmupdate = "UPDATE daena_db.freezers
 	WHERE freezer_id='" . $freezer_id . "'";
 
 
-$freezeralarm = $daenaDB->query($alarmupdate);
-
-echo "Modification Success!";
-echo '<script>window.location.replace("';
-$pageURL = 'http://';
-if ($_SERVER["SERVER_PORT"] != "80") 
-{
-  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-} 
-else 
-{
-  $pageURL .= $_SERVER["SERVER_NAME"];
-}
- echo $pageURL;
- echo '/admin/alarms.php");</script>';
+	$freezeralarm = $daenaDB->query($alarmupdate);
+	
+	echo "Modification Success!";
+	echo '<script>window.location.replace("';
+	$pageURL = 'http://';
+	if ($_SERVER["SERVER_PORT"] != "80") 
+	{
+	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+	} 
+	else 
+	{
+	  $pageURL .= $_SERVER["SERVER_NAME"];
+	}
+	 echo $pageURL;
+	 echo '/admin/alarms.php");</script>';

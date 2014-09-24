@@ -47,7 +47,16 @@ if ($login->isUserLoggedIn() == true)
 		$freezer_setpoint2 = $freezerdata['freezer_setpoint2'];
 		$freezer_alarm_id = $freezerdata['freezer_alarm_id'];
 		$freezer_send_alarm = $freezerdata['freezer_send_alarm'];
-
+		
+		if ($freezer_send_alarm == 0)
+		{
+			$freezer_send_alarm_checkbox = "unchecked";
+		}
+		else
+		{
+			$freezer_send_alarm_checkbox = "checked";
+		}
+		
 		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarm
 			WHERE alarm_id='".$freezer_alarm_id."'";
 		$alarmdata = $daenaDB->query($alarm_query);
@@ -111,7 +120,7 @@ if ($login->isUserLoggedIn() == true)
 					<td class='".$row_color." round-last'>".$last_reading."</td>
 					<td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
 					<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
-					<td class='field-narrow'><input type='text' class='input-medium search-query' name='freezer_send_alarm' value='".$freezer_send_alarm."'/></td>
+					<td class='field-narrow'><input type='checkbox' class='input-medium' name='freezer_send_alarm' ".$freezer_send_alarm_checkbox." value='1'/></td>
 					<td><input type='submit' name='submit' class='btn' value='Modify'/></td>
 				</form>
 			</tr>";
