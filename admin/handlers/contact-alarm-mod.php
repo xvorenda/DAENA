@@ -21,7 +21,7 @@ $groupadd = "INSERT INTO daena_db.groups
 	VALUES
     ('".$group_id."', '".$group_name."', '".$group_desc."')";
 */
-
+$error = 0;
 foreach( $_POST['freezer_id'] as $current_freezer_id) 
 {
 	$alarm0 = (isset($_POST[$current_freezer_id.'alarm0'])) ? 1 : 0;
@@ -54,6 +54,7 @@ foreach( $_POST['freezer_id'] as $current_freezer_id)
 		if (!$daenaDB->query($contactupdate)) 
 		{
 			printf("Errormessage: %s\n", $daenaDB->error);
+			$error = 1;
 		}
 		else
 		{
@@ -62,9 +63,10 @@ foreach( $_POST['freezer_id'] as $current_freezer_id)
 	}
 }
 
-/*
-echo '<script>window.location.replace("';
-$pageURL = 'http://';
+if ($error == 0)
+{
+	echo '<script>window.location.replace("';
+	$pageURL = 'http://';
 	if ($_SERVER["SERVER_PORT"] != "80") 
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
@@ -75,7 +77,7 @@ $pageURL = 'http://';
 	}
 	 echo $pageURL;
 	 echo '/admin/contacts.php");</script>';
-*/
+}
 
 /*
 if ($mysqlaction == "add") 
