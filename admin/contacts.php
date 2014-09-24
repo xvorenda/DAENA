@@ -56,9 +56,9 @@ if ($login->isUserLoggedIn() == true)
 								<tr>
 									<form action='handlers/contact-info-mod.php' method='POST'>
 										<td><input type='text' class='stealth' name='contact_id' value='".$contact_id."'/>".$contact_id."</td>
-										<td><input type='text' class='input-medium search-query' name='contact_name' value='".$contact_name."'/></td>
-										<td><input type='text' class='input-wide search-query' name='contact_email' value='".$contact_email."'/></td>
-										<td><input type='text' class='input-wide search-query' name='contact_alt_email' value='".$contact_alt_email."'/></td>
+										<td><input type='text' class='input-large search-query' name='contact_name' value='".$contact_name."'/></td>
+										<td><input type='text' class='input-large search-query' name='contact_email' value='".$contact_email."'/></td>
+										<td><input type='text' class='input-large search-query' name='contact_alt_email' value='".$contact_alt_email."'/></td>
 										<td><input type='text' class='stealth' name='mysqlaction' value='modify'/>
 										<input type='submit' name='update_contact' class='btn' value='Modify'/></td>
 									</form>
