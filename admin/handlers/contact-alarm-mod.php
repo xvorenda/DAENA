@@ -43,7 +43,7 @@ foreach( $_POST['freezer_id'] as $current_freezer_id)
 			alarm4='".$alarm4."', 
 			alarm5='".$alarm5."', 
 			alarm6='".$alarm6."', 
-			alarm7='".$alarm7."', 
+			alarm7='".$alarm7."'
 		WHERE contact_id='".$contact_id."' 
 			AND freezer_id='".$current_freezer_id."'";
 	
