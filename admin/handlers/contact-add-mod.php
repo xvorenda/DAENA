@@ -38,7 +38,7 @@ if ($mysqlaction == "add")
 		$error=1;
 	}
 	$contact_id = $daenaDB->insert_id;
-
+	echo $contact_id;
 	foreach( $_POST['freezer_id'] as $current_freezer_id) 
 	{
 		$alarm0 = (isset($_POST[$current_freezer_id.'alarm0'])) ? 1 : 0;
