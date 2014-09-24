@@ -60,7 +60,7 @@ if ($login->isUserLoggedIn() == true)
 										<td><input type='text' class='input-wide search-query' name='contact_email' value='".$contact_email."'/></td>
 										<td><input type='text' class='input-wide search-query' name='contact_alt_email' value='".$contact_alt_email."'/></td>
 										<td><input type='text' class='stealth' name='mysqlaction' value='modify'/>
-										<input type='submit' name='submit' class='btn' value='Modify'/></td>
+										<input type='submit' name='update_contact' class='btn' value='Modify'/></td>
 									</form>
 								</tr>
 							</table>
@@ -104,7 +104,6 @@ if ($login->isUserLoggedIn() == true)
 								
 									echo"
 									<tr class='alarm-table-row'>
-										<form action='handlers/contact-alarm-mod.php' method='POST'>
 										<input type='text' class='stealth' name='contact_id' value='".$contact_id."'/>
 										<td>".$freezer_name."</td>
 										<td><input type='text' class='stealth' name='freezer_id[]' value='".$freezer_id."'/>".$freezer_id."</td>
@@ -123,7 +122,7 @@ if ($login->isUserLoggedIn() == true)
 								echo "
 								</table>
 								<input type='text' class='stealth' name='mysqlaction' value='modify'/>
-								<input type='submit' name='submit' class='btn' value='Modify'/>
+								<input type='submit' name='update_alarm' class='btn' value='Modify'/>
 							</form>
 						</div>
 					</div>
