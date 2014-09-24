@@ -1,16 +1,30 @@
 <?php
 /* Get things started */
 include "assets/admin-header.php";
+echo "<script>
+$(function(){
+    $('td').click(function(){
+        //alert('click!');
+        var $elem = $(this).find('input');
+        $elem.prop('checked', !$elem.prop('checked'));
+        //$elem.click();
+//        return false;
+    });
+    $('input[type='checkbox']').click(function(){
+        $(this).prop('checked',!$(this).prop('checked'));
+    })
+});
+</script>";
 include 'assets/admin-nav.php';
 
-if ($login->isUserLoggedIn() == true) 
+if ($login->isUserLoggedIn() == true)
 {
 
 	/* Start talking to MySQL and kill yourself if it ignores you */
 	//include 'config/db.php';
 	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 	// Check connection
-	if ($daenaDB->connect_errno) 
+	if ($daenaDB->connect_errno)
 	{
 		printf("Connect failed: %s\n", $daenaDB->connect_error);
 		exit();
@@ -79,13 +93,13 @@ if ($login->isUserLoggedIn() == true)
 										<td class='field-medium'>Com Alarm</td>
 										<td class='field-medium'>Silenced Com Alarm</td>
 									</tr>";
-							
-						
-								$freezeralarmquery = "SELECT freezers.freezer_name, freezer_alarm_contacts.* 
-									FROM freezer_alarm_contacts, freezers 
-									WHERE contact_id = ".$contact_id." 
-										AND freezers.freezer_id = freezer_alarm_contacts.freezer_id 
-										AND freezers.freezer_active = 1 
+
+
+								$freezeralarmquery = "SELECT freezers.freezer_name, freezer_alarm_contacts.*
+									FROM freezer_alarm_contacts, freezers
+									WHERE contact_id = ".$contact_id."
+										AND freezers.freezer_id = freezer_alarm_contacts.freezer_id
+										AND freezers.freezer_active = 1
 									ORDER BY freezers.freezer_id";
 								$allalarmdata = $daenaDB->query($freezeralarmquery);
 								while(($alarmdata = $allalarmdata->fetch_assoc()))
@@ -100,7 +114,7 @@ if ($login->isUserLoggedIn() == true)
 									if($alarmdata['alarm5']==0){$alarm5 = "unchecked";}else{$alarm5="checked";}
 									if($alarmdata['alarm6']==0){$alarm6 = "unchecked";}else{$alarm6="checked";}
 									if($alarmdata['alarm7']==0){$alarm7 = "unchecked";}else{$alarm7="checked";}
-							
+
 									echo"
 									<tr class='alarm-table-row'>
 										<input type='text' class='stealth' name='contact_id' value='".$contact_id."'/>
@@ -116,7 +130,7 @@ if ($login->isUserLoggedIn() == true)
 										<td class='info'><input type='checkbox'  name='".$freezer_id."alarm7' ".$alarm7." value='1'/></td>
 									</tr>
 									";
-							
+
 								}
 								echo "
 								</table>
@@ -126,7 +140,7 @@ if ($login->isUserLoggedIn() == true)
 						</div>
 					</div>
 				</div>
-			</div> 
+			</div>
 		";
 	} // end while loop
 	echo"
@@ -164,11 +178,11 @@ if ($login->isUserLoggedIn() == true)
 										<td class='field-medium'>Com Alarm</td>
 										<td class='field-medium'>Silenced Com Alarm</td>
 									</tr>";
-						
-					
-								$freezeralarmquery = "SELECT freezers.freezer_name, freezers.freezer_id 
-									FROM freezers 
-									WHERE freezers.freezer_active = 1 
+
+
+								$freezeralarmquery = "SELECT freezers.freezer_name, freezers.freezer_id
+									FROM freezers
+									WHERE freezers.freezer_active = 1
 									ORDER BY freezers.freezer_id";
 								$allfreezerdata = $daenaDB->query($freezeralarmquery);
 								while(($freezerdata = $allfreezerdata->fetch_assoc()))
@@ -190,7 +204,7 @@ if ($login->isUserLoggedIn() == true)
 										<td class='info'><input type='checkbox'  name='".$freezer_id."alarm7'  value='1'/></td>
 									</tr>
 									";
-						
+
 								}
 								echo "
 								</table>
@@ -200,7 +214,7 @@ if ($login->isUserLoggedIn() == true)
 						</div>
 					</div>
 				</div>
-			</div> 
+			</div>
 		";
 		/*
 		echo "<tr>
@@ -225,7 +239,7 @@ if ($login->isUserLoggedIn() == true)
 	</div></div>";
 	*/
 }
-else 
+else
 {
 echo "<div id='content'>"
     . "<h1>Unauthorized Access</h1>"

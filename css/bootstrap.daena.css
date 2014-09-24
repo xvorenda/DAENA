@@ -150,7 +150,6 @@ table.table{
 }
 input[type="checkbox"] {
   width: auto !important;
-  padding: 100%;
 }
 .gray       {color:#999 !important}
 .violet     {color:#808 !important}
