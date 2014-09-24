@@ -1,20 +1,6 @@
 <?php
 /* Get things started */
 include "assets/admin-header.php";
-echo "<script>
-$(function(){
-    $('td').click(function(){
-        //alert('click!');
-        var $elem = $(this).find('input');
-        $elem.prop('checked', !$elem.prop('checked'));
-        //$elem.click();
-//        return false;
-    });
-    $('input[type='checkbox']').click(function(){
-        $(this).prop('checked',!$(this).prop('checked'));
-    })
-});
-</script>";
 include 'assets/admin-nav.php';
 
 if ($login->isUserLoggedIn() == true)
@@ -215,6 +201,16 @@ if ($login->isUserLoggedIn() == true)
 					</div>
 				</div>
 			</div>
+			<script>
+			$(function(){
+				$('td').click(function (event) {
+				  if (!$(event.target).is('input')) {
+				      var obj =$(this).find('input');
+				      obj.prop('checked', !obj.is(':checked'));
+				    }
+				});
+			});
+			</script>
 		";
 		/*
 		echo "<tr>
