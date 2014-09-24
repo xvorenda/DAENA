@@ -22,7 +22,7 @@ $groupadd = "INSERT INTO daena_db.groups
 	VALUES
     ('".$group_id."', '".$group_name."', '".$group_desc."')";
 */
-
+echo $freezer_id;
 foreach ($freezer_id as $current_freezer_id)
 {
 	$alarm0 = (isset($_POST[$current_freezer_id.'alarm0'])) ? 1 : 0;
