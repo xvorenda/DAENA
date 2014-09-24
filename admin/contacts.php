@@ -84,7 +84,7 @@ if ($login->isUserLoggedIn() == true)
 								WHERE contact_id = ".$contact_id." 
 									AND freezers.freezer_id = freezer_alarm_contacts.freezer_id 
 									AND freezers.freezer_active = 1 
-								ORDER BY freezers.freezer_id"
+								ORDER BY freezers.freezer_id";
 							while(($alarmdata = $freezeralarmquery->fetch_assoc()))
 							{
 								$freezer_name = $alarmdata['freezer_name'];
