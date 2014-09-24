@@ -6,7 +6,8 @@ $probe_id = filter_input(INPUT_POST, 'probe_id');
 $probe_type = filter_input(INPUT_POST, 'probe_type');
 $probe_range = filter_input(INPUT_POST, 'probe_range');
 $freezer_id = filter_input(INPUT_POST, 'freezer_id');
-$probe_active = filter_input(INPUT_POST, 'probe_active');
+//$probe_active = filter_input(INPUT_POST, 'probe_active');
+$probe_active = (isset($_POST['probe_active'])) ? 1 : 0;
 $probe_hostport = filter_input(INPUT_POST, 'probe_hostport');
 $probe_ntms_port = filter_input(INPUT_POST, 'probe_ntms_port');
 
