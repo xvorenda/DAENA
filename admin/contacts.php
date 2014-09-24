@@ -196,7 +196,7 @@ if ($login->isUserLoggedIn() == true)
 								echo "
 								</table>
 								<input type='text' class='stealth' name='mysqlaction' value='add'/>
-								<input type='submit' name='add_contact' class='btn' value='add'/></td>
+								<input type='submit' name='add_contact' class='btn' value='Add Contact'/></td>
 							</form>
 						</div>
 					</div>

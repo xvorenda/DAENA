@@ -54,7 +54,7 @@ if ($mysqlaction == "add")
 		/* Mod a Contact */
 		$alarmcontactinsert = "INSERT INTO daena_db.freezer_alarm_contacts
 			SET freezer_id='".$current_freezer_id."',
-				contact_id='".$contact_id."'.
+				contact_id='".$contact_id."',
 				alarm0='".$alarm0."', 
 				alarm1='".$alarm1."', 
 				alarm2='".$alarm2."', 
