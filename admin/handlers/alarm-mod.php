@@ -63,7 +63,7 @@ if ($login->isUserLoggedIn() == true)
 		$alarm_level = filter_input(INPUT_POST, 'alarm_level');
 
 
-		$sendemail = $_SERVER['DOCUMENT_ROOT']."/py/silenceAlarm.py -f ".$freezer_id." -a ".$alarm_level;
+		$sendemail = "sudo ".$_SERVER['DOCUMENT_ROOT']."/py/silenceAlarm.py -f ".$freezer_id." -a ".$alarm_level;
 		//$output = shell_exec($command);
 		if (!shell_exec($sendemail)) 
 		{
