@@ -18,7 +18,7 @@ if ($login->isUserLoggedIn() == true)
 
 
 		/* Start talking to MySQL and kill yourself if it ignores you */
-		include('../config/db.php');
+		//include('../config/db.php');
 		$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 			// Check connection
 			if (mysqli_connect_errno())
@@ -136,5 +136,5 @@ else
 		. "</div>";
 }
 
-include '../assets/admin-footer.php';
+include $_SERVER['DOCUMENT_ROOT'].'/admin/assets/admin-footer.php';
 ?>
