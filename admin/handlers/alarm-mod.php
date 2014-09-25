@@ -73,39 +73,16 @@ if ($login->isUserLoggedIn() == true)
 
 		$alarm_time = time()*1000;
 
-		/* Start talking to MySQL and kill yourself if it ignores you */
-		//include('../config/db.php');
-		$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-			// Check connection
-			if (mysqli_connect_errno())
-			  {
-			  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-			  }
 
-		$newalarm = "INSERT INTO alarm 
-			SET freezer_id = '".$freezer_id."', 
-				alarm_level = '".$new_alarm_level."', 
-				alarm_time = '".$alarm_time."'";
 
-		if (!$daenaDB->query($newalarm)) 
+		$sendemail = escapeshellcmd("'".$_SERVER['DOCUMENT_ROOT']."/py/test.py -f ".$freezer_id." -a ".$alarm_level."'");
+		$output = shell_exec($command);
+		if ($output != "success") 
 		{
 			printf("Errormessage: %s\n", $daenaDB->error);
 			$error=1;
 		}
-		else
-		{
-			$new_alarm_ID = $daenaDB->insert_id;
 
-			$updatefreezeralarm = "UPDATE freezers 
-				SET freezer_alarm_id = '".$new_alarm_ID."' 
-				where freezer_id = '".$freezer_id."'";
-
-			if (!$daenaDB->query($updatefreezeralarm)) 
-			{
-				printf("Errormessage: %s\n", $daenaDB->error);
-				$error=1;
-			}
-		}
 		
 		if($error==0)
 		{

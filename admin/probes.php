@@ -75,7 +75,7 @@ if ($login->isUserLoggedIn() == true)
 
 	echo "<tr class='borderless'>
 			<form action='handlers/probe-mod.php' method='POST'>
-			<td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_id'/></td>
+			<td class='field-narrow'></td>
 			<td><input type='text' class='input-medium search-query' name='freezer_id'/></td>
 			<td><input type='text' class='input-medium search-query' name='probe_type'/></td>
 			<td><input type='text' class='input-medium search-query' name='probe_range'/></td>
