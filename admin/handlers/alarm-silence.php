@@ -31,7 +31,7 @@ if ($login->isUserLoggedIn() == true)
 			alarm_time = '".$alarm_time."'";
 
 	$error = 0;
-	if ($mysqlaction == "add") 
+	if ($mysqlaction == "silence") 
 	{
 		if (!$daenaDB->query($newalarm)) 
 		{

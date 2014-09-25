@@ -118,20 +118,20 @@ if ($login->isUserLoggedIn() == true)
 					<td class='".$row_color." field-narrow'>".$alarm_level."</td>
 					<td class='".$row_color." field-wide'>".$alarm_date_time."</td>
 					<td class='".$row_color."'>".$last_temp."</td>
-					<td class='".$row_color." round-last'>".$last_reading."</td>";
+					<td class='".$row_color." '>".$last_reading."</td>";
 					if ($alarm_level==3 || $alarm_level==6)
 					{
 						echo"
 					<form action='handlers/alarm-silence.php' method='POST'>
 						<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
 						<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-						<td><input type='submit' name='silence' class='btn-danger' value='silence'/></td>
+						<td class='".$row_color." round-last><input type='submit' name='silence' class='btn-danger' value='silence'/></td>
 					</form>";
 					}
 					else
 					{
 						echo"
-					<td class='".$row_color."></td>
+					<td class='".$row_color." round-last>Cannot Silence</td>
 					";
 					}
 					echo"
