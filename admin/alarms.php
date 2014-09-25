@@ -131,7 +131,7 @@ if ($login->isUserLoggedIn() == true)
 					else
 					{
 						echo"
-					<td></td>
+					<td class='".$row_color."></td>
 					";
 					}
 					echo"
