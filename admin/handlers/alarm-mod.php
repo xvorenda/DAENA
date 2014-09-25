@@ -59,7 +59,7 @@ if ($login->isUserLoggedIn() == true)
 	}
 
 
-	elseif(isset($_POST['silence'])  
+	elseif(isset($_POST['silence']))
 	{
 		$freezer_id = filter_input(INPUT_POST, 'freezer_id');
 		$alarm_level = filter_input(INPUT_POST, 'alarm_level');
