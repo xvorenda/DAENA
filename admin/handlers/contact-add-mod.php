@@ -37,39 +37,42 @@ if ($mysqlaction == "add")
 		printf("Errormessage: %s\n", $daenaDB->error);
 		$error=1;
 	}
-	$contact_id = $daenaDB->insert_id;
-	echo $contact_id."
-	
-	";
-	foreach( $_POST['freezer_id'] as $current_freezer_id) 
+	else
 	{
-		$alarm0 = (isset($_POST[$current_freezer_id.'alarm0'])) ? 1 : 0;
-		$alarm1 = (isset($_POST[$current_freezer_id.'alarm1'])) ? 1 : 0;
-		$alarm2 = (isset($_POST[$current_freezer_id.'alarm2'])) ? 1 : 0;
-		$alarm3 = (isset($_POST[$current_freezer_id.'alarm3'])) ? 1 : 0;
-		$alarm4 = (isset($_POST[$current_freezer_id.'alarm4'])) ? 1 : 0;
-		$alarm5 = (isset($_POST[$current_freezer_id.'alarm5'])) ? 1 : 0;
-		$alarm6 = (isset($_POST[$current_freezer_id.'alarm6'])) ? 1 : 0;
-		$alarm7 = (isset($_POST[$current_freezer_id.'alarm7'])) ? 1 : 0;
+		$contact_id = $daenaDB->insert_id;
+		echo $contact_id."
+	
+		";
+		foreach( $_POST['freezer_id'] as $current_freezer_id) 
+		{
+			$alarm0 = (isset($_POST[$current_freezer_id.'alarm0'])) ? 1 : 0;
+			$alarm1 = (isset($_POST[$current_freezer_id.'alarm1'])) ? 1 : 0;
+			$alarm2 = (isset($_POST[$current_freezer_id.'alarm2'])) ? 1 : 0;
+			$alarm3 = (isset($_POST[$current_freezer_id.'alarm3'])) ? 1 : 0;
+			$alarm4 = (isset($_POST[$current_freezer_id.'alarm4'])) ? 1 : 0;
+			$alarm5 = (isset($_POST[$current_freezer_id.'alarm5'])) ? 1 : 0;
+			$alarm6 = (isset($_POST[$current_freezer_id.'alarm6'])) ? 1 : 0;
+			$alarm7 = (isset($_POST[$current_freezer_id.'alarm7'])) ? 1 : 0;
 	
 
-		/* Mod a Contact */
-		$alarmcontactinsert = "INSERT INTO daena_db.freezer_alarm_contacts
-			SET freezer_id='".$current_freezer_id."',
-				contact_id='".$contact_id."',
-				alarm0='".$alarm0."', 
-				alarm1='".$alarm1."', 
-				alarm2='".$alarm2."', 
-				alarm3='".$alarm3."', 
-				alarm4='".$alarm4."', 
-				alarm5='".$alarm5."', 
-				alarm6='".$alarm6."', 
-				alarm7='".$alarm7."'";
+			/* Mod a Contact */
+			$alarmcontactinsert = "INSERT INTO daena_db.freezer_alarm_contacts
+				SET freezer_id='".$current_freezer_id."',
+					contact_id='".$contact_id."',
+					alarm0='".$alarm0."', 
+					alarm1='".$alarm1."', 
+					alarm2='".$alarm2."', 
+					alarm3='".$alarm3."', 
+					alarm4='".$alarm4."', 
+					alarm5='".$alarm5."', 
+					alarm6='".$alarm6."', 
+					alarm7='".$alarm7."'";
 	
-		if (!$daenaDB->query($alarmcontactinsert)) 
-		{
-			printf("Errormessage: %s\n", $daenaDB->error);
-			$error = 1;
+			if (!$daenaDB->query($alarmcontactinsert)) 
+			{
+				printf("Errormessage: %s\n", $daenaDB->error);
+				$error = 1;
+			}
 		}
 	}
 	if($error==0)

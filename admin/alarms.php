@@ -33,8 +33,8 @@ if ($login->isUserLoggedIn() == true)
 		<td>Alarm Time</td>
 		<td>Last Temp</td>
 		<td>Last Reading</td>
-		<td>Setpoint 1</td>
-		<td>Setpoint 2</td>
+		<td>Setpoint High Temp</td>
+		<td>Setpoint Critical Temp</td>
 		<td>Send Alarm</td>
 		<td>&nbsp;</td>
 	</tr>
@@ -117,7 +117,23 @@ if ($login->isUserLoggedIn() == true)
 					<td class='".$row_color." field-narrow'>".$alarm_level."</td>
 					<td class='".$row_color." field-wide'>".$alarm_date_time."</td>
 					<td class='".$row_color."'>".$last_temp."</td>
-					<td class='".$row_color." round-last'>".$last_reading."</td>
+					<td class='".$row_color." round-last'>".$last_reading."</td>";
+					if ($alarm_level==3 || $alarm_level==6)
+					{
+						echo"
+					<form action='handlers/alarm-silence.php' method='POST'>
+						<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
+						<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
+						<td><input type='submit' name='silence' class='btn-danger' value='silence'/></td>
+					</form>";
+					}
+					else
+					{
+						echo"
+					<td></td>
+					";
+					}
+					echo"
 					<td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
 					<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
 					<td class='field-narrow'><input type='checkbox' class='input-medium' name='freezer_send_alarm' ".$freezer_send_alarm_checkbox." value='1'/></td>
