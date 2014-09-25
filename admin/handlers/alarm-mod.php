@@ -62,22 +62,10 @@ if ($login->isUserLoggedIn() == true)
 		$freezer_id = filter_input(INPUT_POST, 'freezer_id');
 		$alarm_level = filter_input(INPUT_POST, 'alarm_level');
 
-		if($alarm_level == 3)
-		{
-			$new_alarm_level = 4;
-		}
-		elseif($alarm_level==6)
-		{
-			$new_alarm_level = 7;
-		}
-
-		$alarm_time = time()*1000;
-
-
 
 		$sendemail = escapeshellcmd("'".$_SERVER['DOCUMENT_ROOT']."/py/test.py -f ".$freezer_id." -a ".$alarm_level."'");
 		//$output = shell_exec($command);
-		if (!shell_exec($command)) 
+		if (!shell_exec($sendmail)) 
 		{
 			printf("Error in Python Execution");
 			$error=1;
