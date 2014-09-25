@@ -1,7 +1,7 @@
 <?php
 /* Get things started */
-include "../assets/admin-header.php";
-include '../assets/admin-nav.php';
+include $_SERVER['DOCUMENT_ROOT']."/admin/assets/admin-header.php";
+include $_SERVER['DOCUMENT_ROOT'].'/admin/assets/admin-nav.php';
 if ($login->isUserLoggedIn() == true)
 {
 	$mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
