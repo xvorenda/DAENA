@@ -131,7 +131,7 @@ if ($login->isUserLoggedIn() == true)
 					else
 					{
 						echo"
-					<td class='".$row_color." round-last'></td>";
+					<td class='".$row_color." round-last'>No Hourly Alarms</td>";
 					}
 					echo"
 					<td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
