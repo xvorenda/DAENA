@@ -125,7 +125,7 @@ if ($login->isUserLoggedIn() == true)
 					<form action='handlers/alarm-silence.php' method='POST'>
 						<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
 						<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-						<td class='".$row_color." round-last'><input type='submit' name='silence' class='btn-danger' value='silence'/></td>
+						<td class='".$row_color." round-last'><input type='submit' name='silence' class='btn btn-danger' value='silence'/></td>
 					</form>";
 					}
 					else
