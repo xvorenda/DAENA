@@ -76,10 +76,10 @@ if ($login->isUserLoggedIn() == true)
 
 
 		$sendemail = escapeshellcmd("'".$_SERVER['DOCUMENT_ROOT']."/py/test.py -f ".$freezer_id." -a ".$alarm_level."'");
-		$output = shell_exec($command);
-		if ($output != "success") 
+		//$output = shell_exec($command);
+		if (!shell_exec($command)) 
 		{
-			printf("Errormessage: %s\n", $daenaDB->error);
+			printf("Error in Python Execution");
 			$error=1;
 		}
 
