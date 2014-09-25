@@ -1,5 +1,7 @@
 <?php
 /* Get things started */
+include "assets/admin-header.php";
+include 'assets/admin-nav.php';
 if ($login->isUserLoggedIn() == true)
 {
 	$mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
@@ -127,8 +129,7 @@ if ($login->isUserLoggedIn() == true)
 }
 else
 {
-	include "assets/admin-header.php";
-	include 'assets/admin-nav.php';
+
 	echo "<div id='content'>"
 		. "<h1>Unauthorized Access</h1>"
 		. "<h3>Please <a href='index.php'>log in</a> to access this page.</h3>"
