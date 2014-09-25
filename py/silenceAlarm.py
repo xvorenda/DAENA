@@ -1,8 +1,12 @@
 #!/usr/bin/python
 
-import sys
+from __future__ import division
 from alarm import alarm
 import argparse
+import time
+import sys
+import MySQLdb as mdb
+import smtplib
 import re
 
 parser = argparse.ArgumentParser(description=""""Send an email indicating the 
