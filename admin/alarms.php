@@ -66,9 +66,10 @@ if ($login->isUserLoggedIn() == true)
 			$alarm_level = $alarmrow['alarm_level'];
 			$ms_epoch_time = $alarmrow['alarm_time'];
 		};
-
+		
+		date_default_timezone_set('UTC');
 		$epoch_time = round($ms_epoch_time/1000);
-		$dt = new DateTime("@$epoch_time");
+		$dt = new DateTime("@$epoch_time", (new DateTimeZone('America/New_York')));
 		$alarm_date_time = $dt->format('Y-m-d H:i:s');
 
 		if ($alarm_level == 0)
