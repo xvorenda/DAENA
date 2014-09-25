@@ -3,6 +3,7 @@
 import sys
 from alarm import alarm
 import argparse
+import re
 
 parser = argparse.ArgumentParser(description=""""Send an email indicating the 
     alarm will be silenced given freezer id and alarm level""")
