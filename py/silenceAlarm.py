@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser(description=""""Send an email indicating the
 parser.add_argument("-f", "--freezerid", type=int)
 parser.add_argument("-a", "--alarmlevel", type=int)
 args = parser.parse_args()
-freezer = args.freezer
+freezer = args.freezerid
 alarmLevel = args.alarmlevel
 
 changeAlarm = alarm.alarm()
