@@ -33,7 +33,7 @@ if ($login->isUserLoggedIn() == true)
 		<td>Alarm Time</td>
 		<td>Last Temp</td>
 		<td>Last Reading</td>
-		<td>Silence Alarm</td>
+		<td>Silence Hourly Alarm</td>
 		<td>Setpoint High Temp</td>
 		<td>Setpoint Critical Temp</td>
 		<td>Send Alarm</td>
