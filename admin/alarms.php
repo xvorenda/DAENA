@@ -122,11 +122,9 @@ if ($login->isUserLoggedIn() == true)
 					if ($alarm_level==3 || $alarm_level==6)
 					{
 						echo"
-					<form action='handlers/alarm-silence.php' method='POST'>
-						<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
-						<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-						<td class='".$row_color." '><input type='submit' name='silence' class='btn btn-danger' value='silence'/></td>
-					</form>";
+					<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
+					<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
+					<td class='".$row_color." '><input type='submit' name='silence' class='btn btn-danger' value='silence'/></td>";
 					}
 					else
 					{
