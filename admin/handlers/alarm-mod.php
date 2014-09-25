@@ -8,7 +8,7 @@ if ($login->isUserLoggedIn() == true)
 {
 	$mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
 	$error = 0;
-
+	echo $mysqlaction;
 	if ($mysqlaction == "modify") 
 	{
 
@@ -20,7 +20,7 @@ if ($login->isUserLoggedIn() == true)
 
 
 		/* Start talking to MySQL and kill yourself if it ignores you */
-		include('../config/db.php');
+		//include('../config/db.php');
 		$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 			// Check connection
 			if (mysqli_connect_errno())
@@ -43,6 +43,7 @@ if ($login->isUserLoggedIn() == true)
 		else
 		{
 			echo "Modification Success!";
+			/*
 			echo '<script>window.location.replace("';
 			$pageURL = 'http://';
 			if ($_SERVER["SERVER_PORT"] != "80") 
@@ -55,6 +56,7 @@ if ($login->isUserLoggedIn() == true)
 			}
 			 echo $pageURL;
 			 echo '/admin/alarms.php");</script>';
+			 */
 		}
 	}
 
@@ -76,7 +78,7 @@ if ($login->isUserLoggedIn() == true)
 		$alarm_time = time()*1000;
 
 		/* Start talking to MySQL and kill yourself if it ignores you */
-		include('../config/db.php');
+		//include('../config/db.php');
 		$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 			// Check connection
 			if (mysqli_connect_errno())
@@ -111,7 +113,7 @@ if ($login->isUserLoggedIn() == true)
 		
 		if($error==0)
 		{
-			echo "Modification Success!";
+			echo "Silence Success!";
 			/*
 			echo '<script>window.location.replace("';
 			$pageURL = 'http://';
@@ -131,8 +133,7 @@ if ($login->isUserLoggedIn() == true)
 }
 else
 {
-	include "assets/admin-header.php";
-	include 'assets/admin-nav.php';
+
 	echo "<div id='content'>"
 		. "<h1>Unauthorized Access</h1>"
 		. "<h3>Please <a href='index.php'>log in</a> to access this page.</h3>"
