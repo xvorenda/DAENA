@@ -6,10 +6,8 @@ require_once($_SERVER['DOCUMENT_ROOT']."/admin/classes/Login.php");
 $login = new Login();
 if ($login->isUserLoggedIn() == true)
 {
-	$mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
 	$error = 0;
-	echo $mysqlaction;
-	if ($mysqlaction == "modify") 
+	if(isset($_POST['modify'])) 
 	{
 
 		$freezer_id = filter_input(INPUT_POST, 'freezer_id');
@@ -61,7 +59,7 @@ if ($login->isUserLoggedIn() == true)
 	}
 
 
-	if ($mysqlaction == "silence") 
+	elseif(isset($_POST['silence'])  
 	{
 		$freezer_id = filter_input(INPUT_POST, 'freezer_id');
 		$alarm_level = filter_input(INPUT_POST, 'alarm_level');

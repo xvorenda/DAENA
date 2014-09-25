@@ -125,8 +125,7 @@ if ($login->isUserLoggedIn() == true)
 					<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
 					<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
 					<td class='".$row_color." '>
-						<input type='text' class='stealth' name='mysqlaction' value='silence'/>
-						<input type='submit' name='silence' class='btn btn-danger' value='Silence'/>
+						<button type='submit' name='silence' class='btn btn-danger'/>Silence</button>
 					</td>";
 					}
 					else
@@ -139,8 +138,7 @@ if ($login->isUserLoggedIn() == true)
 					<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
 					<td class='field-narrow'><input type='checkbox' class='input-medium' name='freezer_send_alarm' ".$freezer_send_alarm_checkbox." value='1'/></td>
 					<td>
-						<input type='text' class='stealth' name='mysqlaction' value='modify'/>
-						<input type='submit' name='submit' class='btn' value='Modify'/>
+						<button type='submit' name='modify' class='btn'/>Modify</button>
 					</td>
 				</form>
 			</tr>";
