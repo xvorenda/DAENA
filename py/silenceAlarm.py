@@ -13,7 +13,7 @@ args = parser.parse_args()
 freezer = args.freezerid
 alarmLevel = args.alarmlevel
 
-changeAlarm = alarm.alarm()
+changeAlarm = alarm()
 
 # Get necessary information from database 
 readQuery = ("select freezer_alarm_ID, freezer_setpoint1, freezer_setpoint2, freezer_location, freezer_name, freezer_description, freezer_send_alarm from freezers where freezer_id = %s")
