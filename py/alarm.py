@@ -41,33 +41,33 @@ class alarm(object):
     
         # Open the configuration file which has the Alarm Email and database
         # information
-        conf = open("/etc/daena.conf", "r")
+        conf = open("/www/admin/config/db.php", "r")
         
         # Loop through the file
         for line in conf:
             # Remove the trailing white space (including return character)
             line = line.rstrip()
             # Dont waste the effort if the line is commented out
-            if re.match('^#', line):
+            if re.search('^//', line):
                 pass
-            elif re.match('^email_address\s*=\s*', line):
+            elif re.search('EMAIL_ADDRESS', line):
                 #pulls out the email address from the line
-                self.email = line[re.match('^email_address\s*=\s*', line).span()[1]:len(line)]
-            elif re.match('^email_password\s*=\s*', line):
+                self.email = re.sub('[\ \";\)]','', (line.split(',')[1]))
+            elif re.search('EMAIL_PASSWORD', line):
                 #pulls out the email password from the line
-                self.emailPass = line[re.match('^email_password\s*=\s*', line).span()[1]:len(line)]
-            elif re.match('^host\s*=\s*', line):
+                self.emailPass = (re.sub('[\ \";\)]','', (line.split(',')[1])))
+            elif re.search('DB_HOST', line):
                 #pulls out the db host from the line
-                host = line[re.match('^host\s*=\s*', line).span()[1]:len(line)]
-            elif re.match('^database\s*=\s*', line):
+                host =(re.sub('[\ \";\)]','', (line.split(',')[1])))
+            elif re.search('DB_NAME', line):
                 #pulls out the database from the line
-                database = line[re.match('^database\s*=\s*', line).span()[1]:len(line)]
-            elif re.match('^db_user\s*=\s*', line):
+                database =(re.sub('[\ \";\)]','', (line.split(',')[1])))
+            elif re.search('DB_USER', line):
                 #pulls out the database user name from the line
-                dbUser = line[re.match('^db_user\s*=\s*', line).span()[1]:len(line)]
-            elif re.match('^db_password\s*=\s*', line):
+                dbUser = (re.sub('[\ \";\)]','', (line.split(',')[1])))
+            elif re.search('DB_PASS', line):
                 #pulls out the database password from the line
-                dbPass = line[re.match('^db_password\s*=\s*', line).span()[1]:len(line)]
+                dbPass = (re.sub('[\ \";\)]','', (line.split(',')[1])))
         
         # Debug to make sure the passwords and such are correct
         #print "email, emailPass, host, database, dbUser, dbPass", self.email, self.emailPass, host, database, dbUser, dbPass
