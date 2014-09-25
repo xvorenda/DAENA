@@ -1,5 +1,9 @@
 <?php
 /* Get things started */
+require_once($_SERVER['DOCUMENT_ROOT']"/libraries/password_compatibility_library.php");
+require_once($_SERVER['DOCUMENT_ROOT']"/config/db.php");
+require_once($_SERVER['DOCUMENT_ROOT']"/classes/Login.php");
+$login = new Login();
 if ($login->isUserLoggedIn() == true)
 {
 	$mysqlaction = filter_input(INPUT_POST, 'mysqlaction');
