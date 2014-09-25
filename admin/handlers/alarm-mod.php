@@ -65,7 +65,7 @@ if ($login->isUserLoggedIn() == true)
 
 		$sendemail = escapeshellcmd("'".$_SERVER['DOCUMENT_ROOT']."/py/test.py -f ".$freezer_id." -a ".$alarm_level."'");
 		//$output = shell_exec($command);
-		if (!shell_exec($sendmail)) 
+		if (!shell_exec($sendemail)) 
 		{
 			printf("Error in Python Execution");
 			$error=1;
