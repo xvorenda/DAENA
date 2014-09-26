@@ -49,7 +49,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezercolors,$freezerrow["freezer_color"];);
 }
 $columnheader = implode ("\", \"",$columnnames);
-$colorlist = implode ("', '",$freezercolors);
+$colorlist = implode ("\', \'",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
 
