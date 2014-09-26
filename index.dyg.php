@@ -51,13 +51,13 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezercolors,$colorname);
 }
 $columnheader = implode ("\", \"",$columnnames);
-$colorlist = implode ("', '",$freezercolors);
+$colorlist = implode ("', '#",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
 
 echo "<div id='container'></div>
 <script type='text/javascript'>
-var colorSets = ['".$colorlist."']
+var colorSets = ['#".$colorlist."']
   g = new Dygraph(
 
     // containing div
