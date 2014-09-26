@@ -8,6 +8,8 @@ import sys
 import MySQLdb as mdb
 import smtplib
 import re
+import getpass
+print getpass.getuser()
 
 parser = argparse.ArgumentParser(description=""""Send an email indicating the 
     alarm will be silenced given freezer id and alarm level""")
