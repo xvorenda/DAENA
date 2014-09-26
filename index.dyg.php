@@ -104,7 +104,7 @@ echo "        ],
               {
                 labels: [\"".$columnheader."\"],
                 xValueFormatter: Dygraph.dateString_,
-                xValueParser: function(x) { return 1000*parseInt(x); },
+                xValueParser: function(x) { return 1*parseInt(x); },
                 xTicker: Dygraph.dateTicker
               });
 </script>
