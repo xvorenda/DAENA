@@ -87,7 +87,7 @@ while ($pingrow = $pings->fetch_assoc()) {
       $datacount = $data->num_rows;
 
       if ($datacount == $freezercount){
-        echo "            [ new Date(\"".$pingtime."\")";
+        echo "            [ new Date(\"".$pingdate."\")";
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
