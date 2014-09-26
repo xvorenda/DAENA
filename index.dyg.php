@@ -45,8 +45,10 @@ $freezercolors = array();
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
-    array_push($columnnames,$freezerrow["freezer_id"];);
-    array_push($freezercolors,$freezerrow["freezer_color"];);
+    $freezername = $freezerrow["freezer_id"];
+    $colorname = $freezerrow["freezer_color"];
+    array_push($columnnames,$freezername);
+    array_push($freezercolors,$colorname);
 }
 $columnheader = implode ("\", \"",$columnnames);
 $colorlist = implode ("\', \'",$freezercolors);
