@@ -41,18 +41,21 @@ WHERE freezer_active='1'
 ORDER BY ABS(freezer_id)";
 
 $columnnames = array();
+$freezercolors = array();
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
-    $freezername = $freezerrow["freezer_id"];
-    array_push($columnnames,$freezername);
+    array_push($columnnames,$freezerrow["freezer_id"];);
+    array_push($freezercolors,$freezerrow["freezer_color"];);
 }
 $columnheader = implode ("\", \"",$columnnames);
+$colorlist = implode ("', '",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
 
 echo "<div id='container'></div>
 <script type='text/javascript'>
+var colorSets = [".$colorlist."]
   g = new Dygraph(
 
     // containing div
