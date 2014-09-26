@@ -64,7 +64,7 @@ if ($login->isUserLoggedIn() == true)
 
 
 		$sendemail = "sudo ".$_SERVER['DOCUMENT_ROOT']."/py/silenceAlarm.py -f ".$freezer_id." -a ".$alarm_level;
-		$output = exec($sendemail);
+		$output = shell_exec($sendemail);
 		if ($output) 
 		{
 			printf("Error in Python Execution");
