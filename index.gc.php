@@ -96,7 +96,7 @@ echo "]);
           chartArea:{left:40,top:100,width:'100%'}
             };
 
-        var chart = new google.visualization.LineChart(document.getElementById('container'));
+        var chart = new google.visualization.LineChart(document.getElementById('graph'));
 
         chart.draw(data, options);
       }
@@ -113,7 +113,7 @@ include 'assets/navigation.php';
 
 /* Actually draw the graph */
 echo "<script type='text/javascript' src='https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}'></script>
-       <div id='container'></div>";
+       <div id='graph'></div>";
 
 /* Wrap things up */
 include "assets/footer.php";
