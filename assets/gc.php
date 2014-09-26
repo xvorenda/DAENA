@@ -27,7 +27,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($columnnames,$freezername);
 }
 $columnheader = implode ("', '",$columnnames);
-$freezercount = count($colunmheader);
+$freezercount = count($columnnames);
 
 echo "
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
@@ -65,9 +65,10 @@ while ($pingrow = $pings->fetch_assoc()) {
       $data = $daenaDB->query($dataquery);
 
 
-      if ($datacount == $freezercount){
+
       while ($datarow = $data->fetch_assoc()) {
           $datacount = $datarow->num_rows;
+          if ($datacount != $freezercount){die};
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
           $datatemp = str_replace($badneg_b, $re_neg, $datatemp);
