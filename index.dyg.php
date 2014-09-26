@@ -53,7 +53,7 @@ $freezercount = count($columnnames) - 1;
 
 echo "<div id='container'></div>
 <script type='text/javascript'>
-  g = new Dygraph(el,
+  g = new Dygraph(
 
     // containing div
     document.getElementById(\"container\"),
