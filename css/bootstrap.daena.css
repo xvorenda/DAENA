@@ -67,6 +67,7 @@ h3 {margin:12px auto 0;}
 .btn {
     min-width: 108px;
     min-height: 32px;
+    border-radius: 20px;
 }
 .freezerinfo {
     margin:12px auto;
