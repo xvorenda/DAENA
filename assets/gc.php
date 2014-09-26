@@ -27,7 +27,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($columnnames,$freezername);
 }
 $columnheader = implode ("', '",$columnnames);
-$freezercount = count($columnnames);
+$freezercount = count($columnnames) - 1;
 
 echo "
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
@@ -51,8 +51,6 @@ $badneg_a = "-00";
 $badneg_b = "-0";
 $re_neg = "-";
 
-echo "\n".$freezercount."\n";
-
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
       $dataquery = "
@@ -61,6 +59,7 @@ while ($pingrow = $pings->fetch_assoc()) {
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
 
+      $datacount = $datarow->num_rows;
 
 
       echo "['".$pingtime."'";
@@ -69,7 +68,6 @@ while ($pingrow = $pings->fetch_assoc()) {
 
       if ($datacount == $freezercount){
       while ($datarow = $data->fetch_assoc()) {
-          $datacount = $datarow->num_rows;
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
           $datatemp = str_replace($badneg_b, $re_neg, $datatemp);
