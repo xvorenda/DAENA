@@ -96,7 +96,7 @@ echo "]);
             };
 
         var chart = new google.visualization.LineChart(document.getElementById('container'));
-        chartArea:{left:20,top:0,width:'50%',height:'75%'}
+        chartArea:{width:'50%',height:'75%'};
         chart.draw(data, options);
       }
     </script>
