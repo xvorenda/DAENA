@@ -48,7 +48,7 @@ if ($login->isUserLoggedIn() == true)
 		$freezer_setpoint2 = $freezerdata['freezer_setpoint2'];
 		$freezer_alarm_id = $freezerdata['freezer_alarm_id'];
 		$freezer_send_alarm = $freezerdata['freezer_send_alarm'];
-		
+
 		if ($freezer_send_alarm == 0)
 		{
 			$freezer_send_alarm_checkbox = "unchecked";
@@ -57,7 +57,7 @@ if ($login->isUserLoggedIn() == true)
 		{
 			$freezer_send_alarm_checkbox = "checked";
 		}
-		
+
 		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarm
 			WHERE alarm_id='".$freezer_alarm_id."'";
 		$alarmdata = $daenaDB->query($alarm_query);
@@ -66,10 +66,10 @@ if ($login->isUserLoggedIn() == true)
 			$alarm_level = $alarmrow['alarm_level'];
 			$ms_epoch_time = $alarmrow['alarm_time'];
 		};
-		
+
 		$epoch_time = round($ms_epoch_time/1000);
 		$dt = new DateTime("@$epoch_time", (new DateTimeZone('UTC')));
-		
+
 		date_timezone_set($dt, timezone_open('America/New_York'));
 		$alarm_date_time = $dt->format('Y-m-d H:i:s');
 
@@ -126,7 +126,7 @@ if ($login->isUserLoggedIn() == true)
 						echo"
 					<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
 					<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-					<td class='".$row_color." '>
+					<td class='".$row_color." round-last'>
 						<button type='submit' name='silence' class='btn btn-danger'/>Silence</button>
 					</td>";
 					}
