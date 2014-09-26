@@ -236,7 +236,7 @@ while(($freezerdata = $allfreezers->fetch_assoc()))
 					echo"
 				<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
 				<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-				<td class='".$row_color." '>
+				<td class='".$row_color." round-last'>
 					<button type='submit' name='silence' class='btn btn-danger'/>Silence</button>
 				</td>";
 				}
