@@ -64,19 +64,18 @@ if ($login->isUserLoggedIn() == true)
 
 
 		$sendemail = "".$_SERVER['DOCUMENT_ROOT']."/py/silenceAlarm.py -f ".$freezer_id." -a ".$alarm_level;
-		$output = exec($sendemail);
-		if ($output) 
+		//$output = shell_exec($command);
+		if (!shell_exec($sendemail)) 
 		{
 			printf("Error in Python Execution");
-			echo exec('whoami'); 
-			echo $output;
 			$error=1;
 		}
-		exit();
+
 		
 		if($error==0)
 		{
 			echo "Silence Success!";
+			/*
 			echo '<script>window.location.replace("';
 			$pageURL = 'http://';
 			if ($_SERVER["SERVER_PORT"] != "80") 
@@ -89,6 +88,7 @@ if ($login->isUserLoggedIn() == true)
 			}
 			 echo $pageURL;
 			 echo '/admin/alarms.php");</script>';
+			 */
 		}
 	}
 }
