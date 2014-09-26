@@ -61,6 +61,7 @@ $re_neg = "-";
 
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
+      $pingetime = $pingtime/1000;
       $dataquery = "
           SELECT temp
           FROM daena_db.data
@@ -72,7 +73,9 @@ while ($pingrow = $pings->fetch_assoc()) {
       $datacount = $data->num_rows;
 
       if ($datacount == $freezercount){
-        echo "['".$pingtime."'";
+        echo "['";
+        echo date('Y/m/d H:i:s', $pingetime);
+        echo "'";
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
