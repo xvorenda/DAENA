@@ -89,7 +89,7 @@ if ($login->isUserLoggedIn() == true)
 			 //echo $pageURL;
 			 //echo '/admin/alarms.php");</script>';
 			 echo $pageURL;
-			 //header("Location: ".$pageURL);
+			 header("Location: ".$pageURL);
 		}
 	}
 }
