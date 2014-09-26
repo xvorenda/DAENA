@@ -110,7 +110,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 echo "        ],
               {
                 labels: [\"".$columnheader."\"],
-                colors = ['#".$colorlist."'],
+                colors: ['#".$colorlist."'],
                 strokeWidth: 4
               });
 </script>
