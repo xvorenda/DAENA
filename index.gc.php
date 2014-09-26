@@ -93,7 +93,7 @@ echo "]);
 
         var options = {
           title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View | 1/".$skip." Density',
-          chartArea: {left:100, bottom: 100, width: 90%, height: 90%}
+          chartArea: {width: 90%, height: 90%}
             };
 
         var chart = new google.visualization.LineChart(document.getElementById('container'));
