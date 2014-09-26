@@ -102,7 +102,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 }}
 echo "        ],
               {
-                labels: [\"".$columnheader."\"]
+                labels: [\"".$columnheader."\"],
                 xValueFormatter: Dygraph.dateString_,
                 xValueParser: function(x) { return 1000*parseInt(x); },
                 xTicker: Dygraph.dateTicker
