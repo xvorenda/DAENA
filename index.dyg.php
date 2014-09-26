@@ -74,7 +74,6 @@ $re_neg = "-";
 
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
-      $pingtime = date('Y/m/d,H,i,s', $pingtime/1000);
       $dataquery = "
           SELECT temp
           FROM daena_db.data
