@@ -98,7 +98,7 @@ else
 
 	echo "<div id='content'>"
 		. "<h1>Unauthorized Access</h1>"
-		. "<h3>Please <a href='http://".$_SERVER["SERVER_NAME"]."/admin/index.php'>log in</a> to access this page.</h3>"'
+		. "<h3>Please <a href='http://".$_SERVER["SERVER_NAME"]."/admin/index.php'>log in</a> to access this page.</h3>'"
 		. "</div>";
 	include 'assets/admin-footer.php';
 }
