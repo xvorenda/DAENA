@@ -57,7 +57,6 @@ $freezercount = count($columnnames) - 1;
 
 echo "<div id='container'></div>
 <script type='text/javascript'>
-var colorSets = ['#".$colorlist."']
   g = new Dygraph(
 
     // containing div
@@ -111,7 +110,8 @@ while ($pingrow = $pings->fetch_assoc()) {
 echo "        ],
               {
                 labels: [\"".$columnheader."\"],
-                strokeWidth: 4
+                strokeWidth: 4,
+                colors = ['#".$colorlist."']
               });
 </script>
 ";
