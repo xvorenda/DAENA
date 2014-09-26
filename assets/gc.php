@@ -59,15 +59,12 @@ while ($pingrow = $pings->fetch_assoc()) {
           WHERE int_time = ".$pingtime."
           ORDER BY freezer_id";
 
-
-
-
       $data = $daenaDB->query($dataquery);
 
       $datacount = $data->num_rows;
 
       if ($datacount == $freezercount){
-        echo "['".$pingtime."'";  
+        echo "['".$pingtime."'";
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
           $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
