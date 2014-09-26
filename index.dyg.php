@@ -87,7 +87,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 
       if ($datacount == $freezercount){
         echo "            [ new Date(\"";
-        echo date('Y-m-d,H,i,s', $pingetime);
+        echo date('Y/m/d H:i:s', $pingetime);
         echo "\")";
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
