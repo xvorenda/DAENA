@@ -9,7 +9,7 @@ if ($login->isUserLoggedIn() == true)
 	$error = 0;
 	if(isset($_POST['modify'])) 
 	{
-
+		$searchUrl = filter_input(INPUT_POST, 'searchUrl');
 		$freezer_id = filter_input(INPUT_POST, 'freezer_id');
 		$freezer_setpoint1 = filter_input(INPUT_POST, 'freezer_setpoint1');
 		$freezer_setpoint2 = filter_input(INPUT_POST, 'freezer_setpoint2');
@@ -75,18 +75,20 @@ if ($login->isUserLoggedIn() == true)
 		if($error==0)
 		{
 			echo "Silence Success!";
-			echo '<script>window.location.replace("';
+			//echo '<script>window.location.replace("';
 			$pageURL = 'http://';
 			if ($_SERVER["SERVER_PORT"] != "80") 
 			{
-			  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+			  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$searchUrl;
+			  
 			} 
 			else 
 			{
-			  $pageURL .= $_SERVER["SERVER_NAME"];
+			  $pageURL .= $_SERVER["SERVER_NAME"].":"$searchUrl;
 			}
-			 echo $pageURL;
-			 echo '/admin/alarms.php");</script>';
+			 //echo $pageURL;
+			 //echo '/admin/alarms.php");</script>';
+			 header("Location: ".$pageURL);
 		}
 	}
 }
@@ -95,7 +97,7 @@ else
 
 	echo "<div id='content'>"
 		. "<h1>Unauthorized Access</h1>"
-		. "<h3>Please <a href='http://".$_SERVER["SERVER_NAME"]."/admin/index.php'>log in</a> to access this page.</h3>"
+		. "<h3>Please <a href='"http://".$_SERVER["SERVER_NAME"]."/admin/index.php'>log in</a> to access this page.</h3>"
 		. "</div>";
 	include 'assets/admin-footer.php';
 }
