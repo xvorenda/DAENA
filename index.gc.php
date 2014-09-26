@@ -31,7 +31,7 @@ $columnnames = array();
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
-    $freezername = $freezerrow["freezer_id"];
+    $freezername = $freezerrow["freezer_name"];
     array_push($columnnames,$freezername);
 }
 $columnheader = implode ("', '",$columnnames);
