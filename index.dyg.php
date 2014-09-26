@@ -113,7 +113,7 @@ echo "        ],
                 colors: ['#".$colorlist."'],
                 strokeWidth: 4,
                 drawXGrid: false,
-                drawYAxis: false
+                axisLineColor: white
               });
 </script>
 ";
