@@ -40,19 +40,25 @@ if ($login->isUserLoggedIn() == true)
 		}
 		else
 		{
-			echo "Modification Success!";
-			echo '<script>window.location.replace("';
-			$pageURL = 'http://';
-			if ($_SERVER["SERVER_PORT"] != "80") 
+			if($error==0)
 			{
-			  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-			} 
-			else 
-			{
-			  $pageURL .= $_SERVER["SERVER_NAME"];
+				echo "Silence Success!";
+				//echo '<script>window.location.replace("';
+				$pageURL = 'http://';
+				if ($_SERVER["SERVER_PORT"] != "80") 
+				{
+				  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$searchUrl;
+			  
+				} 
+				else 
+				{
+				  $pageURL .= $_SERVER["SERVER_NAME"].":".$searchUrl;
+				}
+				 //echo $pageURL;
+				 //echo '/admin/alarms.php");</script>';
+				 echo $pageURL;
+				 //header("Location: ".$pageURL);
 			}
-			 echo $pageURL;
-			 echo '/admin/alarms.php");</script>';
 		}
 	}
 
@@ -89,7 +95,7 @@ if ($login->isUserLoggedIn() == true)
 			 //echo $pageURL;
 			 //echo '/admin/alarms.php");</script>';
 			 echo $pageURL;
-			 header("Location: ".$pageURL);
+			 //header("Location: ".$pageURL);
 		}
 	}
 }
