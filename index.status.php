@@ -133,21 +133,22 @@ $allfreezers = $daenaDB->query($allfreezersquery);
 
 /* Draw Alarm Mod Area */
 echo "
-<div class='alarmbox table-responsive'>
-<table class='table'>
-<tr>
-	<td>Freezer ID</td>
-	<td>Freezer Name</td>
-	<td>Alarm Level</td>
-	<td>Alarm Time</td>
-	<td>Last Temp</td>
-	<td>Last Reading</td>
-	<td>Silence Hourly Alarm</td>
-	<td>Setpoint High Temp</td>
-	<td>Setpoint Critical Temp</td>
-	<td>Send Alarm</td>
-	<td>&nbsp;</td>
-</tr>
+<div id='container' class='content'>
+	<div class='alarmbox table-responsive'>
+		<table class='table'>
+			<tr class='header'>
+				<td>Freezer ID</td>
+				<td>Freezer Name</td>
+				<td>Alarm Level</td>
+				<td>Alarm Time</td>
+				<td>Last Temp</td>
+				<td>Last Reading</td>
+				<td>Silence Hourly Alarm</td>
+				<td>Setpoint High Temp</td>
+				<td>Setpoint Critical Temp</td>
+				<td>Send Alarm</td>
+				<td>&nbsp;</td>
+			</tr>
 ";
 while(($freezerdata = $allfreezers->fetch_assoc()))
 {
@@ -259,7 +260,12 @@ while(($freezerdata = $allfreezers->fetch_assoc()))
 echo "
 	  </table>
 	</div>
-</div>";
+</div>
+<br>
+<br>
+<br>
+";
+
 /* Wrap things up */
 include "assets/footer.php";
 ?>
