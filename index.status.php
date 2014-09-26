@@ -254,7 +254,12 @@ while(($freezerdata = $allfreezers->fetch_assoc()))
 			</form>
 		</tr>";
 
+}
 
+echo "
+	  </table>
+	</div>
+</div>";
 /* Wrap things up */
 include "assets/footer.php";
 ?>
