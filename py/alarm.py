@@ -1031,7 +1031,7 @@ class alarm(object):
         # password has been stored in bz2 compressed format
         
         # Initilize mail Server to be used
-        mailserver = smtplib.SMTP("smtp.gmail.com:587")
+        mailserver = smtplib.SMTP("smtp.gmail.com",587)
         mailserver.ehlo()
         mailserver.starttls()
         mailserver.ehlo()
