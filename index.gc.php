@@ -92,8 +92,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 echo "]);
 
         var options = {
-          title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View | 1/".$skip." Density',
-          chartArea: {width: \"90%\", height: \"100%\"}
+          title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View | 1/".$skip." Density'
             };
 
         var chart = new google.visualization.LineChart(document.getElementById('container'));
