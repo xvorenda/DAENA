@@ -139,8 +139,8 @@ if ($login->isUserLoggedIn() == true)
 					<td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
 					<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
 					<td class='field-narrow'><input type='checkbox' class='input-medium' name='freezer_send_alarm' ".$freezer_send_alarm_checkbox." value='1'/></td>
+					<input type='stealth' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
 					<td>
-						<input type='stealth' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
 						<button type='submit' name='modify' class='btn'/>Modify</button>
 					</td>
 				</form>
