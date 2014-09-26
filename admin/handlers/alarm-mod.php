@@ -52,12 +52,12 @@ if ($login->isUserLoggedIn() == true)
 				} 
 				else 
 				{
-				  $pageURL .= $_SERVER["SERVER_NAME"].":".$searchUrl;
+				  $pageURL .= $_SERVER["SERVER_NAME"].$searchUrl;
 				}
 				 //echo $pageURL;
 				 //echo '/admin/alarms.php");</script>';
 				 echo $pageURL;
-				 //header("Location: ".$pageURL);
+				 header("Location: ".$pageURL);
 			}
 		}
 	}
@@ -90,12 +90,12 @@ if ($login->isUserLoggedIn() == true)
 			} 
 			else 
 			{
-			  $pageURL .= $_SERVER["SERVER_NAME"].":".$searchUrl;
+			  $pageURL .= $_SERVER["SERVER_NAME"].$searchUrl;
 			}
 			 //echo $pageURL;
 			 //echo '/admin/alarms.php");</script>';
 			 echo $pageURL;
-			 //header("Location: ".$pageURL);
+			 header("Location: ".$pageURL);
 		}
 	}
 }
