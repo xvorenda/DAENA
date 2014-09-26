@@ -74,11 +74,12 @@ $re_neg = "-";
 
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
-      $pingtime = date('Y-m-d,H,i,s', $pingtime/1000);
+      $pingetime = $pingtime/1000;
+      $pingdate = date('Y-m-d,H,i,s', $pingetime/1000);
       $dataquery = "
           SELECT temp
           FROM daena_db.data
-          WHERE int_time = ".$pingtime."
+          WHERE int_time = ".$pingdate."
           ORDER BY freezer_id";
 
       $data = $daenaDB->query($dataquery);
