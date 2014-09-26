@@ -7,7 +7,61 @@ include 'assets/header.php';
 include 'assets/urlvars.php';
 
 /* Define the HighChart */
-include 'assets/highcharts.php';
+echo "
+<script type='text/javascript'>
+        $(function () {
+                Highcharts.setOptions({
+                        global : {
+                            useUTC : false
+                        }
+                    });
+                $('#container').highcharts({
+                    chart: {
+                        renderTo: 'container',
+                        defaultSeriesType: 'line',
+                        zoomType: 'x',
+                    },
+                    title: { text: '".$group." Freezers <br>Location: ".$loc."<br>".$hours." Hour View | 1/".$skip." Density'},
+                    subtitle: { text: ''},
+
+                    xAxis: {
+                        type: 'datetime',
+                        dateTimeLabelFormats: {
+                            hour: '%H:%M',
+                            day: '%A',
+                            week: '%A',
+                            month: '%B',
+                            year: '%Y'
+                        },
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Temperature'
+                        },
+                        labels: {
+                            formatter: function() {
+                                return this.value / 1 +'°C';
+                            }
+                        }
+                    },
+                    tooltip: {
+                        formatter: function() {
+                        return  '<b>' + this.series.name +'</b><br/>' +
+                            Highcharts.dateFormat('%H:%M',
+                                                  new Date(this.x))
+                        + ' | ' + this.y + ' °C';
+                    },
+                        pointFormat: '{series.name} reported <b>{point.y:,.0f}°C</b><br/>at {point.x}'
+                    },
+                    plotOptions: {
+                            line: {
+                                lineWidth: 6,
+                                marker: {
+                                    enabled: false
+                                    }
+                                }
+                    },
+                    series: [";
 
 /* Start talking to MySQL and kill yourself if it ignores you */
 include 'admin/config/db.php';
@@ -121,8 +175,10 @@ echo "]
 include 'assets/navigation.php';
 
 /* Actually draw the graph */
-include "assets/graph.php";
-
+echo "
+<script src='js/highcharts.js'></script>
+<script src='js/modules/exporting.js'></script>
+<div id='container'></div>";
 
 /* Ask MySQL about which freeers exist and get their metadata */
 $allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
