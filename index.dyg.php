@@ -109,7 +109,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 }}
 echo "        ],
               {
-                title: '".$group." Freezers  \n Location: ".$loc." \n ".$hours." Hour View \n 1/".$skip." Density',
+                title: '".$group." Freezers <br> Location: ".$loc." <br> ".$hours." Hour View <br> 1/".$skip." Density',
                 labels: [\"".$columnheader."\"],
                 colors: ['#".$colorlist."'],
                 strokeWidth: 4,
