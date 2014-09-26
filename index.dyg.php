@@ -112,8 +112,7 @@ echo "        ],
                 labels: [\"".$columnheader."\"],
                 colors: ['#".$colorlist."'],
                 strokeWidth: 4,
-                drawXGrid: false,
-                drawYGrid: false
+                drawXGrid: false
               });
 </script>
 ";
