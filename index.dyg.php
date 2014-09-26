@@ -57,7 +57,7 @@ $freezercount = count($columnnames) - 1;
 
 echo "<div id='container'></div>
 <script type='text/javascript'>
-var colorSets = [".$colorlist."]
+var colorSets = ['".$colorlist."']
   g = new Dygraph(
 
     // containing div
