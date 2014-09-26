@@ -22,7 +22,12 @@ h3 {margin:12px auto 0;}
    min-width:95%;
    min-height:95%;
 }
-#graph {width: 100% !important;height: 100% !important}
+#graph {
+  position:relative;
+  margin:96px 24px !important;
+  width: 100% !important;
+  height: 100% !important
+}
 .stealth {display:none}
 .fakeinput, input {
     margin:0 auto;
