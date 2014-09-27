@@ -37,7 +37,7 @@ h3 {margin:12px auto 0;}
 }
 .centered {float:left}
 #toggles > input[type=checkbox] {
-	margin: auto;
+	margin: auto !important;
 }
 .stealth {display:none}
 .fakeinput, input {
