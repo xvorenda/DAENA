@@ -1,9 +1,6 @@
-<?PHP $starttime = microtime();?>
 <!DOCTYPE html>
 <html>
 <head>
-<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
-<script src='js/bootstrap.min.js'></script>
 <title>DAENA | Data Aggregation and Emergency Notifications for Appliances</title>
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -11,3 +8,5 @@
 <link href='css/bootstrap.css' rel='stylesheet'>
 <link href='css/daena.css' rel='stylesheet'>
 <link rel='shortcut icon' href='images/daena.png'/>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
