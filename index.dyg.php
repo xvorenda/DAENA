@@ -53,8 +53,6 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezerids,$freezerid);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
-
-
     echo "<div class='freezer-box'>
             <label for=\"".$i."\">
               <span style='color: #".$colorname."'>".$freezername."</span>
@@ -67,7 +65,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 }
 
 
-$columnheader = implode ("\", \"",$columnnames);
+$columnlist = implode ("\", \"",$columnnames);
 $colorlist = implode ("', '#",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
@@ -132,8 +130,8 @@ while ($pingrow = $pings->fetch_assoc()) {
 }}
 echo "        ],
               {
-                title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View | 1/".$skip." Density',
-                labels: [\"".$columnheader."\"],
+                title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View',
+                labels: [\"".$columnlist."\"],
                 labelsDiv: document.getElementById('labels'),
                 legend: 'always',
                 colors: ['#".$colorlist."'],
