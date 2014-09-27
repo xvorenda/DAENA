@@ -157,13 +157,8 @@ $(document).ready(function()
   {
     $('#legend').css(
     {
-      position: 'absolute'
-    });
-
-    $('#legend').css(
-    {
-      left: ($(window).width() - $('#legend').outerWidth()) / 2,
-      top: ($(window).height() - $('#legend').outerHeight()) -40,
+      margin-left: ($(window).width() - $('#legend').outerWidth()) / 2,
+      margin-right: ($(window).width() - $('#legend').outerWidth()) / 2,
       width: ($(window).width() * 0.9
     });
   });
