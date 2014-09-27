@@ -28,7 +28,7 @@ h3 {margin:12px auto 0;}
   width: 100% !important;
   height: 100% !important
 }
-#labels {
+#labels, #toggles {
   width: 90%;
   margin: 0 auto;
 }
