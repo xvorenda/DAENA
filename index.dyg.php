@@ -66,10 +66,10 @@ echo "
 <div id='container'></div>
 <div id='toggles'><b>Display: </b>";
 
-foreach ($namearray as $value) {
+foreach ($namearray as $key => $value) {
 
-echo "<input type='checkbox' id='".$value."' onClick='change(this)' checked>
-        <label for='".$value."'>".$value."</label>";
+echo "<input type='checkbox' id='".$key."' onClick='change(this)' checked>
+        <label for='".$key."'>".$value."</label>";
 };
 echo "
 </div>
