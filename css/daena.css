@@ -56,8 +56,10 @@ border-bottom-right-radius: 20px !important;
 }
 
 #container, #about {
-   margin:96px auto 24px !important;
+   position:relative;
+   margin:96px 24px 24px !important;
    width:88% !important;
+   height:85%;
 }
 #container, #data {
   float: left !important;
@@ -68,18 +70,16 @@ border-bottom-right-radius: 20px !important;
   width: 100% !important;
   height: 100% !important
 }
-#graph-wrapper, #toggles-wrapper {
+#toggles {
+}
+#toggles-wrapper {
   width: 100%;
-  height: 100%;
   text-align: center;
 }
 #toggles-center {
   width: 65%;
   margin-left: auto;
   margin-right: auto;
-}
-#toggles {
-  height: 440px;
 }
 @media (min-width: 1080px ) {
   #data {
