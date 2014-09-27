@@ -159,7 +159,7 @@ $(document).ready(function()
 {
   $(window).resize(function()
   {
-    $('.visitorSelect').css(
+    $('#toggles-center').css(
     {
       position: 'absolute',
       left: ($(window).width() - $('#toggles-center').outerWidth()) / 2,
