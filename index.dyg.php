@@ -67,8 +67,7 @@ echo "
 
 foreach ($namearray as $value) {
 
-  echo "<input type='checkbox' id='".$value."' onClick='change\(this\)' checked>
-          <label for='".$value"'>a</label>";
+  print_r($namearray);
 };
 echo "
 </p>
