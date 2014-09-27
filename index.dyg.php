@@ -63,7 +63,7 @@ $freezercount = count($columnnames) - 1;
 echo "
 <div id='container'></div>
 <div id='labels'></div>";
-for each $columnnames as $boxname {
+foreach ($columnnames as &$boxname) {
   if $boxname != 'Time' {
   echo "<input type='checkbox' id='".$boxname."' onClick='change(this)' checked>
           <label for='".$boxname"'>a</label>";
