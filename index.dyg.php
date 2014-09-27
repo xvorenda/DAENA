@@ -61,7 +61,6 @@ while ($freezerrow = $freezers->fetch_assoc()) {
             </label><br>
             <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
           </div>
-        </div>
             ";
     $i++;
 }
@@ -75,6 +74,7 @@ $freezercount = count($columnnames) - 1;
 
 
 echo "
+</div>
 </div>
 <script type='text/javascript'>
   chart = new Dygraph(
