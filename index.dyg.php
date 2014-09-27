@@ -123,7 +123,7 @@ echo "        ],
                 labelsDiv: document.getElementById('labels'),
                 legend: 'always',
                 colors: ['#".$colorlist."'],
-                visibility: ['#".$visiblelist."'],
+                visibility: [".$visiblelist."],
                 strokeWidth: 4,
                 drawXGrid: false,
                 axisLineColor: 'white'
