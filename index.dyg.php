@@ -162,7 +162,7 @@ $(document).ready(function()
     $('.visitorSelect').css(
     {
       position: 'absolute',
-      left: ($(window).width() - $('#toggle').outerWidth()) / 2,
+      left: ($(window).width() - $('#toggles-center').outerWidth()) / 2,
     });
   });
 
