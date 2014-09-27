@@ -1,4 +1,9 @@
 /* DAENA-Specific Styles */
+#wrapper {
+  margin-top: 96px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
 .pageloadleft {
     float:left;
     color: #fff;
