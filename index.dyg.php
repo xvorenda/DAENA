@@ -43,6 +43,7 @@ ORDER BY ABS(freezer_id)";
 $columnnames = array();
 $freezercolors = array();
 $freezerids = array();
+$namearray = array();
 $visibility = array();
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
@@ -51,12 +52,12 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     $freezerid = $freezerrow["freezer_id"];
     $colorname = $freezerrow["freezer_color"];
     array_push($columnnames,$freezername);
+    array_push($namearray,$freezername);
     array_push($freezerids,$freezerid);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
 }
 $columnheader = implode ("\", \"",$columnnames);
-$namearray = implode (", ",$columnnames);
 $colorlist = implode ("', '#",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
