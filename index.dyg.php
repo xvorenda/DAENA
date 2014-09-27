@@ -43,7 +43,7 @@ ORDER BY ABS(freezer_id)";
 echo "
 <div id='container'></div>
 <div id='toggles'>
-          ";
+            ";
 $i = 0;
 $columnnames = array();
 $freezercolors = array();
