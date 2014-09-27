@@ -162,10 +162,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
 echo "]},";
         };
 
-/* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
-include "assets/url.php";
-$url = curPageURL();
-$baseurl = substr($url, 0, strpos($url, "?"));
+
 echo "]
             });
         });
