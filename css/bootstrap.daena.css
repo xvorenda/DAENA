@@ -29,9 +29,8 @@ h3 {margin:12px auto 0;}
   height: 100% !important
 }
 #labels, #toggles {
-  width: 90%;
+  width: 60%;
   margin: 0 auto;
-  clear: both;
 }
 .stealth {display:none}
 .fakeinput, input {
