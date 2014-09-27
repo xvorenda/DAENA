@@ -64,12 +64,13 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($visibility,"true");
 
 
-    echo "<center>
+    echo "<div class='centered'>
             <label for=\"".$i."\">
               <span style='color: #".$colorname."'>".$freezername."</span>
               <br>".$freezerlocation."
             </label>
-            <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked></center>
+            <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
+          </div>
             ";
     $i++;
 }
