@@ -58,7 +58,7 @@ echo "
                  </ul>
                </li>
                ";
-               if strpos($baseurl,'index.dyg.php') {
+               if strpos($url,'index.dyg.php') {
                  echo "<li><a href='#' onclick='unzoomGraph()'>Reset</a></li>";};
             echo"</ul>
              <ul class='nav navbar-nav navbar-right'>
