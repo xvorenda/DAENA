@@ -31,6 +31,7 @@ h3 {margin:12px auto 0;}
 #labels, #toggles {
   width: 90%;
   margin: 0 auto;
+  clear: both;
 }
 .stealth {display:none}
 .fakeinput, input {
