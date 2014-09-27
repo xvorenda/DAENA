@@ -75,7 +75,7 @@ echo "
 </div>
 <div id='labels'></div>
 <script type='text/javascript'>
-  g = new Dygraph(
+  chart = new Dygraph(
 
     // containing div
     document.getElementById(\"container\"),
