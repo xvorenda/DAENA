@@ -128,11 +128,8 @@ echo "        ],
                 drawXGrid: false,
                 axisLineColor: 'white'
               });
-              
-</script>
-<p><b>Display: </b>";
-echo "<input type='checkbox' id='".$i."' onClick='change(this)' checked>
-<label for='".$i"'>a</label>";
+
+</script>";
 
 /* Wrap things up */
 include 'assets/footer.php';
