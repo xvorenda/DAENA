@@ -71,6 +71,7 @@ border-bottom-right-radius: 20px !important;
   height: 100% !important
 }
 #toggles {
+  position: relative !important;
 }
 #toggles-wrapper {
   width: 100%;
