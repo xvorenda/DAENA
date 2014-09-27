@@ -42,12 +42,15 @@ ORDER BY ABS(freezer_id)";
 
 $columnnames = array();
 $freezercolors = array();
+$freezerids = array();
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
     $freezername = $freezerrow["freezer_name"];
+    $freezerid = $freezerrow["freezer_id"];
     $colorname = $freezerrow["freezer_color"];
     array_push($columnnames,$freezername);
+    array_push($freezerids,$freezerid);
     array_push($freezercolors,$colorname);
 }
 $columnheader = implode ("\", \"",$columnnames);
@@ -75,14 +78,16 @@ $pings = $daenaDB->query($pingquery);
 $badneg_a = "-00";
 $badneg_b = "-0";
 $re_neg = "-";
+$freezergroups =implode(',', $freezerids);
 
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
-      $pingetime = $pingtime/1000;
+      $pingepoch = $pingtime/1000;
       $dataquery = "
           SELECT temp
           FROM daena_db.data
           WHERE int_time = ".$pingtime."
+          AND ID IN ($freezergroups)
           ORDER BY freezer_id";
 
       $data = $daenaDB->query($dataquery);
@@ -91,7 +96,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 
       if ($datacount == $freezercount){
         echo "            [ new Date(\"";
-        echo date('Y/m/d H:i:s', $pingetime);
+        echo date('Y/m/d H:i:s', $pingepoch);
         echo "\")";
       while ($datarow = $data->fetch_assoc()) {
           $datatemp = $datarow["temp"];
