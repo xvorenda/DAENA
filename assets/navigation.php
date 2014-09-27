@@ -59,7 +59,7 @@ echo "
                </li>
                ";
                if strpos($baseurl,'index.dyg.php') {
-                 echo "<li><a href='#' onclick='unzoomGraph()'>Reset</a></li>";}
+                 echo "<li><a href='#' onclick='unzoomGraph()'>Reset</a></li>";};
             echo"</ul>
              <ul class='nav navbar-nav navbar-right'>
                <li><a href='about.php'>About</a></li>
