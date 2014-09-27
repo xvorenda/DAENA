@@ -163,7 +163,7 @@ $(document).ready(function()
     $('#legend').css(
     {
       left: ($(window).width() - $('#legend').outerWidth()) / 2,
-      top: ($(window).height() - $('#legend').outerHeight()) -80
+      top: ($(window).height() - $('#legend').outerHeight()) -40
     });
   });
 
