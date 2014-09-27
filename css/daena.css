@@ -1,133 +1,4 @@
-table {margin: 32px auto}
-
-td {text-align: center;
-    padding: 0 4px !important;
-    font-size: 14px !important}
-tr {margin-top: 8px !important}
-h3 {margin:12px auto 0;}
-.daena-logo {
-    height:20px;
-    margin-right:10px;
-}
-.content {
-    margin: 60px auto !important
-}
-.field-narrow {max-width:32px !important}
-.field-medium {min-width:75px !important}
-.field-wide {min-width:180px !important}
-.field-narrow, .field-wide {margin:12px auto !important}
-#container, #about {
-   position:relative;
-   margin:96px 24px 24px !important;
-   width:88% !important;
-   height:85%;
-}
-#container, #labels {
-  float: left !important;
-  clear: none !important;
-}
-#graph {
-  position:relative;
-  margin:96px 24px !important;
-  width: 100% !important;
-  height: 100% !important
-}
-#toggles {
-  width: 65%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media (min-width: 1080px ) {
-  #labels {
-    height: 100%;
-    width: 80px;
-    margin-top: 128px;
-    padding: 6px;
-    clear: right;
-  }
-}
-@media (max-width: 1080px ) {
-  #labels {
-    visibility: hidden !important;
-  }
-}
-.freezer-box {
-  margin-top: 4px;
-  float:left;
-  padding: 10px;
-}
-.stealth {display:none}
-.fakeinput, input {
-    margin:0 auto;
-    border-bottom-color: rgb(238, 238, 238);
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-bottom-style: inset;
-    border-bottom-width: 2px;
-    border-collapse: collapse;
-    border-image-outset: 0px;
-    border-image-repeat: stretch;
-    border-image-slice: 100%;
-    border-image-source: none;
-    border-image-width: 1;
-    border-left-color: rgb(238, 238, 238);
-    border-left-style: inset;
-    border-left-width: 2px;
-    border-right-color: rgb(238, 238, 238);
-    border-right-style: inset;
-    border-right-width: 2px;
-    border-top-color: rgb(238, 238, 238);
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-top-style: inset;
-    border-top-width: 2px;
-    padding-bottom: 1px;
-    padding-left: 1px;
-    padding-right: 1px;
-    padding-top: 1px;
-    pointer-events: auto;
-    position: static;
-    resize: none;
-    text-align: center;
-    text-decoration: none solid rgb(0, 0, 0);
-    text-indent: 0px;
-    text-overflow: clip;
-    text-shadow: none;
-    text-transform: none;
-    vertical-align: baseline;
-    visibility: visible;
-    width: 100% !important;
-}
-.btn {
-    min-width: 108px;
-    min-height: 32px;
-    border-radius: 20px;
-}
-.freezerinfo {
-    margin:12px auto;
-    padding: 12px 12px 0;
-    width:360px;
-    border: #333 solid 4px;
-    box-shadow: 4px 4px 8px #444;
-    border-radius: 8px;
-}
-.navbar-fixed-bottom {
-    position:fixed;
-    bottom:0px;
-    margin-bottom: 0px !important;
-    margin-top: 10px !important;
-    width: 100%;
-    height: 60px;
-    font-size:10px;
-    background-color: #222 !important;
-    clear:both !important;
-}
-.navbar-fixed-bottom-p {
-    margin: 6px;
-    text-align:center;
-    color:#ccc
-}
+/* DAENA-Specific Styles */
 .pageloadleft {
     float:left;
     color: #fff;
@@ -177,6 +48,97 @@ h3 {margin:12px auto 0;}
 border-top-right-radius: 20px !important;
 border-bottom-right-radius: 20px !important;
 }
+
+#container, #about {
+   position:relative;
+   margin:96px 24px 24px !important;
+   width:88% !important;
+   height:85%;
+}
+#container, #labels {
+  float: left !important;
+  clear: none !important;
+}
+#graph {
+  position:relative;
+  margin:96px 24px !important;
+  width: 100% !important;
+  height: 100% !important
+}
+#toggles {
+  width: 65%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1080px ) {
+  #labels {
+    height: 100%;
+    width: 80px;
+    margin-top: 128px;
+    padding: 6px;
+    clear: right;
+  }
+}
+@media (max-width: 1080px ) {
+  #labels {
+    visibility: hidden !important;
+  }
+}
+.freezer-box {
+  margin-top: 4px;
+  float:left;
+  padding: 10px;
+}
+.freezerinfo {
+    margin:12px auto;
+    padding: 12px 12px 0;
+    width:360px;
+    border: #333 solid 4px;
+    box-shadow: 4px 4px 8px #444;
+    border-radius: 8px;
+}
+.stealth {
+  display:none
+}
+.fakeinput, input {
+    margin:0 auto;
+    border-bottom-color: rgb(238, 238, 238);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-style: inset;
+    border-bottom-width: 2px;
+    border-collapse: collapse;
+    border-left-color: rgb(238, 238, 238);
+    border-left-style: inset;
+    border-left-width: 2px;
+    border-right-color: rgb(238, 238, 238);
+    border-right-style: inset;
+    border-right-width: 2px;
+    border-top-color: rgb(238, 238, 238);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-style: inset;
+    border-top-width: 2px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    pointer-events: auto;
+    position: static;
+    resize: none;
+    text-align: center;
+    text-decoration: none solid rgb(0, 0, 0);
+    text-indent: 0px;
+    text-shadow: none;
+    text-transform: none;
+    vertical-align: baseline;
+    visibility: visible;
+    width: 100% !important;
+}
+
+/* Bootstrap Overrides */
+
 .table > tbody > tr > td {
   border-top: none !important;
   vertical-align: middle !important}
@@ -187,10 +149,53 @@ table.table{
 input[type="checkbox"] {
   width: auto !important;
 }
+table {margin: 32px auto}
+
+td {text-align: center;
+    padding: 0 4px !important;
+    font-size: 14px !important}
+tr {margin-top: 8px !important}
+h3 {margin:12px auto 0;}
+.daena-logo {
+    height:20px;
+    margin-right:10px;
+}
+.content {
+    margin: 60px auto !important
+}
+.field-narrow {max-width:32px !important}
+.field-medium {min-width:75px !important}
+.field-wide {min-width:180px !important}
+.field-narrow, .field-wide {margin:12px auto !important}
+
+.btn {
+    min-width: 108px;
+    min-height: 32px;
+    border-radius: 20px;
+}
+
+.navbar-fixed-bottom {
+    position:fixed;
+    bottom:0px;
+    margin-bottom: 0px !important;
+    margin-top: 10px !important;
+    width: 100%;
+    height: 60px;
+    font-size:10px;
+    background-color: #222 !important;
+    clear:both !important;
+}
+.navbar-fixed-bottom-p {
+    margin: 6px;
+    text-align:center;
+    color:#ccc
+}
+
+/* General Color Definitions */
 .gray       {color:#999 !important}
 .violet     {color:#808 !important}
 .indigo     {color:#408 !important}
-.blue       {color:#288ccc !important}
+.blue       {color:#008 !important}
 .green      {color:#080 !important}
 .yellow     {color:#880 !important}
 .orange     {color:#840 !important}
