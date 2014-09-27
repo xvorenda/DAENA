@@ -20,7 +20,7 @@ h3 {margin:12px auto 0;}
    position:relative;
    margin:96px 24px 0 !important;
    width:88%;
-   min-height:85%;
+   height:85%;
 }
 #container, #labels {
   float: left !important;
