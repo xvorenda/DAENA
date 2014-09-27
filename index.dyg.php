@@ -59,6 +59,7 @@ $freezercount = count($columnnames) - 1;
 
 
 echo "<div id='container'></div>
+<div id='labels'></div>
 <script type='text/javascript'>
   g = new Dygraph(
 
@@ -87,7 +88,7 @@ while ($pingrow = $pings->fetch_assoc()) {
           SELECT temp,freezer_id
           FROM daena_db.data
           WHERE int_time = ".$pingtime."
-          AND freezer_id IN (".$freezergroups.")          
+          AND freezer_id IN (".$freezergroups.")
           ORDER BY freezer_id";
 
       $data = $daenaDB->query($dataquery);
@@ -116,6 +117,7 @@ echo "        ],
               {
                 title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View | 1/".$skip." Density',
                 labels: [\"".$columnheader."\"],
+                labelsDiv: document.getElementById("labels"),
                 colors: ['#".$colorlist."'],
                 strokeWidth: 4,
                 drawXGrid: false,
