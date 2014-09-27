@@ -86,8 +86,8 @@ while ($pingrow = $pings->fetch_assoc()) {
       $dataquery = "
           SELECT temp
           FROM daena_db.data
-          WHERE int_time = ".$pingtime."
-          AND ID IN ($freezergroups)
+          WHERE ID IN (".$freezergroups.")
+          AND int_time = ".$pingtime."
           ORDER BY freezer_id";
 
       $data = $daenaDB->query($dataquery);
