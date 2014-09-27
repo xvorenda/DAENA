@@ -37,7 +37,7 @@ h3 {margin:12px auto 0;}
 }
 .centered {
   float:left;
-  padding: 12px;
+  padding: 6px;
 }
 #toggles > input[type=checkbox] {
 	margin: auto !important;
