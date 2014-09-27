@@ -38,7 +38,7 @@ h3 {margin:12px auto 0;}
   margin-left: auto;
   margin-right: auto;
 }
-@media (min-width: 768px ) {
+@media (min-width: 1080px ) {
   #labels {
     height: 100%;
     width: 80px;
@@ -47,7 +47,7 @@ h3 {margin:12px auto 0;}
     clear: right;
   }
 }
-@media (max-width: 768px ) {
+@media (max-width: 1080px ) {
   #labels {
     visibility: hidden !important;
   }
