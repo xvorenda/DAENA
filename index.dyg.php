@@ -41,7 +41,7 @@ WHERE freezer_active='1'
 ORDER BY ABS(freezer_id)";
 
 echo "
-<div id='graph'></div>
+<div id='container'></div>
 <div id='toggles'>";
 $i = 0;
 $columnnames = array();
@@ -83,7 +83,7 @@ echo "
   chart = new Dygraph(
 
     // containing div
-    document.getElementById(\"graph\"),
+    document.getElementById(\"container\"),
         [\n";
 
 
