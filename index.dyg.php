@@ -1,28 +1,17 @@
 <?php
+/* Teach PHP how to read URL parameters and connect to the database, plus add defaults */
+include 'admin/config/db.php';
+include 'assets/urlvars.php';
 
 /* Get things started */
 include 'assets/header.php';
 
-/* Teach PHP how to read URL parameters, plus add defaults */
-include 'assets/urlvars.php';
-
-/* Define the Dygraph */
-echo "
-<script type='text/javascript' src='js/dygraph-combined.js'></script>
-</head>
-<body>";
-
-/* Set up navigation for different graphs || TODO: groups table, dynamically generate || */
-include 'assets/url.php';
-$url = curPageURL();
-$baseurl = substr($url, 0, strpos($url, "?"));
-
+/* Define Navbar */
 include 'assets/navigation.php';
 
-/* Actually draw the graph */
 
-/* Start talking to MySQL and kill yourself if it ignores you */
-include 'admin/config/db.php';
+
+/* Start talking to MySQL and report the error if it ignores you */
 $daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 // Check connection
 if (mysqli_connect_errno())
@@ -40,8 +29,10 @@ WHERE freezer_active='1'
 ".$typefilter."
 ORDER BY ABS(freezer_id)";
 
+/* Print Freezer Legend, Data View, and Toggles */
 echo "
-<div id='container'></div><div id='labels'></div>
+<div id='container'></div>
+<div id='labels'></div>
 <div id='toggles'>
             ";
 $i = 0;

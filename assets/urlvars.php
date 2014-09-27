@@ -67,4 +67,17 @@ if (strpos($type,'-20') !== false) {
 if (strpos($type,'4') !== false) {
     $typefilter = "AND freezer_temp_range='4'";
 };
+function curPageURL() {
+$pageURL = 'http';
+/*if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}*/
+$pageURL .= "://";
+if ($_SERVER["SERVER_PORT"] != "80") {
+	$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+} else {
+	$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+}
+return $pageURL;
+}
+$url = curPageURL();
+$baseurl = substr($url, 0, strpos($url, "?"));
 ?>

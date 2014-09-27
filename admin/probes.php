@@ -3,8 +3,7 @@
 include "assets/admin-header.php";
 include 'assets/admin-nav.php';
 
-if ($login->isUserLoggedIn() == true)
-{
+if ($login->isUserLoggedIn() == true) {
 
 	/* Start talking to MySQL and kill yourself if it ignores you */
 	//include 'config/db.php';
@@ -49,7 +48,7 @@ if ($login->isUserLoggedIn() == true)
 		$probe_ntms_port = $probedata['probe_ntms_port'];
 		$probe_hostport = $probedata['probe_hostport'];
 		$freezer_id = $probedata['freezer_id'];
-		
+
 		if ($probe_active == 0)
 		{
 			$probe_active_checkbox = "unchecked";
