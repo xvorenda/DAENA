@@ -55,6 +55,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     $freezername = $freezerrow["freezer_name"];
     $freezerid = $freezerrow["freezer_id"];
     $colorname = $freezerrow["freezer_color"];
+    $freezerlocation = $freezerrow["freezer_location"];
     array_push($columnnames,$freezername);
     array_push($namearray,$freezername);
     array_push($freezerids,$freezerid);
@@ -63,7 +64,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 
 
     echo "<input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
-            <label style='color: #".$colorname."' for=\"".$i."\">".$freezername."</label>";
+            <label style='color: #".$colorname."' for=\"".$i."\">".$freezername."<br>".$freezerlocation."</label>";
 
     $i++;
 }
