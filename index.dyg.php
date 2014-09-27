@@ -159,7 +159,7 @@ $(document).ready(function()
     {
       margin-left: ($(window).width() - $('#legend').outerWidth()) / 2,
       margin-right: ($(window).width() - $('#legend').outerWidth()) / 2,
-      width: ($(window).width() * 0.9
+      width: ($(window).width()) * 0.9
     });
   });
 
