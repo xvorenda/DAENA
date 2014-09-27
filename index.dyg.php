@@ -54,7 +54,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($columnnames,$freezername);
     array_push($freezercolors,$colorname);
     echo "<input type='checkbox' id='".$i."' onClick='change(this)' checked>
-          <label for='".$i"'>".$freezername."</label>";
+          <label for='".$i"'>".$freezername."</label>";$i++;
 }
 $columnheader = implode ("\", \"",$columnnames);
 $colorlist = implode ("', '#",$freezercolors);
