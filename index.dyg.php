@@ -155,11 +155,11 @@ $(document).ready(function()
 {
   $(window).resize(function()
   {
-    $('#toggles-center').css(
+    $('#legend').css(
     {
       position: 'absolute',
-      left: ($(window).width() - $('#toggles-center').outerWidth()) / 2,
-      top: ($(window).height() - $('#toggles-center').outerHeight()) - 40
+      left: ($(window).width() - $('#legend').outerWidth()) / 2,
+      top: ($(window).height() - $('#legend').outerHeight()) - 40
     });
   });
 
