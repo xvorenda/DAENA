@@ -32,7 +32,7 @@ ORDER BY ABS(freezer_id)";
 /* Print Freezer Legend, Data View, and Toggles */
 echo "
 <div id='container'></div>
-<div id='data'></div>
+<div id='data-wrapper'><div id='data'></div></div>
 <div id='toggles-wrapper'>
   <div id='toggles-center'>
     <div id='toggles'>
