@@ -36,8 +36,6 @@ h3 {margin:12px auto 0;}
 }
 #labels {
   min-height: 150px;
-  border: 1px solid #333;
-  border-radius: 20px;
   margin-top: 12px;
   padding: 6px
 }
