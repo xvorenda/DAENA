@@ -170,17 +170,13 @@ echo "]
             });
         });
 </script>
-</head>
-<body>";
+";
 
 /* Add Navbar */
 include 'assets/navigation.php';
 
 /* Actually draw the graph */
-echo "
-<script src='js/highcharts.js'></script>
-<script src='js/modules/exporting.js'></script>
-<div id='container'></div>";
+echo "<div id='container'></div>";
 
 
 /* Wrap things up */
