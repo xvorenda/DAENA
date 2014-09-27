@@ -167,6 +167,7 @@ $(document).ready(function()
     });
     $('.dygraph-title').css(
     {
+      position: 'absolute'
       left: ($(window).width() - $('.dygraph-title').outerWidth()) / 2,
     });
   });
