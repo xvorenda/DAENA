@@ -64,7 +64,7 @@ $freezercount = count($columnnames) - 1;
 
 echo "
 <div id='container'></div>
-<div id='toggles'><b>Display: </b>";
+<div id='toggles'>";
 
 foreach ($namearray as $key => $value) {
 
