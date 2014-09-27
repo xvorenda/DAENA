@@ -40,6 +40,10 @@ WHERE freezer_active='1'
 ".$typefilter."
 ORDER BY ABS(freezer_id)";
 
+
+echo "<div id='container'></div><p><b>Display: </b>";
+$i = 0;
+
 $columnnames = array();
 $freezercolors = array();
 array_push($columnnames,"Time");
@@ -49,13 +53,14 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     $colorname = $freezerrow["freezer_color"];
     array_push($columnnames,$freezername);
     array_push($freezercolors,$colorname);
+    echo "<input type='checkbox' id='".$i."' onClick='change(this)' checked>
+          <label for='".$i"'>".$freezername."</label>";
 }
 $columnheader = implode ("\", \"",$columnnames);
 $colorlist = implode ("', '#",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
-
-echo "<div id='container'></div>
+echo "</p>
 <script type='text/javascript'>
   g = new Dygraph(
 
@@ -116,6 +121,9 @@ echo "        ],
                 drawXGrid: false,
                 axisLineColor: 'white'
               });
+    function change(el) {
+        chart.setVisibility(el.id, el.checked);
+        }
 </script>
 ";
 
