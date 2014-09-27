@@ -63,7 +63,6 @@ border-bottom-right-radius: 20px !important;
 }
 #container, #data {
   float: left !important;
-  clear: none !important;
 }
 #graph {
   position:relative;
