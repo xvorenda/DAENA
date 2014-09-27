@@ -56,10 +56,11 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($visibility,"true");
 }
 $columnheader = implode ("\", \"",$columnnames);
+$namearray = implode (", ",$columnnames);
 $colorlist = implode ("', '#",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
-$namearray = explode ('\"',$colunmheader);
+
 echo "
 <div id='container'></div>
 <div id='labels'></div>
