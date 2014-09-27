@@ -20,7 +20,7 @@ h3 {margin:12px auto 0;}
    position:relative;
    margin:96px 24px !important;
    min-width:95%;
-   min-height:95%;
+   min-height:85%;
 }
 #graph {
   position:relative;
@@ -30,7 +30,9 @@ h3 {margin:12px auto 0;}
 }
 #labels, #toggles {
   width: 85%;
-  margin-left: 24px;
+  height: 15%;
+  margin-left: auto;
+  margin-right: auto;
 }
 #toggles > input[type=checkbox] {
 	visibility: hidden;
