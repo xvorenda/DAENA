@@ -32,7 +32,7 @@ h3 {margin:12px auto 0;}
   width: 100% !important;
   height: 100% !important
 }
-#labels, #toggles {
+##toggles {
   width: 65%;
   text-align: center;
   margin-left: auto;
@@ -40,6 +40,7 @@ h3 {margin:12px auto 0;}
 }
 #labels {
   min-height: 150px;
+  max-width: 12%;
   margin-top: 12px;
   padding: 6px
 }
