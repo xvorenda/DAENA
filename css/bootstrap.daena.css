@@ -32,9 +32,12 @@ h3 {margin:12px auto 0;}
   width: 70%;
   margin: 0 auto;
 }
-label {
+label, span > div {
   margin: 0 6px;
   padding: 6px;
+}
+#labels {
+  margin-left: 48px !important;
 }
 .stealth {display:none}
 .fakeinput, input {
