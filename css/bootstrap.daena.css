@@ -32,6 +32,9 @@ h3 {margin:12px auto 0;}
   width: 85%;
   margin-left: 24px;
 }
+#toggles > input[type=checkbox] {
+	visibility: hidden;
+}
 label, span > div {
   margin: 0 6px;
   padding: 6px;
