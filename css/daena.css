@@ -149,7 +149,7 @@ table.table{
 input[type="checkbox"] {
   width: auto !important;
 }
-table {margin: 32px auto}
+table {margin: 32px auto !important}
 
 td {text-align: center;
     padding: 0 4px !important;
