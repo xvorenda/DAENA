@@ -117,7 +117,7 @@ echo "        ],
               {
                 title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View | 1/".$skip." Density',
                 labels: [\"".$columnheader."\"],
-                labelsDiv: document.getElementById("labels"),
+                labelsDiv: document.getElementById('labels'),
                 colors: ['#".$colorlist."'],
                 strokeWidth: 4,
                 drawXGrid: false,
