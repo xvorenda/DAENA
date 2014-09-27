@@ -165,11 +165,6 @@ $(document).ready(function()
       left: ($(window).width() - $('#legend').outerWidth()) / 2,
       top: ($(window).height() - $('#legend').outerHeight()) -40
     });
-    $('.dygraph-title').css(
-    {
-      position: 'absolute'
-      left: ($(window).width() - $('.dygraph-title').outerWidth()) / 2,
-    });
   });
 
   // call `resize` to center elements
