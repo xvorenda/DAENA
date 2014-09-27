@@ -157,14 +157,18 @@ $(document).ready(function()
   {
     $('#legend').css(
     {
-      position: 'absolute',
+      position: 'absolute'
+    });
+
+    $('#legend').css(
+    {
       left: ($(window).width() - $('#legend').outerWidth()) / 2,
-      top: ($(window).height() - $('#legend').outerHeight()) - 40
+      top: ($(window).height() - $('#legend').outerHeight()) / 2
     });
   });
 
   // call `resize` to center elements
-  $(window).onLoad();
+  $(window).resize();
 });
 </script>";
 
