@@ -64,7 +64,6 @@ $freezercount = count($columnnames) - 1;
 
 echo "
 <div id='container'></div>
-<div id='labels'></div>
 <div id='toggles'><b>Display: </b>";
 
 foreach ($namearray as $value) {
@@ -73,7 +72,8 @@ echo "<input type='checkbox' id='".$value."' onClick='change(this)' checked>
         <label for='".$value."'>".$value."</label>";
 };
 echo "
-</d>
+</div>
+<div id='labels'></div>
 <script type='text/javascript'>
   g = new Dygraph(
 
