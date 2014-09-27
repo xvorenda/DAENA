@@ -70,7 +70,7 @@ border-bottom-right-radius: 20px !important;
 }
 #toggles-wrapper {
   width: 100%;
-  margin-top: 440px;
+
   text-align: center;
 }
 #toggles-center {
@@ -79,6 +79,7 @@ border-bottom-right-radius: 20px !important;
   margin-right: auto;
 }
 #toggles {
+  height: 440px;
 }
 @media (min-width: 1080px ) {
   #data {
