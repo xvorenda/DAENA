@@ -11,7 +11,7 @@ echo "
             <span class='icon-bar'></span>
           </button>
           <a class='navbar-brand white' href='../index.php' title='Data Aggregation and Emergency Notifications for Appliances'>
-          <img src='../images/daena.png' class='daena-logo'>DAENA Monitoring System
+          <img src='../images/daena.png' class='daena-logo'>DAENA
           </a>
         </div>";
 if ($login->isUserLoggedIn() == true) {
