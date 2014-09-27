@@ -1,6 +1,6 @@
 /* DAENA-Specific Styles */
 .dygraph-title {
-  font-weight: normal !important;
+  font-size: 18px !important;
 }
 #wrapper {
   margin-top: 96px;
