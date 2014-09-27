@@ -30,8 +30,7 @@ WHERE freezer_active='1'
 ORDER BY ABS(freezer_id)";
 
 /* Print Freezer Legend, Data View, and Toggles */
-echo "<input type='button' value='Unzoom' onclick='unzoomGraph()'>
-
+echo "
 <div id='container'></div>
 <div id='labels'></div>
 <div id='toggles'>
@@ -145,7 +144,7 @@ echo "        ],
                 chart.setVisibility(el.id, el.checked);
               }
               function unzoomGraph() {
-                g.updateOptions({
+                chart.updateOptions({
                   dateWindow: null,
                   valueRange: null
                 });
