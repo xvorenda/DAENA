@@ -64,7 +64,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($visibility,"true");
 
 
-    echo "<div class='centered'>
+    echo "<div class='freezer-box'>
             <label for=\"".$i."\">
               <span style='color: #".$colorname."'>".$freezername."</span>
               <br>".$freezerlocation."

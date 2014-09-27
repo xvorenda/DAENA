@@ -31,16 +31,14 @@ h3 {margin:12px auto 0;}
 #toggles {
   width: 65%;
   height: 15%;
+  text-align: center;
   margin: 0 auto;
   border: 1px solid #333;
   border-radius: 20px;
 }
-.centered {
+.freezer-box {
   float:left;
   padding: 6px;
-}
-#toggles > input[type=checkbox] {
-	margin: auto !important;
 }
 .stealth {display:none}
 .fakeinput, input {
