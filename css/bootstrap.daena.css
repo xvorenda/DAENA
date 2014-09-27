@@ -35,6 +35,7 @@ h3 {margin:12px auto 0;}
   border: 1px solid #333;
   border-radius: 20px;
 }
+.centered {float:left}
 /*#toggles > input[type=checkbox] {
 	visibility: hidden;
 }*/
