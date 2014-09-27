@@ -23,7 +23,7 @@ h3 {margin:12px auto 0;}
    min-height:85%;
 }
 #container, #labels {
-  float: left;
+  float: left !important;
 }
 #graph {
   position:relative;
