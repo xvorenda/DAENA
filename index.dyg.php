@@ -63,11 +63,7 @@ $freezercount = count($columnnames) - 1;
 echo "
 <div id='container'></div>
 <div id='labels'></div>";
-foreach ($columnnames as $boxname) {
 
-  echo "<input type='checkbox' id='".$boxname."' onClick='change(this)' checked>
-          <label for='".$boxname"'>a</label>";
-};
 echo "
 </p>
 <script type='text/javascript'>
