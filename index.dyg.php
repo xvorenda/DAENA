@@ -67,7 +67,8 @@ while ($freezerrow = $freezers->fetch_assoc()) {
             <label for=\"".$i."\">
               <span style='color: #".$colorname."' >".$freezername."</span>
               <br>".$freezerlocation."
-            </label>";
+            </label>
+            ";
     $i++;
 }
 
