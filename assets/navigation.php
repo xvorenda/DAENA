@@ -49,16 +49,6 @@ echo "
                 </ul>
                </li>
                <li class='dropdown'>
-                 <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Density<b class='caret'></b></a>
-                 <ul class='dropdown-menu'>
-                   <li><a href='".$baseurl."?hours=".$hours."&skip=1&group=".$group."&loc=".$loc."&type=".$type."'>All Points</a></li>
-                   <li><a href='".$baseurl."?hours=".$hours."&skip=2&group=".$group."&loc=".$loc."&type=".$type."'>Half Density</a></li>
-                   <li><a href='".$baseurl."?hours=".$hours."&skip=4&group=".$group."&loc=".$loc."&type=".$type."'>Quarter Density</a></li>
-                   <li><a href='".$baseurl."?hours=".$hours."&skip=8&group=".$group."&loc=".$loc."&type=".$type."'>Eighth Density</a></li>
-                   <li><a href='".$baseurl."?hours=".$hours."&skip=16&group=".$group."&loc=".$loc."&type=".$type."'>Sixteenth Density</a></li>
-                 </ul>
-               </li>
-               <li class='dropdown'>
                  <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Type<b class='caret'></b></a>
                  <ul class='dropdown-menu'>
                    <li><a href='".$baseurl."?hours=".$hours."&skip=".$skip."&group=".$group."&loc=".$loc."&type=All'>All Types</a></li>

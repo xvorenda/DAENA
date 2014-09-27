@@ -21,7 +21,7 @@ echo "
                         defaultSeriesType: 'line',
                         zoomType: 'x',
                     },
-                    title: { text: '".$group." Freezers <br>Location: ".$loc."<br>".$hours." Hour View | 1/".$skip." Density'},
+                    title: { text: '".$group." Freezers<br>Location: ".$loc."<br>".$hours." Hour View},
                     subtitle: { text: ''},
 
                     xAxis: {
@@ -126,7 +126,7 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
     /* Define each freezer graph */
     echo "',
                     dashStyle: 'solid',
-                    pointInterval: ".$skip." * 60 * 1000,
+                    pointInterval: 60 * 1000,
                     data: [";
     /* Limit displayed points to within view window */
     if ($hours !='All') {
@@ -147,20 +147,16 @@ while(($freezerdata = $allfreezers->fetch_assoc())){
         $probe_temp = ltrim($probe_temp, '+0');};
         if (isset($probe_int_time)) {
             $probe_minute = round($probe_int_time / 60) * 60;
-            $bounce = $skip * 60;
-            $time_slice = ($probe_minute / $bounce);
-            $int_time_slice = intval($time_slice);
-            $timequotient = $time_slice / $int_time_slice;
         };
         if (isset($probe_minute, $probe_temp)) {
-        $timetemp = "[".$probe_minute.", ".$probe_temp."], ";
-        if ($probe_minute != 0 && $probe_temp != "nodata" && $timequotient == 1 && $probe_minute > $viewstop){
-            echo $timetemp;
+            $timetemp = "[".$probe_minute.", ".$probe_temp."], ";
+            if ($probe_minute != 0 && $probe_temp != "nodata" && $probe_minute > $viewstop){
+                echo $timetemp;
+            };
         };
     };
-};
 echo "]},";
-        };
+};
 
 
 echo "]
