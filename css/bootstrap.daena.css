@@ -18,7 +18,7 @@ h3 {margin:12px auto 0;}
 .field-narrow, .field-wide {margin:12px auto !important}
 #container, #about {
    position:relative;
-   margin:96px 24px !important;
+   margin:96px 24px 0 !important;
    min-width:95%;
    min-height:85%;
 }
@@ -34,9 +34,9 @@ h3 {margin:12px auto 0;}
   margin-left: auto;
   margin-right: auto;
 }
-#toggles > input[type=checkbox] {
+/*#toggles > input[type=checkbox] {
 	visibility: hidden;
-}
+}*/
 label, span > div {
   margin: 0 6px;
   padding: 6px;
