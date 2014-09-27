@@ -85,6 +85,7 @@ $freezercount = count($columnnames) - 1;
 
 echo "
 </div>
+<div id='labels'
 <script type='text/javascript'>
   chart = new Dygraph(
 
@@ -143,6 +144,8 @@ echo "        ],
               {
                 title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View | 1/".$skip." Density',
                 labels: [\"".$columnheader."\"],
+                labelsDiv: document.getElementById('labels'),
+                legend: 'always',
                 colors: ['#".$colorlist."'],
                 visibility: [".$visiblelist."],
                 strokeWidth: 4,
