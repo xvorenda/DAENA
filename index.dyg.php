@@ -164,7 +164,7 @@ $(document).ready(function()
   });
 
   // call `resize` to center elements
-  $(window).resize();
+  $(window).onLoad();
 });
 </script>";
 
