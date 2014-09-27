@@ -75,6 +75,7 @@ border-bottom-right-radius: 20px !important;
 }
 
 #legend {
+  clear: both;
   width: auto;
 }
 @media (min-width: 1080px ) {
