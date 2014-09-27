@@ -57,10 +57,8 @@ echo "
                    <li><a href='".$baseurl."?hours=".$hours."&group=".$group."&loc=".$loc."&type=4'>4 Fridge</a></li>
                  </ul>
                </li>
-               ";
-               if strpos($url,'index.dyg.php') {
-                 echo "<li><a href='#' onclick='unzoomGraph()'>Reset</a></li>";};
-            echo"</ul>
+               <li><a href='#' onclick='unzoomGraph()'>Reset</a></li>
+            </ul>
              <ul class='nav navbar-nav navbar-right'>
                <li><a href='about.php'>About</a></li>
                <li><a href='admin'>Admin</a></li>
