@@ -1,4 +1,7 @@
 /* DAENA-Specific Styles */
+.dygraphs-title {
+  font-weight: normal;
+}
 #wrapper {
   margin-top: 96px;
   margin-left: 24px;
