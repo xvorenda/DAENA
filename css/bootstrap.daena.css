@@ -24,6 +24,7 @@ h3 {margin:12px auto 0;}
 }
 #container, #labels {
   float: left !important;
+  clear: none !important;
 }
 #graph {
   position:relative;
