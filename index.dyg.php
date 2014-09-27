@@ -33,9 +33,7 @@ ORDER BY ABS(freezer_id)";
 echo "
 <div id='container'></div>
 <div id='data'></div>
-<div id='toggles'>
-  <div id='toggles-wrapper'>
-    <div id='toggles-center'>
+<div id='legend'>
             ";
 $i = 0;
 $columnnames = array();
@@ -75,8 +73,6 @@ $freezercount = count($columnnames) - 1;
 
 
 echo "
-    </div>
-  </div>
 </div>
 <script type='text/javascript'>
   chart = new Dygraph(
