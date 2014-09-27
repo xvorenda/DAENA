@@ -36,9 +36,9 @@ h3 {margin:12px auto 0;}
   border-radius: 20px;
 }
 .centered {float:left}
-/*#toggles > input[type=checkbox] {
-	visibility: hidden;
-}*/
+#toggles > input[type=checkbox] {
+	margin: auto;
+}
 .stealth {display:none}
 .fakeinput, input {
     margin:0 auto;
