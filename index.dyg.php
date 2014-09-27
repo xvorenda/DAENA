@@ -153,6 +153,22 @@ echo "        ],
                   valueRange: null
                 });
               }
+</script>
+<script>
+$(document).ready(function()
+{
+  $(window).resize(function()
+  {
+    $('.visitorSelect').css(
+    {
+      position: 'absolute',
+      left: ($(window).width() - $('#toggle').outerWidth()) / 2,
+    });
+  });
+
+  // call `resize` to center elements
+  $(window).resize();
+});
 </script>";
 
 /* Wrap things up */
