@@ -81,7 +81,7 @@ border-bottom-right-radius: 20px !important;
 }
 @media (max-height: 550px ) {
   #legend {
-    font-size: 10% !important;
+    font-size: 50% !important;
   }
 }
 @media (min-width: 1080px ) {
