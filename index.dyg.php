@@ -68,8 +68,8 @@ echo "
 
 foreach ($namearray as $key => $value) {
 
-echo "<input type=checkbox id=".$key." onClick=\"change(this)\" checked>
-        <label for=\"".$key."\"> ".$value."</label>";
+echo "<input class='line-toggle' type=checkbox id=".$key." onClick=\"change(this)\" checked>
+        <label for=\"".$key."\">".$value."</label>";
 };
 echo "
 </div>

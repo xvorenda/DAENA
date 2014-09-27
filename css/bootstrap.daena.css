@@ -32,6 +32,10 @@ h3 {margin:12px auto 0;}
   width: 70%;
   margin: 0 auto;
 }
+.line-toggle {
+  margin: 0 6px;
+  padding: 6px;
+}
 .stealth {display:none}
 .fakeinput, input {
     margin:0 auto;
