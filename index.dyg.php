@@ -59,13 +59,13 @@ $columnheader = implode ("\", \"",$columnnames);
 $colorlist = implode ("', '#",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
-
+$namearray = explode ('\"',$colunmheader);
 echo "
 <div id='container'></div>
 <div id='labels'></div>
 <p><b>Display: </b>";
-reset($columnnames);
-foreach ($columnnames as $key => $value) {
+
+foreach ($namearray as $value) {
 
   echo "<input type='checkbox' id='".$value."' onClick='change\(this\)' checked>
           <label for='".$value"'>a</label>";
