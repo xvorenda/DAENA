@@ -159,7 +159,7 @@ $(document).ready(function()
     {
       position: 'absolute',
       left: ($(window).width() - $('#toggles-center').outerWidth()) / 2,
-      bottom: ($(window).height() - $('#toggles-center').outerHeight())
+      top: ($(window).height() - $('#toggles-center').outerHeight()) - 40
     });
   });
 

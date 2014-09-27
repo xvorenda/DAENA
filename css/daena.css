@@ -73,16 +73,9 @@ border-bottom-right-radius: 20px !important;
   width: 100% !important;
   height: 100% !important
 }
-#toggles {
-}
-#toggles-wrapper {
-  width: 100%;
-  text-align: center;
-}
-#toggles-center {
-  width: 65%;
-  margin-left: auto;
-  margin-right: auto;
+
+#legend {
+  width: auto;
 }
 @media (min-width: 1080px ) {
   #data {
