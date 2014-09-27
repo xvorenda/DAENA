@@ -67,9 +67,10 @@ echo "
 <div id='labels'></div>
 <p><b>Display: </b>";
 
-foreach ($namearray as $value) {
+foreach ($namearray as $key => $value) {
 
-  print_r($value);
+  echo "<input type='checkbox' id='".$value."' onClick='change(this)' checked>
+          <label for='".$value"'>a</label>";
 };
 echo "
 </p>
