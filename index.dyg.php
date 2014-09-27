@@ -128,7 +128,9 @@ echo "        ],
                 drawXGrid: false,
                 axisLineColor: 'white'
               });
-
+              function change(el) {
+                chart.setVisibility(el.id, el.checked);
+              }
 </script>";
 
 /* Wrap things up */
