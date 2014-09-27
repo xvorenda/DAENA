@@ -43,6 +43,7 @@ ORDER BY ABS(freezer_id)";
 $columnnames = array();
 $freezercolors = array();
 $freezerids = array();
+$visibility = array();
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
@@ -52,6 +53,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($columnnames,$freezername);
     array_push($freezerids,$freezerid);
     array_push($freezercolors,$colorname);
+    array_push($visibility,"true")
 }
 $columnheader = implode ("\", \"",$columnnames);
 $colorlist = implode ("', '#",$freezercolors);
@@ -79,7 +81,8 @@ $pings = $daenaDB->query($pingquery);
 $badneg_a = "-00";
 $badneg_b = "-0";
 $re_neg = "-";
-$freezergroups =implode(',', $freezerids);
+$freezergroups = implode(',', $freezerids);
+$visiblelist = implode(',', $visibility);
 
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
@@ -120,12 +123,18 @@ echo "        ],
                 labelsDiv: document.getElementById('labels'),
                 legend: 'always',
                 colors: ['#".$colorlist."'],
+                visibility: ['#".$visiblelist."'],
                 strokeWidth: 4,
                 drawXGrid: false,
                 axisLineColor: 'white'
               });
+              function change(el) {
+                  chart.setVisibility(el.id, el.checked);
+              }
 </script>
-";
+<p><b>Display: </b>";
+echo "<input type='checkbox' id='".$i."' onClick='change(this)' checked>
+<label for='".$i"'>a</label>";
 
 /* Wrap things up */
 include 'assets/footer.php';
