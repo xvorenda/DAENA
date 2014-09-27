@@ -38,5 +38,5 @@ echo "
          </div>
        </div>
     </div>
-    <div id='container' class='content'>";
+    <div id='wrapper' class='content'>";
 ?>
