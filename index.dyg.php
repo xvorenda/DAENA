@@ -40,6 +40,10 @@ WHERE freezer_active='1'
 ".$typefilter."
 ORDER BY ABS(freezer_id)";
 
+echo "
+<div id='container'></div>
+<div id='toggles'>";
+$i = 0;
 $columnnames = array();
 $freezercolors = array();
 $freezerids = array();
@@ -56,21 +60,22 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezerids,$freezerid);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
+
+
+    echo "<input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
+            <label style='color: #".$colorname."' for=\"".$i."\">".$freezername."</label>";
+
+    $i++;
 }
+
+
 $columnheader = implode ("\", \"",$columnnames);
 $colorlist = implode ("', '#",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
 
-echo "
-<div id='container'></div>
-<div id='toggles'>";
 
-foreach ($namearray as $key => $value) {
 
-echo "<input class='line-toggle' type=checkbox id=".$key." onClick=\"change(this)\" checked>
-        <label for=\"".$key."\">".$value."</label>";
-};
 echo "
 </div>
 <div id='labels'></div>
