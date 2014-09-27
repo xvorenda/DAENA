@@ -18,7 +18,7 @@ echo "
         <div class='navbar-collapse collapse'>
              <ul class='nav navbar-nav'>
                <li><a href='".$baseurl."'>Home</a></li>
-               <li><input type='button' value='Reset' onclick='unzoomGraph()'></li>
+               <li><a href='#' onclick='unzoomGraph()'>Reset</a></li>
                <li class='dropdown'>
                  <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Location<b class='caret'></b></a>
                  <ul class='dropdown-menu'>
