@@ -68,7 +68,7 @@ echo "
 
 foreach ($namearray as $value) {
 
-  print_r($namearray);
+  print_r($value);
 };
 echo "
 </p>
