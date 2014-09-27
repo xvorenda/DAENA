@@ -32,8 +32,9 @@ ORDER BY ABS(freezer_id)";
 /* Print Freezer Legend, Data View, and Toggles */
 echo "
 <div id='container'></div>
-<div id='labels'></div>
+<div id='data'></div>
 <div id='toggles'>
+  <div id='toggles-center'>
             ";
 $i = 0;
 $columnnames = array();
@@ -60,6 +61,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
             </label><br>
             <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
           </div>
+        </div>
             ";
     $i++;
 }
@@ -132,7 +134,7 @@ echo "        ],
               {
                 title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View',
                 labels: [\"".$columnlist."\"],
-                labelsDiv: document.getElementById('labels'),
+                labelsDiv: document.getElementById('data'),
                 legend: 'always',
                 colors: ['#".$colorlist."'],
                 visibility: [".$visiblelist."],

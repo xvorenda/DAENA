@@ -61,7 +61,7 @@ border-bottom-right-radius: 20px !important;
    width:88% !important;
    height:85%;
 }
-#container, #labels {
+#container, #data {
   float: left !important;
   clear: none !important;
 }
@@ -72,13 +72,17 @@ border-bottom-right-radius: 20px !important;
   height: 100% !important
 }
 #toggles {
-  width: 65%;
+  width: 100%;
   text-align: center;
+
+}
+#toggles-center {
+  width: 65%;
   margin-left: auto;
   margin-right: auto;
 }
 @media (min-width: 1080px ) {
-  #labels {
+  #data {
     height: 100%;
     width: 80px;
     margin-top: 128px;
@@ -87,7 +91,7 @@ border-bottom-right-radius: 20px !important;
   }
 }
 @media (max-width: 1080px ) {
-  #labels {
+  #data {
     visibility: hidden !important;
   }
 }
