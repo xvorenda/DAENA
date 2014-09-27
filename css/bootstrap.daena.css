@@ -19,7 +19,7 @@ h3 {margin:12px auto 0;}
 #container, #about {
    position:relative;
    margin:96px 24px 0 !important;
-   width:88%;
+   width:88% !important;
    height:85%;
 }
 #container, #labels {
