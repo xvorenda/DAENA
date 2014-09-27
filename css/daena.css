@@ -56,7 +56,6 @@ border-bottom-right-radius: 20px !important;
 }
 
 #container, #about {
-   position:relative;
    margin:96px 24px 24px !important;
    width:88% !important;
 }
@@ -69,9 +68,6 @@ border-bottom-right-radius: 20px !important;
   width: 100% !important;
   height: 100% !important
 }
-#toggles {
-  position: relative !important;
-}
 #toggles-wrapper {
   width: 100%;
   text-align: center;
@@ -80,6 +76,8 @@ border-bottom-right-radius: 20px !important;
   width: 65%;
   margin-left: auto;
   margin-right: auto;
+}
+#toggles {
 }
 @media (min-width: 1080px ) {
   #data {
