@@ -21,7 +21,7 @@ echo "
                         defaultSeriesType: 'line',
                         zoomType: 'x',
                     },
-                    title: { text: '".$group." Freezers<br>Location: ".$loc."<br>".$hours." Hour View},
+                    title: { text: '".$group." Freezers<br>Location: ".$loc."<br>".$hours." Hour View'},
                     subtitle: { text: ''},
 
                     xAxis: {
