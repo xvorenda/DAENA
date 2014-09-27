@@ -39,11 +39,18 @@ h3 {margin:12px auto 0;}
   margin-left: auto;
   margin-right: auto;
 }
-#labels {
-  min-height: 85%;
-  width: 80px;
-  margin-top: 96px;
-  padding: 6px
+@media (min-width: 768px ) {
+  #labels {
+    min-height: 85%;
+    width: 80px;
+    margin-top: 96px;
+    padding: 6px
+  }
+}
+@media (max-width: 768px ) {
+  #labels {
+    visibility: hidden !important;
+  }
 }
 .freezer-box {
   margin-top: 4px;
