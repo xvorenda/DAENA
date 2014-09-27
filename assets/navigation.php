@@ -57,7 +57,7 @@ echo "
                    <li><a href='".$baseurl."?hours=".$hours."&group=".$group."&loc=".$loc."&type=4'>4 Fridge</a></li>
                  </ul>
                </li>";
-               if strpos($baseurl,'dyg') {
+               if (strpos($baseurl,'dyg') !== false) {
                  echo "<li><a href='#' onclick='unzoomGraph()'>Reset</a></li>
                  ";
                }
