@@ -85,7 +85,7 @@ $freezercount = count($columnnames) - 1;
 
 echo "
 </div>
-<div id='labels'
+<div id='labels'></div>
 <script type='text/javascript'>
   chart = new Dygraph(
 
