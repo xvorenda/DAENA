@@ -64,10 +64,10 @@ echo "
 <div id='container'></div>
 <div id='labels'></div>";
 
-foreach ($columnnames as $boxname) {
+foreach ($columnnames as $key => $boxname) {
 
-  echo "<input type='checkbox' id='".$boxname[1]."' onClick='change(this)' checked>
-          <label for='".$boxname[1]"'>a</label>";
+  echo "<input type='checkbox' id='".$boxname."' onClick='change(this)' checked>
+          <label for='".$boxname"'>a</label>";
 };
 echo "
 </p>
