@@ -41,7 +41,7 @@ h3 {margin:12px auto 0;}
 }
 @media (min-width: 768px ) {
   #labels {
-    min-height: 85%;
+    min-height: 100%;
     width: 80px;
     margin-top: 128px;
     padding: 6px
