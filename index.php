@@ -143,26 +143,13 @@ echo "        ],
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
               }
-              function unzoomGraph() {
+              function resetGraph() {
                 chart.updateOptions({
                   dateWindow: null,
-                  valueRange: null
-                });
-              }
-              function showAll() {
-                chart.updateOptions({
+                  valueRange: null,
                   visibility: [".$visiblelist."]
                 });
               }
-</script>
-<script>
-$(document).ready(function ()
-  {
-    $('#checkall').click(function ()
-      {
-        $(''.line-toggle').prop('checked', $(this).prop('checked'));
-      });
-  });
 </script>
 <script>
 $(document).ready(function()

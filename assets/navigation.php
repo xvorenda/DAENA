@@ -56,8 +56,7 @@ echo "
                    <li><a href='".$baseurl."?hours=".$hours."&group=".$group."&loc=".$loc."&type=4'>4 Fridge</a></li>
                  </ul>
                </li>
-               <li><a id='unzoom' class='glyphicon glyphicon-repeat' href='#' onclick='unzoomGraph()'></a></li>
-               <li><a id 'checkall' class='glyphicon glyphicon-refresh' href='#' onclick='showAll()'></a></li>
+               <li><a id='unzoom' class='glyphicon glyphicon-repeat' href='#' onclick='resetGraph()'></a></li>
              </ul>
              <ul class='nav navbar-nav navbar-right'>
                <li><a href='admin'>Admin</a></li>

@@ -6,6 +6,9 @@ body {
   font-size: 18px !important;
   width: 110% !important;
 }
+.line-toggle {
+  visibility: hidden !important
+}
 #wrapper {
   margin-top: 96px;
   margin-left: 24px;
