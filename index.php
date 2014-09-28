@@ -144,9 +144,6 @@ echo "        ],
                 drawXGrid: false,
                 axisLineColor: 'white'
               });
-              function change(el) {
-                chart.setVisibility(el.id, el.checked);
-              }
               function resetGraph()
               {
                 chart.updateOptions(
@@ -164,14 +161,15 @@ echo "
 <script type='text/javascript'>
   $(document).ready(function()
   {
-    $('.line-toggle').on('click',function ()
+    $('.line-toggle').on('click',function (el)
     {
       $(this.parentElement).toggleClass('box-active')
+      chart.setVisibility(el.id, el.checked);
     });
   });
 </script>";
 
-/*Position Legend*/
+/*Position Legend Dynamically*/
 echo "<script type='text/javascript'>
 $(document).ready(function()
 {
