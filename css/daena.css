@@ -100,8 +100,8 @@ border-bottom-right-radius: 20px !important;
     height: 400px !important;
   }
   #legend {
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
   }
   #data {
     display: none !important;
