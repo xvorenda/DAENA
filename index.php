@@ -153,7 +153,7 @@ echo "        ],
                 chart.updateOptions({
                   visibility: [".$visiblelist."]
                 });
-                document.getElementsByClassName('line-toggle').checked = true;
+                document.querySelectorAll('.line-toggle').checked = true;
               }
 </script>
 <script>
