@@ -20,7 +20,7 @@ if (mysqli_connect_errno())
   }
 
 
-/* Ask MySQL which freezers are active */
+/* Ask MySQL which freezers are active, from filters */
 $freezerquery = "SELECT freezer_id,freezer_name,freezer_color,freezer_location
 FROM daena_db.freezers
 WHERE freezer_active='1'
@@ -29,18 +29,25 @@ WHERE freezer_active='1'
 ".$typefilter."
 ORDER BY ABS(freezer_id)";
 
-/* Print Freezer Legend, Data View, and Toggles */
-echo "
-<div id='container'></div>
-<div id='data'></div>
-<div id='legend'>
-            ";
+/* Define Variables and Arrays */
 $i = 0;
 $columnnames = array();
 $freezercolors = array();
 $freezerids = array();
 $namearray = array();
 $visibility = array();
+$badneg_a = "-00";
+$badneg_b = "-0";
+$re_neg = "-";
+
+
+/* Print Freezer Legend, Data View, and Toggles */
+echo "
+<div id='container'></div>
+<div id='data'></div>
+<div id='legend'>
+            ";
+
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
@@ -64,14 +71,14 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     $i++;
 }
 
-
+/* Format Freezer Names and Colors, Get Count */
 $columnlist = implode ("\", \"",$columnnames);
 $colorlist = implode ("', '#",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
 
 
-
+/* Start Defining DyGraph */
 echo "
 </div>
 <script type='text/javascript'>
@@ -83,7 +90,7 @@ echo "
         [\n";
 
 
-/* Ask MySQL for some number of minutes worth of ping data */
+/* Ask MySQL for unique ping times */
 $pingquery = "SELECT DISTINCT int_time FROM daena_db.data
               WHERE int_time > ".$viewstart."
               ORDER BY int_time ASC";
@@ -91,9 +98,6 @@ $pingquery = "SELECT DISTINCT int_time FROM daena_db.data
 $pings = $daenaDB->query($pingquery);
 
 
-$badneg_a = "-00";
-$badneg_b = "-0";
-$re_neg = "-";
 $freezergroups = implode(',', $freezerids);
 $visiblelist = implode(',', $visibility);
 
