@@ -57,6 +57,7 @@ echo "
                  </ul>
                </li>
                <li><a class='glyphicon glyphicon-repeat' href='#' onclick='unzoomGraph()'></a></li>
+               <li><a class='glyphicon glyphicon-refresh' href='#' onclick='unzoomGraph()'></a></li>
              </ul>
              <ul class='nav navbar-nav navbar-right'>
                <li><a href='admin'>Admin</a></li>
