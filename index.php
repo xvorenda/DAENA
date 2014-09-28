@@ -148,9 +148,9 @@ echo "        ],
                   dateWindow: null,
                   valueRange: null
                 });
-              function showChange() {
+              function showAll() {
                 alert('show chart:' + window.chart);
-                window.chart.date_graph.setVisibility(3, false);
+                window.chart.setVisibility(3, false);
               }
             }
 </script>
