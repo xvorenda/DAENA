@@ -148,7 +148,7 @@ echo "        ],
                   dateWindow: null,
                   valueRange: null
                 });
-              function showAll(el) {
+              function showAll() {
                 chart.updateOptions({
                 visibility: [".$visiblelist."]
                 });
