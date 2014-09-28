@@ -86,8 +86,8 @@ border-bottom-right-radius: 20px !important;
 }
 
 #data {
-  height: 80px;
-  width: 20%;
+  height: 100%;
+  width: 80px;
   margin-top: 108px;
   padding: 6px;
   clear: right;
