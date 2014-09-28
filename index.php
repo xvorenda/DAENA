@@ -122,11 +122,9 @@ while ($pingrow = $pings->fetch_assoc()) {
           $datatemp = ltrim($datatemp, '+00');
           $datatemp = ltrim($datatemp, '+0');
           if ($datatemp == "nodata"){
-          $datatemp = "null";}
-          echo ", ".$datatemp;
-
-
-      }
+            $datatemp = "null";}
+            echo ", ".$datatemp;
+          }
       echo "],\n";
 }}
 echo "        ],
