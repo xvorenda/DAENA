@@ -113,6 +113,7 @@ border-bottom-right-radius: 20px !important;
 #data > span {
   width:80px;
   text-align: left !important;
+  margin-top: 10px;
 }
 .click-label {
   display: block;
@@ -128,7 +129,7 @@ border-bottom-right-radius: 20px !important;
   margin-top: 4px;
   margin-right: 4px;
   float:left;
-  padding: 10px;
+  padding: 0px;
   text-align: center;
   border: 1px solid #333;
   border-radius: 8px;
