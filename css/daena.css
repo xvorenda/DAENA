@@ -131,7 +131,7 @@ border-bottom-right-radius: 20px !important;
   border-radius: 8px;
   background-color: #eaeaea;
   height: 72px;
-  min-width: 60px;
+  width: 72px;
 }
 .box-active {
   background-color: #fff !important;
