@@ -1,4 +1,7 @@
 /* DAENA-Specific Styles */
+body {
+  min-height: 800px !important;
+}
 .dygraph-title {
   font-size: 18px !important;
   width: 110% !important;
