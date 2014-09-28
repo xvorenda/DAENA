@@ -153,7 +153,7 @@ echo "        ],
                 chart.updateOptions({
                   visibility: [".$visiblelist."]
                 });
-                document.getElementById("checkbox").checked = true;
+                document.getElementById('checkbox').checked = true;
               }
 </script>
 <script>
