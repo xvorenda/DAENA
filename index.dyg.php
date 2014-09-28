@@ -164,7 +164,7 @@ $(document).ready(function()
     $('#legend').css(
     {
       left: ($(window).width() - $('#legend').outerWidth()) / 2,
-      top: 520
+      top: 500
     });
   });
 
