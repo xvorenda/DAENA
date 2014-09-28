@@ -146,7 +146,7 @@ echo "        ],
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
-                $(this.parentElement).toggleClass('box-active')
+                $(el.parentElement).toggleClass('box-active')
               }
               function resetGraph()
               {
