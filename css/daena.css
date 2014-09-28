@@ -79,7 +79,7 @@ border-bottom-right-radius: 20px !important;
 #graph {
   position:relative;
   margin:96px 24px !important;
-  width: 100% !important;
+  width: 96% !important;
   height: 100% !important
 }
 #legend {
