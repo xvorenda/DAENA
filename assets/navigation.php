@@ -45,7 +45,6 @@ echo "
                    <li><a href='".$baseurl."?hours=24&group=".$group."&loc=".$loc."&type=".$type."'>One Day</a></li>
                    <li><a href='".$baseurl."?hours=48&group=".$group."&loc=".$loc."&type=".$type."'>Two Days</a></li>
                    <li><a href='".$baseurl."?hours=168&group=".$group."&loc=".$loc."&type=".$type."'>One Week</a></li>
-                   <li><a href='".$baseurl."?hours=All&group=".$group."&loc=".$loc."&type=".$type."'>All Time</a></li>
                 </ul>
                </li>
                <li class='dropdown'>
