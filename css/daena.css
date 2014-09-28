@@ -59,7 +59,7 @@ border-top-right-radius: 20px !important;
 border-bottom-right-radius: 20px !important;
 }
 
-@media (minwidth: 768px ) {
+@media (min-width: 768px ) {
   #container, #about {
      position:relative;
      margin:96px 36px 24px 12px !important;
