@@ -148,8 +148,8 @@ echo "        ],
                   dateWindow: null,
                   valueRange: null
                 });
-              function showAll() {
-                chart.setVisibility(1, true, 2, true, 3, true);
+              function showAll(el) {
+                chart.setVisibility(el.id, true);
               }
             }
 </script>
