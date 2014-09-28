@@ -158,7 +158,7 @@ echo "        ],
  <script type='text/javascript'>
     $( document ).ready( function(){
         $('#legend').on('click','.freezer-box',function () {
-             $(this).toggleClass('boxactive')
+             $(this).toggleClass('box-active')
         });
     });
   </script>
