@@ -133,7 +133,8 @@ border-bottom-right-radius: 20px !important;
   border: 1px solid #333;
   border-radius: 8px;
   background-color: #eaeaea;
-  height: 80px;
+  height: 72px;
+  width: 36px;
 }
 .box-active {
   background-color: #fff !important;
