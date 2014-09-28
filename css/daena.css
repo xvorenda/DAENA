@@ -115,17 +115,14 @@ border-bottom-right-radius: 20px !important;
   text-align: left !important;
 }
 .click-label {
-  display: table-cell;
+  display: block;
   padding: 5px 5px 5px 5px;
   margin-bottom: 0px !important;
-  width: 1px !important;
-  height: 100% !important;
+  width:80px !important;
+  height:80px !important
 }
 .line-toggle {
   visibility: hidden !important;
-  display: table-cell;
-  width:80px !important;
-  height:80px !important
 }
 .freezer-box {
   font-size: 12px;
