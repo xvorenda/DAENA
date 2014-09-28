@@ -70,7 +70,7 @@ border-bottom-right-radius: 20px !important;
   #container, #about {
     position:relative;
     margin:96px auto 24px !important;
-    width:90% !important;
+    width:100% !important;
   }
 }
 #container, #data {
