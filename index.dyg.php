@@ -164,7 +164,7 @@ $(document).ready(function()
     {
       left: ($(window).width() - $('#legend').outerWidth()) / 2,
       top: 460,
-      width: ($(window).width()) * 0.8
+      width: auto
     });
   });
 
