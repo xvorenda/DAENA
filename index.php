@@ -153,6 +153,7 @@ echo "        ],
                   valueRange: null,
                   visibility: [".$visiblelist."]
                 });
+                $('.freezer-box').addClass('box-active');
               }
 </script>";
 
