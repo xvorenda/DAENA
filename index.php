@@ -164,6 +164,8 @@ echo "<script type='text/javascript'>
              $(this.parentElement).toggleClass('box-active')
         });
     });
+    </script>
+    <script>
     $(function(){
       $('.freezer-box').click(function (event) {
         if (!$(event.target).is('input')) {
