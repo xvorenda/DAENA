@@ -111,7 +111,7 @@ border-bottom-right-radius: 20px !important;
 }
 .box-spacer {
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 10px
 }
 #data > span {
   width:80px;
@@ -120,12 +120,13 @@ border-bottom-right-radius: 20px !important;
 }
 .click-label {
   display: block;
-  margin: -10px 0 0 0 !important;
+  margin: 0px !important;
   width:70px !important;
   height:70px !important
 }
 .line-toggle {
   visibility: hidden !important;
+  margin-top: -10px;
 }
 .freezer-box {
   font-size: 12px;
