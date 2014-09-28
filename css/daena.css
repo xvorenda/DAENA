@@ -73,17 +73,11 @@ border-bottom-right-radius: 20px !important;
   width: 100% !important;
   height: 100% !important
 }
-@media (min-height: 550px ) {
-  #legend {
-    clear: both;
-    width: auto;
-  }
+#legend {
+  clear: both;
+  width: auto !important;
 }
-@media (max-height: 550px ) {
-  #legend {
-    font-size: 50% !important;
-  }
-}
+
 @media (min-width: 1080px ) {
   #data {
     height: 100%;
