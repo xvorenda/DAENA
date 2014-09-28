@@ -127,6 +127,7 @@ border-bottom-right-radius: 20px !important;
   float:left;
   padding: 10px;
   text-align: center;
+  display: inline-block;
 }
 .freezerinfo {
     margin:12px auto;
