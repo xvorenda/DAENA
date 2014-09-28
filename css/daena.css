@@ -62,7 +62,7 @@ border-bottom-right-radius: 20px !important;
 @media (min-width: 768px ) {
   #container, #about {
      position:relative;
-     margin:96px 36px 24px 12px !important;
+     margin:96px auto 24px auto !important;
      width:80% !important;
   }
 }
@@ -79,7 +79,7 @@ border-bottom-right-radius: 20px !important;
 #graph {
   position:relative;
   margin:96px 24px !important;
-  width: 96% !important;
+  width: 100% !important;
   height: 100% !important
 }
 #legend {
