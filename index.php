@@ -148,12 +148,12 @@ echo "        ],
                   dateWindow: null,
                   valueRange: null
                 });
+              }
               function showAll() {
                 chart.updateOptions({
-                visibility: [".$visiblelist."]
+                  visibility: [".$visiblelist."]
                 });
               }
-            }
 </script>
 <script>
 $(document).ready(function()
