@@ -83,7 +83,7 @@ border-bottom-right-radius: 20px !important;
     margin-right: 48px;
   }
 }
-@media (min-width: 1080px ) {
+@media (min-width: 768px ) {
   #data {
     height: 100%;
     width: 80px;
@@ -92,7 +92,7 @@ border-bottom-right-radius: 20px !important;
     clear: right;
   }
 }
-@media (max-width: 1080px ) {
+@media (max-width: 768px ) {
   #data {
     visibility: hidden !important;
   }
