@@ -62,9 +62,9 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($visibility,"true");
     echo "<div class='freezer-box box-active'>
             <label class='click-label' for=\"".$i."\">
-              <p><span style='color: #".$colorname."'>".$freezername."</span>
+              <p class='box-spacer'><span style='color: #".$colorname."'>".$freezername."</span>
               <br>".$freezerlocation."</p>
-            </label><br>
+            </label>
             <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
           </div>
             ";
