@@ -153,10 +153,11 @@ echo "        ],
                 chart.updateOptions({
                   visibility: [".$visiblelist."]
                 });
-                $(document).ready(function () {
-                  $(\"#checkall\").click(function () {
-                      $(\".line-toggle\").prop('checked', $(this).prop('checked'));
-                    });
+              }
+              $(document).ready(function () {
+                $(\"#checkall\").click(function () {
+                    $(\".line-toggle\").prop('checked', $(this).prop('checked'));
+                  });
                 });
               }
 </script>
