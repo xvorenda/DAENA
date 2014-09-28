@@ -60,7 +60,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezerids,$freezerid);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
-    echo "<div class='freezer-box freezer-box-active'>
+    echo "<div class='freezer-box box-active'>
             <label for=\"".$i."\">
               <span style='color: #".$colorname."'>".$freezername."</span>
               <br>".$freezerlocation."
@@ -155,14 +155,14 @@ echo "        ],
                 });
               }
 </script>
-<script type='text/javascript'>
+ <script type='text/javascript'>
     $( document ).ready( function(){
         $('#legend').on('click','.freezer-box',function () {
-              $(this).addClass('greyed');
-              $('.freezer-box').removeClass('greyed')
+             $('.freezer-box').removeClass('box-active');
+             $(this).addClass('box-active')
         });
     });
-</script>
+  </script>
 <script>
 $(document).ready(function()
 {
