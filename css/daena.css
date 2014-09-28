@@ -123,8 +123,9 @@ border-bottom-right-radius: 20px !important;
 }
 .line-toggle {
   visibility: hidden !important;
-  display: table-cell; 
-  width:100%
+  display: table-cell;
+  width:80px !important;
+  height:80px !important
 }
 .freezer-box {
   font-size: 12px;
