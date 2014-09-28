@@ -161,7 +161,7 @@ echo "
 <script type='text/javascript'>
   $(document).ready(function()
   {
-    $('.line-toggle').on('click',function (el)
+    $('.line-toggle').on('click',function change(el)
     {
       $(this.parentElement).toggleClass('box-active')
       chart.setVisibility(el.id, el.checked);
