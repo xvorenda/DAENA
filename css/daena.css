@@ -78,12 +78,28 @@ border-bottom-right-radius: 20px !important;
      width:88% !important;
      height: 400px !important;
   }
+  #data {
+    text-align: center;
+    height: 100%;
+    width: 80px;
+    margin-top: 128px;
+    margin-left: 8px;
+    padding: 6px;
+    clear: right;
+  }
 }
 @media (max-width: 768px ) {
   #container, #about {
     position:relative;
     margin:96px auto 24px !important;
     width:95% !important;
+  }
+  #legend {
+    margin-left: 16px;
+    margin-right: 48px;
+  }
+  #data {
+    display: none !important;
   }
 }
 #container, #data {
@@ -100,29 +116,6 @@ border-bottom-right-radius: 20px !important;
   width: auto !important;
 }
 
-@media (max-width: 768px ) {
-  #legend {
-    margin-left: 16px;
-    margin-right: 48px;
-  }
-}
-
-@media (min-width: 768px ) {
-  #data {
-    text-align: center;
-    height: 100%;
-    width: 80px;
-    margin-top: 128px;
-    margin-left: 8px;
-    padding: 6px;
-    clear: right;
-  }
-}
-@media (max-width: 768px ) {
-  #data {
-    display: none !important;
-  }
-}
 #data > span {
   width:80px;
   text-align: left !important;
