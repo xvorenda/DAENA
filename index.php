@@ -153,7 +153,11 @@ echo "        ],
                 chart.updateOptions({
                   visibility: [".$visiblelist."]
                 });
-                ('.line-toggle').prop('checked', true);
+                $(document).ready(function () {
+                  $('#checkall').click(function () {
+                      $('.line-toggle').prop('checked', $(this).prop('checked'));
+                    });
+                });
               }
 </script>
 <script>
