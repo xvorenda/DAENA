@@ -149,7 +149,9 @@ echo "        ],
                   valueRange: null
                 });
               function showAll(el) {
-                chart.setVisibility(el.id, true);
+                chart.updateOptions({
+                visibility: [".$visiblelist."]
+                });
               }
             }
 </script>
