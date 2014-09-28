@@ -81,8 +81,8 @@ border-bottom-right-radius: 20px !important;
   #legend {
     margin-left: 24px;
     margin-right: 48px;
+  }
 }
-
 @media (min-width: 1080px ) {
   #data {
     height: 100%;
