@@ -60,9 +60,8 @@ border-bottom-right-radius: 20px !important;
 
 #container, #about {
    position:relative;
-   margin:96px 24px 24px !important;
+   margin:96px 36px 24px 12px !important;
    width:88% !important;
-   height:85%;
 }
 #container, #data {
   float: left !important;
