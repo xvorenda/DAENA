@@ -158,8 +158,8 @@ echo "        ],
  <script type='text/javascript'>
     $( document ).ready( function(){
         $('#legend').on('click','.freezer-box',function () {
-             $('.freezer-box').removeClass('box-active');
-             $(this).addClass('box-active')
+             $(this).removeClass('box-active');
+             // $(this).addClass('box-active')
         });
     });
   </script>
