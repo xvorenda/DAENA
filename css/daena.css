@@ -92,7 +92,10 @@ border-bottom-right-radius: 20px !important;
   padding: 6px;
   clear: right;
 }
-
+#data > span {
+  width:80px !important;
+  margin: auto !important;
+}
 .freezer-box {
   font-size: 12px;
   margin-top: 4px;
