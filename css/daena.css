@@ -62,7 +62,7 @@ border-bottom-right-radius: 20px !important;
 #container, #about {
    position:relative;
    margin:96px 36px 24px 12px !important;
-   width:88% !important;
+   width:80% !important;
 }
 #container, #data {
   float: left !important;
@@ -84,20 +84,15 @@ border-bottom-right-radius: 20px !important;
     margin-right: 48px;
   }
 }
-@media (min-width: 1080px ) {
-  #data {
-    height: 100%;
-    width: 80px;
-    margin-top: 128px;
-    padding: 6px;
-    clear: right;
-  }
+
+#data {
+  height: 100%;
+  width: 80px;
+  margin-top: 108px;
+  padding: 6px;
+  clear: right;
 }
-@media (max-width: 1080px ) {
-  #data {
-    visibility: hidden !important;
-  }
-}
+
 .freezer-box {
   font-size: 12px;
   margin-top: 4px;
