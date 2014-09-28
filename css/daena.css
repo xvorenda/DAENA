@@ -131,6 +131,10 @@ border-bottom-right-radius: 20px !important;
   border: 2px solid #333;
   border-radius: 8px;
 }
+.greyed {
+  background-color: #ccc !important;
+}
+
 .freezerinfo {
     margin:12px auto;
     padding: 12px 12px 0;
