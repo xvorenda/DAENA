@@ -148,7 +148,11 @@ echo "        ],
                   dateWindow: null,
                   valueRange: null
                 });
+              function showChange() {
+                alert('show chart:' + window.chart);
+                window.chart.date_graph.setVisibility(3, false);
               }
+            }
 </script>
 <script>
 $(document).ready(function()
