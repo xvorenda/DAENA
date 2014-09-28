@@ -75,6 +75,7 @@ $freezercount = count($columnnames) - 1;
 echo "
 </div>
 <script type='text/javascript'>
+  Dygraph.Interaction.endTouch = Dygraph.Interaction.moveTouch = Dygraph.Interaction.startTouch = function() {};
   chart = new Dygraph(
 
     // containing div
