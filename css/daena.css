@@ -116,7 +116,7 @@ border-bottom-right-radius: 20px !important;
 }
 .click-label {
   display: block;
-  padding: 10px 15px 10px 15px;
+  padding: 0px 10px 10px 5px;
   margin-bottom: 0px !important;
   width: 100% !important;
   height: 100% !important;
