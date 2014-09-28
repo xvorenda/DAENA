@@ -10,11 +10,6 @@ body {
   font-size: 18px !important;
   width: 110% !important;
 }
-.line-toggle {
-  width: 100%;
-  height: 100%;
-  visibility: hidden !important
-}
 #wrapper {
   margin-top: 96px;
   margin-left: 24px;
@@ -118,6 +113,11 @@ border-bottom-right-radius: 20px !important;
 #data > span {
   width:80px;
   text-align: left !important;
+}
+.line-toggle {
+  width: 72px !important;
+  height: 72px !important;
+  visibility: hidden !important
 }
 .freezer-box {
   font-size: 12px;
