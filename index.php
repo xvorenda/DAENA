@@ -164,16 +164,6 @@ echo "<script type='text/javascript'>
              $(this.parentElement).toggleClass('box-active')
         });
     });
-    </script>
-    <script>
-    $(function(){
-      $('div.freezer-box').click(function (event) {
-        if (!$(event.target).is('input')) {
-            var obj =$(this).find('input');
-            obj.prop('checked', !obj.is(':checked'));
-          }
-      });
-    });
   </script>";
 
 /*Position Legend*/
