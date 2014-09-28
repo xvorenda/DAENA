@@ -146,7 +146,7 @@ echo "        ],
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
-                $(this.parentElement).toggleClass('box-active')
+                el.parent.toggleClass('box-active')
               }
               function resetGraph()
               {
@@ -159,6 +159,7 @@ echo "        ],
               $('.freezer-box').addClass('box-active');
               }
 </script>";
+
 
 /*Position Legend Dynamically*/
 echo "<script type='text/javascript'>
