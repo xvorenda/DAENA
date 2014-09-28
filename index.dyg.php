@@ -162,7 +162,7 @@ $(document).ready(function()
 
     $('#legend').css(
     {
-      left: ($(window).width() - $('#legend').outerWidth()) / 2 + 24,
+      left: ($(window).width() - $('#legend').outerWidth()) / 2,
       top: 460
     });
   });

@@ -75,6 +75,8 @@ border-bottom-right-radius: 20px !important;
 #legend {
   clear: both;
   width: auto !important;
+  margin-left: 24px;
+  margin-right: 24px;
 }
 
 @media (min-width: 1080px ) {
