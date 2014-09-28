@@ -167,7 +167,7 @@ echo "<script type='text/javascript'>
     </script>
     <script>
     $(function(){
-      $('.freezer-box').click(function (event) {
+      $('div.freezer-box').click(function (event) {
         if (!$(event.target).is('input')) {
             var obj =$(this).find('input');
             obj.prop('checked', !obj.is(':checked'));
