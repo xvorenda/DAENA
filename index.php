@@ -154,15 +154,19 @@ echo "        ],
                   visibility: [".$visiblelist."]
                 });
               }
-</script>
- <script type='text/javascript'>
+</script>";
+
+/* Grey Freezer-Box on Click */
+echo "<script type='text/javascript'>
     $( document ).ready( function(){
-        $('.freezer-box').on('click',function () {
-             $(this).toggleClass('box-active')
+        $('.line-toggle').on('click',function () {
+             $(this.parentElement).toggleClass('box-active')
         });
     });
-  </script>
-<script>
+  </script>";
+
+/*Position Legend*/
+echo "<script>
 $(document).ready(function()
 {
   $(window).resize(function()
