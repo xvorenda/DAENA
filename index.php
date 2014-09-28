@@ -154,12 +154,15 @@ echo "        ],
                   visibility: [".$visiblelist."]
                 });
               }
-              $(document).ready(function () {
-                $(\"#checkall\").click(function () {
-                    $(\".line-toggle\").prop('checked', $(this).prop('checked'));
-                  });
-                });
-              }
+</script>
+<script>
+$(document).ready(function ()
+  {
+    $('#checkall').click(function ()
+      {
+        $(''.line-toggle').prop('checked', $(this).prop('checked'));
+      });
+  });
 </script>
 <script>
 $(document).ready(function()
