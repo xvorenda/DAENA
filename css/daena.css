@@ -80,7 +80,7 @@ border-bottom-right-radius: 20px !important;
 @media (max-width: 768px ) {
   #legend {
     margin-left: 24px;
-    margin-right: 24px;
+    margin-right: 48px;
 }
 
 @media (min-width: 1080px ) {
