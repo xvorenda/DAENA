@@ -149,8 +149,7 @@ echo "        ],
                   valueRange: null
                 });
               function showAll() {
-                alert('show chart:' + window.chart);
-                window.chart.setVisibility(3, false);
+                chart.setVisibility(1, true, 2, true, 3, true);
               }
             }
 </script>
