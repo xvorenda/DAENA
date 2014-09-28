@@ -97,6 +97,7 @@ border-bottom-right-radius: 20px !important;
     position:relative;
     margin:96px auto 24px !important;
     width:95% !important;
+    height: 400px !important;
   }
   #legend {
     margin-left: 36px;
