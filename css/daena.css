@@ -114,10 +114,6 @@ border-bottom-right-radius: 20px !important;
   width: 100% !important;
   height: 100% !important
 }
-#legend {
-  clear: both !important;
-  width: auto !important;
-}
 
 #data > span {
   width:80px;
