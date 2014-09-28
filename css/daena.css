@@ -115,7 +115,9 @@ border-bottom-right-radius: 20px !important;
   text-align: left !important;
 }
 .click-label {
-  display: inline;
+  display: block;
+  padding: 10px 15px 10px 15px;
+  margin-bottom: 0px !important;
   width: 100% !important;
   height: 100% !important;
 }
