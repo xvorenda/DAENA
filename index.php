@@ -147,27 +147,32 @@ echo "        ],
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
               }
-              function resetGraph() {
-                chart.updateOptions({
+              function resetGraph()
+              {
+                chart.updateOptions(
+                {
                   dateWindow: null,
                   valueRange: null,
                   visibility: [".$visiblelist."]
                 });
-                $('.freezer-box').addClass('box-active');
+              $('.freezer-box').addClass('box-active');
               }
 </script>";
 
 /* Grey Freezer-Box on Click */
-echo "<script type='text/javascript'>
-    $( document ).ready( function(){
-        $('.line-toggle').on('click',function () {
-             $(this.parentElement).toggleClass('box-active')
-        });
+echo "
+<script type='text/javascript'>
+  $(document).ready(function()
+  {
+    $('.line-toggle').on('click',function ()
+    {
+      $(this.parentElement).toggleClass('box-active')
     });
-  </script>";
+  });
+</script>";
 
 /*Position Legend*/
-echo "<script>
+echo "<script type='text/javascript'>
 $(document).ready(function()
 {
   $(window).resize(function()
