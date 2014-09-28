@@ -115,8 +115,9 @@ border-bottom-right-radius: 20px !important;
   text-align: left !important;
 }
 .click-label {
-  width: 72px !important;
-  height: 72px !important;
+  display: inline;
+  width: 100% !important;
+  height: 100% !important;
 }
 .line-toggle {
   visibility: hidden !important
