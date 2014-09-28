@@ -144,6 +144,10 @@ echo "        ],
                 drawXGrid: false,
                 axisLineColor: 'white'
               });
+              function change(el) {
+                chart.setVisibility(el.id, el.checked);
+                $(this.parentElement).toggleClass('box-active')
+              }
               function resetGraph()
               {
                 chart.updateOptions(
@@ -154,19 +158,6 @@ echo "        ],
                 });
               $('.freezer-box').addClass('box-active');
               }
-</script>";
-
-/* Grey Freezer-Box on Click */
-echo "
-<script type='text/javascript'>
-  $(document).ready(function()
-  {
-    $('.line-toggle').on('click',function change(el)
-    {
-      $(this.parentElement).toggleClass('box-active')
-      chart.setVisibility(el.id, el.checked);
-    });
-  });
 </script>";
 
 /*Position Legend Dynamically*/
