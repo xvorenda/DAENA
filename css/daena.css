@@ -110,8 +110,7 @@ border-bottom-right-radius: 20px !important;
   height: 100% !important
 }
 .box-spacer {
-  margin-top: 0px!important;
-  margin-bottom: 0px!important;
+  line-height: 0.5;
 }
 #data > span {
   width:80px;
