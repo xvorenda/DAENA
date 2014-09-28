@@ -78,6 +78,10 @@ border-bottom-right-radius: 20px !important;
      width:88% !important;
      height: 400px !important;
   }
+  #legend {
+    margin-left: 36px;
+    margin-right: 36px;
+  }
   #data {
     text-align: center;
     height: 100%;
@@ -95,7 +99,7 @@ border-bottom-right-radius: 20px !important;
     width:95% !important;
   }
   #legend {
-    margin-left: 16px;
+    margin-left: 36px;
     margin-right: 48px;
   }
   #data {
