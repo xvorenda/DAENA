@@ -114,9 +114,11 @@ border-bottom-right-radius: 20px !important;
   width:80px;
   text-align: left !important;
 }
-.line-toggle {
+.click-label {
   width: 72px !important;
   height: 72px !important;
+}
+.line-toggle {
   visibility: hidden !important
 }
 .freezer-box {
