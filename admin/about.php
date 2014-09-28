@@ -1,8 +1,7 @@
 <?php
-
 /* Get things started */
-include 'assets/header.php';
-include 'assets/navigation.php';
+include "assets/admin-header.php";
+include 'assets/admin-nav.php';
 
 echo "
     <div id='about'>
@@ -11,8 +10,8 @@ echo "
         <p>Github repo at <a href='https://github.com/xvorenda/daena' target='_blank'>https://github.com/xvorenda/daena</a></p>
         <h1>Contact Us</h1>
         <p>If you have questions, comments, or suggestions, please email us at <a href='mailto:xvorenda@vcu.edu'>xvorenda@vcu.edu</a> and/or  <a href='mailto:voegtlylj@vcu.edu'>voegtlylj@vcu.edu</a>.</p>
-    </div>";      
+    </div>";
 
 /* Wrap things up */
-include "assets/footer.php";
+include "assets/admin-footer.php";
 ?>
