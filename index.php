@@ -161,7 +161,7 @@ echo "        ],
 </script>";
 
 
-/*Position Legend Dynamically*/
+/* Position Legend Semi-Dynamically */
 echo "<script type='text/javascript'>
 $(document).ready(function()
 {
