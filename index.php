@@ -137,6 +137,7 @@ echo "        ],
                 legend: 'always',
                 colors: ['#".$colorlist."'],
                 visibility: [".$visiblelist."],
+                drawGapEdgePoints: true,
                 strokeWidth: 4,
                 drawXGrid: false,
                 axisLineColor: 'white'
