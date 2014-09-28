@@ -76,7 +76,9 @@ border-bottom-right-radius: 20px !important;
   clear: both !important;
   width: auto !important;
 }
-
+.dygraph-title {
+  width: 110% !important;
+}
 @media (max-width: 768px ) {
   #legend {
     margin-left: 28px;
