@@ -63,14 +63,14 @@ border-bottom-right-radius: 20px !important;
   #container, #about {
      position:relative;
      margin:96px auto 24px auto !important;
-     width:80% !important;
+     width:88% !important;
   }
 }
 @media (max-width: 768px ) {
   #container, #about {
     position:relative;
     margin:96px auto 24px !important;
-    width:92% !important;
+    width:95% !important;
   }
 }
 #container, #data {
