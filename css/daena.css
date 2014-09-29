@@ -286,12 +286,12 @@ h3 {margin:12px auto 0;}
 /* Custom Font Face for Logo */
 @font-face {
     font-family: 'CustomFont';
-    src: url('../fonts/goodtimes-webfont.eot');
-    src: url('../fonts/goodtimes-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/goodtimes-webfont.woff2') format('woff2'),
-         url('../fonts/goodtimes-webfont.woff') format('woff'),
-         url('../fonts/goodtimes-webfont.ttf') format('truetype'),
-         url('../fonts/goodtimes-webfont.svg#CustomFont') format('svg');
+    src: url('../fonts/wabroye_014-webfont.eot');
+    src: url('../fonts/wabroye_014-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/wabroye_014-webfont.woff2') format('woff2'),
+         url('../fonts/wabroye_014-webfont.woff') format('woff'),
+         url('../fonts/wabroye_014-webfont.ttf') format('truetype'),
+         url('../fonts/wabroye_014-webfont.svg#CustomFont') format('svg');
     font-weight: normal;
     font-style: normal;
 }
