@@ -170,7 +170,7 @@ echo "        ],
 echo "<script type='text/javascript'>
 $(document).ready(function()
 {
-    $('.dygraph-title').css(
+    $('.dygraph-label .dygraph-title').css(
     {
       font-size: '12px !important'
   });
