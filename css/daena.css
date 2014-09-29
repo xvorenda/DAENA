@@ -286,12 +286,12 @@ h3 {margin:12px auto 0;}
 /* Custom Font Face for Logo */
 @font-face {
     font-family: 'CustomFont';
-    src: url('../fonts/stentiga-webfont.eot');
-    src: url('../fonts/stentiga-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/stentiga-webfont.woff2') format('woff2'),
-         url('../fonts/stentiga-webfont.woff') format('woff'),
-         url('../fonts/stentiga-webfont.ttf') format('truetype'),
-         url('../fonts/stentiga-webfont.svg#CustomFont') format('svg');
+    src: url('../fonts/goodtimes-webfont.eot');
+    src: url('../fonts/goodtimes-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/goodtimes-webfont.woff2') format('woff2'),
+         url('../fonts/goodtimes-webfont.woff') format('woff'),
+         url('../fonts/goodtimes-webfont.ttf') format('truetype'),
+         url('../fonts/goodtimes-webfont.svg#CustomFont') format('svg');
     font-weight: normal;
     font-style: normal;
 }
