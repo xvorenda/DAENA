@@ -11,6 +11,10 @@ body {
   font-size: 18px !important;
   width: 110% !important;
 }
+.status-graph {
+  height: 200px !important;
+  width: 320px !important;
+}
 #wrapper {
   margin-top: 96px;
   margin-left: 24px;
