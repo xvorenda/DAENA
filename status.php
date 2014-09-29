@@ -5,7 +5,6 @@ include 'assets/urlvars.php';
 
 /* Get things started */
 include 'assets/header.php';
-echo "<style>.dygraph-title{font-size:12px!important}</style>";
 
 /* Define Navbar */
 include 'assets/navigation.php';
@@ -44,6 +43,7 @@ $re_neg = "-";
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
+<style>.dygraph-title{font-size:12px!important;margin:auto!important}</style>
 <div id='container' class='status-graph'></div>
 <div id='data' class='stealth'></div>
 <div id='legend' class='stealth'>
