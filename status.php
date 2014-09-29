@@ -54,7 +54,7 @@ echo "
   <td>Warning</td>
   <td>Danger</td>
   <td>Last</td>
-  <td>Change</td>
+  <td>Trend</td>
   <td>Conn</td>
   <td>Alarm</td>
   <td>Hush</td>
