@@ -43,6 +43,7 @@ $re_neg = "-";
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
+<div class='container'>
 <div id='container'></div>
 <div id='data'></div>
 <div id='legend'>
@@ -81,6 +82,7 @@ $freezercount = count($columnnames) - 1;
 
 /* Start Defining DyGraph */
 echo "
+</div>
 </div>
 <script type='text/javascript'>
   Dygraph.Interaction.endTouch = Dygraph.Interaction.moveTouch = Dygraph.Interaction.startTouch = function() {};
@@ -169,7 +171,7 @@ echo "        ],
 
 /* Position Legend Semi-Dynamically */
 echo "
-<div class='group'>
+
 <script type='text/javascript'>
 $(document).ready(function()
 {
@@ -191,7 +193,7 @@ $(document).ready(function()
   $(window).resize();
 });
 </script>
-</div>";
+";
 
 /* Start talking to MySQL and report the error if it ignores you */
 	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
@@ -300,7 +302,7 @@ $(document).ready(function()
 		};
 
 		echo "<tr class='alarm-table-row'>
-				<form action='handlers/alarm-mod.php' method='POST'>
+				<form action='admin/handlers/alarm-mod.php' method='POST'>
 					<td class='".$row_color." round-first'><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
 					<td class='".$row_color."'>".$freezer_name."</td>
 					<td class='".$row_color." field-narrow'>".$alarm_level."</td>
