@@ -54,7 +54,6 @@ echo "
   <td>High Temp</td>
   <td>Critical Temp</td>
   <td>Alarm Level</td>
-  <td>Alarm Time</td>
   <td>Last Temp</td>
   <td>Last Reading</td>
   <td>Alarm?</td>
@@ -143,10 +142,10 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td style='color:#".$colorname."'>".$freezer_name."</td>
                 <td>".$freezer_setpoint1."</td>
                 <td>".$freezer_setpoint2."</td>
-                <td class='field-narrow'><span class='".$icon."'></span></td>
-                <td class='".$row_color." field-wide'>".$alarm_date_time."</td>
                 <td class='".$row_color."'>".$last_temp."</td>
                 <td class='".$row_color." '>".$last_reading."</td>
+                <td class='field-narrow'><span class='".$icon."' title='".$alarm_date_time."'></span></td>
+
 ";
                 if ($alarm_level==3 || $alarm_level==6)
                 {
