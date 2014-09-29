@@ -57,9 +57,8 @@ echo "
   <td>Last Temp</td>
   <td>Last Reading</td>
   <td>Silence Hourly Alarm</td>
-  <td>Setpoint High Temp</td>
-  <td>Setpoint Critical Temp</td>
-  <td>Send Alarm</td>
+  <td>High Temp</td>
+  <td>Critical Temp</td>
   <td>&nbsp;</td>
 </tr>";
 
@@ -71,7 +70,6 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     $freezer_setpoint1 = $freezerrow['freezer_setpoint1'];
     $freezer_setpoint2 = $freezerrow['freezer_setpoint2'];
     $freezer_alarm_id = $freezerrow['freezer_alarm_id'];
-    $freezer_send_alarm = $freezerrow['freezer_send_alarm'];
     $colorname = $freezerrow["freezer_color"];
     $freezerlocation = $freezerrow["freezer_location"];
     array_push($columnnames,$freezer_name);
@@ -80,7 +78,6 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
     $freezer_loc = str_replace("<br>"," ",$freezerlocation);
-    if ($freezer_send_alarm == 0){$freezer_send_alarm_checkbox = "unchecked";}else{$freezer_send_alarm_checkbox = "checked";}
 
           $alarm_query = "SELECT alarm_level, alarm_time
             FROM daena_db.alarm
@@ -163,7 +160,6 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 echo"
                 <td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
                 <td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
-                <td class='field-narrow'><input type='checkbox' class='input-medium' name='freezer_send_alarm' ".$freezer_send_alarm_checkbox." value='1'/></td>
                 <input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
                 <td>
                   <button type='submit' name='modify' class='btn'/>Modify</button>
