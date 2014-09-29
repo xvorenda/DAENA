@@ -149,9 +149,9 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td>".$last_temp." &deg;C</td>
                 <td>";
                 if ($last_temp == $last_reading){
-                  echo "<span class='glyphicon glyphicon-ok-sign status-success'></span>";
+                  echo "<span class='glyphicon glyphicon-eye-open blue'></span>";
                 } else {
-                  echo "<span class='glyphicon glyphicon-exclamation-sign status-warning'></span>";
+                  echo "<span class='glyphicon glyphicon-eye-close status-warning'></span>";
                 }
                 echo "</td>
                 <td class='field-narrow'><span class='".$icon."' title='".$alarm_date_time."'></span></td>
