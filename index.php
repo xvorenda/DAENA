@@ -96,7 +96,7 @@ $pingtimequery = "SELECT DISTINCT int_time FROM daena_db.data
               WHERE int_time > ".$viewstart."
               ORDER BY int_time ASC";
 
-$pings = $daenaDB->query($pingtimequery);
+$pingtimes = $daenaDB->query($pingtimequery);
 
 
 $freezergroups = implode(',', $freezerids);
@@ -104,7 +104,7 @@ $visiblelist = implode(',', $visibility);
 
 
 /* Use Unique Ping Times to Query for Data */
-while ($pingrow = $pings->fetch_assoc()) {
+while ($pingrow = $pingtimes->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
       $pingepoch = $pingtime/1000;
       $dataquery = "
