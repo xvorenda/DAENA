@@ -28,6 +28,11 @@ body {
   width: 100%;
   line-height:1 !important;
 }
+.status_table > tr > td {
+  text-align: center;
+  padding: 0 4px !important;
+  font-size: 13px !important
+}
 .status-table-freezername{
   width:10%;
 }
