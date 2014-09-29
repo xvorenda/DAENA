@@ -60,11 +60,16 @@ $re_neg = "-";
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
 <div class='container'>
-<div id='container'></div>
-<div id='data'></div>
+<table>
+	<tr>
+		<td><div id='container'></div></td>
+		<td><div id='data'></div><td>
+	</tr>
+</table>
 </div>
 <div class='container'>
 <div id='legend'>
+	
             ";
 
 array_push($columnnames,"Time");
@@ -80,7 +85,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
     echo "<div class='freezer-box box-active'>
-            <label class='click-label' for=\"".$i."\">
+            <label class='click-label' for='".$i."'>
               <div class='box-spacer'>&nbsp;</div>
               <span style='color: #".$colorname."'>".$freezername."</span>
               <br>".$freezerlocation."
