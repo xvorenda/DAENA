@@ -51,7 +51,7 @@ echo "
 <table class='status-table'>
 <tr>
   <td>Freezer</td>
-  <td>Where/td>
+  <td>Where</td>
   <td>Warn</td>
   <td>Crit</td>
   <td>Last</td>
