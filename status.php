@@ -48,7 +48,7 @@ echo "
 <div id='data' class='stealth'></div>
 <div id='legend' class='status-legend'>
 <table class='status-table'>
-<th><td class='status-table-freezername'>Freezer Name</td><td class='status-table-freezerloc'>Location</td></th>
+<tr><th class='status-table-freezername'>Freezer Name</th><th class='status-table-freezerloc'>Location</th></tr>
             ";
 
 array_push($columnnames,"Time");
