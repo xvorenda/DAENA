@@ -3,6 +3,9 @@ if (isset($_GET['hours'])) {
 	$hours = $_GET['hours'];}
 else $hours = 8;
 	$minutes = $hours * 60;
+if (isset($_GET['skip'])) {
+	$skip = $_GET['skip'];}
+else $skip = 8;
 if (isset($_GET['loc'])) {
 	$loc = $_GET['loc'];}
 else $loc = "All";
