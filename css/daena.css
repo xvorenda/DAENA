@@ -72,7 +72,7 @@ border-bottom-right-radius: 20px !important;
 }
 
 @media (min-width: 768px ) {
-  #container, #about {
+  .main-graph, #about {
      position:relative;
      margin:96px auto 24px auto !important;
      width:88% !important;
@@ -117,7 +117,7 @@ border-bottom-right-radius: 20px !important;
   user-select: none;
 }
 @media (max-width: 768px ) {
-  #container, #about {
+  .main-graph, #about {
     position:relative;
     margin:96px auto 24px !important;
     width:95% !important;

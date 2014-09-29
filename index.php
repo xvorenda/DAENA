@@ -43,7 +43,7 @@ $re_neg = "-";
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
-<div id='container'></div>
+<div id='container' class='main-graph'></div>
 <div id='data'></div>
 <div id='legend'>
             ";
