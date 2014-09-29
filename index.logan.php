@@ -70,6 +70,7 @@ echo "
 </div>
 <div class='container'>
 <div class='row'>
+<div class='col-md-1>
 <div id='legend'>
 	
             ";
@@ -86,11 +87,6 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezerids,$freezerid);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
-    if($j % 12)
-    {
-    	echo" </div>
-    	<div class='row'>";
-    }
     echo "<div class='freezer-box box-active col-md-1'>
             <label class='click-label' for='".$i."'>
               <div class='box-spacer'>&nbsp;</div>
@@ -112,7 +108,7 @@ $freezercount = count($columnnames) - 1;
 
 /* Start Defining DyGraph */
 echo "
-</div>
+
 </div>
 </div>
 <script type='text/javascript'>
