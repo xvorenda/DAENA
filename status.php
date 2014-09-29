@@ -84,10 +84,10 @@ while ($freezerrow = $freezers->fetch_assoc()) {
             WHERE alarm_id='".$freezer_alarm_id."'";
           $alarmdata = $daenaDB->query($alarm_query);
           while($alarmrow = $alarmdata->fetch_assoc())
-          {
-            $alarm_level = $alarmrow['alarm_level'];
-            $ms_epoch_time = $alarmrow['alarm_time'];
-          };
+            {
+              $alarm_level = $alarmrow['alarm_level'];
+              $ms_epoch_time = $alarmrow['alarm_time'];
+            };
 
           $epoch_time = round($ms_epoch_time/1000);
           $dt = new DateTime("@$epoch_time", (new DateTimeZone('UTC')));
@@ -167,9 +167,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 </td>
               </form>
             </tr>";
-            $i++;
-        }
-}
+            $i++;};
 
 
 
