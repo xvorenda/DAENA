@@ -42,14 +42,23 @@ $re_neg = "-";
 
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
+/* Draw Alarm Mod Area */
 echo "
-<style>.dygraph-title{font-size:12px!important;margin:auto!important;width:115%!important}</style>
-<div id='container' class='status-graph'></div>
-<div id='data' class='stealth'></div>
-<div id='legend' class='status-legend'>
-<table class='status-table'>
-<tr><td class='status-table-freezername'>Freezer Name</td><td class='status-table-freezerloc'>Location</td></tr>
-            ";
+<div class='alarmbox table-responsive'>
+<table class='table'>
+<tr>
+  <td>Freezer ID</td>
+  <td>Freezer Name</td>
+  <td>Alarm Level</td>
+  <td>Alarm Time</td>
+  <td>Last Temp</td>
+  <td>Last Reading</td>
+  <td>Silence Hourly Alarm</td>
+  <td>Setpoint High Temp</td>
+  <td>Setpoint Critical Temp</td>
+  <td>Send Alarm</td>
+  <td>&nbsp;</td>
+</tr>";
 
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
@@ -164,32 +173,13 @@ $freezer_send_alarm = $freezerrow['freezer_send_alarm'];
                 </td>
               </form>
             </tr>";
+            $i++;
         }
-
-            ";
-    $i++;
 }
 
 
 
-/* Draw Alarm Mod Area */
-echo "
-<div class='alarmbox table-responsive'>
-<table class='table'>
-<tr>
-  <td>Freezer ID</td>
-  <td>Freezer Name</td>
-  <td>Alarm Level</td>
-  <td>Alarm Time</td>
-  <td>Last Temp</td>
-  <td>Last Reading</td>
-  <td>Silence Hourly Alarm</td>
-  <td>Setpoint High Temp</td>
-  <td>Setpoint Critical Temp</td>
-  <td>Send Alarm</td>
-  <td>&nbsp;</td>
-</tr>
-";
+
 
 
 echo "
