@@ -48,7 +48,7 @@ echo "
 <div id='container' class='status-graph'></div>
 <div id='data' class='stealth'></div>
 <div class='status-legend'>
-<table class='status-table table'>
+<table class='status-table'>
 <tr>
   <td>Freezer ID</td>
   <td>Freezer Name</td>
@@ -96,19 +96,19 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 
           if ($alarm_level == 0)
           {
-            $row_color = "success";
+            $row_color = "status-success";
           }
           elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
           {
-            $row_color="warning";
+            $row_color="status-warning";
           }
           elseif($alarm_level==3 || $alarm_level==4)
           {
-            $row_color="danger";
+            $row_color="status-danger";
           }
           elseif($alarm_level==6 || $alarm_level==7)
           {
-            $row_color="info";
+            $row_color="status-info";
           }
 
           $lasttempquery = "SELECT temp FROM daena_db.data
