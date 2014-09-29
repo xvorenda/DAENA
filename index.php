@@ -217,6 +217,7 @@ $(document).ready(function()
 
 	/* Draw Alarm Mod Area */
 	echo "
+	<br><br><br>
 <div class='container-fluid'>
 	<div class='alarmbox table-responsive'>
 		<table class='table'>
