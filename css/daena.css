@@ -1,6 +1,8 @@
 /* DAENA-Specific Styles */
 body {
   min-height: 650px !important;
+  font-family: GoodTimes, sans-serif !important;
+
 }
 .daena-logo {
     height:20px;
