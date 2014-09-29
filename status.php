@@ -45,7 +45,7 @@ $re_neg = "-";
 echo "
 <div id='container' class='status-graph'></div>
 <div id='data' class='stealth'></div>
-<div id='legend' class='stealths'>
+<div id='legend' class='stealth'>
             ";
 
 array_push($columnnames,"Time");
