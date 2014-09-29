@@ -58,7 +58,7 @@ echo "
   <td>Last Reading</td>
   <td>High Temp</td>
   <td>Critical Temp</td>
-  <td>Silence</td>
+  <td>Alarm?</td>
 </tr>";
 
 array_push($columnnames,"Time");
@@ -156,7 +156,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 else
                 {
                   echo"
-                <td class='".$row_color." round-last'>No Hourly Alarms</td>";
+                <td class='".$row_color." round-last'>None</td>";
                 }
                 echo"
                 <input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />

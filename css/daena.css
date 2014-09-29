@@ -26,6 +26,7 @@ body {
 }
 .status-table {
   width: 100%;
+  line-height:0.8 !important;
 }
 .status-table-freezername{
   width:10%;
