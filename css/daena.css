@@ -306,10 +306,10 @@ h3 {margin:12px auto 0;}
 .red        {color:#800 !important}
 .white      {color:#FFF !important}
 
-.status-success{color: #dff0d8;}
-.status-success:hover{color: #d0e9c6;}
-.status-warning{color: #fcf8e3;}
-.status-warning:hover{color: #faf2cc;}
+.status-success{color: #0f0;}
+.status-success:hover{color: #8f8;}
+.status-warning{color: #f80;}
+.status-warning:hover{color: #f84;}
 .status-danger{color: #f2dede;}
 .status-danger:hover{color: #ebcccc;}
 .status-info{color: #d9edf7;}
