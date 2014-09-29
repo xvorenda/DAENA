@@ -135,17 +135,17 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 
           echo "<tr class='alarm-table-row'>
               <form action='handlers/alarm-mod.php' method='POST'>
-                <td class='".$row_color." round-first'><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
                 <td class='".$row_color."'>".$freezer_name."</td>
                 <td class='".$row_color." field-narrow'>".$alarm_level."</td>
                 <td class='".$row_color." field-wide'>".$alarm_date_time."</td>
                 <td class='".$row_color."'>".$last_temp."</td>
                 <td class='".$row_color." '>".$last_reading."</td>
-                <td>".$freezer_setpoint1."</td>
-                <td>".$freezer_setpoint2."</td>";
+                <td class='".$row_color." '>".$freezer_setpoint1."</td>
+                <td class='".$row_color." '>".$freezer_setpoint2."</td>";
                 if ($alarm_level==3 || $alarm_level==6)
                 {
                   echo"
+                <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
                 <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
                 <td class='".$row_color." round-last'>
                   <button type='submit' name='silence' class='btn btn-danger'/>Silence</button>
