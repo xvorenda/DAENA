@@ -6,8 +6,7 @@ include 'assets/admin-nav.php';
 if ($login->isUserLoggedIn() == true)
 {
 
-	/* Start talking to MySQL and kill yourself if it ignores you */
-	//include 'config/db.php';
+/* Start talking to MySQL and report the error if it ignores you */
 	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 	// Check connection
 	if (mysqli_connect_errno())
@@ -16,7 +15,7 @@ if ($login->isUserLoggedIn() == true)
 	  }
 
 	/* Ask MySQL about which freeers exist and get their metadata */
-	$allfreezersquery = "SELECT SQL_CALC_FOUND_ROWS *
+	$allfreezersquery = "SELECT *
 		FROM daena_db.freezers WHERE freezer_active = 1
 		ORDER BY ABS(freezer_id)";
 	$allfreezers = $daenaDB->query($allfreezersquery);
