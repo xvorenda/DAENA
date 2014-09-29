@@ -53,7 +53,7 @@ echo "
   <td>Freezer</td>
   <td>Warning</td>
   <td>Danger</td>
-  <td>LastTemp</td>
+  <td>Last</td>
   <td>Conn</td>
   <td>Alarm</td>
   <td>&nbsp;</td>
