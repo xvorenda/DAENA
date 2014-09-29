@@ -56,7 +56,7 @@ echo "
   <td>Last</td>
   <td>Conn</td>
   <td>Alarm</td>
-  <td>&nbsp;</td>
+  <td>Hush</td>
 </tr>";
 
 array_push($columnnames,"Time");
@@ -163,7 +163,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
                 <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
                 <td>
-                  <button type='submit' name='silence' class='btn btn-danger'/>Silence</button>
+                  <button type='submit' name='silence' class='btn btn-danger'/>Hush</button>
                 </td>";
                 }
                 else
