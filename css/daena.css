@@ -251,7 +251,9 @@ h3 {margin:12px auto 0;}
     min-height: 32px;
     border-radius: 20px;
 }
-
+.navbar-fixed-top {
+  font-family: GoodTimes, sans-serif !important;
+}
 .navbar-fixed-bottom {
     position:fixed;
     bottom:0px;
