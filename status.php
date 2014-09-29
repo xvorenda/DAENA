@@ -158,9 +158,9 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td>".$last_temp_now." &deg;C</td>";
 
                 if ($last_temp_now > $last_temp_then) {
-                echo "<td><span class='glyphicon glyphicon-arrow-up'></span></td>";
+                echo "<td><span class='glyphicon glyphicon-arrow-up yellow'></span></td>";
               } elseif ($last_temp_now < $last_temp_then) {
-                echo "<td><span class='glyphicon glyphicon-arrow-down'></span></td>";
+                echo "<td><span class='glyphicon glyphicon-arrow-down purple'></span></td>";
               } elseif ($last_temp_now == $last_temp_then) {
                 echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
               }
