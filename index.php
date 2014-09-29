@@ -142,7 +142,9 @@ echo "        ],
                 drawGapEdgePoints: true,
                 strokeWidth: 4,
                 drawXGrid: false,
-                axisLineColor: 'white'
+                axisLineColor: 'white',
+                rollPeriod: 7,
+                showRoller: true
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
