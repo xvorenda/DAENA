@@ -93,7 +93,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $dt = new DateTime("@$epoch_time", (new DateTimeZone('UTC')));
 
           date_timezone_set($dt, timezone_open('America/New_York'));
-          $alarm_date_time = $dt->format('Y-m-d H:i:s');
+          $alarm_date_time = $dt->format('m-d H:i:s');
 
           if ($alarm_level == 0)
           {
