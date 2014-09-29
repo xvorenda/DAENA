@@ -27,6 +27,12 @@ body {
 .status-table {
   width: 100%;
 }
+.status-table-freezername{
+  width:10%;
+}
+.status-table-freezerloc{
+  width:30%;
+}
 #wrapper {
   margin-top: 96px;
   margin-left: 24px;
