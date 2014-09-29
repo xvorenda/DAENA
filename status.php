@@ -76,7 +76,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezerids,$freezer_id);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
-    $pattern = "/(\w+)";
+    $pattern = "/[^0-9,]|,[0-9]*$/";
     $freezer_loc = str_replace("<br>"," ",$freezerlocation);
     $freezer_loc = preg_replace($pattern,"",$freezer_loc);
 
