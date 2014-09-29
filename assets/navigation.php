@@ -12,7 +12,7 @@ echo "
             <span class='icon-bar'></span>
           </button>
           <a class='navbar-brand white' href='".$baseurl."' title='Data Aggregation and Emergency Notifications for Appliances'>
-          <img src='images/daena.png' class='daena-logo'>DAENA
+          <img src='images/daena.png' class='daena-logo goodtimes'>DAENA
           </a>
         </div>
         <div class='navbar-collapse collapse'>

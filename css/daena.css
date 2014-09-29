@@ -279,3 +279,16 @@ h3 {margin:12px auto 0;}
 .orange     {color:#840 !important}
 .red        {color:#800 !important}
 .white      {color:#FFF !important}
+
+/* Custom Font Face for Logo */
+@font-face {
+    font-family: 'GoodTimes';
+    src: url('goodtimes-webfont.eot');
+    src: url('goodtimes-webfont.eot?#iefix') format('embedded-opentype'),
+         url('goodtimes-webfont.woff2') format('woff2'),
+         url('goodtimes-webfont.woff') format('woff'),
+         url('goodtimes-webfont.ttf') format('truetype'),
+         url('goodtimes-webfont.svg#good_timesregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
