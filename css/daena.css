@@ -85,6 +85,9 @@ border-bottom-right-radius: 20px !important;
   #data > span > div {
     display: none !important;
   }
+  #data > span:first-child {
+    margin-top:28px;
+  }
 }
 #legend {
   -webkit-user-select: none;
