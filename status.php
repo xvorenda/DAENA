@@ -63,30 +63,24 @@ echo "
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
-$freezer_id = $freezerrow['freezer_id'];
-$freezer_name = $freezerrow['freezer_name'];
-$freezer_setpoint1 = $freezerrow['freezer_setpoint1'];
-$freezer_setpoint2 = $freezerrow['freezer_setpoint2'];
-$freezer_alarm_id = $freezerrow['freezer_alarm_id'];
-$freezer_send_alarm = $freezerrow['freezer_send_alarm'];
+    $freezer_id = $freezerrow['freezer_id'];
+    $freezer_name = $freezerrow['freezer_name'];
+    $freezer_setpoint1 = $freezerrow['freezer_setpoint1'];
+    $freezer_setpoint2 = $freezerrow['freezer_setpoint2'];
+    $freezer_alarm_id = $freezerrow['freezer_alarm_id'];
+    $freezer_send_alarm = $freezerrow['freezer_send_alarm'];
     $colorname = $freezerrow["freezer_color"];
     $freezerlocation = $freezerrow["freezer_location"];
-    array_push($columnnames,$freezername);
-    array_push($namearray,$freezername);
-    array_push($freezerids,$freezerid);
+    array_push($columnnames,$freezer_name);
+    array_push($namearray,$freezer_name);
+    array_push($freezerids,$freezer_id);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
     $freezer_loc = str_replace("<br>"," ",$freezerlocation);
-    if ($freezer_send_alarm == 0)
-          {
-            $freezer_send_alarm_checkbox = "unchecked";
-          }
-          else
-          {
-            $freezer_send_alarm_checkbox = "checked";
-          }
+    if ($freezer_send_alarm == 0){$freezer_send_alarm_checkbox = "unchecked";}else{$freezer_send_alarm_checkbox = "checked";}
 
-          $alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarm
+          $alarm_query = "SELECT alarm_level, alarm_time
+            FROM daena_db.alarm
             WHERE alarm_id='".$freezer_alarm_id."'";
           $alarmdata = $daenaDB->query($alarm_query);
           while($alarmrow = $alarmdata->fetch_assoc())
