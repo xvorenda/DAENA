@@ -256,7 +256,7 @@ td > input[type="checkbox"] {
 }
 table {margin: 32px auto !important}
 
-table.table > tr > td {text-align: center;
+.table > tbody > tr > td {text-align: center;
     padding: 0 4px !important;
     font-size: 14px !important}
 tr {margin-top: 8px !important}
