@@ -43,13 +43,11 @@ $re_neg = "-";
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
-<div class='container'>
-<div id='graph'></div>
+<div id='container'></div>
 <div id='data'></div>
+<div id='legend'>
+            ";
 
-
-<div id='legend'></div>
-            <div>";
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
@@ -84,13 +82,12 @@ $freezercount = count($columnnames) - 1;
 /* Start Defining DyGraph */
 echo "
 </div>
-</div>
 <script type='text/javascript'>
   Dygraph.Interaction.endTouch = Dygraph.Interaction.moveTouch = Dygraph.Interaction.startTouch = function() {};
   chart = new Dygraph(
 
     // containing div
-    document.getElementById('graph'),
+    document.getElementById(\"container\"),
         [\n";
 
 
@@ -151,8 +148,7 @@ echo "        ],
                 drawXGrid: false,
                 axisLineColor: 'white',
                 rollPeriod: ".$roll.",
-                showRoller: false,
-                hideOverlayOnMouseOut: false
+                showRoller: false
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
@@ -211,7 +207,7 @@ $(document).ready(function()
 
 	/* Draw Alarm Mod Area */
 	echo "
-<div class='container-responsive'>
+<h1 class='custom-font'>Alarms</h1>
 <div class='alarmbox table-responsive'>
 	<table class='table'>
 		<tr>
@@ -337,7 +333,6 @@ $(document).ready(function()
 
 	echo "
 	  </table>
-	</div>
 	</div>
 </div>";
 
