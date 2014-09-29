@@ -5,6 +5,7 @@ include 'assets/urlvars.php';
 
 /* Get things started */
 include 'assets/header.php';
+<style>.dygraph-title{font-size:12px!important}</style>
 
 /* Define Navbar */
 include 'assets/navigation.php';
@@ -163,21 +164,6 @@ echo "        ],
                   visibility: [".$visiblelist."]
                 });
               }
-</script>";
-
-
-/* Position Legend Semi-Dynamically */
-echo "<script type='text/javascript'>
-$(document).ready(function()
-{
-    $('.dygraph-label .dygraph-title').css(
-    {
-      font-size: '12px !important'
-  });
-
-  // call `ready` to center elements
-  $(window).ready();
-});
 </script>";
 
 /* Wrap things up */
