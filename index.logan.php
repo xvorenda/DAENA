@@ -43,11 +43,11 @@ $re_neg = "-";
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
-<div class='container'>
+<div class='container-responsive'>
 <div id='container'></div>
 <div id='data'></div>
 </div>
-<div class='container'>
+<div class='container-responsive'>
 <div id='legend'>
             ";
 
@@ -211,7 +211,7 @@ $(document).ready(function()
 
 	/* Draw Alarm Mod Area */
 	echo "
-<div class='container'>
+<div class='container-responsive'>
 <div class='alarmbox table-responsive'>
 	<table class='table'>
 		<tr>
