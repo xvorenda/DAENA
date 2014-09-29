@@ -51,12 +51,12 @@ echo "
 <table class='status-table'>
 <tr>
   <td>Freezer Name</td>
+  <td>High Temp</td>
+  <td>Critical Temp</td>
   <td>Alarm Level</td>
   <td>Alarm Time</td>
   <td>Last Temp</td>
   <td>Last Reading</td>
-  <td>High Temp</td>
-  <td>Critical Temp</td>
   <td>Alarm?</td>
 </tr>";
 
@@ -135,13 +135,14 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 
           echo "<tr class='alarm-table-row'>
               <form action='handlers/alarm-mod.php' method='POST'>
-                <td class='".$row_color."'>".$freezer_name."</td>
+                <td class='".$color_name."'>".$freezer_name."</td>
+                <td>".$freezer_setpoint1."</td>
+                <td>".$freezer_setpoint2."</td>
                 <td class='".$row_color." field-narrow'>".$alarm_level."</td>
                 <td class='".$row_color." field-wide'>".$alarm_date_time."</td>
                 <td class='".$row_color."'>".$last_temp."</td>
                 <td class='".$row_color." '>".$last_reading."</td>
-                <td class='".$row_color." '>".$freezer_setpoint1."</td>
-                <td class='".$row_color." '>".$freezer_setpoint2."</td>";
+";
                 if ($alarm_level==3 || $alarm_level==6)
                 {
                   echo"
