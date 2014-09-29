@@ -1,0 +1,303 @@
+/* DAENA-Specific Styles */
+body {
+  min-height: 650px !important;
+}
+.daena-logo {
+    height:20px;
+    margin-right:10px;
+}
+.dygraph-title {
+  font-family: CustomFont, sans-serif !important;
+  font-size: 18px;
+  width: 110% !important;
+}
+.status-graph {
+  display:block;
+  float:left;
+  height: 600px !important;
+  width: 320px !important;
+  margin-top: 96px;
+}
+.status-legend {
+  clear:left;
+  float:left;
+  width: 320px;
+  min-height: 600px;
+}
+.status-table {
+  width: 100%;
+}
+.status-table-freezername{
+  width:10%;
+}
+.status-table-freezerloc{
+  width:30%;
+}
+#wrapper {
+  margin-top: 96px;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 96px;
+}
+.pageloadleft {
+    float:left;
+    color: #fff;
+}
+.pageloadright {
+    float:right;
+    color: #fff;
+}
+.borderless {
+    border: none;
+}
+.admin-auth, .registration-box {
+    margin: 0 auto;
+    width: 200px;
+}
+.input-medium, .input-wide, .input-large, .login_input {
+    min-height: 32px;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    background-image: none;
+    background-color: #eee;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+.input-large, .large {
+    min-width: 150px;
+    clear: right
+}
+.input-wide, .wide {
+    min-width: 300px;
+    clear: right
+}
+.white-cell {
+  background-color:#fff !important;
+}
+.round-first {
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+
+.round-last {
+border-top-right-radius: 20px !important;
+border-bottom-right-radius: 20px !important;
+}
+
+@media (min-width: 768px ) {
+  .main-graph, #about {
+     position:relative;
+     margin:96px auto 24px auto !important;
+     width:88% !important;
+     height: 400px !important;
+  }
+  #data {
+    text-align: left;
+    height: 100%;
+    width: 80px;
+    margin-top: 128px;
+    margin-left: 8px;
+    padding: 6px;
+    clear: right;
+  }
+
+#reset:hover, .click-label:hover {
+  cursor: pointer;
+}
+#legend {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@media (max-width: 768px ) {
+  .main-graph, #about {
+    position:relative;
+    margin:96px auto 24px !important;
+    width:95% !important;
+    height: 400px !important;
+  }
+  #data {
+    display: none !important;
+  }
+}
+@media (max-width: 1024px ) {
+  #legend {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+#container, #data {
+  float: left !important;
+}
+#graph {
+  position:relative;
+  margin:96px 24px !important;
+  width: 100% !important;
+  height: 100% !important
+}
+.box-spacer {
+  height: 10px !important;
+}
+#data > span {
+  width:80px;
+  text-align: left !important;
+  margin-top: 10px;
+}
+.click-label {
+  display: block;
+  margin: 0px !important;
+  width:70px !important;
+  height:70px !important
+}
+.line-toggle {
+  visibility: hidden !important;
+}
+.freezer-box {
+  font-size: 12px;
+  margin-top: 4px;
+  margin-right: 4px;
+  float:left;
+  padding: 0px;
+  text-align: center;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #eaeaea;
+  height: 72px;
+  width: 72px;
+}
+.box-active {
+  background-color: #fff !important;
+}
+
+.freezerinfo {
+    margin:12px auto;
+    padding: 12px 12px 0;
+    width:360px;
+    border: #333 solid 4px;
+    box-shadow: 4px 4px 8px #444;
+    border-radius: 8px;
+}
+.stealth {
+  display:none !important;
+}
+.fakeinput, input {
+    margin:0 auto;
+    border-bottom-color: rgb(238, 238, 238);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-style: inset;
+    border-bottom-width: 2px;
+    border-collapse: collapse;
+    border-left-color: rgb(238, 238, 238);
+    border-left-style: inset;
+    border-left-width: 2px;
+    border-right-color: rgb(238, 238, 238);
+    border-right-style: inset;
+    border-right-width: 2px;
+    border-top-color: rgb(238, 238, 238);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-style: inset;
+    border-top-width: 2px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    pointer-events: auto;
+    position: static;
+    resize: none;
+    text-align: center;
+    text-decoration: none solid rgb(0, 0, 0);
+    text-indent: 0px;
+    text-shadow: none;
+    text-transform: none;
+    vertical-align: baseline;
+    visibility: visible;
+    width: 100% !important;
+}
+
+/* Bootstrap Overrides */
+
+.table > tbody > tr > td {
+  border-top: none !important;
+  vertical-align: middle !important}
+table.table{
+  border-spacing: 0 8 !important;
+  border-collapse: separate !important
+}
+td > input[type="checkbox"] {
+  width: auto !important;
+}
+table {margin: 32px auto !important}
+
+td {text-align: center;
+    padding: 0 4px !important;
+    font-size: 14px !important}
+tr {margin-top: 8px !important}
+h3 {margin:12px auto 0;}
+
+.content {
+    margin: 60px auto !important
+}
+.field-narrow {max-width:32px !important}
+.field-medium {min-width:75px !important}
+.field-wide {min-width:180px !important}
+.field-narrow, .field-wide {margin:12px auto !important}
+
+.btn {
+    min-width: 108px;
+    min-height: 32px;
+    border-radius: 20px;
+}
+.navbar-fixed-top {
+  font-family: CustomFont, sans-serif !important;
+}
+.navbar-fixed-bottom {
+    position:fixed;
+    bottom:0px;
+    margin-bottom: 0px !important;
+    margin-top: 10px !important;
+    width: 100%;
+    height: 40px;
+    font-size:10px;
+    background-color: #222 !important;
+    clear:both !important;
+}
+.navbar-fixed-bottom-p {
+    margin: 6px;
+    text-align:center;
+    color:#ccc
+}
+
+/* General Color Definitions */
+.gray       {color:#999 !important}
+.violet     {color:#808 !important}
+.indigo     {color:#408 !important}
+.blue       {color:#008 !important}
+.green      {color:#080 !important}
+.yellow     {color:#880 !important}
+.orange     {color:#840 !important}
+.red        {color:#800 !important}
+.white      {color:#FFF !important}
+
+/* Custom Font Face for Logo */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../fonts/prosto-sans-bold-webfont.eot');
+    src: url('../fonts/prosto-sans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/prosto-sans-bold-webfont.woff2') format('woff2'),
+         url('../fonts/prosto-sans-bold-webfont.woff') format('woff'),
+         url('../fonts/prosto-sans-bold-webfont.ttf') format('truetype'),
+         url('../fonts/prosto-sans-bold-webfont.svg#CustomFont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.custom-font {
+  font-family: CustomFont !important;
+}
