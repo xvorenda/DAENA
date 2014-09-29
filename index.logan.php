@@ -69,8 +69,9 @@ echo "
 </table>
 </div>
 <div class='container'>
+<div class='row'>
 <div id='legend'>
-<div class='row'>	
+	
             ";
 
 array_push($columnnames,"Time");
