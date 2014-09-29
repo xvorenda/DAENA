@@ -155,7 +155,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
               } elseif ($last_temp1 < $last_temp2) {
                 echo "<td>".$last_temp1." &deg;C <span class='glyphicon glyphicon-arrow-down'></span></td>";
               } elseif ($last_temp1 == $last_temp2) {
-                echo "<td>".$last_temp1." &deg;C <span class='glyphicon glyphicon-minus'></span></td>";
+                echo "<td>".$last_temp[1]." &deg;C <span class='glyphicon glyphicon-minus'></span></td>";
               }
                 if ($last_temp1 == $last_reading){
                   echo "<td><span class='glyphicon glyphicon-eye-open blue'></span>";
