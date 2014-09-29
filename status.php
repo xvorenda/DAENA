@@ -48,6 +48,7 @@ echo "
 <div id='data' class='stealth'></div>
 <div id='legend' class='status-legend'>
 <table class='status-table'>
+<th><td class='status-table-freezername'>Freezer Name</td><td class='status-table-freezerloc'>Location</td></th>
             ";
 
 array_push($columnnames,"Time");
