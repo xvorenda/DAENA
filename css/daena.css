@@ -74,7 +74,7 @@ border-bottom-right-radius: 20px !important;
      height: 400px !important;
   }
   #data {
-    text-align: center;
+    text-align: left;
     height: 100%;
     width: 80px;
     margin-top: 128px;
