@@ -143,7 +143,7 @@ echo "        ],
                 strokeWidth: 4,
                 drawXGrid: false,
                 axisLineColor: 'white',
-                rollPeriod: ".$skip.",
+                rollPeriod: ".$roll.",
                 showRoller: true
               });
               function change(el) {
