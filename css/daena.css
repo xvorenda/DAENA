@@ -82,6 +82,9 @@ border-bottom-right-radius: 20px !important;
     padding: 6px;
     clear: right;
   }
+  #data > span > div {
+    display: none !important;
+  }
 }
 #legend {
   -webkit-user-select: none;
