@@ -87,8 +87,9 @@ border-bottom-right-radius: 20px !important;
   }
   #data > span:first-child {
     position: fixed;
-    top: 60px  
-}
+    top: 60px;
+    left: 80%;
+  }
 }
 #legend {
   -webkit-user-select: none;
