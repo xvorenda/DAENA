@@ -195,7 +195,7 @@ $(document).ready(function()
   {
     $('#legend').css(
     {
-      position: 'absolute'
+      position: 'relative'
     });
 
     $('#legend').css(
@@ -206,7 +206,7 @@ $(document).ready(function()
   });
 
   // call `resize` to center elements
-  $(window).resize();
+  //$(window).resize();
 });
 </script>";
 
