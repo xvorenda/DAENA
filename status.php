@@ -160,34 +160,8 @@ echo "        ],
                 {
                   dateWindow: null,
                   valueRange: null,
-                  visibility: [".$visiblelist."]
                 });
-              $('.freezer-box').addClass('box-active');
               }
-</script>";
-
-
-/* Position Legend Semi-Dynamically */
-echo "<script type='text/javascript'>
-$(document).ready(function()
-{
-  $(window).resize(function()
-  {
-    $('#legend').css(
-    {
-      position: 'absolute'
-    });
-
-    $('#legend').css(
-    {
-      left: ($(window).width() - $('#legend').outerWidth()) / 2,
-      top: 500
-    });
-  });
-
-  // call `resize` to center elements
-  $(window).resize();
-});
 </script>";
 
 /* Wrap things up */
