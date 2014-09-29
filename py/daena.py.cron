@@ -20,12 +20,6 @@ for line in conf:
     # Dont waste the effort if the line is commented out
     if re.search('^//', line):
         pass
-    elif re.search('EMAIL_ADDRESS', line):
-        #pulls out the email address from the line
-        self.email = re.sub('[\ \";\)]','', (line.split(',')[1]))
-    elif re.search('EMAIL_PASSWORD', line):
-        #pulls out the email password from the line
-        self.emailPass = (re.sub('[\ \";\)]','', (line.split(',')[1])))
     elif re.search('DB_HOST', line):
         #pulls out the db host from the line
         host =(re.sub('[\ \";\)]','', (line.split(',')[1])))
