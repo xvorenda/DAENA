@@ -160,8 +160,27 @@ echo "        ],
                 {
                   dateWindow: null,
                   valueRange: null,
+                  visibility: [".$visiblelist."]
                 });
               }
+</script>";
+
+
+/* Position Legend Semi-Dynamically */
+echo "<script type='text/javascript'>
+$(document).ready(function()
+{
+  $(window).resize(function()
+  {
+    $('.dygraph-title').css(
+    {
+      font-size: '12px !important'
+    });
+  });
+
+  // call `resize` to center elements
+  $(window).resize();
+});
 </script>";
 
 /* Wrap things up */
