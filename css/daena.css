@@ -102,7 +102,7 @@ border-bottom-right-radius: 20px !important;
 
 
 }
-#reset:hover, .freezer-box:hover {
+#reset:hover, .line-toggle:hover {
   cursor: pointer;
 }
 #legend {
