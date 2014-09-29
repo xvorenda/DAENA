@@ -50,12 +50,12 @@ echo "
 <div class='status-legend'>
 <table class='status-table'>
 <tr>
-  <td>Freezer Name</td>
-  <td>High Temp</td>
-  <td>Critical Temp</td>
-  <td>Last Temp</td>
-  <td>Last Reading</td>
-  <td>Alarm Level</td>
+  <td>Freezer</td>
+  <td>Warning</td>
+  <td>Danger</td>
+  <td>LastTemp</td>
+  <td>Conn</td>
+  <td>Alarm</td>
   <td>&nbsp;</td>
 </tr>";
 
@@ -142,8 +142,14 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td style='color:#".$colorname."'>".$freezer_name."</td>
                 <td>".$freezer_setpoint1."</td>
                 <td>".$freezer_setpoint2."</td>
-                <td class='".$row_color."'>".$last_temp."</td>
-                <td class='".$row_color." '>".$last_reading."</td>
+                <td>".$last_temp."</td>
+                <td>";
+                if ($last_temp == $last_reading){
+                  echo "<span class='glyphicon glyphicon-exclamation-sign status-warning'></span>";
+                } else {
+                  echo "<span class='glyphicon glyphicon-ok-sign status-success'></span>";
+                }
+                echo "</td>
                 <td class='field-narrow'><span class='".$icon."' title='".$alarm_date_time."'></span></td>
 
 ";
