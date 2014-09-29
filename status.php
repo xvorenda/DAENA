@@ -51,13 +51,13 @@ echo "
 <table class='status-table'>
 <tr>
   <td>Freezer</td>
-  <td>Location</td>
-  <td>Warning</td>
-  <td>Danger</td>
+  <td>Loc</td>
+  <td>Warn</td>
+  <td>Crit</td>
   <td>Last</td>
   <td>Trend</td>
   <td>Conn</td>
-  <td>Status</td>
+  <td>State</td>
   <td>Hush</td>
 </tr>";
 
