@@ -180,7 +180,7 @@ $(document).ready(function()
   {
     $('#legend').css(
     {
-      position: 'relative'
+      position: 'absolute'
     });
 
     $('#legend').css(
@@ -213,7 +213,6 @@ $(document).ready(function()
 
 	/* Draw Alarm Mod Area */
 	echo "
-<div class='box-spacer'>&nbsp;</div>
 <div class='container-fluid'>
 	<div class='alarmbox table-responsive'>
 		<table class='table'>
