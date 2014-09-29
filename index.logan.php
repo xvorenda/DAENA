@@ -45,7 +45,7 @@ $re_neg = "-";
 echo "
 <div class='container-responsive'>
 <div id='container'></div>
-<div id='data'></div>
+
 </div>
 <div class='container-responsive'>
 <div id='legend'>
@@ -152,7 +152,8 @@ echo "        ],
                 drawXGrid: false,
                 axisLineColor: 'white',
                 rollPeriod: ".$roll.",
-                showRoller: false
+                showRoller: false,
+                hideOverlayOnMouseOut: false
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
