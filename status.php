@@ -95,19 +95,24 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 
           if ($alarm_level == 0)
           {
-            $row_color = "status-success";
+            $row_color = "status-success-bg";
+            $icon = "glyphicon glyphicon-ok status-success";
           }
           elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
           {
-            $row_color="status-warning";
+            $row_color="status-warning-bg";
+            $icon = "glyphicon glyphicon-exclamation-sign status-warning";
           }
           elseif($alarm_level==3 || $alarm_level==4)
           {
-            $row_color="status-danger";
+            $row_color="status-danger-bg";
+            $icon = "glyphicon glyphicon-fire-sign status-danger";
           }
           elseif($alarm_level==6 || $alarm_level==7)
           {
-            $row_color="status-info";
+            $row_color="status-info-bg";
+            $icon = "glyphicon glyphicon-info-sign status-info";
+
           }
 
           $lasttempquery = "SELECT temp FROM daena_db.data
@@ -138,7 +143,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td style='color:#".$colorname."'>".$freezer_name."</td>
                 <td>".$freezer_setpoint1."</td>
                 <td>".$freezer_setpoint2."</td>
-                <td class='".$row_color." field-narrow'>".$alarm_level."</td>
+                <td class='".$row_color." field-narrow'>".$icon."</td>
                 <td class='".$row_color." field-wide'>".$alarm_date_time."</td>
                 <td class='".$row_color."'>".$last_temp."</td>
                 <td class='".$row_color." '>".$last_reading."</td>
