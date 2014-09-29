@@ -136,28 +136,28 @@ while ($freezerrow = $freezers->fetch_assoc()) {
             $last_temp[$j] = $lasttemprow['temp'];
             $j++;
           };
-          $last_temp1 = str_replace($badneg_a, $re_neg, $last_temp1);
-          $last_temp1 = str_replace($badneg_b, $re_neg, $last_temp1);
-          $last_temp1 = ltrim($last_temp1, '+00');
-          $last_temp1 = ltrim($last_temp1, '+0');
-          $last_temp2 = str_replace($badneg_a, $re_neg, $last_temp1);
-          $last_temp2 = str_replace($badneg_b, $re_neg, $last_temp1);
-          $last_temp2 = ltrim($last_temp1, '+00');
-          $last_temp2 = ltrim($last_temp1, '+0');
+          $last_temp[1] = str_replace($badneg_a, $re_neg, $last_temp[1]);
+          $last_temp[1] = str_replace($badneg_b, $re_neg, $last_temp[1]);
+          $last_temp[1] = ltrim($last_temp[1], '+00');
+          $last_temp[1] = ltrim($last_temp[1], '+0');
+          $last_temp2 = str_replace($badneg_a, $re_neg, $last_temp[1]);
+          $last_temp2 = str_replace($badneg_b, $re_neg, $last_temp[1]);
+          $last_temp2 = ltrim($last_temp[1], '+00');
+          $last_temp2 = ltrim($last_temp[1], '+0');
 
           echo "<tr class='alarm-table-row'>
               <form action='handlers/alarm-mod.php' method='POST'>
                 <td style='color:#".$colorname."'>".$freezer_name."</td>
                 <td>".$freezer_setpoint1." &deg;C</td>
                 <td>".$freezer_setpoint2." &deg;C</td>";
-                if ($last_temp1 > $last_temp2) {
-                echo "<td>".$last_temp1." &deg;C <span class='glyphicon glyphicon-arrow-up'></span></td>";
-              } elseif ($last_temp1 < $last_temp2) {
-                echo "<td>".$last_temp1." &deg;C <span class='glyphicon glyphicon-arrow-down'></span></td>";
-              } elseif ($last_temp1 == $last_temp2) {
+                if ($last_temp[1] > $last_temp2) {
+                echo "<td>".$last_temp[1]." &deg;C <span class='glyphicon glyphicon-arrow-up'></span></td>";
+              } elseif ($last_temp[1] < $last_temp2) {
+                echo "<td>".$last_temp[1]." &deg;C <span class='glyphicon glyphicon-arrow-down'></span></td>";
+              } elseif ($last_temp[1] == $last_temp2) {
                 echo "<td>".$last_temp[1]." &deg;C <span class='glyphicon glyphicon-minus'></span></td>";
               }
-                if ($last_temp1 == $last_reading){
+                if ($last_temp[1] == $last_reading){
                   echo "<td><span class='glyphicon glyphicon-eye-open blue'></span>";
                 } else {
                   echo "<td><span class='glyphicon glyphicon-eye-close status-warning'></span>";
