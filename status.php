@@ -156,7 +156,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td>".$freezer_loc."</td>
                 <td>".$freezer_setpoint1."</td>
                 <td>".$freezer_setpoint2."</td>
-                <td>".$last_temp_round." &deg;C</td>";
+                <td>".$last_temp_round."</td>";
 
                 if ($last_temp_now > $last_temp_then) {
                 echo "<td><span class='glyphicon glyphicon-chevron-up yellow'></span></td>";
