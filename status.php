@@ -150,13 +150,15 @@ while ($freezerrow = $freezers->fetch_assoc()) {
               <form action='handlers/alarm-mod.php' method='POST'>
                 <td style='color:#".$colorname."'>".$freezer_name."</td>
                 <td>".$freezer_setpoint1." &deg;C</td>
-                <td>".$freezer_setpoint2." &deg;C</td>";
+                <td>".$freezer_setpoint2." &deg;C</td>
+                <td>".$last_temp_now." &deg;C</td>";
+
                 if ($last_temp_now > $last_temp_then) {
-                echo "<td>".$last_temp_now." &deg;C <span class='glyphicon glyphicon-arrow-up'></span></td>";
+                echo "<td><span class='glyphicon glyphicon-arrow-up'></span></td>";
               } elseif ($last_temp_now < $last_temp_then) {
-                echo "<td>".$last_temp_now." &deg;C <span class='glyphicon glyphicon-arrow-down'></span></td>";
-              } elseif ($last_temp_now = $last_temp_then) {
-                echo "<td>".$last_temp_now." &deg;C <span class='glyphicon glyphicon-arrow-up'></span></td>";
+                echo "<td><span class='glyphicon glyphicon-arrow-down'></span></td>";
+              } elseif ($last_temp_now == $last_temp_then) {
+                echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
               }
                 if ($last_temp_now == $last_reading){
                   echo "<td><span class='glyphicon glyphicon-eye-open blue'></span>";
@@ -167,6 +169,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td class='field-narrow'><span class='".$icon."' title='".$alarm_date_time."'></span></td>
 
 ";
+
                 if ($alarm_level==3 || $alarm_level==6)
                 {
                   echo"
