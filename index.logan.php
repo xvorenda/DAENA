@@ -44,13 +44,12 @@ $re_neg = "-";
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
 <div class='container-responsive'>
-<div id='container'></div>
-
+<div id='graph' class='main-graph'></div>
+<div id='data'></div>
 </div>
 <div class='container-responsive'>
-<div id='legend'>
-            ";
-
+<div id='legend'></div>
+            <div>";
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
@@ -91,7 +90,7 @@ echo "
   chart = new Dygraph(
 
     // containing div
-    document.getElementById(\"container\"),
+    document.getElementById(\"graph\"),
         [\n";
 
 
