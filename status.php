@@ -143,8 +143,8 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $last_temp_now = ltrim($last_temp_now, '+0');
           $last_temp_then = str_replace($badneg_a, $re_neg, $last_temp[5]);
           $last_temp_then = str_replace($badneg_b, $re_neg, $last_temp_then);
-          $last_temp_then = ltrim($last_temp_now, '+00');
-          $last_temp_then = ltrim($last_temp_now, '+0');
+          $last_temp_then = ltrim($last_temp_then, '+00');
+          $last_temp_then = ltrim($last_temp_then, '+0');
 
           echo "<tr class='alarm-table-row'>
               <form action='handlers/alarm-mod.php' method='POST'>
