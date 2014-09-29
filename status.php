@@ -144,6 +144,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $last_temp_now = str_replace($badneg_b, $re_neg, $last_temp_now);
           $last_temp_now = ltrim($last_temp_now, '+00');
           $last_temp_now = ltrim($last_temp_now, '+0');
+          $last_temp = round($lasttempnow);
           $last_temp_then = str_replace($badneg_a, $re_neg, $last_temp[5]);
           $last_temp_then = str_replace($badneg_b, $re_neg, $last_temp_then);
           $last_temp_then = ltrim($last_temp_then, '+00');
@@ -155,7 +156,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td>".$freezer_loc."</td>
                 <td>".$freezer_setpoint1."</td>
                 <td>".$freezer_setpoint2."</td>
-                <td>".$last_temp_now." &deg;C</td>";
+                <td>".$last_temp." &deg;C</td>";
 
                 if ($last_temp_now > $last_temp_then) {
                 echo "<td><span class='glyphicon glyphicon-chevron-up yellow'></span></td>";
