@@ -56,7 +56,7 @@ echo "
   <td>Last</td>
   <td>Trend</td>
   <td>Conn</td>
-  <td>Alarm</td>
+  <td>Status</td>
   <td>Hush</td>
 </tr>";
 
