@@ -56,9 +56,9 @@ echo "
   <td>Alarm Time</td>
   <td>Last Temp</td>
   <td>Last Reading</td>
-  <td>Silence Hourly Alarm</td>
   <td>High Temp</td>
   <td>Critical Temp</td>
+  <td>Silence</td>
 </tr>";
 
 array_push($columnnames,"Time");
@@ -141,7 +141,9 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td class='".$row_color." field-narrow'>".$alarm_level."</td>
                 <td class='".$row_color." field-wide'>".$alarm_date_time."</td>
                 <td class='".$row_color."'>".$last_temp."</td>
-                <td class='".$row_color." '>".$last_reading."</td>";
+                <td class='".$row_color." '>".$last_reading."</td>
+                <td>".$freezer_setpoint1."</td>
+                <td>".$freezer_setpoint2."</td>";
                 if ($alarm_level==3 || $alarm_level==6)
                 {
                   echo"
@@ -157,8 +159,6 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td class='".$row_color." round-last'>No Hourly Alarms</td>";
                 }
                 echo"
-                <td>".$freezer_setpoint1."</td>
-                <td>".$freezer_setpoint2."</td>
                 <input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
               </form>
             </tr>";
