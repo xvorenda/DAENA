@@ -7,6 +7,7 @@ body {
     margin-right:10px;
 }
 .dygraph-title {
+  font-family: CustomFont, sans-serif !important;
   font-size: 18px !important;
   width: 110% !important;
 }
@@ -251,7 +252,9 @@ h3 {margin:12px auto 0;}
     min-height: 32px;
     border-radius: 20px;
 }
-
+.navbar-fixed-top {
+  font-family: CustomFont, sans-serif !important;
+}
 .navbar-fixed-bottom {
     position:fixed;
     bottom:0px;
@@ -279,3 +282,19 @@ h3 {margin:12px auto 0;}
 .orange     {color:#840 !important}
 .red        {color:#800 !important}
 .white      {color:#FFF !important}
+
+/* Custom Font Face for Logo */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../fonts/topeka-webfont.eot');
+    src: url('../fonts/topeka-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/topeka-webfont.woff2') format('woff2'),
+         url('../fonts/topeka-webfont.woff') format('woff'),
+         url('../fonts/topeka-webfont.ttf') format('truetype'),
+         url('../fonts/topeka-webfont.svg#CustomFont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.custom-font {
+  font-family: CustomFont !important;
+}
