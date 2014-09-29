@@ -7,6 +7,7 @@ body {
     margin-right:10px;
 }
 .dygraph-title {
+  font-family: GoodTimes, sans-serif !important;
   font-size: 18px !important;
   width: 110% !important;
 }
