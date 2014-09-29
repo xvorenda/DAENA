@@ -56,7 +56,7 @@ echo "
                    <li><a href='".$baseurl."?hours=".$hours."&group=".$group."&loc=".$loc."&type=4'>4 Fridge</a></li>
                  </ul>
                </li>
-               <li><a id='reset' href='#' onclick='resetGraph()'>Reset</a></li>
+               <li><a id='reset' onclick='resetGraph()'>Reset</a></li>
              </ul>
              <ul class='nav navbar-nav navbar-right'>
                <li><a href='admin'>Admin</a></li>
