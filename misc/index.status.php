@@ -318,9 +318,7 @@ echo "
 	  </table>
 	</div>
 </div>
-<br>
-<br>
-<br>
+
 ";
 
 /* Wrap things up */
