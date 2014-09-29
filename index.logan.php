@@ -43,9 +43,10 @@ $re_neg = "-";
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
-<div id='container' class='main-graph'></div>
+<div id='container'></div>
 <div id='data'></div>
-<div id='legend'>
+<div id='legend'></div>
+<div>
             ";
 
 array_push($columnnames,"Time");
@@ -91,12 +92,12 @@ echo "
         [\n";
 
 
-/* Select Unique Times from MySQL Ping Data */
-$pingtimequery = "SELECT DISTINCT int_time FROM daena_db.data
+/* Ask MySQL for unique ping times */
+$pingquery = "SELECT DISTINCT int_time FROM daena_db.data
               WHERE int_time > ".$viewstart."
               ORDER BY int_time ASC";
 
-$pingtimes = $daenaDB->query($pingtimequery);
+$pings = $daenaDB->query($pingquery);
 
 
 $freezergroups = implode(',', $freezerids);
@@ -104,7 +105,7 @@ $visiblelist = implode(',', $visibility);
 
 
 /* Use Unique Ping Times to Query for Data */
-while ($pingrow = $pingtimes->fetch_assoc()) {
+while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
       $pingepoch = $pingtime/1000;
       $dataquery = "
@@ -190,7 +191,6 @@ $(document).ready(function()
 });
 </script>";
 
-
 /* Start talking to MySQL and report the error if it ignores you */
 	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 	// Check connection
@@ -208,7 +208,7 @@ $(document).ready(function()
 
 	/* Draw Alarm Mod Area */
 	echo "
-
+<h1 class='custom-font'>Alarms</h1>
 <div class='alarmbox table-responsive'>
 	<table class='table'>
 		<tr>
