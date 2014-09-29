@@ -133,7 +133,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 }}
 echo "        ],
               {
-                title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View | 1/".$skip." Density',
+                title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View',
                 labels: [\"".$columnlist."\"],
                 labelsDiv: document.getElementById('data'),
                 legend: 'always',
