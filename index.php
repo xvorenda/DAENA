@@ -44,9 +44,12 @@ $re_neg = "-";
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
 <div class='container-fluid'>
-	<div id='container'></div>
-	
-	<div id='legend'>
+	<div class='row'>
+		<div class='col-md-10' id='container'></div>
+		<div class='col-md-10 hidden-xs' id='data'></div>
+	</div>
+	<div class='row'>
+		<div id='legend'>
             ";
 
 array_push($columnnames,"Time");
@@ -62,14 +65,14 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
     echo "
-    	<div class='freezer-box box-active'>
-            <label class='click-label' for=\"".$i."\">
-              	<div class='box-spacer'>&nbsp;</div>
-              	<span style='color: #".$colorname."'>".$freezername."</span>
-              	<br>".$freezerlocation."
-            </label>
-            <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
-        </div>
+			<div class='freezer-box box-active col-md-3'>
+				<label class='click-label' for=\"".$i."\">
+					<div class='box-spacer'>&nbsp;</div>
+					<span style='color: #".$colorname."'>".$freezername."</span>
+					<br>".$freezerlocation."
+				</label>
+				<input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
+			</div>
             ";
     $i++;
 }
@@ -83,6 +86,7 @@ $freezercount = count($columnnames) - 1;
 
 /* Start Defining DyGraph */
 echo "
+		</div>
 	</div>
 </div>
 <script type='text/javascript'>
