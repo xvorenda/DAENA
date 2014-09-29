@@ -15,8 +15,9 @@ body {
   display:block;
   float:left;
   height: 200px !important;
-  width: 100% !important;
+  width: 98% !important;
   margin-top: 96px;
+  margin-right: 1%p
 }
 .status-legend {
   clear:left;
