@@ -133,7 +133,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 }}
 echo "        ],
               {
-                title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View',
+                title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View | 1/".$skip." Density',
                 labels: [\"".$columnlist."\"],
                 labelsDiv: document.getElementById('data'),
                 legend: 'always',
@@ -143,7 +143,7 @@ echo "        ],
                 strokeWidth: 4,
                 drawXGrid: false,
                 axisLineColor: 'white',
-                rollPeriod: 7,
+                rollPeriod: ".$skip.",
                 showRoller: true
               });
               function change(el) {
