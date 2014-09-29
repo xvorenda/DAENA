@@ -107,24 +107,7 @@ border-bottom-right-radius: 20px !important;
   }
   #data > span > div {
     display: none !important;
-  }
-  #data > span:nth-child(1) {position: fixed;left: 89%;top: 164px;}
-  #data > span:nth-child(2) {position: fixed;left: 89%;top: 184px;}
-  #data > span:nth-child(3) {position: fixed;left: 89%;top: 204px;}
-  #data > span:nth-child(4) {position: fixed;left: 89%;top: 224px;}
-  #data > span:nth-child(5) {position: fixed;left: 89%;top: 244px;}
-  #data > span:nth-child(6) {position: fixed;left: 89%;top: 264px;}
-  #data > span:nth-child(7) {position: fixed;left: 89%;top: 284px;}
-  #data > span:nth-child(8) {position: fixed;left: 89%;top: 304px;}
-  #data > span:nth-child(9) {position: fixed;left: 89%;top: 324px;}
-  #data > span:nth-child(10) {position: fixed;left: 89%;top: 344px;}
-  #data > span:nth-child(11) {position: fixed;left: 89%;top: 364px;}
-  #data > span:nth-child(12) {position: fixed;left: 89%;top: 384px;}
-  #data > span:nth-child(13) {position: fixed;left: 89%;top: 404px;}
-  #data > span:nth-child(14) {position: fixed;left: 89%;top: 424px;}
 
-
-}
 #reset:hover, .click-label:hover {
   cursor: pointer;
 }
