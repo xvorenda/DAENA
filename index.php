@@ -169,7 +169,7 @@ echo "        ],
 
 /* Position Legend Semi-Dynamically */
 echo "
-<div>
+<div class='group'>
 <script type='text/javascript'>
 $(document).ready(function()
 {
