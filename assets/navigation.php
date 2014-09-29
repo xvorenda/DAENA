@@ -11,8 +11,8 @@ echo "
             <span class='icon-bar'></span>
             <span class='icon-bar'></span>
           </button>
-          <a class='navbar-brand white' href='".$baseurl."' title='Data Aggregation and Emergency Notifications for Appliances'>
-          <img src='images/daena.png' class='daena-logo goodtimes'>DAENA
+          <a class='navbar-brand white goodtimes' href='".$baseurl."' title='Data Aggregation and Emergency Notifications for Appliances'>
+          <img src='images/daena.png' class='daena-logo'>DAENA
           </a>
         </div>
         <div class='navbar-collapse collapse'>

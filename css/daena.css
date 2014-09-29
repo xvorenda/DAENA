@@ -287,10 +287,11 @@ h3 {margin:12px auto 0;}
     src: url('goodtimes-webfont.eot?#iefix') format('embedded-opentype'),
          url('goodtimes-webfont.woff2') format('woff2'),
          url('goodtimes-webfont.woff') format('woff'),
-         url('goodtimes-webfont.ttf') format('truetype');
+         url('goodtimes-webfont.ttf') format('truetype'),
+         url('goodtimes-webfont.svg#GoodTimes') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 .goodtimes {
-  font-family: "GoodTimes" !important;
+  font-family: "GoodTimes" !important; 
 }
