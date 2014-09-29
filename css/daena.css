@@ -102,6 +102,9 @@ border-bottom-right-radius: 20px !important;
 
 
 }
+#reset:hover {
+  cursor: pointer;
+}
 #legend {
   -webkit-user-select: none;
   -moz-user-select: none;
