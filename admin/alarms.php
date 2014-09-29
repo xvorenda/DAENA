@@ -23,6 +23,7 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Draw Alarm Mod Area */
 	echo "
+	<h1 class='custom-font'>Alarms</h1>
 	<div class='alarmbox table-responsive'>
 	<table class='table'>
 	<tr>

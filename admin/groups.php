@@ -24,6 +24,7 @@ $allgroups = $daenaDB->query($allgroupsquery);
 
 /* Draw Freezer Mod Area */
 echo "
+<h1 class='custom-font'>Groups</h1>
 <div class='groupsbox table-responsive'>
 <table class='table'>
 <tr><td>Group ID</td><td>Group Name</td><td class='td-wide'>Group Description</td><td>&nbsp;</td></tr>
