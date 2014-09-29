@@ -153,8 +153,8 @@ while ($freezerrow = $freezers->fetch_assoc()) {
               <form action='handlers/alarm-mod.php' method='POST'>
                 <td style='color:#".$colorname."'>".$freezer_name."</td>
                 <td>".$freezer_loc."</td>
-                <td>".$freezer_setpoint1." &deg;C</td>
-                <td>".$freezer_setpoint2." &deg;C</td>
+                <td>".$freezer_setpoint1."</td>
+                <td>".$freezer_setpoint2."</td>
                 <td>".$last_temp_now." &deg;C</td>";
 
                 if ($last_temp_now > $last_temp_then) {
