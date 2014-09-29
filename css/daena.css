@@ -7,7 +7,7 @@ body {
     margin-right:10px;
 }
 .dygraph-title {
-  font-family: GoodTimes, sans-serif !important;
+  font-family: CustomFont, sans-serif !important;
   font-size: 18px !important;
   width: 110% !important;
 }
@@ -253,7 +253,7 @@ h3 {margin:12px auto 0;}
     border-radius: 20px;
 }
 .navbar-fixed-top {
-  font-family: GoodTimes, sans-serif !important;
+  font-family: CustomFont, sans-serif !important;
 }
 .navbar-fixed-bottom {
     position:fixed;
@@ -285,16 +285,16 @@ h3 {margin:12px auto 0;}
 
 /* Custom Font Face for Logo */
 @font-face {
-    font-family: 'GoodTimes';
+    font-family: 'CustomFont';
     src: url('../fonts/goodtimes-webfont.eot');
     src: url('../fonts/goodtimes-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/goodtimes-webfont.woff2') format('woff2'),
          url('../fonts/goodtimes-webfont.woff') format('woff'),
          url('../fonts/goodtimes-webfont.ttf') format('truetype'),
-         url('../fonts/goodtimes-webfont.svg#GoodTimes') format('svg');
+         url('../fonts/goodtimes-webfont.svg#CustomFont') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 .custom-font {
-  font-family: GoodTimes !important;
+  font-family: CustomFont !important;
 }
