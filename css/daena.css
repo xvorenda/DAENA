@@ -24,6 +24,9 @@ body {
   width: 320px;
   min-height: 600px;
 }
+.status-table {
+  width: 100%;
+}
 #wrapper {
   margin-top: 96px;
   margin-left: 24px;

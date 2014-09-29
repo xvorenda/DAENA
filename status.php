@@ -47,7 +47,7 @@ echo "
 <div id='container' class='status-graph'></div>
 <div id='data' class='stealth'></div>
 <div id='legend' class='status-legend'>
-<table>
+<table class='status-table'>
             ";
 
 array_push($columnnames,"Time");
