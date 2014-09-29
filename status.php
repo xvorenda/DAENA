@@ -5,7 +5,7 @@ include 'assets/urlvars.php';
 
 /* Get things started */
 include 'assets/header.php';
-<style>.dygraph-title{font-size:12px!important}</style>
+echo "<style>.dygraph-title{font-size:12px!important}</style>";
 
 /* Define Navbar */
 include 'assets/navigation.php';
