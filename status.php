@@ -140,9 +140,9 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           echo "<tr class='alarm-table-row'>
               <form action='handlers/alarm-mod.php' method='POST'>
                 <td style='color:#".$colorname."'>".$freezer_name."</td>
-                <td>".$freezer_setpoint1."</td>
-                <td>".$freezer_setpoint2."</td>
-                <td>".$last_temp."</td>
+                <td>".$freezer_setpoint1." &deg;C</td>
+                <td>".$freezer_setpoint2." &deg;C</td>
+                <td>".$last_temp." &deg;C</td>
                 <td>";
                 if ($last_temp == $last_reading){
                   echo "<span class='glyphicon glyphicon-ok-sign status-success'></span>";
