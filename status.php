@@ -47,6 +47,7 @@ echo "
 <div id='container' class='status-graph'></div>
 <div id='data' class='stealth'></div>
 <div id='legend' class='status-legend'>
+<table>
             ";
 
 array_push($columnnames,"Time");
@@ -61,14 +62,10 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezerids,$freezerid);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
-    echo "<div class='freezer-box box-active'>
-            <label class='click-label' for=\"".$i."\">
-              <div class='box-spacer'>&nbsp;</div>
-              <span style='color: #".$colorname."'>".$freezername."</span>
-              <br>".$freezerlocation."
-            </label>
-            <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
-          </div>
+    echo "<tr>
+              <td><span style='color: #".$colorname."'>".$freezername."</span></td>
+              <td>".$freezerlocation."</td>
+          </tr>
             ";
     $i++;
 }
