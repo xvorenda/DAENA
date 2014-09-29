@@ -286,12 +286,12 @@ h3 {margin:12px auto 0;}
 /* Custom Font Face for Logo */
 @font-face {
     font-family: 'CustomFont';
-    src: url('../fonts/nordicathin-webfont.eot');
-    src: url('../fonts/nordicathin-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/nordicathin-webfont.woff2') format('woff2'),
-         url('../fonts/nordicathin-webfont.woff') format('woff'),
-         url('../fonts/nordicathin-webfont.ttf') format('truetype'),
-         url('../fonts/nordicathin-webfont.svg#CustomFont') format('svg');
+    src: url('../fonts/mockup-regular-webfont.eot');
+    src: url('../fonts/mockup-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/mockup-regular-webfont.woff2') format('woff2'),
+         url('../fonts/mockup-regular-webfont.woff') format('woff'),
+         url('../fonts/mockup-regular-webfont.ttf') format('truetype'),
+         url('../fonts/mockup-regular-webfont.svg#CustomFont') format('svg');
     font-weight: normal;
     font-style: normal;
 }
