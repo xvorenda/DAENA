@@ -145,9 +145,9 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td>".$last_temp."</td>
                 <td>";
                 if ($last_temp == $last_reading){
-                  echo "<span class='glyphicon glyphicon-exclamation-sign status-warning'></span>";
-                } else {
                   echo "<span class='glyphicon glyphicon-ok-sign status-success'></span>";
+                } else {
+                  echo "<span class='glyphicon glyphicon-exclamation-sign status-warning'></span>";
                 }
                 echo "</td>
                 <td class='field-narrow'><span class='".$icon."' title='".$alarm_date_time."'></span></td>
@@ -172,38 +172,15 @@ while ($freezerrow = $freezers->fetch_assoc()) {
               </form>
             </tr>";
             $i++;};
-
-
-
-
-
-
 echo "
   </table>
 </div>";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Format Freezer Names and Colors, Get Count */
 $columnlist = implode ("\", \"",$columnnames);
 $colorlist = implode ("', '#",$freezercolors);
 $freezercount = count($columnnames) - 1;
-
 
 
 /* Start Defining DyGraph */
