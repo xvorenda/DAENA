@@ -1,1 +1,1 @@
-    <h1>DAENA Administration Console</h1>
+    <h1 class='goodtimes'>DAENA Administration Console</h1>
