@@ -44,7 +44,7 @@ $re_neg = "-";
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 /* Draw Alarm Mod Area */
 echo "
-<style>.dygraph-title{font-size:12px!important;margin:auto!important;width:115%!important}</style>
+<style>.dygraph-title{font-size:14px!important;margin:auto!important;width:100%!important}</style>
 <div id='container' class='status-graph'></div>
 <div id='data' class='stealth'></div>
 <div class='status-legend'>
