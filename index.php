@@ -168,7 +168,9 @@ echo "        ],
 
 
 /* Position Legend Semi-Dynamically */
-echo "<script type='text/javascript'>
+echo "
+<div>
+<script type='text/javascript'>
 $(document).ready(function()
 {
   $(window).resize(function()
@@ -188,7 +190,8 @@ $(document).ready(function()
   // call `resize` to center elements
   $(window).resize();
 });
-</script>";
+</script>
+</div>";
 
 /* Start talking to MySQL and report the error if it ignores you */
 	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
