@@ -85,8 +85,8 @@ border-bottom-right-radius: 20px !important;
   #data > span > div {
     display: none !important;
   }
-  #data > span:first-child {
-    margin-top:28px;
+  #data > span::before {
+    content: "<br>";
   }
 }
 #legend {
