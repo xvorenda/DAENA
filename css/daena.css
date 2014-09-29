@@ -18,6 +18,10 @@ body {
   width: 320px !important;
   margin-top: 96px;
 }
+.status-legend {
+  clear:left;
+  float:left;
+}
 #wrapper {
   margin-top: 96px;
   margin-left: 24px;
