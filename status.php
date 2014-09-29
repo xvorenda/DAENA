@@ -46,7 +46,7 @@ echo "
 <style>.dygraph-title{font-size:12px!important;margin:auto!important;width:115%!important}</style>
 <div id='container' class='status-graph'></div>
 <div id='data' class='stealth'></div>
-<div id='legend' class='stealth'>
+<div id='legend' class='status-legend'>
             ";
 
 array_push($columnnames,"Time");
