@@ -45,7 +45,7 @@ $re_neg = "-";
 echo "
 <div class='container-fluid'>
 	<div id='container'></div>
-	<div id='data'></div>
+	
 	<div id='legend'>
             ";
 
