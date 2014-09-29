@@ -43,10 +43,10 @@ $re_neg = "-";
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
-<div class='container'>
-<div id='container'></div>
-<div id='data'></div>
-<div id='legend'>
+<div class='container-fluid'>
+	<div id='container'></div>
+	<div id='data'></div>
+	<div id='legend'>
             ";
 
 array_push($columnnames,"Time");
@@ -61,14 +61,15 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezerids,$freezerid);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
-    echo "<div class='freezer-box box-active'>
+    echo "
+    	<div class='freezer-box box-active'>
             <label class='click-label' for=\"".$i."\">
-              <div class='box-spacer'>&nbsp;</div>
-              <span style='color: #".$colorname."'>".$freezername."</span>
-              <br>".$freezerlocation."
+              	<div class='box-spacer'>&nbsp;</div>
+              	<span style='color: #".$colorname."'>".$freezername."</span>
+              	<br>".$freezerlocation."
             </label>
             <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
-          </div>
+        </div>
             ";
     $i++;
 }
@@ -82,7 +83,7 @@ $freezercount = count($columnnames) - 1;
 
 /* Start Defining DyGraph */
 echo "
-</div>
+	</div>
 </div>
 <script type='text/javascript'>
   Dygraph.Interaction.endTouch = Dygraph.Interaction.moveTouch = Dygraph.Interaction.startTouch = function() {};
@@ -212,21 +213,22 @@ $(document).ready(function()
 
 	/* Draw Alarm Mod Area */
 	echo "
+<div class='container'>
 	<div class='alarmbox table-responsive'>
-	<table class='table'>
-	<tr>
-		<td>Freezer ID</td>
-		<td>Freezer Name</td>
-		<td>Alarm Level</td>
-		<td>Alarm Time</td>
-		<td>Last Temp</td>
-		<td>Last Reading</td>
-		<td>Silence Hourly Alarm</td>
-		<td>Setpoint High Temp</td>
-		<td>Setpoint Critical Temp</td>
-		<td>Send Alarm</td>
-		<td>&nbsp;</td>
-	</tr>
+		<table class='table'>
+			<tr>
+				<td>Freezer ID</td>
+				<td>Freezer Name</td>
+				<td>Alarm Level</td>
+				<td>Alarm Time</td>
+				<td>Last Temp</td>
+				<td>Last Reading</td>
+				<td>Silence Hourly Alarm</td>
+				<td>Setpoint High Temp</td>
+				<td>Setpoint Critical Temp</td>
+				<td>Send Alarm</td>
+				<td>&nbsp;</td>
+			</tr>
 	";
 	while(($freezerdata = $allfreezers->fetch_assoc()))
 	{
@@ -336,7 +338,7 @@ $(document).ready(function()
 	}
 
 	echo "
-	  </table>
+	  	</table>
 	</div>
 </div>";
 
