@@ -87,7 +87,7 @@ border-bottom-right-radius: 20px !important;
   }
   #data > span:first-child {
     position: fixed;
-    top: 128px;
+    top: 148px;
     left: 89%;
   }
 }
