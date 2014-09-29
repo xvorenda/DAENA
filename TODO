@@ -1,5 +1,6 @@
 Dynamically generate Location and Group navbar menu out of database
 Dynamically generate CSS rules for data readout
+Add "Delete" functionality to admin interface (with verify step)
 Clean up CSS
 Annotation
 Installation Instructions
