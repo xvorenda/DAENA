@@ -59,7 +59,6 @@ echo "
   <td>Silence Hourly Alarm</td>
   <td>High Temp</td>
   <td>Critical Temp</td>
-  <td>&nbsp;</td>
 </tr>";
 
 array_push($columnnames,"Time");
@@ -158,12 +157,9 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td class='".$row_color." round-last'>No Hourly Alarms</td>";
                 }
                 echo"
-                <td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
-                <td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
+                <td>".$freezer_setpoint1."</td>
+                <td>".$freezer_setpoint2."</td>
                 <input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
-                <td>
-                  <button type='submit' name='modify' class='btn'/>Modify</button>
-                </td>
               </form>
             </tr>";
             $i++;};
