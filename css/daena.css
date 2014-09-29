@@ -335,5 +335,5 @@ h3 {margin:12px auto 0;}
     font-style: normal;
 }
 .custom-font {
-  font-family: CustomFont !important;
+  font-family: CustomFont, sans-serif !important;
 }
