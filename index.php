@@ -91,12 +91,12 @@ echo "
         [\n";
 
 
-/* Ask MySQL for unique ping times */
-$pingquery = "SELECT DISTINCT int_time FROM daena_db.data
+/* Select unique times from MySQL ping data */
+$pingtimequery = "SELECT DISTINCT int_time FROM daena_db.data
               WHERE int_time > ".$viewstart."
               ORDER BY int_time ASC";
 
-$pings = $daenaDB->query($pingquery);
+$pings = $daenaDB->query($pingtimequery);
 
 
 $freezergroups = implode(',', $freezerids);
