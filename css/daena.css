@@ -86,7 +86,7 @@ border-bottom-right-radius: 20px !important;
     display: none !important;
   }
   #data > span:nth-child(1) {position: fixed;left: 89%;top: 164px;}
-  #data > span:nth-child(3) {position: fixed;left: 89%;top: 186px;}
+  #data > span:nth-child(3) {position: fixed;left: 89%;top: 184px;}
 
 }
 #legend {
