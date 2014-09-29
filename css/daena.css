@@ -286,12 +286,12 @@ h3 {margin:12px auto 0;}
 /* Custom Font Face for Logo */
 @font-face {
     font-family: 'CustomFont';
-    src: url('../fonts/viafont-webfont.eot');
-    src: url('../fonts/viafont-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/viafont-webfont.woff2') format('woff2'),
-         url('../fonts/viafont-webfont.woff') format('woff'),
-         url('../fonts/viafont-webfont.ttf') format('truetype'),
-         url('../fonts/viafont-webfont.svg#CustomFont') format('svg');
+    src: url('../fonts/topeka-webfont.eot');
+    src: url('../fonts/topeka-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/topeka-webfont.woff2') format('woff2'),
+         url('../fonts/topeka-webfont.woff') format('woff'),
+         url('../fonts/topeka-webfont.ttf') format('truetype'),
+         url('../fonts/topeka-webfont.svg#CustomFont') format('svg');
     font-weight: normal;
     font-style: normal;
 }
