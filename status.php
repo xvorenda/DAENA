@@ -43,7 +43,7 @@ $re_neg = "-";
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
-<style>.dygraph-title{font-size:12px!important;margin:auto!important}</style>
+<style>.dygraph-title{font-size:12px!important;margin:auto!important;width:115%!important}</style>
 <div id='container' class='status-graph'></div>
 <div id='data' class='stealth'></div>
 <div id='legend' class='stealth'>
