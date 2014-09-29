@@ -50,7 +50,7 @@ echo "
 <div class='status-legend'>
 <table class='status-table'>
 <tr>
-  <td>Freezer</td>
+  <td>Name</td>
   <td>Where</td>
   <td>Warn</td>
   <td>Crit</td>
