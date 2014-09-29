@@ -188,7 +188,7 @@ border-bottom-right-radius: 20px !important;
     border-radius: 8px;
 }
 .stealth {
-  display:none
+  display:none !important;
 }
 .fakeinput, input {
     margin:0 auto;
