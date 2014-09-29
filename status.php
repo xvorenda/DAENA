@@ -44,8 +44,8 @@ $re_neg = "-";
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 /* Draw Alarm Mod Area */
 echo "
-<div class='alarmbox table-responsive'>
-<table class='table'>
+<div class='status-legend'>
+<table class='status-table'>
 <tr>
   <td>Freezer ID</td>
   <td>Freezer Name</td>
