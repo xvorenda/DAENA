@@ -21,6 +21,8 @@ body {
 .status-legend {
   clear:left;
   float:left;
+  width: 320px;
+  min-height: 600px;
 }
 #wrapper {
   margin-top: 96px;
