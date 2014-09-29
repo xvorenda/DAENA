@@ -53,9 +53,9 @@ echo "
   <td>Freezer Name</td>
   <td>High Temp</td>
   <td>Critical Temp</td>
-  <td>Alarm Level</td>
   <td>Last Temp</td>
   <td>Last Reading</td>
+  <td>Alarm Level</td>
   <td>Alarm?</td>
 </tr>";
 
