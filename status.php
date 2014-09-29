@@ -54,6 +54,7 @@ echo "
   <td>Warning</td>
   <td>Danger</td>
   <td>Last</td>
+  <td>Change</td>
   <td>Conn</td>
   <td>Alarm</td>
   <td>Hush</td>
@@ -136,28 +137,30 @@ while ($freezerrow = $freezers->fetch_assoc()) {
             $last_temp[$j] = $lasttemprow['temp'];
             $j++;
           };
-          $last_temp[1] = str_replace($badneg_a, $re_neg, $last_temp[1]);
-          $last_temp[1] = str_replace($badneg_b, $re_neg, $last_temp[1]);
-          $last_temp[1] = ltrim($last_temp[1], '+00');
-          $last_temp[1] = ltrim($last_temp[1], '+0');
-          $last_temp[5] = str_replace($badneg_a, $re_neg, $last_temp[1]);
-          $last_temp[5] = str_replace($badneg_b, $re_neg, $last_temp[1]);
-          $last_temp[5] = ltrim($last_temp[1], '+00');
-          $last_temp[5] = ltrim($last_temp[1], '+0');
+          $last_temp_now = str_replace($badneg_a, $re_neg, $last_temp[1];
+          $last_temp_now = str_replace($badneg_b, $re_neg, $last_temp_now);
+          $last_temp_now = ltrim($last_temp_now, '+00');
+          $last_temp_now = ltrim($last_temp_now, '+0');
+          $last_temp_then = str_replace($badneg_a, $re_neg, $last_temp[5]);
+          $last_temp_then = str_replace($badneg_b, $re_neg, $last_temp_then);
+          $last_temp_then = ltrim($last_temp_now, '+00');
+          $last_temp_then = ltrim($last_temp_now, '+0');
 
           echo "<tr class='alarm-table-row'>
               <form action='handlers/alarm-mod.php' method='POST'>
                 <td style='color:#".$colorname."'>".$freezer_name."</td>
                 <td>".$freezer_setpoint1." &deg;C</td>
-                <td>".$freezer_setpoint2." &deg;C</td>";
-                if ($last_temp[1] > $last_temp[5]) {
-                echo "<td>".$last_temp[1]." &deg;C <span class='glyphicon glyphicon-arrow-up'></span></td>";
-              } elseif ($last_temp[1] < $last_temp[5]) {
-                echo "<td>".$last_temp[1]." &deg;C <span class='glyphicon glyphicon-arrow-down'></span></td>";
-              } elseif ($last_temp[1] == $last_temp[5]) {
-                echo "<td>".$last_temp[1].$last_temp[5]." &deg;C <span class='glyphicon glyphicon-minus'></span></td>";
+                <td>".$freezer_setpoint2." &deg;C</td>
+                <td>".$last_temp_now." &deg;C</td>";
+
+                if ($last_temp_now > $last_temp_then) {
+                echo "<td><span class='glyphicon glyphicon-arrow-up'></span></td>";
+              } elseif ($last_temp_now < $last_temp_then) {
+                echo "<td><span class='glyphicon glyphicon-arrow-down'></span></td>";
+              } elseif ($last_temp_now == $last_temp_then) {
+                echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
               }
-                if ($last_temp[1] == $last_reading){
+                if ($last_temp_now == $last_reading){
                   echo "<td><span class='glyphicon glyphicon-eye-open blue'></span>";
                 } else {
                   echo "<td><span class='glyphicon glyphicon-eye-close status-warning'></span>";
