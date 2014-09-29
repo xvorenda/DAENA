@@ -85,11 +85,9 @@ border-bottom-right-radius: 20px !important;
   #data > span > div {
     display: none !important;
   }
-  #data > span:first-child {
-    position: fixed;
-    top: 164px;
-    left: 89%;
-  }
+  #data > span:nth-child(1) {position: fixed;left: 89%;top: 164px;}
+  #data > span:nth-child(2) {position: fixed;left: 89%;top: 188px;}
+
 }
 #legend {
   -webkit-user-select: none;
