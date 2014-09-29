@@ -11,7 +11,42 @@ from alarm import alarm
 Terminator = "\n"
 SleepCommand = "sleep 1\n"
 ReadProbeCommand = "T\n"
-conn = mdb.connect(user='daena_user', passwd='idontcareaboutpasswordsrightnow', db='daena_db')
+conf = open("/www/admin/config/db.php", "r")
+
+# Loop through the file
+for line in conf:
+    # Remove the trailing white space (including return character)
+    line = line.rstrip()
+    # Dont waste the effort if the line is commented out
+    if re.search('^//', line):
+        pass
+    elif re.search('EMAIL_ADDRESS', line):
+        #pulls out the email address from the line
+        self.email = re.sub('[\ \";\)]','', (line.split(',')[1]))
+    elif re.search('EMAIL_PASSWORD', line):
+        #pulls out the email password from the line
+        self.emailPass = (re.sub('[\ \";\)]','', (line.split(',')[1])))
+    elif re.search('DB_HOST', line):
+        #pulls out the db host from the line
+        host =(re.sub('[\ \";\)]','', (line.split(',')[1])))
+    elif re.search('DB_NAME', line):
+        #pulls out the database from the line
+        database =(re.sub('[\ \";\)]','', (line.split(',')[1])))
+    elif re.search('DB_USER', line):
+        #pulls out the database user name from the line
+        dbUser = (re.sub('[\ \";\)]','', (line.split(',')[1])))
+    elif re.search('DB_PASS', line):
+        #pulls out the database password from the line
+        dbPass = (re.sub('[\ \";\)]','', (line.split(',')[1])))
+
+# Debug to make sure the passwords and such are correct
+#print "email, emailPass, host, database, dbUser, dbPass", self.email, self.emailPass, host, database, dbUser, dbPass
+
+# Close the file when it is done
+conf.close()
+
+# Create the connection to the database
+conn = mdb.connect(user=dbUser, passwd=dbPass, db=database)
 writecursor = conn.cursor()
 timetime = time.time()*1000
 newAlarm = alarm()
@@ -39,14 +74,14 @@ def checkSum(temp, hex):
     # Take the sum of ascii values and modulo by 256
     #print "crc", crc
     crcmod = crc % 256
-    
+
     # Get the hex value of the modulo value
     #print "crcmod", crcmod
     crchex = '%X' % crcmod
 
     #print "crchex", crchex
-    
-    # Check if the value given is equal to the calculated value and return True 
+
+    # Check if the value given is equal to the calculated value and return True
     # or False
     if crchex == hex:
     	return True
@@ -60,12 +95,12 @@ readcursor.execute("""SELECT freezer_id,probe_hostport FROM probes WHERE probe_a
 
 for record in readcursor:
     #record = readcursor.fetchone()
-    
+
     if not record: break
     probe_clean = record[1]
     freezer_id = record[0]
     ntms_host, host_port = probe_clean.split()
-    
+
     try:
         Telnet = telnetlib.Telnet(ntms_host,host_port,3)
     except socket.timeout:
@@ -73,34 +108,34 @@ for record in readcursor:
         newAlarm.checkComAlarm(freezer_id)
         putData("nodata", "nodata")
         continue
-    
+
     Telnet.write(SleepCommand)
     Telnet.write(ReadProbeCommand)
     rawtemp = Telnet.read_until(Terminator)
-    
+
     if not rawtemp:
         #print "not rawtemp"
-        newAlarm.checkComAlarm(freezer_id) 
+        newAlarm.checkComAlarm(freezer_id)
         putData("nodata", "nodata")
         continue
-    
+
     Telnet.close()
-    try:    
+    try:
         tempread = re.sub('\x1b.*?J', '', rawtemp)
         sensor = tempread.split()
-    
+
         #ping_errorcheck = sensor[1]
         #if not ping_errorcheck: break
         #print "sensor", sensor
-    
+
         temp, hex = sensor
-    
+
     except ValueError:
         #print "valueError"
         newAlarm.checkComAlarm(freezer_id)
         putData("nodata", "nodata")
         continue
-    
+
     if checkSum(temp, hex):
         #print "checking temp for", freezer_id, time.time()
         newAlarm.checkTemp(freezer_id, float(temp))
@@ -112,7 +147,7 @@ for record in readcursor:
         newAlarm.checkComAlarm(freezer_id)
         putData("nodata", "nodata")
        #print False
-    
+
 
     #putData(temp, hex)
 newAlarm.closeAlarm()
