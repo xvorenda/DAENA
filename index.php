@@ -180,7 +180,7 @@ $(document).ready(function()
   {
     $('#legend').css(
     {
-      position: 'absolute'
+      position: 'relative'
     });
 
     $('#legend').css(
@@ -213,7 +213,8 @@ $(document).ready(function()
 
 	/* Draw Alarm Mod Area */
 	echo "
-<div class='container'>
+<div class='box-spacer'>&nbsp;</div>
+<div class='container-fluid'>
 	<div class='alarmbox table-responsive'>
 		<table class='table'>
 			<tr>
@@ -340,7 +341,8 @@ $(document).ready(function()
 	echo "
 	  	</table>
 	</div>
-</div>";
+</div>
+";
 
 /* Wrap things up */
 include 'assets/footer.php';
