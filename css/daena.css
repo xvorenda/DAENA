@@ -306,12 +306,12 @@ h3 {margin:12px auto 0;}
 .red        {color:#800 !important}
 .white      {color:#FFF !important}
 
-.status-success{color: #0f0;}
-.status-success:hover{color: #8f8;}
-.status-warning{color: #ff0;}
-.status-warning:hover{color: #ff8;}
-.status-danger{color: #f00;}
-.status-danger:hover{color: #f88;}
+.status-success{color: #080;}
+.status-success:hover{color: #484;}
+.status-warning{color: #880;}
+.status-warning:hover{color: 884;}
+.status-danger{color: #800;}
+.status-danger:hover{color: #844;}
 .status-info{color: #d9edf7;}
 .status-info:hover{color: #c4e3f3;}
 .status-success-bg{background-color: #dff0d8;}
