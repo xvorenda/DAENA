@@ -81,11 +81,13 @@ border-bottom-right-radius: 20px !important;
     margin-left: 8px;
     padding: 6px;
     clear: right;
-    -webkit-user-select: none;       
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
+}
+#legend {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 @media (max-width: 768px ) {
   #container, #about {
