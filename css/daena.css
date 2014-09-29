@@ -17,6 +17,7 @@ body {
   height: 200px !important;
   width: 100% !important;
   margin-top: 96px;
+  margin-right: 0 !important
 }
 #wrapper {
   margin-top: 96px;
