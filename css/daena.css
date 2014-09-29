@@ -325,12 +325,12 @@ h3 {margin:12px auto 0;}
 /* Custom Font Face for Logo */
 @font-face {
     font-family: 'CustomFont';
-    src: url('../fonts/topeka-webfont.eot');
-    src: url('../fonts/topeka-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/topeka-webfont.woff2') format('woff2'),
-         url('../fonts/topeka-webfont.woff') format('woff'),
-         url('../fonts/topeka-webfont.ttf') format('truetype'),
-         url('../fonts/topeka-webfont.svg#CustomFont') format('svg');
+    src: url('../fonts/ntsakkhara-webfont.eot');
+    src: url('../fonts/ntsakkhara-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ntsakkhara-webfont.woff2') format('woff2'),
+         url('../fonts/ntsakkhara-webfont.woff') format('woff'),
+         url('../fonts/ntsakkhara-webfont.ttf') format('truetype'),
+         url('../fonts/ntsakkhara-webfont.svg#CustomFont') format('svg');
     font-weight: normal;
     font-style: normal;
 }
