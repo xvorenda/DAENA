@@ -211,7 +211,7 @@ $(document).ready(function()
 
 	/* Draw Alarm Mod Area */
 	echo "
-<h1 class='custom-font'>Alarms</h1>
+<div class='container'>
 <div class='alarmbox table-responsive'>
 	<table class='table'>
 		<tr>
@@ -337,6 +337,7 @@ $(document).ready(function()
 
 	echo "
 	  </table>
+	</div>
 	</div>
 </div>";
 
