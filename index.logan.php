@@ -47,6 +47,7 @@ ORDER BY ABS(freezer_id)";
 
 /* Define Variables and Arrays */
 $i = 0;
+$j = 1;
 $columnnames = array();
 $freezercolors = array();
 $freezerids = array();
@@ -69,7 +70,7 @@ echo "
 </div>
 <div class='container'>
 <div id='legend'>
-	
+<div class='row'>	
             ";
 
 array_push($columnnames,"Time");
@@ -84,7 +85,12 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezerids,$freezerid);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
-    echo "<div class='freezer-box box-active'>
+    if($j % 12)
+    {
+    	echo" </div>
+    	<div class='row'>";
+    }
+    echo "<div class='freezer-box box-active col-md-1'>
             <label class='click-label' for='".$i."'>
               <div class='box-spacer'>&nbsp;</div>
               <span style='color: #".$colorname."'>".$freezername."</span>
@@ -105,6 +111,7 @@ $freezercount = count($columnnames) - 1;
 
 /* Start Defining DyGraph */
 echo "
+</div>
 </div>
 </div>
 <script type='text/javascript'>
