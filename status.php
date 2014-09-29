@@ -143,7 +143,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td style='color:#".$colorname."'>".$freezer_name."</td>
                 <td>".$freezer_setpoint1."</td>
                 <td>".$freezer_setpoint2."</td>
-                <td class='".$row_color." field-narrow'>".$icon."</td>
+                <td class='".$row_color." field-narrow'><span class='".$icon."'></span></td>
                 <td class='".$row_color." field-wide'>".$alarm_date_time."</td>
                 <td class='".$row_color."'>".$last_temp."</td>
                 <td class='".$row_color." '>".$last_reading."</td>
