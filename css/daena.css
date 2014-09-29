@@ -324,13 +324,13 @@ h3 {margin:12px auto 0;}
 .status-info-bg:hover{background-color: #c4e3f3;}
 /* Custom Font Face for Logo */
 @font-face {
-    font-family: 'Other'Open Sans'';
+    font-family: 'CustomFont';
     src: url('../fonts/ntsakkhara-webfont.eot');
     src: url('../fonts/ntsakkhara-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/ntsakkhara-webfont.woff2') format('woff2'),
          url('../fonts/ntsakkhara-webfont.woff') format('woff'),
          url('../fonts/ntsakkhara-webfont.ttf') format('truetype'),
-         url('../fonts/ntsakkhara-webfont.svg#'Open Sans'') format('svg');
+         url('../fonts/ntsakkhara-webfont.svg#CustomFont') format('svg');
     font-weight: normal;
     font-style: normal;
 }
