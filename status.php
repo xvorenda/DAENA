@@ -76,7 +76,8 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezerids,$freezer_id);
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
-    $freezer_loc = str_replace("Sanger<br>"," ",$freezerlocation);
+    $freezer_loc = str_replace("<br>"," ",$freezerlocation);
+    $freezer_loc = preg_replace("/(\w+)/","",$freezer_loc);
 
           $alarm_query = "SELECT alarm_level, alarm_time
             FROM daena_db.alarm
