@@ -7,7 +7,7 @@ body {
     margin-right:10px;
 }
 .dygraph-title {
-  font-family: CustomFont, sans-serif !important;
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 18px;
   width: 110% !important;
 }
@@ -276,7 +276,7 @@ h3 {margin:12px auto 0;}
     border-radius: 20px;
 }
 .navbar-fixed-top {
-  font-family: CustomFont, sans-serif !important;
+  font-family: 'Open Sans', sans-serif !important;
 }
 .navbar-fixed-bottom {
     position:fixed;
@@ -324,16 +324,17 @@ h3 {margin:12px auto 0;}
 .status-info-bg:hover{background-color: #c4e3f3;}
 /* Custom Font Face for Logo */
 @font-face {
-    font-family: 'CustomFont';
+    font-family: 'Other'Open Sans'';
     src: url('../fonts/ntsakkhara-webfont.eot');
     src: url('../fonts/ntsakkhara-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/ntsakkhara-webfont.woff2') format('woff2'),
          url('../fonts/ntsakkhara-webfont.woff') format('woff'),
          url('../fonts/ntsakkhara-webfont.ttf') format('truetype'),
-         url('../fonts/ntsakkhara-webfont.svg#CustomFont') format('svg');
+         url('../fonts/ntsakkhara-webfont.svg#'Open Sans'') format('svg');
     font-weight: normal;
     font-style: normal;
 }
+
 .custom-font {
-  font-family: CustomFont, sans-serif !important;
+  font-family: 'Open Sans', sans-serif !important;
 }

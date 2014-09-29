@@ -8,6 +8,7 @@
 <link href='css/bootstrap.css' rel='stylesheet'>
 <link href='css/daena.css' rel='stylesheet'>
 <link rel='shortcut icon' href='images/daena.png'/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400' rel='stylesheet' type='text/css'>
 <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
 <script type='text/javascript' src='js/dygraph-combined.js'></script>
 <script type='text/javascript' src='js/bootstrap.min.js'></script>
