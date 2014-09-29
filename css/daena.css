@@ -12,6 +12,8 @@ body {
   width: 110% !important;
 }
 .status-graph {
+  display:block;
+  float:left;
   height: 200px !important;
   width: 320px !important;
 }
