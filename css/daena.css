@@ -292,5 +292,5 @@ h3 {margin:12px auto 0;}
     font-style: normal;
 }
 .goodtimes {
-  font-family: "GoodTimes" !important;
+  font-family: "GoodTimes", sans-serif !important;
 }
