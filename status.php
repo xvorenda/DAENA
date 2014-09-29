@@ -50,7 +50,6 @@ echo "
 <div class='status-legend'>
 <table class='status-table'>
 <tr>
-  <td>Freezer ID</td>
   <td>Freezer Name</td>
   <td>Alarm Level</td>
   <td>Alarm Time</td>
@@ -147,7 +146,6 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 if ($alarm_level==3 || $alarm_level==6)
                 {
                   echo"
-                <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
                 <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
                 <td class='".$row_color." round-last'>
                   <button type='submit' name='silence' class='btn btn-danger'/>Silence</button>
