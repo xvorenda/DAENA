@@ -144,7 +144,7 @@ echo "        ],
                 drawXGrid: false,
                 axisLineColor: 'white',
                 rollPeriod: ".$roll.",
-                showRoller: true
+                showRoller: false
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
