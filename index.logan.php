@@ -44,7 +44,7 @@ $re_neg = "-";
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
 <div class='container-responsive'>
-<div id='graph' class='main-graph'></div>
+<div id='graph'></div>
 <div id='data'></div>
 
 
@@ -90,7 +90,7 @@ echo "
   chart = new Dygraph(
 
     // containing div
-    document.getElementById(\"graph\"),
+    document.getElementById('graph'),
         [\n";
 
 
