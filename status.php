@@ -56,7 +56,7 @@ echo "
   <td>Last Temp</td>
   <td>Last Reading</td>
   <td>Alarm Level</td>
-  <td>Alarm?</td>
+  <td>&nbsp;</td>
 </tr>";
 
 array_push($columnnames,"Time");
@@ -152,14 +152,14 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                   echo"
                 <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
                 <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-                <td class='".$row_color." round-last'>
+                <td>
                   <button type='submit' name='silence' class='btn btn-danger'/>Silence</button>
                 </td>";
                 }
                 else
                 {
                   echo"
-                <td class='".$row_color." round-last'>None</td>";
+                <td>&nbsp;</td>";
                 }
                 echo"
                 <input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
