@@ -46,8 +46,8 @@ echo "
 <div class='container-responsive'>
 <div id='graph' class='main-graph'></div>
 <div id='data'></div>
-</div>
-<div class='container-responsive'>
+
+
 <div id='legend'></div>
             <div>";
 array_push($columnnames,"Time");
