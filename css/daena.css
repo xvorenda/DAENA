@@ -15,9 +15,8 @@ body {
   display:block;
   float:left;
   height: 200px !important;
-  width: 100% !important;
+  width: 320px !important;
   margin-top: 96px;
-  margin-right: 0 !important
 }
 #wrapper {
   margin-top: 96px;
