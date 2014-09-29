@@ -173,7 +173,8 @@ echo "        ],
                 drawXGrid: false,
                 axisLineColor: 'white',
                 rollPeriod: ".$roll.",
-                showRoller: false
+                showRoller: false,
+                labelsSeparateLines: true
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
