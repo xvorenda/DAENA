@@ -87,8 +87,8 @@ border-bottom-right-radius: 20px !important;
   }
   #data > span:first-child {
     position: fixed;
-    top: 150px;
-    left: 88%;
+    top: 128px;
+    left: 89%;
   }
 }
 #legend {
