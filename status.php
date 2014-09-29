@@ -51,6 +51,7 @@ echo "
 <table class='status-table'>
 <tr>
   <td>Freezer</td>
+  <td class='field_wide'>Location</td>
   <td>Warning</td>
   <td>Danger</td>
   <td>Last</td>
@@ -149,6 +150,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           echo "<tr class='alarm-table-row'>
               <form action='handlers/alarm-mod.php' method='POST'>
                 <td style='color:#".$colorname."'>".$freezer_name."</td>
+                <td>".$freezer_loc."</td>
                 <td>".$freezer_setpoint1." &deg;C</td>
                 <td>".$freezer_setpoint2." &deg;C</td>
                 <td>".$last_temp_now." &deg;C</td>";
