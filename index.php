@@ -41,7 +41,7 @@ $badneg_b = "-0";
 $re_neg = "-";
 
 
-/* Print Freezer Legend, Data View, and Toggles */
+/* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
 <div id='container'></div>
 <div id='data'></div>
@@ -62,9 +62,10 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($visibility,"true");
     echo "<div class='freezer-box box-active'>
             <label class='click-label' for=\"".$i."\">
-              <div class='box-spacer'>&nbsp;</div><span style='color: #".$colorname."'>".$freezername."</span>
+              <div class='box-spacer'>&nbsp;</div>
+              <span style='color: #".$colorname."'>".$freezername."</span>
               <br>".$freezerlocation."
-              </label>
+            </label>
             <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
           </div>
             ";
@@ -101,6 +102,8 @@ $pings = $daenaDB->query($pingquery);
 $freezergroups = implode(',', $freezerids);
 $visiblelist = implode(',', $visibility);
 
+
+/* Use Unique Ping Times to Query for Data */
 while ($pingrow = $pings->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
       $pingepoch = $pingtime/1000;
@@ -115,6 +118,7 @@ while ($pingrow = $pings->fetch_assoc()) {
 
       $datacount = $data->num_rows;
 
+/* If the number of datapoints matches the number of freezers, print data row*/
       if ($datacount == $freezercount){
         echo "            [ new Date(\"";
         echo date('Y/m/d H:i:s', $pingepoch);
