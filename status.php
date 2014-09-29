@@ -64,8 +64,8 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($freezercolors,$colorname);
     array_push($visibility,"true");
     echo "<tr>
-              <td><span style='color: #".$colorname."'>".$freezername."</span></td>
-              <td>".$freezerlocation."</td>
+              <td class='status-table-freezername'><span style='color: #".$colorname."'>".$freezername."</span></td>
+              <td class='status-table-freezerloc'>".$freezerlocation."</td>
           </tr>
             ";
     $i++;
