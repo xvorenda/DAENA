@@ -170,16 +170,13 @@ echo "        ],
 echo "<script type='text/javascript'>
 $(document).ready(function()
 {
-  $(window).resize(function()
-  {
     $('.dygraph-title').css(
     {
       font-size: '12px !important'
-    });
   });
 
-  // call `resize` to center elements
-  $(window).resize();
+  // call `ready` to center elements
+  $(window).ready();
 });
 </script>";
 

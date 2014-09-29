@@ -8,7 +8,7 @@ body {
 }
 .dygraph-title {
   font-family: CustomFont, sans-serif !important;
-  font-size: 18px !important;
+  font-size: 18px;
   width: 110% !important;
 }
 .status-graph {
