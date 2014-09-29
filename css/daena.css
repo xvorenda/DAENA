@@ -86,8 +86,15 @@ border-bottom-right-radius: 20px !important;
     display: none !important;
   }
   #data > span:nth-child(1) {position: fixed;left: 89%;top: 164px;}
-  #data > span:nth-child(3) {position: fixed;left: 89%;top: 184px;}
-
+  #data > span:nth-child(2) {position: fixed;left: 89%;top: 184px;}
+  #data > span:nth-child(2) {position: fixed;left: 89%;top: 204px;}
+  #data > span:nth-child(2) {position: fixed;left: 89%;top: 224px;}
+  #data > span:nth-child(2) {position: fixed;left: 89%;top: 244px;}
+  #data > span:nth-child(2) {position: fixed;left: 89%;top: 264px;}
+  #data > span:nth-child(2) {position: fixed;left: 89%;top: 284px;}
+  #data > span:nth-child(2) {position: fixed;left: 89%;top: 304px;}
+  #data > span:nth-child(2) {position: fixed;left: 89%;top: 324px;}
+  #data > span:nth-child(2) {position: fixed;left: 89%;top: 344px;}
 }
 #legend {
   -webkit-user-select: none;
