@@ -34,9 +34,7 @@ if ($login->isUserLoggedIn() == true)
 
 
 	/* Draw Freezer Display/Mod Area */
-	echo "
-	<h1 class='custom-font'>Freezers</h1>
-	<div class='freezersbox table-responsive'>
+	echo "<div class='freezersbox table-responsive'>
 		<table class='table'>
 			<tr>
 				<td>Freezer Name</td>

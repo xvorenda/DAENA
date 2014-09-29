@@ -32,7 +32,6 @@ if ($login->isUserLoggedIn() == true)
 	<tr><td>Contact ID</td><td>Name</td><td>Email</td><td>Alt Email</td><td>&nbsp;</td></tr>
 	";
 	*/
-	echo "<h1 class='custom-font'>Contacts</h1>";
 	while(($contactdata = $allcontacts->fetch_assoc()))
 	{
 		$contact_name = $contactdata['name'];
