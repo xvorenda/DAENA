@@ -63,6 +63,7 @@ echo "
 <div id='container'></div>
 <div id='data'></div>
 </div>
+<div class='container'>
 <div id='legend'>
             ";
 
@@ -99,6 +100,7 @@ $freezercount = count($columnnames) - 1;
 
 /* Start Defining DyGraph */
 echo "
+</div>
 </div>
 <script type='text/javascript'>
   Dygraph.Interaction.endTouch = Dygraph.Interaction.moveTouch = Dygraph.Interaction.startTouch = function() {};
