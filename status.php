@@ -95,25 +95,25 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           date_timezone_set($dt, timezone_open('America/New_York'));
           $alarm_date_time = $dt->format('m-d H:i:s');
 
-          if ($alarm_level == 0)
+          if ($alarm_level == 1)
           {
             $row_color = "status-success-bg";
-            $icon = "glyphicon glyphicon-ok status-success";
+            $alarm_icon = "glyphicon glyphicon-ok status-success";
           }
-          elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
+          elseif($alarm_level==0 || $alarm_level==2 || $alarm_level==5)
           {
             $row_color="status-warning-bg";
-            $icon = "glyphicon glyphicon-exclamation-sign status-warning";
+            $alarm_icon = "glyphicon glyphicon-exclamation-sign status-warning";
           }
           elseif($alarm_level==3 || $alarm_level==4)
           {
             $row_color="status-danger-bg";
-            $icon = "glyphicon glyphicon-fire-sign status-danger";
+            $alarm_icon = "glyphicon glyphicon-fire-sign status-danger";
           }
           elseif($alarm_level==6 || $alarm_level==7)
           {
             $row_color="status-info-bg";
-            $icon = "glyphicon glyphicon-info-sign status-info";
+            $alarm_icon = "glyphicon glyphicon-info-sign status-info";
           }
 
           $lasttempquery = "SELECT temp FROM daena_db.data
@@ -176,7 +176,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                   echo "<td><span class='glyphicon glyphicon-eye-close yellow'></span>";
                 }
                 echo "
-                <td class='field-narrow'><span class='".$icon."' title='".$alarm_date_time."'></span></td>
+                <td class='field-narrow'><span class='".$alarm_icon."' title='".$alarm_date_time."'></span></td>
 
 ";
 
