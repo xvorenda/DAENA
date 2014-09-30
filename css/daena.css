@@ -6,11 +6,6 @@ body {
     height:20px;
     margin-right:10px;
 }
-.dygraph-title {
-  font-family: 'Open Sans', sans-serif !important;
-  font-size: 18px;
-  width: 100% !important;
-}
 .status-graph {
   display:block;
   float:left;
@@ -43,10 +38,22 @@ body {
   .status-graph {
     margin-left: -1%;
   }
+  .dygraph-title {
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 18px;
+    width: 100% !important;
+  }
 }
 @media (max-width:768px) {
   .status-graph {
     margin-left: -4%;
+  }
+  .dygraph-title {
+    font-family: 'Open Sans', sans-serif !important;
+    font-size:14px!important;
+    margin:auto!important;
+    width:100%!important;
+    margin-left:5%!important
   }
 }
 .status-legend {
