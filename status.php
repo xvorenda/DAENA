@@ -50,8 +50,8 @@ echo "
 <table class='status-table'>
 <tr>
   <td><span class='mobile-only'>Name</span><span class='desktop-only'>Freezer Name</span></td>
-  <td><span class='mobile-only'>Where</span><span class='desktop-only'>Location  </span></td>
-  <td><span class='mobile-only'>High Temp</span><span class='desktop-only'>Freezer Name</span></td>
+  <td><span class='mobile-only'>Where</span><span class='desktop-only'>Location</span></td>
+  <td><span class='mobile-only'>High</span><span class='desktop-only'>High Temp</span></td>
   <td><span class='mobile-only'>Crit</span><span class='desktop-only'>Critical Temp</span></td>
   <td><span class='mobile-only'>Last</span><span class='desktop-only'>Last Temp</span></td>
   <td><span class='mobile-only'>Trend</span><span class='desktop-only'>Latest Trend</span></td>
