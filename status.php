@@ -74,7 +74,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($namearray,$freezer_name);
     array_push($freezerids,$freezer_id);
     array_push($freezercolors,$colorname);
-    if (strpos("Test",$freezerlocation) == true) {
+    if (strpos($freezerlocation,"Test") === true) {
       array_push($visibility,"false");
     }else{
       array_push($visibility,"true");
@@ -153,11 +153,11 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $last_temp_then = ltrim($last_temp_then, '+00');
           $last_temp_then = ltrim($last_temp_then, '+0');
 
-          if (strpos("Test",$freezerlocation)) {
+          if (strpos($freezerlocation,"Test") ==== true) {
             echo "<tr class='alarm-table-row'>";
           }else{
             echo "<tr class='alarm-table-row alarm-row-active'>";
-          } 
+          }
             echo "<td class='bold custom-font' style='color:#".$colorname."'>
                     <form action='handlers/alarm-mod.php' method='POST'>
                       <label class='status-click-label' for=\"".$i."\">
