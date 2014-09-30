@@ -95,17 +95,17 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           date_timezone_set($dt, timezone_open('America/New_York'));
           $alarm_date_time = $dt->format('m-d H:i:s');
 
-          if ($alarm_level == 1)
+          if ($alarm_level == 3)
           {
             $row_color = "status-success-bg";
             $alarm_icon = "glyphicon glyphicon-ok status-success";
           }
-          elseif($alarm_level==0 || $alarm_level==2 || $alarm_level==5)
+          elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
           {
             $row_color="status-warning-bg";
             $alarm_icon = "glyphicon glyphicon-exclamation-sign status-warning";
           }
-          elseif($alarm_level==3 || $alarm_level==4)
+          elseif($alarm_level==0 || $alarm_level==4)
           {
             $row_color="status-danger-bg";
             $alarm_icon = "glyphicon glyphicon-fire-sign status-danger";
