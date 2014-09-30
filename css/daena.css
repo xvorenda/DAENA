@@ -18,8 +18,16 @@ body {
   width: 98% !important;
   margin-top: 96px;
   margin-right: 1%;
-  margin-left: -1%;
-
+}
+@media (min-width:768px) {
+  .status-graph {
+    margin-left: -1%;
+  }
+}
+@media (max-width:768px) {
+  .status-graph {
+    margin-left: -4%;
+  }
 }
 .status-legend {
   clear:left;
