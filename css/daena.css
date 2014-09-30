@@ -215,6 +215,9 @@ border-bottom-right-radius: 20px !important;
 }
 .line-toggle {
   visibility: hidden !important;
+  position: absolute;
+  top: -9999;
+  left: -9999;
 }
 .freezer-box {
   font-size: 12px;
