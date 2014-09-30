@@ -187,7 +187,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 else
                 {
                   echo"
-                <button type='submit' name='silence' class='glyphicon glyphicon-volume-up status-warning'/>Hush</button>
+                <button type='submit' name='silence' class='glyphicon glyphicon-volume-up status-warning'/></button>
 ";
                 }
                 echo"
