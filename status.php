@@ -47,7 +47,7 @@ echo "
 <div id='container' class='status-graph'></div>
 <div id='status-data'></div>
 <div class='status-legend'>
-<table class='status-table' onLoad='setAlarm()'>
+<table class='status-table'>
 <tr>
   <td><span class='mobile-only'>Name</span><span class='desktop-only'><b>Freezer Name</b></span></td>
   <td><span class='mobile-only'>Where</span><span class='desktop-only'><b>Location</b></span></td>
@@ -166,7 +166,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $last_read_then = ltrim($last_read_then, '+00');
           $last_read_then = ltrim($last_read_then, '+0');
 
-          echo "<tr class='alarm-table-row alarm-row-active'>
+          echo "<tr class='alarm-table-row alarm-row-active'  onLoad='setAlarm(".$i.")'>
                 <td class='bold custom-font' style='color:#".$colorname."'>
                     <form action='handlers/alarm-mod.php' method='POST'>
                       <label class='status-click-label' for=\"".$i."\">
@@ -309,10 +309,10 @@ echo "        ],
               }
 </script>
 <script type='text/javascript'>
-function setAlarm()
+function setAlarm(el)
   {
-    $('#".$i."').parentElement.parentElement.parentElement.addClass('".$current_alarm."');
-    $('#".$i."').parentElement.parentElement.parentElement.addClass('".$alarm_row_text."');
+    $(el).addClass('".$current_alarm."');
+    $(el).addClass('".$alarm_row_text."');
   }
 </script>
 ";
