@@ -49,14 +49,14 @@ echo "
 <div class='status-legend'>
 <table class='status-table'>
 <tr>
-  <td><span class='mobile-only'>Name</span><span class='desktop-only'>Freezer Name</span></td>
-  <td><span class='mobile-only'>Where</span><span class='desktop-only'>Location</span></td>
-  <td><span class='mobile-only'>High</span><span class='desktop-only'>High Temp</span></td>
-  <td><span class='mobile-only'>Crit</span><span class='desktop-only'>Critical Temp</span></td>
-  <td><span class='mobile-only'>Last</span><span class='desktop-only'>Last Temp</span></td>
-  <td><span class='mobile-only'>Trend</span><span class='desktop-only'>Recent Trend</span></td>
-  <td><span class='mobile-only'>State</span><span class='desktop-only'>Alarm State</span></td>
-  <td><span class='mobile-only'>Hush</span><span class='desktop-only'>Silence Alarm</span></td>
+  <td><span class='mobile-only'>Name</span><span class='desktop-only'><b>Freezer Name</b></span></td>
+  <td><span class='mobile-only'>Where</span><span class='desktop-only'><b>Location</b></span></td>
+  <td><span class='mobile-only'>High</span><span class='desktop-only'><b>High Temp</b></span></td>
+  <td><span class='mobile-only'>Crit</span><span class='desktop-only'><b>Critical Temp</b></span></td>
+  <td><span class='mobile-only'>Last</span><span class='desktop-only'><b>Last Temp</b></span></td>
+  <td><span class='mobile-only'>Trend</span><span class='desktop-only'><b>Recent Trend</b></span></td>
+  <td><span class='mobile-only'>State</span><span class='desktop-only'><b>Alarm State</b></span></td>
+  <td><span class='mobile-only'>Hush</span><span class='desktop-only'><b>Silence Alarm</b></span></td>
 </tr>";
 
 array_push($columnnames,"Time");
