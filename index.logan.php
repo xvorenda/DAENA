@@ -158,31 +158,31 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $last_read_then = ltrim($last_read_then, '+00');
           $last_read_then = ltrim($last_read_then, '+0');
 
-          echo "<tr class='".$row_color."'>
-                <td class='bold custom-font' style='color:#".$colorname."'>
-                    <form action='handlers/alarm-mod.php' method='POST'>
+          echo "<tr '>
+                <td class='bold custom-font ".$row_color."' style='color:#".$colorname."'>
+                    <form action='admin/handlers/alarm-mod.php' method='POST'>
                       <label class='status-click-label' for=\"".$i."\">
                       ".$freezer_name."
                     </label>
                     <input class='line-toggle' type='checkbox' id='".$i."' onClick=\"change(this)\" checked>
                   </form>
                 </td>
-                <td>".$freezer_loc."</td>
-                <td>".$freezer_setpoint1."</td>
-                <td>".$freezer_setpoint2."</td>
-                <td>".$last_temp_round."</td>";
+                <td class='".$row_color."'>".$freezer_loc."</td>
+                <td class='".$row_color."'>".$freezer_setpoint1."</td>
+                <td class='".$row_color."'>".$freezer_setpoint2."</td>
+                <td class='".$row_color."'>".$last_temp_round."</td>";
                   if ($last_read_now == 'nodata' || $last_read_then == 'nodata') {
-                    echo "<td><span class='glyphicon glyphicon-eye-close'></span>";
+                    echo "<td class='".$row_color."'><span class='glyphicon glyphicon-eye-close'></span>";
                   }elseif ($last_read_now > $last_read_then) {
-                    echo "<td><span class='glyphicon glyphicon-chevron-up bright-red'></span></td>";
+                    echo "<td class='".$row_color."'><span class='glyphicon glyphicon-chevron-up bright-red'></span></td>";
                   } elseif ($last_read_now < $last_read_then) {
-                    echo "<td><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
+                    echo "<td class='".$row_color."'><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
                   } elseif ($last_read_now == $last_read_then) {
-                    echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
+                    echo "<td class='".$row_color."'><span class='glyphicon glyphicon-minus'></span></td>";
                   };
 
                 echo "
-                <td class='field-narrow'><span class='".$alarm_icon."' title='".$alarm_date_time."'></span></td>
+                <td class='field-narrow ".$row_color."'><span class='".$alarm_icon."' title='".$alarm_date_time."'></span></td>
 
 ";
 
@@ -191,12 +191,12 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                   echo"
                 <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
                 <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-                <td><button type='submit' name='silence' class='status-button glyphicon glyphicon-volume-up status-danger'/></button></td>";
+                <td  class='".$row_color."'><button type='submit' name='silence' class='status-button glyphicon glyphicon-volume-up status-danger'/></button></td>";
                 }
                 else
                 {
                   echo"
-                <td><span class='glyphicon glyphicon-volume-off gray'></span></td>";
+                <td class='".$row_color."'><span class='glyphicon glyphicon-volume-off gray'></span></td>";
                 }
                 echo"
                 <input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
