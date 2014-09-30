@@ -156,7 +156,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                   <div class='alarm-row-active'>
                     <label class='status-click-label' for=\"".$i."\">
                       <div class='status-spacer'>&nbsp;</div>
-                      <span style='color: #".$colorname."'>".$freezername."</span>
+                      <span style='color: #".$colorname."'>".$freezer_name."</span>
                     </label>
                     <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
                   </div>
