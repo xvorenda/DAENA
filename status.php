@@ -44,8 +44,8 @@ $re_neg = "-";
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 /* Draw Alarm Mod Area */
 echo "
-<div id='status-data'></div>
 <div id='container' class='status-graph'></div>
+<div id='data'></div>
 <div class='status-legend'>
 <table class='status-table'>
 <tr>
@@ -272,7 +272,7 @@ echo "        ],
               {
                 title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View',
                 labels: [\"".$columnlist."\"],
-                labelsDiv: document.getElementById('status-data'),
+                labelsDiv: document.getElementById('data'),
                 legend: 'always',
                 colors: ['#".$colorlist."'],
                 visibility: [".$visiblelist."],
