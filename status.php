@@ -52,7 +52,7 @@ echo "
 <tr>
   <td>Name</td>
   <td>Where</td>
-  <td>Warn</td>
+  <td>High</td>
   <td>Crit</td>
   <td>Last</td>
   <td>Trend</td>
