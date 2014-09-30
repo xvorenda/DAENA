@@ -55,7 +55,6 @@ echo "
   <td><span class='mobile-only'>Crit</span><span class='desktop-only'>Critical Temp</span></td>
   <td><span class='mobile-only'>Last</span><span class='desktop-only'>Last Temp</span></td>
   <td><span class='mobile-only'>Trend</span><span class='desktop-only'>Recent Trend</span></td>
-  <td><span class='mobile-only'>Conn</span><span class='desktop-only'>Connection</span></td>
   <td><span class='mobile-only'>State</span><span class='desktop-only'>Alarm State</span></td>
   <td><span class='mobile-only'>Hush</span><span class='desktop-only'>Silence Alarm</span></td>
 </tr>";
@@ -164,21 +163,20 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 </td>
                 <td>".$freezer_loc."</td>
                 <td>".$freezer_setpoint1."</td>
-                <td>".$freezer_setpoint2."</td>
-                <td>".$last_temp_round."</td>";
-
+                <td>".$freezer_setpoint2."</td>";
+                if ($last_temp_now == $last_reading){
+                  echo "<td>".$last_temp_round."</td>";
+                } else {
+                  echo "<td><span class='glyphicon glyphicon-eye-close'></span>";
+                }
                 if ($last_temp_now > $last_temp_then) {
                 echo "<td><span class='glyphicon glyphicon-chevron-up bright-red'></span></td>";
-              } elseif ($last_temp_now < $last_temp_then) {
-                echo "<td><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
-              } elseif ($last_temp_now == $last_temp_then) {
-                echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
-              }
-                if ($last_temp_now == $last_reading){
-                  echo "<td><span class='glyphicon glyphicon-eye-open indigo'></span>";
-                } else {
-                  echo "<td><span class='glyphicon glyphicon-eye-close yellow'></span>";
+                } elseif ($last_temp_now < $last_temp_then) {
+                  echo "<td><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
+                } elseif ($last_temp_now == $last_temp_then) {
+                  echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
                 }
+
                 echo "
                 <td class='field-narrow'><span class='".$alarm_icon."' title='".$alarm_date_time."'></span></td>
 
