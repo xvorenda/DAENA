@@ -6,6 +6,14 @@ include 'assets/urlvars.php';
 /* Get things started */
 include 'assets/header.php';
 
+echo "<script type='text/javascript'>
+var setAlarm = function( id, alarm, color )
+  {
+    $('#id').addClass('alarm');
+    $('#id').addClass('color');
+  };
+</script>";
+
 /* Define Navbar */
 include 'assets/navigation.php';
 
@@ -310,13 +318,6 @@ echo "        ],
                 });
               $('.alarm-table-row').addClass('alarm-row-active');
               }
-</script>
-<script type='text/javascript'>
-var setAlarm = function( id, alarm, color )
-  {
-    $('#id').addClass('alarm');
-    $('#id').addClass('color');
-  };
 </script>
 ";
 /* Wrap things up */
