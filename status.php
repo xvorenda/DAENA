@@ -45,7 +45,7 @@ $re_neg = "-";
 /* Draw Alarm Mod Area */
 echo "
 <div id='container' class='status-graph'></div>
-<div id='data' class='stealth'></div>
+<div id='data'></div>
 <div class='status-legend'>
 <table class='status-table'>
 <tr>

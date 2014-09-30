@@ -44,6 +44,7 @@ $re_neg = "-";
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 echo "
 <div id='container' class='main-graph'></div>
+<div id='data'></div>
 <div id='legend'>
             ";
 
@@ -138,6 +139,8 @@ echo "        ],
               {
                 title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View',
                 labels: [\"".$columnlist."\"],
+                labelsDiv: document.getElementById('data'),
+                legend: 'always',
                 colors: ['#".$colorlist."'],
                 visibility: [".$visiblelist."],
                 drawGapEdgePoints: true,
