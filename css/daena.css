@@ -9,7 +9,7 @@ body {
 .dygraph-title {
   font-family: 'Open Sans', sans-serif !important;
   font-size: 18px;
-  width: 110% !important;
+  width: 100% !important;
 }
 .status-graph {
   display:block;
