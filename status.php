@@ -107,7 +107,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
           {
             $row_color="status-warning-bg";
-            $alarm_icon = "glyphicon glyphicon-exclamation-sign status-warning";
+            $alarm_icon = "glyphicon glyphicon-warning-sign status-warning";
             $current_alarm = "high-temp-alarm";
           }
           elseif($alarm_level==3 || $alarm_level==4)
