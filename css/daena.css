@@ -37,7 +37,7 @@ body {
 }
 .bold {
   font-weight:bold;
-  border-bottom: 2px solid transparent;
+  user-select: none
 }
 @media (min-width:768px) {
   .status-graph {
