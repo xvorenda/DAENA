@@ -282,7 +282,7 @@ echo "        ],
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
-                $(el.parentElement.parentElement).toggleClass('alarm-row-active')
+                $(el.parentElement.parentElement.parentElement).toggleClass('alarm-row-active')
               }
               function resetGraph()
               {
