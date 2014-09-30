@@ -173,7 +173,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                       ".$freezer_name."
                     </label>
                     <script>
-                      onLoad=\"setAlarm( 'tr".$i."', '".$current_alarm."', '".$alarm_row_text."' )\"
+                      setAlarm( 'tr".$i."', '".$current_alarm."', '".$alarm_row_text."' );
                     </script>
                     <input class='line-toggle' type='checkbox' id='".$i."' onClick=\"change(this)\" checked>
                   </form>
