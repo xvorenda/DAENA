@@ -33,6 +33,7 @@ body {
 }
 .status-click-label {
   display: block !important;
+  vertical-align: middle !important;
 }
 @media (min-width:768px) {
   .status-graph {

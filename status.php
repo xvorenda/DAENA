@@ -152,9 +152,9 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 
           echo "<tr class='alarm-table-row alarm-row-active'>
               <form action='handlers/alarm-mod.php' method='POST'>
-                <td style='font-weight:bold;color:#".$colorname."'>
+                <td class='' style='font-weight:bold;color:#".$colorname."'>
                     <label class='status-click-label' for=\"".$i."\">
-                      <span style='color: #".$colorname."'>".$freezer_name."</span>
+                      ".$freezer_name."
                     </label>
                     <input class='line-toggle' type='checkbox' id='".$i."' onClick=\"change(this)\" checked>
                 </td>
