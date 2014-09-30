@@ -297,9 +297,7 @@ echo "        ],
                 });
               $('.alarm-table-row').addClass('alarm-row-active');
               }
-</script>
-<br>
-<br>";
+</script>";
 
 
 /* Wrap things up */
