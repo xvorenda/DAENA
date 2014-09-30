@@ -13,6 +13,9 @@ body {
   padding: 6px;
   display: inline;
 }
+#status-data * {
+  float:left !important
+}
 .status-graph {
   display:block;
   float:left;
