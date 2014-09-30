@@ -34,12 +34,12 @@ body {
 .status-click-label {
   display: block;
   vertical-align: bottom !important;
-  margin-top: 10px !important;
-  margin-bottom: -10px !important;
+  margin-top: 9px !important;
+  margin-bottom: -9px !important;
 }
 .bold {
   font-weight:bold;
-  border: 1px solid transparent;
+  border-bottom: 2px solid transparent;
 }
 @media (min-width:768px) {
   .status-graph {
