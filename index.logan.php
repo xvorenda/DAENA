@@ -105,7 +105,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
           {
             $row_color="warning";
-            $alarm_icon = "glyphicon glyphicon-exclamation-sign status-warning";
+            $alarm_icon = "glyphicon glyphicon-warning-sign status-warning";
           }
           elseif($alarm_level==3 || $alarm_level==4)
           {
@@ -115,7 +115,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           elseif($alarm_level==6 || $alarm_level==7)
           {
             $row_color="info";
-            $alarm_icon = "glyphicon glyphicon-info-sign status-info";
+            $alarm_icon = "glyphicon glyphicon-transfer status-info";
           }
 
           $lastreadquery = "SELECT temp FROM daena_db.data
@@ -205,7 +205,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 				elseif ($alarm_level==4 || $alarm_level==7)
 				{
 					echo"
-                	<td class='".$row_color."'><span class='glyphicon glyphicon-volume-off gray'></span></td>";
+                	<span class='glyphicon glyphicon-volume-off gray'></span>";
 				}
 				echo"
 				</td>
