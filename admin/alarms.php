@@ -90,15 +90,15 @@ if ($login->isUserLoggedIn() == true)
 			$row_color="info";
 		}
 
-		$lasttempquery = "SELECT temp FROM daena_db.data
+		$lastreadingquery = "SELECT temp FROM daena_db.data
 			WHERE freezer_id='".$freezer_id."'
 			ORDER BY int_time DESC
 			LIMIT 1";
 
-		$lasttempdata = $daenaDB->query($lasttempquery);
-		while($lasttemprow = $lasttempdata->fetch_assoc())
+		$lastreadingdata = $daenaDB->query($lastreadingquery);
+		while($lastreadingrow = $lastreadingdata->fetch_assoc())
 		{
-			$last_reading = $lasttemprow['temp'];
+			$last_reading = $lastreadingrow['temp'];
 		};
 
 		$lasttempquery = "SELECT temp FROM daena_db.data
