@@ -156,7 +156,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                     <label class='status-click-label' for=\"".$i."\">
                       <span style='color: #".$colorname."'>".$freezer_name."</span>
                     </label>
-                    <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
+                    <input class='line-toggle' type='checkbox' id='".$i."' onClick=\"change(this)\" checked>
                 </td>
                 <td>".$freezer_loc."</td>
                 <td>".$freezer_setpoint1."</td>
@@ -281,7 +281,7 @@ echo "        ],
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
-                $(el.alarm-table-row).toggleClass('alarm-row-active')
+                $(#el.id).toggleClass('alarm-row-active')
               }
               function resetGraph()
               {
