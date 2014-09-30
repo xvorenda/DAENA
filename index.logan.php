@@ -159,12 +159,11 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 
           echo "<tr '>
                 <td class='bold custom-font ".$row_color."' style='color:#".$colorname."'>
-                    <form action='admin/handlers/alarm-mod.php' method='POST'>
+                    
                       <label class='status-click-label' for=\"".$i."\">
                       ".$freezer_name."
                     </label>
                     <input class='line-toggle' type='checkbox' id='".$i."' onClick=\"change(this)\" checked>
-                  </form>
                 </td>
                 <td class='".$row_color."'>".$freezer_loc."</td>
                 <td class='".$row_color."'>".$freezer_setpoint1."</td>
@@ -189,10 +188,21 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 
                 echo "
                 <td class='field-narrow ".$row_color."'>
-                	<span class='".$alarm_icon."' title='".$alarm_date_time."'></span>
-					<button type='submit' name='silence' class='status-button glyphicon glyphicon-volume-up status-danger'/>
-						Silence
-					</button>
+                	<span class='".$alarm_icon."' title='".$alarm_date_time."'></span>";
+					
+				if ($alarm_level==3 || $alarm_level==6)
+                {
+                  echo"
+                  	<form action='admin/handlers/alarm-mod.php' method='POST'>
+						<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
+						<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
+						<button type='submit' name='silence' class='status-button glyphicon glyphicon-volume-up status-danger'/>
+							Silence
+						</button>
+						<input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
+					</form>";
+				}
+				echo"
 				</td>
 ";
 
@@ -209,8 +219,8 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td class='".$row_color."'><span class='glyphicon glyphicon-volume-off gray'></span></td>";
                 }
                 echo"
-                <input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
-              </form>
+                
+              
             </tr>";
             $i++;};
 echo "
