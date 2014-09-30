@@ -47,7 +47,7 @@ echo "
 <div id='container' class='status-graph'></div>
 <div id='status-data'></div>
 <div class='status-legend'>
-<table class='status-table'>
+<table class='table status-table'>
 <tr>
   <td><span class='mobile-only'>Name</span><span class='desktop-only'><b>Freezer Name</b></span></td>
   <td><span class='mobile-only'>Where</span><span class='desktop-only'><b>Location</b></span></td>
