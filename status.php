@@ -166,7 +166,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $last_read_then = ltrim($last_read_then, '+00');
           $last_read_then = ltrim($last_read_then, '+0');
 
-          echo "<tr class='alarm-table-row alarm-row-active'  onLoad='setAlarm(".$i.",".$current_alarm.",".$alarm_row_text.")'>
+          echo "<tr id='tr".$i." class='alarm-table-row alarm-row-active'  onLoad='setAlarm( tr".$i.", ".$current_alarm.", ".$alarm_row_text." )'>
                 <td class='bold custom-font' style='color:#".$colorname."'>
                     <form action='handlers/alarm-mod.php' method='POST'>
                       <label class='status-click-label' for=\"".$i."\">
@@ -309,11 +309,11 @@ echo "        ],
               }
 </script>
 <script type='text/javascript'>
-function setAlarm(el,alarm,color)
+var setAlarm = function( id, alarm, color )
   {
-    $('#el').addClass('alarm');
-    $('#el').addClass('color');
-  }
+    $('#id').addClass('alarm');
+    $('#id').addClass('color');
+  };
 </script>
 ";
 /* Wrap things up */
