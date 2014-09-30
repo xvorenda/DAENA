@@ -18,7 +18,7 @@ body {
   width: 98% !important;
   margin-top: 96px;
   margin-right: 3%;
-  margin-right: -3%;
+  margin-left: -3%;
 
 }
 .status-legend {
