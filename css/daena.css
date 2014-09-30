@@ -34,8 +34,8 @@ body {
 .status-click-label {
   display: block;
   vertical-align: bottom !important;
-  padding-top: 10px !important;
-  margin-bottom: -6px !important;
+  padding-top: 16px !important;
+  margin-bottom: 0px !important;
 }
 .bold {
   font-weight:bold;
