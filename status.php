@@ -180,15 +180,12 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                   echo"
                 <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
                 <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-                <td>
-                  <button type='submit' name='silence' class='glyphicon glyphicon-volume-up status-danger'/>Hush</button>
-                </td>";
+                <td><button type='submit' name='silence' class='glyphicon glyphicon-volume-up status-danger'/>Hush</button></td>";
                 }
                 else
                 {
                   echo"
-                <td><button type='submit' name='silence' class='status-button glyphicon glyphicon-volume-up status-danger'/></button></td>
-";
+                <td><span class='glyphicon glyphicon-volume-off gray'></span></td>";
                 }
                 echo"
                 <input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
