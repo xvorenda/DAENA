@@ -19,6 +19,11 @@ body {
   margin-top: 96px;
   margin-right: 1%;
 }
+.status-button {
+  margin:0px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
 @media (min-width:768px) {
   .status-graph {
     margin-left: -1%;
@@ -341,6 +346,7 @@ h3 {margin:12px auto 0;}
 .status-danger-bg:hover{background-color: #ebcccc;}
 .status-info-bg{background-color: #d9edf7;}
 .status-info-bg:hover{background-color: #c4e3f3;}
+
 /* Custom Font Face for Logo */
 @font-face {
     font-family: 'CustomFont';
