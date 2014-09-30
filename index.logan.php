@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>DAENA | Data Aggregation and Emergency Notifications for Appliances</title>
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-<link href='css/bootstrap.css' rel='stylesheet'>
-
-<link rel='shortcut icon' href='images/daena.png'/>
-<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
-<script type='text/javascript' src='js/dygraph-combined.js'></script>
-<script type='text/javascript' src='js/bootstrap.min.js'></script>
-<script type='text/javascript' src='js/highcharts.js'></script>
-<script type='text/javascript' src='js/modules/exporting.js'></script>
-
 <?php
 /* Teach PHP how to read URL parameters and connect to the database, plus add defaults */
 include 'admin/config/db.php';
 include 'assets/urlvars.php';
 
 /* Get things started */
-//include 'assets/header.php';
+include 'assets/header.php';
 
 /* Define Navbar */
 include 'assets/navigation.php';
@@ -37,7 +21,7 @@ if (mysqli_connect_errno())
 
 
 /* Ask MySQL which freezers are active, from filters */
-$freezerquery = "SELECT freezer_id,freezer_name,freezer_color,freezer_location
+$freezerquery = "SELECT *
 FROM daena_db.freezers
 WHERE freezer_active='1'
 ".$groupfilter."
@@ -47,7 +31,6 @@ ORDER BY ABS(freezer_id)";
 
 /* Define Variables and Arrays */
 $i = 0;
-$j = 1;
 $columnnames = array();
 $freezercolors = array();
 $freezerids = array();
@@ -59,44 +42,169 @@ $re_neg = "-";
 
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
+/* Draw Alarm Mod Area */
 echo "
-<div class='container'>
-<table>
-	<tr>
-		<td><div id='container'></div></td>
-		<td><div id='data'></div><td>
-	</tr>
-</table>
-</div>
-<div class='container'>
-<div class='row'> 
-<div id='legend'>
-	
-            ";
+<div id='container' class='status-graph'></div>
+<div id='status-data'></div>
+<div class='status-legend'>
+<table class='status-table'>
+<tr>
+  <td>Name</td>
+  <td>Where</td>
+  <td>High</td>
+  <td>Crit</td>
+  <td>Last</td>
+  <td>Trend</td>
+  <td>Conn</td>
+  <td>State</td>
+  <td>Hush</td>
+</tr>";
 
 array_push($columnnames,"Time");
 $freezers = $daenaDB->query($freezerquery);
 while ($freezerrow = $freezers->fetch_assoc()) {
-    $freezername = $freezerrow["freezer_name"];
-    $freezerid = $freezerrow["freezer_id"];
+    $freezer_id = $freezerrow['freezer_id'];
+    $freezer_name = $freezerrow['freezer_name'];
+    $freezer_setpoint1 = $freezerrow['freezer_setpoint1'];
+    $freezer_setpoint2 = $freezerrow['freezer_setpoint2'];
+    $freezer_alarm_id = $freezerrow['freezer_alarm_id'];
     $colorname = $freezerrow["freezer_color"];
     $freezerlocation = $freezerrow["freezer_location"];
-    array_push($columnnames,$freezername);
-    array_push($namearray,$freezername);
-    array_push($freezerids,$freezerid);
+    array_push($columnnames,$freezer_name);
+    array_push($namearray,$freezer_name);
+    array_push($freezerids,$freezer_id);
     array_push($freezercolors,$colorname);
-    array_push($visibility,"true");
-    echo "<div class='freezer-box box-active col-md-1'>
-            <label class='click-label' for='".$i."'>
-              <div class='box-spacer'>&nbsp;</div>
-              <span style='color: #".$colorname."'>".$freezername."</span>
-              <br>".$freezerlocation."
-            </label>
-            <input class='line-toggle' type=checkbox id=".$i." onClick=\"change(this)\" checked>
-          </div>
-            ";
-    $i++;
-}
+    if (strpos($freezerlocation,'Test') !== false) {
+      array_push($visibility,"false");
+    }else{
+      array_push($visibility,"true");
+    };
+    $pattern = "/[^0-9,-]|,[0-9]*$/";
+    $freezer_loc = str_replace("<br>"," ",$freezerlocation);
+    $freezer_loc = preg_replace($pattern,"",$freezer_loc);
+
+          $alarm_query = "SELECT alarm_level, alarm_time
+            FROM daena_db.alarm
+            WHERE alarm_id='".$freezer_alarm_id."'";
+          $alarmdata = $daenaDB->query($alarm_query);
+          while($alarmrow = $alarmdata->fetch_assoc())
+            {
+              $alarm_level = $alarmrow['alarm_level'];
+              $ms_epoch_time = $alarmrow['alarm_time'];
+            };
+
+          $epoch_time = round($ms_epoch_time/1000);
+          $dt = new DateTime("@$epoch_time", (new DateTimeZone('UTC')));
+
+          date_timezone_set($dt, timezone_open('America/New_York'));
+          $alarm_date_time = $dt->format('m-d H:i:s');
+
+          if ($alarm_level == 0)
+          {
+            $row_color = "status-success-bg";
+            $alarm_icon = "glyphicon glyphicon-ok status-success";
+          }
+          elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
+          {
+            $row_color="status-warning-bg";
+            $alarm_icon = "glyphicon glyphicon-exclamation-sign status-warning";
+          }
+          elseif($alarm_level==3 || $alarm_level==4)
+          {
+            $row_color="status-danger-bg";
+            $alarm_icon = "glyphicon glyphicon-fire status-danger";
+          }
+          elseif($alarm_level==6 || $alarm_level==7)
+          {
+            $row_color="status-info-bg";
+            $alarm_icon = "glyphicon glyphicon-info-sign status-info";
+          }
+
+          $lasttempquery = "SELECT temp FROM daena_db.data
+            WHERE freezer_id='".$freezer_id."'
+            ORDER BY int_time DESC
+            LIMIT 1";
+
+          $lasttempdata = $daenaDB->query($lasttempquery);
+          while($lasttemprow = $lasttempdata->fetch_assoc())
+          {
+            $last_reading = $lasttemprow['temp'];
+          };
+
+          $lasttempquery = "SELECT temp FROM daena_db.data
+            WHERE freezer_id='".$freezer_id."' AND
+            temp not REGEXP('nodata')
+            ORDER BY int_time DESC
+            LIMIT 5";
+          $j = 1;
+          $lasttempdata = $daenaDB->query($lasttempquery);
+          while($lasttemprow = $lasttempdata->fetch_assoc())
+          {
+            $last_temp[$j] = $lasttemprow['temp'];
+            $j++;
+          };
+          $last_temp_now = str_replace($badneg_a, $re_neg, $last_temp[1]);
+          $last_temp_now = str_replace($badneg_b, $re_neg, $last_temp_now);
+          $last_temp_now = ltrim($last_temp_now, '+00');
+          $last_temp_now = ltrim($last_temp_now, '+0');
+          $last_temp_round = round($last_temp_now);
+          $last_temp_then = str_replace($badneg_a, $re_neg, $last_temp[5]);
+          $last_temp_then = str_replace($badneg_b, $re_neg, $last_temp_then);
+          $last_temp_then = ltrim($last_temp_then, '+00');
+          $last_temp_then = ltrim($last_temp_then, '+0');
+
+          echo "<tr class='alarm-table-row alarm-row-active'>
+                <td class='bold custom-font' style='color:#".$colorname."'>
+                    <form action='handlers/alarm-mod.php' method='POST'>
+                      <label class='status-click-label' for=\"".$i."\">
+                      ".$freezer_name."
+                    </label>
+                    <input class='line-toggle' type='checkbox' id='".$i."' onClick=\"change(this)\" checked>
+                  </form>
+                </td>
+                <td>".$freezer_loc."</td>
+                <td>".$freezer_setpoint1."</td>
+                <td>".$freezer_setpoint2."</td>
+                <td>".$last_temp_round."</td>";
+
+                if ($last_temp_now > $last_temp_then) {
+                echo "<td><span class='glyphicon glyphicon-chevron-up bright-red'></span></td>";
+              } elseif ($last_temp_now < $last_temp_then) {
+                echo "<td><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
+              } elseif ($last_temp_now == $last_temp_then) {
+                echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
+              }
+                if ($last_temp_now == $last_reading){
+                  echo "<td><span class='glyphicon glyphicon-eye-open indigo'></span>";
+                } else {
+                  echo "<td><span class='glyphicon glyphicon-eye-close yellow'></span>";
+                }
+                echo "
+                <td class='field-narrow'><span class='".$alarm_icon."' title='".$alarm_date_time."'></span></td>
+
+";
+
+                if ($alarm_level==3 || $alarm_level==6)
+                {
+                  echo"
+                <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
+                <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
+                <td><button type='submit' name='silence' class='glyphicon glyphicon-volume-up status-danger'/>Hush</button></td>";
+                }
+                else
+                {
+                  echo"
+                <td><span class='glyphicon glyphicon-volume-off gray'></span></td>";
+                }
+                echo"
+                <input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
+              </form>
+            </tr>";
+            $i++;};
+echo "
+  </table>
+</div>";
+
 
 /* Format Freezer Names and Colors, Get Count */
 $columnlist = implode ("\", \"",$columnnames);
@@ -104,11 +212,8 @@ $colorlist = implode ("', '#",$freezercolors);
 $freezercount = count($columnnames) - 1;
 
 
-
 /* Start Defining DyGraph */
 echo "
-
-</div>
 </div>
 <script type='text/javascript'>
   Dygraph.Interaction.endTouch = Dygraph.Interaction.moveTouch = Dygraph.Interaction.startTouch = function() {};
@@ -119,12 +224,12 @@ echo "
         [\n";
 
 
-/* Ask MySQL for unique ping times */
-$pingquery = "SELECT DISTINCT int_time FROM daena_db.data
+/* Select Unique Times from MySQL Ping Data */
+$pingtimequery = "SELECT DISTINCT int_time FROM daena_db.data
               WHERE int_time > ".$viewstart."
               ORDER BY int_time ASC";
 
-$pings = $daenaDB->query($pingquery);
+$pingtimes = $daenaDB->query($pingtimequery);
 
 
 $freezergroups = implode(',', $freezerids);
@@ -132,7 +237,7 @@ $visiblelist = implode(',', $visibility);
 
 
 /* Use Unique Ping Times to Query for Data */
-while ($pingrow = $pings->fetch_assoc()) {
+while ($pingrow = $pingtimes->fetch_assoc()) {
       $pingtime = $pingrow["int_time"];
       $pingepoch = $pingtime/1000;
       $dataquery = "
@@ -167,7 +272,7 @@ echo "        ],
               {
                 title: '".$group." Freezers  | Location: ".$loc." | ".$hours." Hour View',
                 labels: [\"".$columnlist."\"],
-                labelsDiv: document.getElementById('data'),
+                labelsDiv: document.getElementById('status-data'),
                 legend: 'always',
                 colors: ['#".$colorlist."'],
                 visibility: [".$visiblelist."],
@@ -176,12 +281,11 @@ echo "        ],
                 drawXGrid: false,
                 axisLineColor: 'white',
                 rollPeriod: ".$roll.",
-                showRoller: false,
-                labelsSeparateLines: true
+                showRoller: false
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
-                $(el.parentElement).toggleClass('box-active')
+                $(el.parentElement.parentElement.parentElement).toggleClass('alarm-row-active')
               }
               function resetGraph()
               {
@@ -191,179 +295,10 @@ echo "        ],
                   valueRange: null,
                   visibility: [".$visiblelist."]
                 });
-              $('.freezer-box').addClass('box-active');
+              $('.alarm-table-row').addClass('alarm-row-active');
               }
 </script>";
 
-
-/* Position Legend Semi-Dynamically */
-echo "<script type='text/javascript'>
-$(document).ready(function()
-{
-  $(window).resize(function()
-  {
-    $('#legend').css(
-    {
-      position: 'relative'
-    });
-
-    $('#legend').css(
-    {
-      left: ($(window).width() - $('#legend').outerWidth()) / 2,
-      top: 500
-    });
-  });
-
-  // call `resize` to center elements
-  //$(window).resize();
-});
-</script>";
-
-/* Start talking to MySQL and report the error if it ignores you */
-	$daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-	// Check connection
-	if (mysqli_connect_errno())
-	  {
-	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	  }
-
-	/* Ask MySQL about which freeers exist and get their metadata */
-	$allfreezersquery = "SELECT *
-		FROM daena_db.freezers WHERE freezer_active = 1
-		ORDER BY ABS(freezer_id)";
-	$allfreezers = $daenaDB->query($allfreezersquery);
-
-
-	/* Draw Alarm Mod Area */
-	echo "
-<h1 class='custom-font'>Alarms</h1>
-<div class='alarmbox table-responsive'>
-	<table class='table'>
-		<tr>
-			<td>Freezer ID</td>
-			<td>Freezer Name</td>
-			<td>Alarm Level</td>
-			<td>Alarm Time</td>
-			<td>Last Temp</td>
-			<td>Last Reading</td>
-			<td>Silence Hourly Alarm</td>
-			<td>Setpoint High Temp</td>
-			<td>Setpoint Critical Temp</td>
-			<td>Send Alarm</td>
-			<td>&nbsp;</td>
-		</tr>
-	";
-	while(($freezerdata = $allfreezers->fetch_assoc()))
-	{
-		$freezer_id = $freezerdata['freezer_id'];
-		$freezer_name = $freezerdata['freezer_name'];
-		$freezer_setpoint1 = $freezerdata['freezer_setpoint1'];
-		$freezer_setpoint2 = $freezerdata['freezer_setpoint2'];
-		$freezer_alarm_id = $freezerdata['freezer_alarm_id'];
-		$freezer_send_alarm = $freezerdata['freezer_send_alarm'];
-
-		if ($freezer_send_alarm == 0)
-		{
-			$freezer_send_alarm_checkbox = "unchecked";
-		}
-		else
-		{
-			$freezer_send_alarm_checkbox = "checked";
-		}
-
-		$alarm_query = "SELECT alarm_level, alarm_time FROM daena_db.alarm
-			WHERE alarm_id='".$freezer_alarm_id."'";
-		$alarmdata = $daenaDB->query($alarm_query);
-		while($alarmrow = $alarmdata->fetch_assoc())
-		{
-			$alarm_level = $alarmrow['alarm_level'];
-			$ms_epoch_time = $alarmrow['alarm_time'];
-		};
-
-		$epoch_time = round($ms_epoch_time/1000);
-		$dt = new DateTime("@$epoch_time", (new DateTimeZone('UTC')));
-
-		date_timezone_set($dt, timezone_open('America/New_York'));
-		$alarm_date_time = $dt->format('Y-m-d H:i:s');
-
-		if ($alarm_level == 0)
-		{
-			$row_color = "success";
-		}
-		elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
-		{
-			$row_color="warning";
-		}
-		elseif($alarm_level==3 || $alarm_level==4)
-		{
-			$row_color="danger";
-		}
-		elseif($alarm_level==6 || $alarm_level==7)
-		{
-			$row_color="info";
-		}
-
-		$lasttempquery = "SELECT temp FROM daena_db.data
-			WHERE freezer_id='".$freezer_id."'
-			ORDER BY int_time DESC
-			LIMIT 1";
-
-		$lasttempdata = $daenaDB->query($lasttempquery);
-		while($lasttemprow = $lasttempdata->fetch_assoc())
-		{
-			$last_reading = $lasttemprow['temp'];
-		};
-
-		$lasttempquery = "SELECT temp FROM daena_db.data
-			WHERE freezer_id='".$freezer_id."' AND
-			temp not REGEXP('nodata')
-			ORDER BY int_time DESC
-			LIMIT 1";
-
-		$lasttempdata = $daenaDB->query($lasttempquery);
-		while($lasttemprow = $lasttempdata->fetch_assoc())
-		{
-			$last_temp = $lasttemprow['temp'];
-		};
-
-		echo "<tr class='alarm-table-row'>
-				<form action='admin/handlers/alarm-mod.php' method='POST'>
-					<td class='".$row_color." round-first'><input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>".$freezer_id."</td>
-					<td class='".$row_color."'>".$freezer_name."</td>
-					<td class='".$row_color." field-narrow'>".$alarm_level."</td>
-					<td class='".$row_color." field-wide'>".$alarm_date_time."</td>
-					<td class='".$row_color."'>".$last_temp."</td>
-					<td class='".$row_color." '>".$last_reading."</td>";
-					if ($alarm_level==3 || $alarm_level==6)
-					{
-						echo"
-					<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
-					<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-					<td class='".$row_color." round-last'>
-						<button type='submit' name='silence' class='btn btn-danger'/>Silence</button>
-					</td>";
-					}
-					else
-					{
-						echo"
-					<td class='".$row_color." round-last'>No Hourly Alarms</td>";
-					}
-					echo"
-					<td><input type='text' class='input-medium search-query' name='freezer_setpoint1' value='".$freezer_setpoint1."'/></td>
-					<td><input type='text' class='input-medium search-query' name='freezer_setpoint2' value='".$freezer_setpoint2."'/></td>
-					<td class='field-narrow'><input type='checkbox' class='input-medium' name='freezer_send_alarm' ".$freezer_send_alarm_checkbox." value='1'/></td>
-					<input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
-					<td>
-						<button type='submit' name='modify' class='btn'/>Modify</button>
-					</td>
-				</form>
-			</tr>";
-	}
-
-	echo "
-	  </table>
-	</div>
-</div>";
 
 /* Wrap things up */
 include 'assets/footer.php';
