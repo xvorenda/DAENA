@@ -59,8 +59,8 @@ body {
   }
   .dygraph-legend {
     width: 100% !important;
-    margin-top: 28px !important;
-    margin-left: 8% !important;
+    margin-top: 32px !important;
+    margin-left: 8px !important;
     display: block !important;
     position: relative  !important;
     text-align: center !important;
@@ -68,6 +68,7 @@ body {
     top: 0px !important;
     left: 0px !important;
     z-index: 0 !important;
+    float:left;
   }
 }
 @media (max-width:768px) {
