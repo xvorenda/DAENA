@@ -181,7 +181,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
                 <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
                 <td>
-                  <button type='submit' name='silence' class='glyphicon glyphicon-volume-up status-warning'/>Hush</button>
+                  <button type='submit' name='silence' class='glyphicon glyphicon-volume-up status-danger'/>Hush</button>
                 </td>";
                 }
                 else
