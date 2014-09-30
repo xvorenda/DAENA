@@ -321,5 +321,5 @@ echo "        ],
 
 
 /* Wrap things up */
-include 'assets/footer.php';
+//include 'assets/footer.php';
 ?>
