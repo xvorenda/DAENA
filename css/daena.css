@@ -45,6 +45,9 @@ body {
   user-select: none
 }
 @media (min-width:768px) {
+  .mobile-only {
+    display: none !important;
+  }
   .status-graph {
     margin-left: -1%;
   }
@@ -56,6 +59,9 @@ body {
   }
 }
 @media (max-width:768px) {
+  .desktop-only {
+    display: none !important;
+  }
   .status-graph {
     margin-left: -4%;
   }
