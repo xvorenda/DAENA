@@ -372,7 +372,7 @@ h3 {margin:12px auto 0;}
 .bright-red {color:#F11 !important}
 .red        {color:#800 !important}
 .white      {color:#FFF !important}
-
+.glyphicon {font-weight:normal !important}
 .status-success{color: #080;}
 .status-success:hover{color: #484;}
 .status-warning, .high-temp-alarm{color: #FA0;font-weight:bold;}
