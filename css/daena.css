@@ -6,6 +6,12 @@ body {
     height:20px;
     margin-right:10px;
 }
+#status-data {
+  height: 40px;
+  margin-top: 128px;
+  margin-left: 8px;
+  padding: 6px;
+}
 .status-graph {
   display:block;
   float:left;
