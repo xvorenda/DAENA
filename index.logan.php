@@ -202,7 +202,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 						<input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
 					</form>";
 				}
-				elseif ($alarm_level==3 || $alarm_level==6)
+				elseif ($alarm_level==4 || $alarm_level==7)
 				{
 					echo"
                 	<td class='".$row_color."'><span class='glyphicon glyphicon-volume-off gray'></span></td>";
