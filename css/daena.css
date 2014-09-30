@@ -1,6 +1,6 @@
 /* DAENA-Specific Styles */
 body {
-  min-height: 650px !important;
+  min-height: 525px !important;
 }
 .daena-logo {
     height:20px;
@@ -61,7 +61,7 @@ body {
   clear:left;
   float:left;
   width: 100%;
-  min-height: 400px;
+  min-height: 205px;
   margin-top: -20px !important;
 }
 .status-table {
