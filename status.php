@@ -70,12 +70,15 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     $freezer_alarm_id = $freezerrow['freezer_alarm_id'];
     $colorname = $freezerrow["freezer_color"];
     $freezerlocation = $freezerrow["freezer_location"];
-    echo $freezerlocation;
     array_push($columnnames,$freezer_name);
     array_push($namearray,$freezer_name);
     array_push($freezerids,$freezer_id);
     array_push($freezercolors,$colorname);
-    array_push($visibility,"true");
+    if (strpos($freezerlocation,"Test") === true) {
+      array_push($visibility,"false");
+    }else{
+      array_push($visibility,"true");
+    };
     $pattern = "/[^0-9,-]|,[0-9]*$/";
     $freezer_loc = str_replace("<br>"," ",$freezerlocation);
     $freezer_loc = preg_replace($pattern,"",$freezer_loc);
