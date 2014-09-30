@@ -6,14 +6,6 @@ include 'assets/urlvars.php';
 /* Get things started */
 include 'assets/header.php';
 
-echo "<script type='text/javascript'>
-var setAlarm = function( id, alarm, color )
-  {
-    $('#id').addClass('alarm');
-    $('#id').addClass('color');
-  };
-</script>";
-
 /* Define Navbar */
 include 'assets/navigation.php';
 
@@ -174,15 +166,12 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $last_read_then = ltrim($last_read_then, '+00');
           $last_read_then = ltrim($last_read_then, '+0');
 
-          echo "<tr id='tr".$i."' class='alarm-table-row alarm-row-active'>
+          echo "<tr id='tr".$i."' class='alarm-table-row alarm-row-active ".$current_alarm." ".$alarm_row_text."'>
                 <td class='bold custom-font' style='color:#".$colorname."'>
                     <form action='handlers/alarm-mod.php' method='POST'>
                       <label class='status-click-label' for=\"".$i."\">
                       ".$freezer_name."
                     </label>
-                    <script>
-                      setAlarm( 'tr".$i."', '".$current_alarm."', '".$alarm_row_text."' );
-                    </script>
                     <input class='line-toggle' type='checkbox' id='".$i."' onClick=\"change(this)\" checked>
                   </form>
                 </td>
