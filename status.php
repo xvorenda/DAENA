@@ -152,7 +152,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 
           echo "<tr class='alarm-table-row alarm-row-active'>
               <form action='handlers/alarm-mod.php' method='POST'>
-                <td class='' style='font-weight:bold;color:#".$colorname."'>
+                <td class='bold' style='color:#".$colorname."'>
                     <label class='status-click-label' for=\"".$i."\">
                       ".$freezer_name."
                     </label>
