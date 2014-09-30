@@ -166,9 +166,9 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
               }
                 if ($last_temp_now == $last_reading){
-                  echo "<td><span class='glyphicon glyphicon-eye-open blue'></span>";
+                  echo "<td><span class='glyphicon glyphicon-eye-open purple'></span>";
                 } else {
-                  echo "<td><span class='glyphicon glyphicon-eye-close status-warning'></span>";
+                  echo "<td><span class='glyphicon glyphicon-eye-close yellow'></span>";
                 }
                 echo "
                 <td class='field-narrow'><span class='".$icon."' title='".$alarm_date_time."'></span></td>
