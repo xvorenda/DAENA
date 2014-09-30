@@ -23,6 +23,7 @@ body {
   margin:0px !important;
   border: none !important;
   box-shadow: none !important;
+  background: none !important;
 }
 @media (min-width:768px) {
   .status-graph {
