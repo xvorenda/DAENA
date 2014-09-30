@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['hours'])) {
 	$hours = $_GET['hours'];}
-else $hours = 8;
+else $hours = 24;
 	$minutes = $hours * 60;
 if (isset($_GET['roll'])) {
 	$roll = $_GET['roll'];}
