@@ -186,9 +186,8 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                     echo "<td class='".$row_color."'><span class='glyphicon glyphicon-minus'></span></td>";
                   };
 
-                echo "
-                <td class='field-narrow ".$row_color."'>
-                	<span class='".$alarm_icon."' title='".$alarm_date_time."'></span>";
+
+                
 					
 				if ($alarm_level==3 || $alarm_level==6)
                 {
@@ -196,16 +195,27 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                   	<form action='admin/handlers/alarm-mod.php' method='POST'>
 						<input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
 						<input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-						<button type='submit' name='silence' class='status-button glyphicon glyphicon-volume-up status-danger'/>
+						<td class='field-narrow ".$row_color."'>
+                			<button type='submit' name='silence' class='".$alarm_icon." button glyphicon-volume-up ' title='".$alarm_date_time."'>
 							Silence
 						</button>
+						</td>
 						<input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
 					</form>";
 				}
 				elseif ($alarm_level==4 || $alarm_level==7)
 				{
 					echo"
-                	<span class='glyphicon glyphicon-volume-off gray'></span>";
+					<td class='field-narrow ".$row_color."'>
+                	<span class='glyphicon glyphicon-volume-off gray'></span>
+                	</td>";
+				}
+				else
+				{
+					echo"
+					<td class='field-narrow ".$row_color."'>
+                	<span class='".$alarm_icon."' title='".$alarm_date_time."'></span>
+                	</td>";
 				}
 				echo"
 				</td>
