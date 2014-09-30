@@ -102,8 +102,8 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           {
             $row_color = "status-success-bg";
             $alarm_icon = "glyphicon glyphicon-ok status-success";
-            $alarm_row_text = "";
-            $current_alarm = "";
+            $alarm_row_text = "normal-text";
+            $current_alarm = "no-alarm";
           }
           elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
           {
