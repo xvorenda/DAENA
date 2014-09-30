@@ -61,7 +61,8 @@ body {
   clear:left;
   float:left;
   width: 100%;
-  min-height: 600px;
+  min-height: 400px;
+  margin-top: -20px !important;
 }
 .status-table {
   width: 100%;
