@@ -74,7 +74,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     array_push($namearray,$freezer_name);
     array_push($freezerids,$freezer_id);
     array_push($freezercolors,$colorname);
-    if (strpos($freezerlocation,"Test") === true) {
+    if (strpos($freezerlocation,'Test') !== false) {
       array_push($visibility,"false");
     }else{
       array_push($visibility,"true");
