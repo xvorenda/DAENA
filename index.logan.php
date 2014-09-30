@@ -158,7 +158,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $last_read_then = ltrim($last_read_then, '+00');
           $last_read_then = ltrim($last_read_then, '+0');
 
-          echo "<tr class='alarm-table-row alarm-row-active ".$row_color."'>
+          echo "<tr class='".$row_color."'>
                 <td class='bold custom-font' style='color:#".$colorname."'>
                     <form action='handlers/alarm-mod.php' method='POST'>
                       <label class='status-click-label' for=\"".$i."\">
