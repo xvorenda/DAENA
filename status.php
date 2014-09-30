@@ -119,38 +119,44 @@ while ($freezerrow = $freezers->fetch_assoc()) {
             $alarm_icon = "glyphicon glyphicon-info-sign status-info";
           }
 
-          $lasttempquery = "SELECT temp FROM daena_db.data
+          $lastreadquery = "SELECT temp FROM daena_db.data
             WHERE freezer_id='".$freezer_id."'
+            ORDER BY int_time DESC
+            LIMIT 5";
+            $j = 1;
+            $lastreaddata = $daenaDB->query($lastreadquery);
+            while($lastreadrow = $lastreaddata->fetch_assoc())
+            {
+              $last_read[$j] = $lastreadprow['temp'];
+              $j++;
+            };
+
+          $lasttempquery = "SELECT temp FROM daena_db.data
+            WHERE freezer_id='".$freezer_id."' AND
+            temp not REGEXP('nodata')
             ORDER BY int_time DESC
             LIMIT 1";
 
           $lasttempdata = $daenaDB->query($lasttempquery);
           while($lasttemprow = $lasttempdata->fetch_assoc())
           {
-            $last_reading = $lasttemprow['temp'];
+            $last_temp = $lasttemprow['temp'];
           };
 
-          $lasttempquery = "SELECT temp FROM daena_db.data
-            WHERE freezer_id='".$freezer_id."' AND
-            temp not REGEXP('nodata')
-            ORDER BY int_time DESC
-            LIMIT 5";
-          $j = 1;
-          $lasttempdata = $daenaDB->query($lasttempquery);
-          while($lasttemprow = $lasttempdata->fetch_assoc())
-          {
-            $last_temp[$j] = $lasttemprow['temp'];
-            $j++;
-          };
-          $last_temp_now = str_replace($badneg_a, $re_neg, $last_temp[1]);
-          $last_temp_now = str_replace($badneg_b, $re_neg, $last_temp_now);
-          $last_temp_now = ltrim($last_temp_now, '+00');
-          $last_temp_now = ltrim($last_temp_now, '+0');
-          $last_temp_round = round($last_temp_now);
-          $last_temp_then = str_replace($badneg_a, $re_neg, $last_temp[5]);
-          $last_temp_then = str_replace($badneg_b, $re_neg, $last_temp_then);
-          $last_temp_then = ltrim($last_temp_then, '+00');
-          $last_temp_then = ltrim($last_temp_then, '+0');
+          $last_temp = str_replace($badneg_a, $re_neg, $last_temp);
+          $last_temp = str_replace($badneg_b, $re_neg, $last_temp);
+          $last_temp = ltrim($last_temp, '+00');
+          $last_temp = ltrim($last_temp, '+0');
+          $last_temp_round = round($last_temp);
+          $last_read_now = str_replace($badneg_a, $re_neg, $last_read[1]);
+          $last_read_now = str_replace($badneg_b, $re_neg, $last_read_now);
+          $last_read_now = ltrim($last_read_now, '+00');
+          $last_read_now = ltrim($last_read_now, '+0');
+          $last_read_round = round($last_read_now);
+          $last_read_then = str_replace($badneg_a, $re_neg, $last_read[5]);
+          $last_read_then = str_replace($badneg_b, $re_neg, $last_read_then);
+          $last_read_then = ltrim($last_read_then, '+00');
+          $last_read_then = ltrim($last_read_then, '+0');
 
           echo "<tr class='alarm-table-row alarm-row-active'>
                 <td class='bold custom-font' style='color:#".$colorname."'>
@@ -163,19 +169,17 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 </td>
                 <td>".$freezer_loc."</td>
                 <td>".$freezer_setpoint1."</td>
-                <td>".$freezer_setpoint2."</td>";
-                if ($last_temp_now == $last_reading){
-                  echo "<td>".$last_temp_round."</td>";
-                } else {
-                  echo "<td><span class='glyphicon glyphicon-eye-close'></span>";
-                }
-                if ($last_temp_now > $last_temp_then) {
-                echo "<td><span class='glyphicon glyphicon-chevron-up bright-red'></span></td>";
-                } elseif ($last_temp_now < $last_temp_then) {
-                  echo "<td><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
-                } elseif ($last_temp_now == $last_temp_then) {
-                  echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
-                }
+                <td>".$freezer_setpoint2."</td>
+                <td>".$last_temp_round."</td>";
+                  if ($last_read_now == 'nodata' || $last_read_then == 'nodata') {
+                    echo "<td><span class='glyphicon glyphicon-eye-close'></span>";
+                  }elseif ($last_read_now > $last_read_then) {
+                    echo "<td><span class='glyphicon glyphicon-chevron-up bright-red'></span></td>";
+                  } elseif ($last_read_now < $last_read_then) {
+                    echo "<td><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
+                  } elseif ($last_read_now == $last_read_then) {
+                    echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
+                  };
 
                 echo "
                 <td class='field-narrow'><span class='".$alarm_icon."' title='".$alarm_date_time."'></span></td>
