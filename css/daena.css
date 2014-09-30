@@ -39,6 +39,7 @@ body {
 }
 .bold {
   font-weight:bold;
+  border: 1px solid transparent;
 }
 @media (min-width:768px) {
   .status-graph {
