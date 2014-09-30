@@ -54,7 +54,7 @@ echo "
   <td><span class='mobile-only'>High</span><span class='desktop-only'>High Temp</span></td>
   <td><span class='mobile-only'>Crit</span><span class='desktop-only'>Critical Temp</span></td>
   <td><span class='mobile-only'>Last</span><span class='desktop-only'>Last Temp</span></td>
-  <td><span class='mobile-only'>Trend</span><span class='desktop-only'>Latest Trend</span></td>
+  <td><span class='mobile-only'>Trend</span><span class='desktop-only'>Recent Trend</span></td>
   <td><span class='mobile-only'>Conn</span><span class='desktop-only'>Connection</span></td>
   <td><span class='mobile-only'>State</span><span class='desktop-only'>Alarm State</span></td>
   <td><span class='mobile-only'>Hush</span><span class='desktop-only'>Silence Alarm</span></td>
