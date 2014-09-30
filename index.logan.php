@@ -62,10 +62,11 @@ $re_neg = "-";
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
 /* Draw Alarm Mod Area */
 echo "
-<div id='container' class='status-graph'></div>
+<div class='container'>
+<div id='container'></div>
 <div id='status-data'></div>
-<div class='status-legend'>
-<table class='status-table'>
+<div class='table-responsive'>
+<table class='table'>
 <tr>
   <td>Name</td>
   <td>Where</td>
@@ -232,6 +233,7 @@ $freezercount = count($columnnames) - 1;
 
 /* Start Defining DyGraph */
 echo "
+</div>
 </div>
 <script type='text/javascript'>
   Dygraph.Interaction.endTouch = Dygraph.Interaction.moveTouch = Dygraph.Interaction.startTouch = function() {};
