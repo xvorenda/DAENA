@@ -311,8 +311,8 @@ echo "        ],
 <script type='text/javascript'>
 function setAlarm(el,alarm,color)
   {
-    $(#el).addClass('alarm');
-    $(#el).addClass('color');
+    $('#el').addClass('alarm');
+    $('#el').addClass('color');
   }
 </script>
 ";
