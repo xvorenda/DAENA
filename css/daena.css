@@ -25,6 +25,12 @@ body {
   box-shadow: none !important;
   background: none !important;
 }
+.alarm-table-row {
+  background-color: #eee;
+}
+.alarm-row-active {
+  background-color: #fff !important;
+}
 @media (min-width:768px) {
   .status-graph {
     margin-left: -1%;
