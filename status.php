@@ -175,7 +175,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
               }
                 if ($last_temp_now == $last_reading){
-                  echo "<td><span class='glyphicon glyphicon-eye-open purple'></span>";
+                  echo "<td><span class='glyphicon glyphicon-eye-open indigo'></span>";
                 } else {
                   echo "<td><span class='glyphicon glyphicon-eye-close yellow'></span>";
                 }
