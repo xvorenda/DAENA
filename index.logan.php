@@ -49,15 +49,14 @@ echo "
 <div class='status-legend'>
 <table class='status-table'>
 <tr>
-  <td>Name</td>
-  <td>Where</td>
-  <td>High</td>
-  <td>Crit</td>
-  <td>Last</td>
-  <td>Trend</td>
-  <td>Conn</td>
-  <td>State</td>
-  <td>Silence</td>
+  <td><span class='mobile-only'>Name</span><span class='desktop-only'><b>Freezer Name</b></span></td>
+  <td><span class='mobile-only'>Where</span><span class='desktop-only'><b>Location</b></span></td>
+  <td><span class='mobile-only'>High</span><span class='desktop-only'><b>High Temp</b></span></td>
+  <td><span class='mobile-only'>Crit</span><span class='desktop-only'><b>Critical Temp</b></span></td>
+  <td><span class='mobile-only'>Last</span><span class='desktop-only'><b>Last Temp</b></span></td>
+  <td><span class='mobile-only'>Trend</span><span class='desktop-only'><b>Recent Trend</b></span></td>
+  <td><span class='mobile-only'>State</span><span class='desktop-only'><b>Alarm State</b></span></td>
+  <td><span class='mobile-only'>Hush</span><span class='desktop-only'><b>Silence Alarm</b></span></td>
 </tr>";
 
 array_push($columnnames,"Time");
@@ -101,59 +100,65 @@ while ($freezerrow = $freezers->fetch_assoc()) {
 
           if ($alarm_level == 0)
           {
-            $row_color = "status-success-bg";
+            $row_color = "success";
             $alarm_icon = "glyphicon glyphicon-ok status-success";
           }
           elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
           {
-            $row_color="status-warning-bg";
+            $row_color="warning";
             $alarm_icon = "glyphicon glyphicon-exclamation-sign status-warning";
           }
           elseif($alarm_level==3 || $alarm_level==4)
           {
-            $row_color="status-danger-bg";
+            $row_color="danger";
             $alarm_icon = "glyphicon glyphicon-fire status-danger";
           }
           elseif($alarm_level==6 || $alarm_level==7)
           {
-            $row_color="status-info-bg";
+            $row_color="info";
             $alarm_icon = "glyphicon glyphicon-info-sign status-info";
           }
 
-          $lasttempquery = "SELECT temp FROM daena_db.data
+          $lastreadquery = "SELECT temp FROM daena_db.data
             WHERE freezer_id='".$freezer_id."'
+            ORDER BY int_time DESC
+            LIMIT 5";
+            $j = 1;
+            $lastreaddata = $daenaDB->query($lastreadquery);
+            while($lastreadrow = $lastreaddata->fetch_assoc())
+            {
+              $last_read[$j] = $lastreadrow['temp'];
+              $j++;
+            };
+
+          $lasttempquery = "SELECT temp FROM daena_db.data
+            WHERE freezer_id='".$freezer_id."' AND
+            temp not REGEXP('nodata')
             ORDER BY int_time DESC
             LIMIT 1";
 
           $lasttempdata = $daenaDB->query($lasttempquery);
           while($lasttemprow = $lasttempdata->fetch_assoc())
           {
-            $last_reading = $lasttemprow['temp'];
+            $last_temp = $lasttemprow['temp'];
           };
 
-          $lasttempquery = "SELECT temp FROM daena_db.data
-            WHERE freezer_id='".$freezer_id."' AND
-            temp not REGEXP('nodata')
-            ORDER BY int_time DESC
-            LIMIT 5";
-          $j = 1;
-          $lasttempdata = $daenaDB->query($lasttempquery);
-          while($lasttemprow = $lasttempdata->fetch_assoc())
-          {
-            $last_temp[$j] = $lasttemprow['temp'];
-            $j++;
-          };
-          $last_temp_now = str_replace($badneg_a, $re_neg, $last_temp[1]);
-          $last_temp_now = str_replace($badneg_b, $re_neg, $last_temp_now);
-          $last_temp_now = ltrim($last_temp_now, '+00');
-          $last_temp_now = ltrim($last_temp_now, '+0');
-          $last_temp_round = round($last_temp_now);
-          $last_temp_then = str_replace($badneg_a, $re_neg, $last_temp[5]);
-          $last_temp_then = str_replace($badneg_b, $re_neg, $last_temp_then);
-          $last_temp_then = ltrim($last_temp_then, '+00');
-          $last_temp_then = ltrim($last_temp_then, '+0');
+          $last_temp = str_replace($badneg_a, $re_neg, $last_temp);
+          $last_temp = str_replace($badneg_b, $re_neg, $last_temp);
+          $last_temp = ltrim($last_temp, '+00');
+          $last_temp = ltrim($last_temp, '+0');
+          $last_temp_round = round($last_temp);
+          $last_read_now = str_replace($badneg_a, $re_neg, $last_read[1]);
+          $last_read_now = str_replace($badneg_b, $re_neg, $last_read_now);
+          $last_read_now = ltrim($last_read_now, '+00');
+          $last_read_now = ltrim($last_read_now, '+0');
+          $last_read_round = round($last_read_now);
+          $last_read_then = str_replace($badneg_a, $re_neg, $last_read[5]);
+          $last_read_then = str_replace($badneg_b, $re_neg, $last_read_then);
+          $last_read_then = ltrim($last_read_then, '+00');
+          $last_read_then = ltrim($last_read_then, '+0');
 
-          echo "<tr class='alarm-table-row alarm-row-active'>
+          echo "<tr class='alarm-table-row alarm-row-active ".$row_color."'>
                 <td class='bold custom-font' style='color:#".$colorname."'>
                     <form action='handlers/alarm-mod.php' method='POST'>
                       <label class='status-click-label' for=\"".$i."\">
@@ -166,19 +171,16 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td>".$freezer_setpoint1."</td>
                 <td>".$freezer_setpoint2."</td>
                 <td>".$last_temp_round."</td>";
+                  if ($last_read_now == 'nodata' || $last_read_then == 'nodata') {
+                    echo "<td><span class='glyphicon glyphicon-eye-close'></span>";
+                  }elseif ($last_read_now > $last_read_then) {
+                    echo "<td><span class='glyphicon glyphicon-chevron-up bright-red'></span></td>";
+                  } elseif ($last_read_now < $last_read_then) {
+                    echo "<td><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
+                  } elseif ($last_read_now == $last_read_then) {
+                    echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
+                  };
 
-                if ($last_temp_now > $last_temp_then) {
-                echo "<td><span class='glyphicon glyphicon-chevron-up bright-red'></span></td>";
-              } elseif ($last_temp_now < $last_temp_then) {
-                echo "<td><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
-              } elseif ($last_temp_now == $last_temp_then) {
-                echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
-              }
-                if ($last_temp_now == $last_reading){
-                  echo "<td><span class='glyphicon glyphicon-eye-open indigo'></span>";
-                } else {
-                  echo "<td><span class='glyphicon glyphicon-eye-close yellow'></span>";
-                }
                 echo "
                 <td class='field-narrow'><span class='".$alarm_icon."' title='".$alarm_date_time."'></span></td>
 
@@ -189,7 +191,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                   echo"
                 <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
                 <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-                <td><button type='submit' name='silence' class='glyphicon glyphicon-volume-up status-danger'/>Hush</button></td>";
+                <td><button type='submit' name='silence' class='status-button glyphicon glyphicon-volume-up status-danger'/></button></td>";
                 }
                 else
                 {
