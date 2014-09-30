@@ -32,10 +32,10 @@ body {
   background-color: #fff !important;
 }
 .status-click-label {
-  display: table-column !important;
-  vertical-align: middle !important;
-  margin-top: auto !important;
-  margin-bottom: auto !important;
+  display: block;
+  vertical-align: bottom !important;
+  margin-top: 8px !important;
+  margin-bottom: -8px !important;
 }
 .bold {
   font-weight:bold;
