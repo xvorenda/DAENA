@@ -32,7 +32,6 @@ body {
   background-color: #fff !important;
 }
 .status-click-label {
-  visibility: hidden;
   display: block !important;
 }
 @media (min-width:768px) {
