@@ -150,7 +150,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $last_temp_then = ltrim($last_temp_then, '+00');
           $last_temp_then = ltrim($last_temp_then, '+0');
 
-          echo "<tr class='alarm-table-row'>
+          echo "<tr class='alarm-table-row alarm-row-active'>
               <form action='handlers/alarm-mod.php' method='POST'>
                 <td style='font-weight:bold;color:#".$colorname."'>
                     <label class='status-click-label' for=\"".$i."\">
@@ -281,7 +281,7 @@ echo "        ],
               });
               function change(el) {
                 chart.setVisibility(el.id, el.checked);
-                $(el.parentElement.parentElement.parentElement).toggleClass('alarm-row-active')
+                $(el.parentElement.parentElement).toggleClass('alarm-row-active')
               }
               function resetGraph()
               {
