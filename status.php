@@ -102,21 +102,29 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           {
             $row_color = "status-success-bg";
             $alarm_icon = "glyphicon glyphicon-ok status-success";
+            $alarm_row_text = "";
+            $current_alarm = "";
           }
           elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
           {
             $row_color="status-warning-bg";
             $alarm_icon = "glyphicon glyphicon-exclamation-sign status-warning";
+            $alarm_row_text = "status-warning";
+            $current_alarm = "high-temp-alarm";
           }
           elseif($alarm_level==3 || $alarm_level==4)
           {
             $row_color="status-danger-bg";
             $alarm_icon = "glyphicon glyphicon-fire status-danger";
+            $alarm_row_text = "status-danger";
+            $current_alarm = "critical-temp-alarm";
           }
           elseif($alarm_level==6 || $alarm_level==7)
           {
             $row_color="status-info-bg";
             $alarm_icon = "glyphicon glyphicon-info-sign status-info";
+            $alarm_row_text = "status-info";
+            $current_alarm = "connection-alarm";
           }
 
           $lastreadquery = "SELECT temp FROM daena_db.data
@@ -301,11 +309,13 @@ echo "        ],
               }
 </script>
 <script type='text/javascript'>
-function alarm()
+function setAlarm()
   {
-    $('#".$i."').parentElement.parentElement.parentElement.toggleClass('current-alarm')
+    $('#".$i."').parentElement.parentElement.parentElement.addClass('".$current_alarm."');
+    $('#".$i."').parentElement.parentElement.parentElement.addClass('".$alarm_row_text."');
   }
 </script>
+<input type='button' onClick='setAlarm()'>Test</input>
 ";
 /* Wrap things up */
 include 'assets/footer.php';
