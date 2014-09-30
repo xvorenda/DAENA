@@ -301,29 +301,6 @@ echo "        ],
               $('.alarm-table-row').addClass('alarm-row-active');
               }
 </script>
-<script type='text/javascript'>
-$(document).ready(function()
-{
-  $(window).resize(function()
-  {
-    $('.dygraph-legend').css(
-    {
-      position: 'relative !important'
-      width: '100% !important',
-      margin-top: '28px !important',
-      margin-left: '8% !important',
-      display: 'block !important',
-      position: 'relative  !important',
-      text-align: 'center !important',
-      overflow: 'visible !important'
-    }
-    });
-  });
-
-  // call `resize` to center elements
-  $(window).resize();
-});
-</script>
 ";
 /* Wrap things up */
 include 'assets/footer.php';

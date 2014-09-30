@@ -65,6 +65,8 @@ body {
     position: relative  !important;
     text-align: center !important;
     overflow: visible !important;
+    top: inherit !important;
+    left: inherit !important;
   }
 }
 @media (max-width:768px) {
