@@ -47,7 +47,7 @@ echo "
 <div id='container' class='status-graph'></div>
 <div id='status-data'></div>
 <div class='status-legend'>
-<table class='status-table'>
+<table class='status-table' onLoad='setAlarm()'>
 <tr>
   <td><span class='mobile-only'>Name</span><span class='desktop-only'><b>Freezer Name</b></span></td>
   <td><span class='mobile-only'>Where</span><span class='desktop-only'><b>Location</b></span></td>
@@ -315,7 +315,6 @@ function setAlarm()
     $('#".$i."').parentElement.parentElement.parentElement.addClass('".$alarm_row_text."');
   }
 </script>
-<input type='button' onClick='setAlarm()'>Test</input>
 ";
 /* Wrap things up */
 include 'assets/footer.php';
