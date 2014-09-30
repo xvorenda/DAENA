@@ -375,8 +375,8 @@ h3 {margin:12px auto 0;}
 
 .status-success{color: #080;}
 .status-success:hover{color: #484;}
-.status-warning, .high-temp-alarm{color: #A60;font-weight:bold;}
-.status-warning:hover{color: 884;}
+.status-warning, .high-temp-alarm{color: #FA0;font-weight:bold;}
+.status-warning:hover{color: 830;}
 .status-danger, .critical-temp-alarm{color: #800;font-weight:bold;}
 .status-danger:hover{color: #844;}
 .status-info, .connection-alarm{color: #7589f7;font-weight:bold;}
