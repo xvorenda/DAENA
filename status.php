@@ -102,28 +102,24 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           {
             $row_color = "status-success-bg";
             $alarm_icon = "glyphicon glyphicon-ok status-success";
-            $alarm_row_text = "normal-text";
             $current_alarm = "no-alarm";
           }
           elseif($alarm_level==1 || $alarm_level==2 || $alarm_level==5)
           {
             $row_color="status-warning-bg";
             $alarm_icon = "glyphicon glyphicon-exclamation-sign status-warning";
-            $alarm_row_text = "status-warning";
             $current_alarm = "high-temp-alarm";
           }
           elseif($alarm_level==3 || $alarm_level==4)
           {
             $row_color="status-danger-bg";
             $alarm_icon = "glyphicon glyphicon-fire status-danger";
-            $alarm_row_text = "status-danger";
             $current_alarm = "critical-temp-alarm";
           }
           elseif($alarm_level==6 || $alarm_level==7)
           {
             $row_color="status-info-bg";
             $alarm_icon = "glyphicon glyphicon-info-sign status-info";
-            $alarm_row_text = "status-info";
             $current_alarm = "connection-alarm";
           }
 
@@ -166,7 +162,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
           $last_read_then = ltrim($last_read_then, '+00');
           $last_read_then = ltrim($last_read_then, '+0');
 
-          echo "<tr id='tr".$i."' class='alarm-table-row alarm-row-active ".$current_alarm." ".$alarm_row_text."'>
+          echo "<tr id='tr".$i."' class='alarm-table-row alarm-row-active ".$current_alarm."'>
                 <td class='bold custom-font' style='color:#".$colorname."'>
                     <form action='handlers/alarm-mod.php' method='POST'>
                       <label class='status-click-label' for=\"".$i."\">
