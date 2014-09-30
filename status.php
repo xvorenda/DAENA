@@ -299,9 +299,14 @@ echo "        ],
                 });
               $('.alarm-table-row').addClass('alarm-row-active');
               }
-</script>";
-
-
+</script>
+<script type='text/javascript'>
+function alarm()
+  {
+    $('#".$i."').parentElement.parentElement.parentElement.toggleClass('current-alarm')
+  }
+</script>
+";
 /* Wrap things up */
 include 'assets/footer.php';
 ?>
