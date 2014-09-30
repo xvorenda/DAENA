@@ -178,7 +178,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                   } elseif ($last_read_now < $last_read_then) {
                     echo "<td><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
                   } elseif ($last_read_now == $last_read_then) {
-                    echo "<td><span class='glyphicon glyphicon-minus'></span></td>";
+                    echo "<td>".$last_read_now."</td>";
                   };
 
                 echo "
