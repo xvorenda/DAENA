@@ -59,7 +59,7 @@ if (strpos($type,'All') !== false) {
     $typefilter = "";
 };
 if (strpos($type,'-80') !== false) {
-    $locfilter = "AND freezer_temp_range='-80'";
+    $typefilter = "AND freezer_temp_range='-80'";
 };
 if (strpos($type,'-20') !== false) {
     $typefilter = "AND freezer_temp_range='-20'";
