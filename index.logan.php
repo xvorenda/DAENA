@@ -56,7 +56,6 @@ echo "
   <td><span class='mobile-only'>Last</span><span class='desktop-only'><b>Last Temp</b></span></td>
   <td><span class='mobile-only'>Trend</span><span class='desktop-only'><b>Recent Trend</b></span></td>
   <td><span class='mobile-only'>State</span><span class='desktop-only'><b>Alarm State</b></span></td>
-  <td><span class='mobile-only'>Hush</span><span class='desktop-only'><b>Silence Alarm</b></span></td>
 </tr>";
 
 array_push($columnnames,"Time");
@@ -171,19 +170,30 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                 <td class='".$row_color."'>".$freezer_setpoint1."</td>
                 <td class='".$row_color."'>".$freezer_setpoint2."</td>
                 <td class='".$row_color."'>".$last_temp_round."</td>";
-                  if ($last_read_now == 'nodata' || $last_read_then == 'nodata') {
+                  if ($last_read_now == 'nodata' || $last_read_then == 'nodata') 
+                  {
                     echo "<td class='".$row_color."'><span class='glyphicon glyphicon-eye-close'></span>";
-                  }elseif ($last_read_now > $last_read_then) {
+                  }
+                  elseif ($last_read_now > $last_read_then) 
+                  {
                     echo "<td class='".$row_color."'><span class='glyphicon glyphicon-chevron-up bright-red'></span></td>";
-                  } elseif ($last_read_now < $last_read_then) {
+                  } 
+                  elseif ($last_read_now < $last_read_then) 
+                  {
                     echo "<td class='".$row_color."'><span class='glyphicon glyphicon-chevron-down bright-blue'></span></td>";
-                  } elseif ($last_read_now == $last_read_then) {
+                  } 
+                  elseif ($last_read_now == $last_read_then) 
+                  {
                     echo "<td class='".$row_color."'><span class='glyphicon glyphicon-minus'></span></td>";
                   };
 
                 echo "
-                <td class='field-narrow ".$row_color."'><span class='".$alarm_icon."' title='".$alarm_date_time."'></span></td>
-
+                <td class='field-narrow ".$row_color."'>
+                	<span class='".$alarm_icon."' title='".$alarm_date_time."'></span>
+					<button type='submit' name='silence' class='status-button glyphicon glyphicon-volume-up status-danger'/>
+						Silence
+					</button>
+				</td>
 ";
 
                 if ($alarm_level==3 || $alarm_level==6)
