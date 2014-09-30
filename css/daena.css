@@ -57,9 +57,18 @@ body {
     width: 100% !important;
     margin-left:3%!important
   }
+  .dygraph-legend {
+    width: 100% !important;
+    margin-top: 28px !important;
+    margin-left: 8% !important;
+    display: block !important;
+    position: relative  !important;
+    text-align: center !important;
+    overflow: visible !important;
+  }
 }
 @media (max-width:768px) {
-  .desktop-only {
+  .desktop-only, .dygraph-legend {
     display: none !important;
   }
   .status-graph {
