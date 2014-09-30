@@ -70,6 +70,7 @@ while ($freezerrow = $freezers->fetch_assoc()) {
     $freezer_alarm_id = $freezerrow['freezer_alarm_id'];
     $colorname = $freezerrow["freezer_color"];
     $freezerlocation = $freezerrow["freezer_location"];
+    echo $freezerlocation;
     array_push($columnnames,$freezer_name);
     array_push($namearray,$freezer_name);
     array_push($freezerids,$freezer_id);
