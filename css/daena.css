@@ -51,6 +51,9 @@ body {
   .status-graph {
     margin-left: -1%;
   }
+  .status-legend {
+    margin-top: 10px !important;
+  }
   .dygraph-title {
     font-family: 'Open Sans', sans-serif !important;
     font-size: 18px;
@@ -79,6 +82,9 @@ body {
   .status-graph {
     margin-left: -4%;
   }
+  .status-legend {
+    margin-top: 10px !important;
+  }
   .dygraph-title {
     font-family: 'Open Sans', sans-serif !important;
     font-size:14px!important;
@@ -92,7 +98,6 @@ body {
   float:left;
   width: 100%;
   min-height: 205px;
-  margin-top: 10px !important;
   margin-bottom: 30px !important;
 }
 .status-table {
