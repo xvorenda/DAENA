@@ -29,10 +29,10 @@ body {
   box-shadow: none !important;
   background: none !important;
 }
-.alarm-table-row {
+.status-table-row {
   background-color: #eee;
 }
-.alarm-row-active {
+.status-row-active {
   background-color: #fff !important;
 }
 .status-click-label {
