@@ -19,7 +19,7 @@ body {
 .status-graph {
   display:block;
   float:left;
-  height: 320px !important;
+  height: 300px !important;
   width: 98% !important;
   margin-top: 80px;
   margin-right: 1%;
@@ -59,7 +59,7 @@ body {
   }
   .dygraph-legend {
     width: 100% !important;
-    margin-top: 324px !important;
+    margin-top: 304px !important;
     margin-left: 2% !important;
     margin-right: 2% !important;
     display: block !important;
