@@ -59,7 +59,6 @@ echo "
                <li><a id='reset' onclick='resetGraph()'>Reset</a></li>
              </ul>
              <ul class='nav navbar-nav navbar-right'>
-               <li><a href='status.php'>Status</a></li>
                <li><a href='admin'>Admin</a></li>
              </ul>
            </div><!--/.nav-collapse -->
