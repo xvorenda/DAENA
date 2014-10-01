@@ -185,24 +185,22 @@ while ($freezerrow = $freezers->fetch_assoc()) {
                   };
 
                 echo "
-                <td class='field-narrow'><span class='".$alarm_icon."' title='".$alarm_date_time."'></span></td>
+                <td class='field-narrow'><span class='".$alarm_icon."' title='".$alarm_date_time."'></span></td>";
 
-";
+                  if ($alarm_level==3 || $alarm_level==6)
+                  {
+                    echo"
+                  <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
+                  <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
+                  <td><button type='submit' name='silence' class='status-button glyphicon glyphicon-volume-up status-danger'/></button></td>";
+                  }
+                  else
+                  {
+                    echo"
+                  <td><span class='glyphicon glyphicon-volume-off gray'></span></td>";
+                  }
 
-                if ($alarm_level==3 || $alarm_level==6)
-                {
-                  echo"
-                <input type='text' class='stealth' name='freezer_id' value='".$freezer_id."'/>
-                <input type='text' class='stealth' name='alarm_level' value='".$alarm_level."'/>
-                <td><button type='submit' name='silence' class='status-button glyphicon glyphicon-volume-up status-danger'/></button></td>";
-                }
-                else
-                {
-                  echo"
-                <td><span class='glyphicon glyphicon-volume-off gray'></span></td>";
-                }
-                echo"
-                <input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
+            echo"<input type='hidden' name='searchUrl' value='".$_SERVER["REQUEST_URI"]."' />
               </form>
             </tr>";
             $i++;};
