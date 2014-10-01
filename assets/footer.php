@@ -1,6 +1,5 @@
     <div class='navbar-fixed-bottom hidden-sm hidden-xs'>
-        <p class='navbar-fixed-bottom-p'>Written for
-        <a href='http://www.vcu.edu/' target='_blank'>VCU</a> by
+        <p class='navbar-fixed-bottom-p'>Written by
         <a href='http://www.people.vcu.edu/~xvorenda/' target='_blank'>XVO</a> and
 	      <a href='http://www.people.vcu.edu/~voegtlylj/' target='_blank'>LJV</a> using
         <a href='http://www.python.org/' target='_blank'>Python</a>,
