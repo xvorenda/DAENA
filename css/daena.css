@@ -19,7 +19,6 @@ body {
 .status-graph {
   display:block;
   float:left;
-  height: 300px !important;
   width: 98% !important;
   margin-top: 70px;
   margin-right: 1%;
@@ -50,6 +49,7 @@ body {
   }
   .status-graph {
     margin-left: -1%;
+    height: 300px !important;
   }
   .status-legend {
     margin-top: 10px !important;
@@ -81,6 +81,7 @@ body {
   }
   .status-graph {
     margin-left: -4%;
+    height: 240px !important;
   }
   .status-legend {
     margin-top: -20px !important;
