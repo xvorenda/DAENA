@@ -91,7 +91,7 @@ body {
   float:left;
   width: 100%;
   min-height: 205px;
-  margin-top: -20px !important;
+  margin-top: 0px !important;
 }
 .status-table {
   width: 100%;
