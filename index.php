@@ -269,7 +269,7 @@ while ($pingrow = $pingtimes->fetch_assoc()) {
             $datatemp = "null";}
             echo ", ".$datatemp;
           }
-      echo "],\n";
+      echo "],[]\n";
 }}
 echo "        ],
               {
