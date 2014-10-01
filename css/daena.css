@@ -60,7 +60,8 @@ body {
   .dygraph-legend {
     width: 100% !important;
     margin-top: 324px !important;
-    margin-left: 8px !important;
+    margin-left: 2% !important;
+    margin-right: 2% !important;
     display: block !important;
     position: relative  !important;
     text-align: center !important;
