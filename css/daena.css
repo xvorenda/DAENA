@@ -49,63 +49,11 @@ body {
   font-weight:bold;
   user-select: none
 }
-@media (min-width:768px) {
-  .mobile-only {
-    display: none !important;
-  }
-  .status-graph {
-    margin-left: -1%;
-    height: 280px !important;
-  }
-  .status-legend {
-    margin-top: 10px !important;
-  }
-  .dygraph-title {
-    font-family: 'Open Sans', sans-serif !important;
-    font-size: 18px;
-    width: 100% !important;
-    margin-left:3%!important
-  }
-  .dygraph-legend {
-    width: 100% !important;
-    margin-top: 284px !important;
-    margin-left: 2% !important;
-    margin-right: 2% !important;
-    display: block !important;
-    position: relative  !important;
-    text-align: center !important;
-    overflow: visible !important;
-    top: 0px !important;
-    left: 0px !important;
-    z-index: 0 !important;
-    float:left;
-  }
-}
-@media (max-width:768px) {
-  .desktop-only, .dygraph-legend {
-    display: none !important;
-  }
-  .status-graph {
-    margin-left: -4%;
-    height: 240px !important;
-  }
-  .status-legend {
-    margin-top: -20px !important;
-  }
-  .dygraph-title {
-    font-family: 'Open Sans', sans-serif !important;
-    font-size:14px!important;
-    margin:auto!important;
-    width:100%!important;
-    margin-left:5%!important
-  }
-}
 .status-legend {
   clear:left;
   float:left;
   width: 100%;
   min-height: 205px;
-  margin-top: 20px  !important;
   margin-bottom: 30px !important;
 }
 .status-table {
@@ -385,6 +333,36 @@ h3 {margin:12px auto 0;}
     padding: 6px;
     clear: right;
   }
+  .mobile-only {
+    display: none !important;
+  }
+  .status-graph {
+    margin-left: -1%;
+    height: 280px !important;
+  }
+  .status-legend {
+    margin-top: 10px !important;
+  }
+  .dygraph-title {
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 18px;
+    width: 100% !important;
+    margin-left:3%!important
+  }
+  .dygraph-legend {
+    width: 100% !important;
+    margin-top: 284px !important;
+    margin-left: 2% !important;
+    margin-right: 2% !important;
+    display: block !important;
+    position: relative  !important;
+    text-align: center !important;
+    overflow: visible !important;
+    top: 0px !important;
+    left: 0px !important;
+    z-index: 0 !important;
+    float:left;
+  }
 }
 @media (max-width: 768px ) {
   .main-graph, #about {
@@ -395,6 +373,23 @@ h3 {margin:12px auto 0;}
   }
   #data {
     display: none !important;
+  }
+  .desktop-only, .dygraph-legend {
+    display: none !important;
+  }
+  .status-graph {
+    margin-left: -4%;
+    height: 240px !important;
+  }
+  .status-legend {
+    margin-top: -20px !important;
+  }
+  .dygraph-title {
+    font-family: 'Open Sans', sans-serif !important;
+    font-size:14px!important;
+    margin:auto!important;
+    width:100%!important;
+    margin-left:5%!important
   }
 }
 @media (max-width: 1024px ) {
