@@ -6,6 +6,12 @@ body {
     height:20px;
     margin-right:10px;
 }
+.line-toggle {
+  display: none !important;
+  position: absolute;
+  top: -9999;
+  left: -9999;
+}
 #status-data {
   height: 20px;
   margin-top: 128px;
@@ -229,12 +235,6 @@ border-bottom-right-radius: 20px !important;
   margin: 0px !important;
   width:70px !important;
   height:70px !important
-}
-.line-toggle {
-  visibility: hidden !important;
-  position: absolute;
-  top: -9999;
-  left: -9999;
 }
 .freezer-box {
   font-size: 12px;
