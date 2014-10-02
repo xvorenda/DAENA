@@ -290,8 +290,8 @@ h3 {margin:12px auto 0;}
 .status-warning:hover{color: 830;}
 .status-danger, .critical-temp-alarm{color: #800;font-weight:bold;}
 .status-danger:hover{color: #844;}
-.status-info, .connection-alarm{color: #f789f7;font-weight:bold;}
-.status-info:hover{color: #f3e3f3;}
+.status-info, .connection-alarm{color: #ca9aca;font-weight:bold;}
+.status-info:hover{color: #8a5a8a;}
 .status-success-bg{background-color: #dff0d8;}
 .status-success-bg:hover{background-color: #d0e9c6;}
 .status-warning-bg{background-color: #fcf8e3;}
