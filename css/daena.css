@@ -287,11 +287,11 @@ h3 {margin:12px auto 0;}
 .status-success{color: #080;}
 .status-success:hover{color: #484;}
 .status-warning, .high-temp-alarm{color: #FA0;font-weight:bold;}
-.status-warning:hover{color: 830;}
+.status-warning:hover, .high-temp-alarm:hover{color: 830;}
 .status-danger, .critical-temp-alarm{color: #800;font-weight:bold;}
-.status-danger:hover{color: #844;}
+.status-danger:hover, .critical-temp-alarm:hover{color: #844;}
 .status-info, .connection-alarm{color: #1A00BF;font-weight:bold;}
-.status-info:hover{color: #6D60BF;}
+.status-info:hover, .connection-alarm:hover{color: #6D60BF;}
 .status-success-bg{background-color: #dff0d8;}
 .status-success-bg:hover{background-color: #d0e9c6;}
 .status-warning-bg{background-color: #fcf8e3;}
