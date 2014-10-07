@@ -2,7 +2,7 @@ DAENA - Data Aggregation and Emergency Notifications for Appliances
 
 =====
 
-<ul>To Do:
+To Do:<ul>
   <li>Dynamically generate Location and Group navbar menu from DB
   <li>Add Group Colors
   <li>Add Other probe type functionality
@@ -12,6 +12,6 @@ DAENA - Data Aggregation and Emergency Notifications for Appliances
   <li>Installation Instructions
 </ul>
 
-<ul>Wishlist:
+Wishlist:<ul>
   <li>Add Program NTMS functionality
 </ul>
