@@ -83,6 +83,9 @@ class alarm(object):
         self.readcursor = self.conn.cursor()
 
         # Contants used in program
+        self.IS_FREEZING = 0
+        self.IS_NOT_FREEZING = 1
+        
         # Alarm Timing Constants
         self.SIXTY_SECONDS = 60
         self.MINUTES_FOR_CRITICAL_RANGE_REMINDER = 60
@@ -473,7 +476,7 @@ class alarm(object):
                     freezing = self.checkForFreezing(freezer, setpoint2, self.MINUTES_BELOW_CRITICAL_RANGE)
 
                     #print "freezing high", freezing
-                    if freezing == 0:
+                    if freezing == self.IS_FREEZING:
                         #print "alarmLevel self.CRITICAL_TEMP_ALARM or self.CRITICAL_TEMP_ALARM_SILENCED freezing, time", alarmLevel, alarmTime
                         self.newAlarm(freezer, self.CRITICAL_TEMP_TO_HIGH_TEMP_ALARM)
 
@@ -512,7 +515,7 @@ class alarm(object):
 
                 #print "freezing normal", freezing
                 # freezer has gone back into normal range
-                if freezing == 0:
+                if freezing == self.IS_NOT_FREEZING:
 
 # 1 or 2 > Normal 0
                     if alarmLevel == self.HIGH_TEMP_ALARM_1 or alarmLevel == self.HIGH_TEMP_ALARM_2:
@@ -744,7 +747,6 @@ class alarm(object):
 
     def checkForFreezing(self, freezer, setpoint, minutes):
         # checks if the freezer has come below the threshold to update the alarm
-        # freezing = 0, not freezing = 1
         # this takes freezerID, setpoint temperature, and number of minutes
 
         #print "checkForFreezing freezer, setpoint, minutes", freezer, setpoint, minutes
@@ -757,7 +759,7 @@ class alarm(object):
         # variable to indicate if the temperature has been below the appropriate
         #threshold 0 = all temp above threshold, 1 = at least 1 reading below
         #threshold
-        freezing = 0
+        freezing = self.IS_FREEZING
         noData = 0
         recordCount = 0
         for record in self.readcursor:
@@ -767,7 +769,7 @@ class alarm(object):
             if record[0] == "nodata":
                 noData += 1
             elif float(record[0]) > setpoint:
-                freezing = 1
+                freezing = self.IS_NOT_FREEZING
 
         # if more that 75% of the records are "nodata" then it does not pass for
         # freezing
