@@ -515,7 +515,7 @@ class alarm(object):
 
                 #print "freezing normal", freezing
                 # freezer has gone back into normal range
-                if freezing == self.IS_NOT_FREEZING:
+                if freezing == self.IS_FREEZING:
 
 # 1 or 2 > Normal 0
                     if alarmLevel == self.HIGH_TEMP_ALARM_1 or alarmLevel == self.HIGH_TEMP_ALARM_2:
