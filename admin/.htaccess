@@ -1,3 +1,11 @@
+# Make Rewrites Actually Work
+RewriteEngine on
+# HTTPS Redirection for Firewall Workaround Ports
+RewriteCond     %{SERVER_PORT} ^28888$
+RewriteRule     ^(.*)$ https://%{SERVER_NAME}:28443%{REQUEST_URI} [L,R]
+# HTTPS Rdirection for Standard Ports
+RewriteCond     %{SERVER_PORT} ^80$
+RewriteRule     ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
 <FilesMatch "register.php">
 AuthName "Authorized Personnel Only"
 AuthType Basic
