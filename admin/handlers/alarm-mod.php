@@ -44,7 +44,7 @@ if ($login->isUserLoggedIn() == true)
 			{
 				echo "Silence Success!";
 				//echo '<script>window.location.replace("';
-				$pageURL = 'http://';
+				$pageURL = 'https://';
 				if ($_SERVER["SERVER_PORT"] != "80") 
 				{
 				  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$searchUrl;
@@ -83,7 +83,7 @@ if ($login->isUserLoggedIn() == true)
 		{
 			echo "Silence Success!";
 			//echo '<script>window.location.replace("';
-			$pageURL = 'http://';
+			$pageURL = 'https://';
 				if ($_SERVER["SERVER_PORT"] != "80") 
 				{
 				  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$searchUrl;
@@ -105,7 +105,7 @@ else
 
 	echo "<div id='content'>"
 		. "<h1>Unauthorized Access</h1>"
-		. "<h3>Please <a href='http://".$_SERVER["SERVER_NAME"]."/admin/index.php'>log in</a> to access this page.</h3>'"
+		. "<h3>Please <a href='https://".$_SERVER["SERVER_NAME"]."/admin/index.php'>log in</a> to access this page.</h3>'"
 		. "</div>";
 	include 'assets/admin-footer.php';
 }

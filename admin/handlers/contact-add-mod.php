@@ -79,7 +79,7 @@ if ($mysqlaction == "add")
 	{
 		echo "Modification Success!";
 		echo '<script>window.location.replace("';
-		$pageURL = 'http://';
+		$pageURL = 'https://';
 		if ($_SERVER["SERVER_PORT"] != "80") 
 		{
 		  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
