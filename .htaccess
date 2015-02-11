@@ -1,0 +1,8 @@
+# Make Rewrites Actually Work
+RewriteEngine on
+# HTTP Redirection for Firewall Workaround Ports
+RewriteCond     %{SERVER_PORT} ^28443$
+RewriteRule     ^(.*)$ http://%{SERVER_NAME}:28888%{REQUEST_URI} [L,R]
+# HTTP Redirection for Standard Ports
+RewriteCond     %{SERVER_PORT} ^443$
+RewriteRule     ^(.*)$ http://%{SERVER_NAME}%{REQUEST_URI} [L,R]
