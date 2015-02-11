@@ -66,7 +66,7 @@ foreach( $_POST['freezer_id'] as $current_freezer_id)
 if ($error == 0)
 {
 	echo '<script>window.location.replace("';
-	$pageURL = 'https://';
+	$pageURL = 'http://';
 	if ($_SERVER["SERVER_PORT"] != "80") 
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
@@ -88,7 +88,7 @@ if ($mysqlaction == "add")
 	}
 	echo 'Addition Success!';
 	echo '<script>window.location.replace("';
-	$pageURL = 'https://';
+	$pageURL = 'http://';
 	if ($_SERVER["SERVER_PORT"] != "80") 
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];

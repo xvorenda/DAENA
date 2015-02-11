@@ -44,7 +44,7 @@ if ($mysqlaction = "modify")
 	}	
 	echo "Modification Success!";
 	echo '<script>window.location.replace("';
-	$pageURL = 'https://';
+	$pageURL = 'http://';
 	if ($_SERVER["SERVER_PORT"] != "80") 
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
@@ -67,7 +67,7 @@ if ($mysqlaction = "add")
 	}
 	echo 'Addition Success!';
 	echo '<script>window.location.replace("';
-	$pageURL = 'https://';
+	$pageURL = 'http://';
 	if ($_SERVER["SERVER_PORT"] != "80") 
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
