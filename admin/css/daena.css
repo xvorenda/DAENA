@@ -318,7 +318,7 @@ h3 {margin:12px auto 0;}
   font-family: 'Open Sans', sans-serif !important;
 }
 @media (min-width: 768px ) {
-  .main-graph, #about {
+  .main-graph, #about, #home {
      position:relative;
      margin:96px auto 24px auto !important;
      width:88% !important;
@@ -365,7 +365,7 @@ h3 {margin:12px auto 0;}
   }
 }
 @media (max-width: 768px ) {
-  .main-graph, #about {
+  .main-graph, #about, #home {
     position:relative;
     margin:96px auto 24px !important;
     width:95% !important;
