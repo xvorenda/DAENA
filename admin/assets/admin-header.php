@@ -19,6 +19,7 @@ echo "
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400' rel='stylesheet' type='text/css'>
 <link href='css/bootstrap.css' rel='stylesheet'>
 <link href='css/daena.css' rel='stylesheet'>
+<script type='text/javascript' src='js/bootstrap.min.js'></script>
 <link rel='shortcut icon' href='images/daena.png'/>
 </head>
 ";
