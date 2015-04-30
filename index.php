@@ -267,7 +267,7 @@ while ($pingrow = $pingtimes->fetch_assoc()) {
             $datatemp = ltrim($datatemp, '+00');
             $datatemp = ltrim($datatemp, '+0');
             if ($datatemp == "nodata"){
-              $datatemp = "null";}
+              $datatemp = "null";};
       else $datatemp = "null";
       echo ", ".$datatemp;
 
