@@ -230,7 +230,7 @@ echo "
 /* Select Unique Times from MySQL Ping Data */
 $pingtimequery = "SELECT DISTINCT int_time FROM daena_db.data
               WHERE int_time > ".$viewstart."
-              ORDER BY int_time ASC";
+              ORDER BY int_time ASC limit 604800";
 
 $pingtimes = $daenaDB->query($pingtimequery);
 
