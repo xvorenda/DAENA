@@ -36,9 +36,7 @@ $freezercolors = array();
 $freezerids = array();
 $namearray = array();
 $visibility = array();
-$badneg_a = "-00";
-$badneg_b = "-0";
-$re_neg = "-";
+
 
 
 /* Print Container Div for Graph, Data View, and Freezer-Box Toggles */
@@ -237,7 +235,9 @@ $pingtimes = $daenaDB->query($pingtimequery);
 
 $freezergroups = implode(',', $freezerids);
 $visiblelist = implode(',', $visibility);
-
+$badneg_a = "-00";
+$badneg_b = "-0";
+$re_neg = "-";
 
 /* Use Unique Ping Times to Query for Data */
 while ($pingrow = $pingtimes->fetch_assoc()) {
@@ -255,20 +255,23 @@ while ($pingrow = $pingtimes->fetch_assoc()) {
       $datacount = $data->num_rows;
 
 /* If the number of datapoints matches the number of freezers, print data row*/
-      if ($datacount == $freezercount){
+    /*WRONG  if ($datacount == $freezercount){*/
+      if isset ($pingtime){
         echo "            [ new Date(\"";
         echo date('Y/m/d H:i:s', $pingepoch);
         echo "\")";
-      while ($datarow = $data->fetch_assoc()) {
-          $datatemp = $datarow["temp"];
-          $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
-          $datatemp = str_replace($badneg_b, $re_neg, $datatemp);
-          $datatemp = ltrim($datatemp, '+00');
-          $datatemp = ltrim($datatemp, '+0');
-          if ($datatemp == "nodata"){
-            $datatemp = "null";}
-            echo ", ".$datatemp;
-          }
+        while ($datarow = $data->fetch_assoc()) {
+            $datatemp = $datarow["temp"];
+            $datatemp = str_replace($badneg_a, $re_neg, $datatemp);
+            $datatemp = str_replace($badneg_b, $re_neg, $datatemp);
+            $datatemp = ltrim($datatemp, '+00');
+            $datatemp = ltrim($datatemp, '+0');
+            if ($datatemp == "nodata"){
+              $datatemp = "null";}
+      else $datatemp = "null";
+      echo ", ".$datatemp;
+
+      }
       echo "],\n";
 }}
 echo "        ],
