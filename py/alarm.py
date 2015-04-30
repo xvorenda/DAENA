@@ -6,7 +6,7 @@ import MySQLdb as mdb
 import smtplib
 import re
 import bz2
-
+import alarm
 
 # Alarm Levels:
 # Temperature Alarms
@@ -815,18 +815,25 @@ class alarm(object):
 
         # check to ensure there was data pulled from the database
         #if numResults == 0:
-        #    break
+            #break
 
         # retrieve the data from the query
         data = self.readcursor.fetchall()
-        alarmTime = int(data[0][0])
-        alarmLevel = (data[0][1])
-        alarmDateTime = time.strftime("%A, %B %d, %Y, at %H:%M:%S", time.localtime(alarmTime/1000))
+       	
+	try:
+    		if data[0][1]:
+        		alarmTime = int(data[0][0])
+			alarmLevel = data[0][1]
+			alarmDateTime = time.strftime("%A, %B %d, %Y, at %H:%M:%S", time.localtime(alarmTime/1000))
+	except IndexError:
+    		pass
+
         #print "alarmTime, alarmLevel:", alarmTime, alarmLevel
 
         allNoData = self.checkForAllNoData(freezer, self.MINUTES_WITH_NO_DATA)
         # the past 30 min it was all "nodata"
-        if allNoData == 0:
+        if not 'alarmLevel' in locals(): alarmLevel = '0'
+	if allNoData == 0:
 
             # the com alarm has been silenced
 
