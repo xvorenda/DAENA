@@ -85,7 +85,7 @@ class alarm(object):
         # Contants used in program
         self.IS_FREEZING = 0
         self.IS_NOT_FREEZING = 1
-        
+
         # Alarm Timing Constants
         self.SIXTY_SECONDS = 60
         self.MINUTES_FOR_CRITICAL_RANGE_REMINDER = 60
@@ -511,7 +511,7 @@ class alarm(object):
                 pass
             else:
                 #print "alarmLevel not self.NORMAL_STATE", alarmLevel
-                freezing = self.checkForFreezing(freezer, setpoint1, self.MINUTES_BELOW_HIGH_RANGE) 
+                freezing = self.checkForFreezing(freezer, setpoint1, self.MINUTES_BELOW_HIGH_RANGE)
 
                 #print "freezing normal", freezing
                 # freezer has gone back into normal range
@@ -819,12 +819,12 @@ class alarm(object):
 
         # retrieve the data from the query
         data = self.readcursor.fetchall()
-       	
+
 	try:
     		if data[0][1]:
-        		alarmTime = int(data[0][0])
-			alarmLevel = data[0][1]
-			alarmDateTime = time.strftime("%A, %B %d, %Y, at %H:%M:%S", time.localtime(alarmTime/1000))
+        	       alarmTime = int(data[0][0])
+			       alarmLevel = data[0][1]
+			       alarmDateTime = time.strftime("%A, %B %d, %Y, at %H:%M:%S", time.localtime(alarmTime/1000))
 	except IndexError:
     		pass
 
