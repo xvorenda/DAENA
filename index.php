@@ -255,7 +255,7 @@ while ($pingrow = $pingtimes->fetch_assoc()) {
       $datacount = $data->num_rows;
 
 /* If the number of datapoints matches the number of freezers, print data row*/
-      if (0 == 0){
+      if ($datacount == $freezercount){
         echo "            [ new Date(\"";
         echo date('Y/m/d H:i:s', $pingepoch);
         echo "\")";
@@ -265,7 +265,7 @@ while ($pingrow = $pingtimes->fetch_assoc()) {
             $datatemp = str_replace($badneg_b, $re_neg, $datatemp);
             $datatemp = ltrim($datatemp, '+00');
             $datatemp = ltrim($datatemp, '+0');
-            if ($datatemp == "nodata" | isset($datatemp) = false){
+            if ($datatemp == "nodata"){
               $datatemp = "null";}
         echo ", ".$datatemp;
         }
