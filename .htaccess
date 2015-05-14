@@ -1,0 +1,5 @@
+# Make Rewrites Actually Work
+RewriteEngine on
+# HTTP Redirection for Standard Ports
+RewriteCond     %{SERVER_PORT} ^443$
+RewriteRule     ^(.*)$ http://%{SERVER_NAME}%{REQUEST_URI} [L,R]
