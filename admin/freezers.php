@@ -32,6 +32,12 @@ if ($login->isUserLoggedIn() == true)
 		ORDER BY ABS(freezer_id)";
 	$allfreezers = $daenaDB->query($allfreezersquery);
 
+	/* Parse and Display Messages from Freezer-Mod Handler */
+	session_start();
+	if isset($_SESSION['notification']){
+		$notification_message = $_SESSION['notification'];
+		echo "<div class='notification-window'>".$notification_message."</div>";
+	}
 
 
 	/* Draw Freezer Display/Mod Area */
