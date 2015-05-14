@@ -37,8 +37,8 @@ SET probe_type='" . $probe_type . "', probe_range='" . $probe_range . "',
 if ($mysqlaction = "modify")
 {
 
-	$onefreezer = mysql_query($probeupdate);
-	if($onefreezer === FALSE)
+	$modquery = mysql_query($probeupdate);
+	if($modquery === FALSE)
 	{
 		die(mysql_error()); // TODO: better error handling
 	}
@@ -60,8 +60,8 @@ if ($mysqlaction = "modify")
 if ($mysqlaction = "add")
 {
 
-	$onefreezer = mysql_query($probeadd);
-	if($onefreezer === FALSE)
+	$addquery = mysql_query($probeadd);
+	if($addquery === FALSE)
 	{
 		die(mysql_error()); // TODO: better error handling
 	}
