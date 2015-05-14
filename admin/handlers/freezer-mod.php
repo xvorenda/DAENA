@@ -24,8 +24,8 @@ if ($daenaDB === FALSE) {
 mysql_select_db("daena_db");
 
 /* Add a Freezer */
-$freezeradd = "INSERT INTO daena_db.freezers 
-    (freezer_active, freezer_color, freezer_location, 
+$freezeradd = "INSERT INTO daena_db.freezers
+    (freezer_active, freezer_color, freezer_location,
     	freezer_name, freezer_temp_range, freezer_id, freezer_group_id)
 	VALUES
     ('".$freezer_active."', '".$freezer_color."', '".$freezer_location."', '"
@@ -33,27 +33,27 @@ $freezeradd = "INSERT INTO daena_db.freezers
 
 /* Mod a Freezer */
 $freezerupdate = "UPDATE daena_db.freezers
-	SET freezer_active='" . $freezer_active . "', freezer_color='" . $freezer_color . "', 
-		freezer_location='" . $freezer_location . "', freezer_name='" . $freezer_name . "', 
+	SET freezer_active='" . $freezer_active . "', freezer_color='" . $freezer_color . "',
+		freezer_location='" . $freezer_location . "', freezer_name='" . $freezer_name . "',
 		freezer_temp_range='" . $freezer_temp_range . "'
 	WHERE freezer_id='" . $freezer_id . "'";
 
-if ($mysqlaction = "modify") 
+if ($mysqlaction = "modify")
 {
 
 	$onefreezer = mysql_query($freezerupdate);
-	if($onefreezer === FALSE) 
+	if($onefreezer === FALSE)
 	{
 		die(mysql_error()); // TODO: better error handling
-	}	
+	}
 	echo "Modification Success!";
 	echo '<script>window.location.replace("';
-	$pageURL = 'http://';
-	if ($_SERVER["SERVER_PORT"] != "80") 
+	$pageURL = 'https://';
+	if ($_SERVER["SERVER_PORT"] != "443")
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	} 
-	else 
+	}
+	else
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"];
 	}
@@ -61,22 +61,22 @@ if ($mysqlaction = "modify")
 	 echo '/admin/freezers.php");</script>';
 }
 
-if ($mysqlaction = "add") 
+if ($mysqlaction = "add")
 {
 
 	$onefreezer = mysql_query($freezeradd);
-	if($onefreezer === FALSE) 
+	if($onefreezer === FALSE)
 	{
 		die(mysql_error()); // TODO: better error handling
 	}
 	echo 'Addition Success!';
 	echo '<script>window.location.replace("';
-	$pageURL = 'http://';
-	if ($_SERVER["SERVER_PORT"] != "80") 
+	$pageURL = 'https://';
+	if ($_SERVER["SERVER_PORT"] != "443") 
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	} 
-	else 
+	}
+	else
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"];
 	}
