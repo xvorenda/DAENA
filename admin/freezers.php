@@ -132,6 +132,6 @@ else
 		. "</div>";
 }
 /* Wrap things up */
-session_abort();
+session_unset();
 include 'assets/admin-footer.php';
 ?>
