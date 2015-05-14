@@ -14,7 +14,7 @@ $freezer_location_building = filter_input(INPUT_POST, 'freezer_location_building
 $freezer_location_room = filter_input(INPUT_POST, 'freezer_location_room');
 $freezer_location = $freezer_location_building."<br>".$freezer_location_room;
 
-
+session_start();
 /* Start talking to MySQL and kill yourself if it ignores you */
 include('../config/db.php');
 $daenaDB = mysql_connect(DB_HOST,DB_USER,DB_PASS);
@@ -41,8 +41,8 @@ $freezerupdate = "UPDATE daena_db.freezers
 
 if ($mysqlaction = "modify")
 {
-  session_start();
-	$freezeraddquery = mysql_query($freezerupdate);
+
+	$freezermodquery = mysql_query($freezerupdate);
   if(mysql_errno()){
     $_SESSION['notification'] = "MySQL error ".mysql_errno().": "
            .mysql_error()."\n<br>When executing <br>\n$freezeraddquery\n<br>";
@@ -65,11 +65,11 @@ if ($mysqlaction = "modify")
 
 if ($mysqlaction = "add")
 {
-  session_start();
+
 	$freezeraddquery = mysql_query($freezeradd);
   if(mysql_errno()){
     $_SESSION['notification'] = "MySQL error ".mysql_errno().": "
-           .mysql_error()."\n<br>When executing <br>\n$freezeraddquery\n<br>";
+           .mysql_error()."\n<br>When executing <br>\n".$freezeraddquery".\n<br>";
   } else {
     $_SESSION['notification'] = "Addition Successful";
   }
