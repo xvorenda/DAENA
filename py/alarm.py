@@ -201,7 +201,7 @@ class alarm(object):
                             emailList += record
 
                         # prepare meaningful message to send out
-                        message = "This is a remider that Freezer %s %s located in %s with description %s is currently %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  \n\nThe freezer has been in a critical range for at least 1 hour.  A reminder is sent each hour the freezer is out of range.\n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2)
+                        message = "This is a remider that Freezer %s %s located in %s with description %s is currently %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  \n\nThe freezer has been in a critical range for at least 1 hour.  A reminder is sent each hour the freezer is out of range.\n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2)
 
                         # prepare meaningful subject for email
                         subject = 'Reminder Critical Alarm for %s' % name
@@ -236,7 +236,7 @@ class alarm(object):
                             if not record: break
                             emailList += record
 
-                        message = "Freezer %s %s located in %s with description %s is currently in a critical temperature range at %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  The temperature has been out of range for at least 15 minutes.  \n\n  The freezer was previously in a normal state which is below the high temperature setting of %s degrees Celsius.  \n\nA reminder will be sent every hour till the temperature is no longer in a critical range.\n\n \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2, setpoint1)
+                        message = "Freezer %s %s located in %s with description %s is currently in a critical temperature range at %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  The temperature has been out of range for at least 15 minutes.  \n\n  The freezer was previously in a normal state which is below the high temperature setting of %s degrees Celsius.  \n\nA reminder will be sent every hour till the temperature is no longer in a critical range.\n\n \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2, setpoint1)
                         subject = 'Critical Alarm for %s' % name
 
                         # Filter blank email addresses
@@ -264,7 +264,7 @@ class alarm(object):
                             if not record: break
                             emailList += record
 
-                        message = "Freezer %s %s located in %s with description %s is in a critical temperature range at %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  \n\nThe freezer was previously in a high temperature state which has a setting of %s degrees Celsius and is now in a critical state.\n\nThe temperature has been out of range for at least 30 min.  A reminder will be sent every hour till the temperature is no longer in a critical range.\n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2, setpoint1)
+                        message = "Freezer %s %s located in %s with description %s is in a critical temperature range at %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  \n\nThe freezer was previously in a high temperature state which has a setting of %s degrees Celsius and is now in a critical state.\n\nThe temperature has been out of range for at least 30 min.  A reminder will be sent every hour till the temperature is no longer in a critical range.\n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2, setpoint1)
                         subject = 'Critical Alarm for %s' % name
 
                         # Filter blank email addresses
@@ -294,7 +294,7 @@ class alarm(object):
                             if not record: break
                             emailList += record
 
-                        message = "Freezer %s %s located in %s with description %s has gone back into a critical temperature range and is currently at %s degrees Celsius which is above the critical temperature setting of %s degrees Celsius. It was in a high temperature range degrees Celsius in which the high temperature setting is %s degrees Celsius.  \n\nThe temperature has been in the critical temperature range for 15 minutes.  A reminder will be sent every hour till the temperature is no longer in a critical range.\n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2, setpoint1)
+                        message = "Freezer %s %s located in %s with description %s has gone back into a critical temperature range and is currently at %s degrees Celsius which is above the critical temperature setting of %s degrees Celsius. It was in a high temperature range degrees Celsius in which the high temperature setting is %s degrees Celsius.  \n\nThe temperature has been in the critical temperature range for 15 minutes.  A reminder will be sent every hour till the temperature is no longer in a critical range.\n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2, setpoint1)
                         subject = 'Critical Range Alert for %s' % name
 
                         # Filter blank email addresses
@@ -322,7 +322,7 @@ class alarm(object):
                             if not record: break
                             emailList += record
 
-                        message = "Freezer %s %s located in %s with description %s is in a critical temperature range at %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  \n\nThe freezer was previously in a Communication Alarm state and is no longer in a Communication alarm State.\n\nThe temperature has been out of range for at least 15 min.  A reminder will be sent every hour till the temperature is no longer in a critical range.\n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2)
+                        message = "Freezer %s %s located in %s with description %s is in a critical temperature range at %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  \n\nThe freezer was previously in a Communication Alarm state and is no longer in a Communication alarm State.\n\nThe temperature has been out of range for at least 15 min.  A reminder will be sent every hour till the temperature is no longer in a critical range.\n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2)
                         subject = 'Critical Alarm for %s' % name
 
                         # Filter blank email addresses
@@ -353,7 +353,7 @@ class alarm(object):
                             if not record: break
                             emailList += record
 
-                        message = "Freezer %s %s located in %s with description %s is currently in a critical temperature range at %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  The temperature has been out of range for at least 15 minutes.  A reminder will be sent every hour till the temperature is no longer in a critical range.\n\n \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2)
+                        message = "Freezer %s %s located in %s with description %s is currently in a critical temperature range at %s degrees Celsius and is above the critical temperature setting of %s degrees Celsius.  The temperature has been out of range for at least 15 minutes.  A reminder will be sent every hour till the temperature is no longer in a critical range.\n\n \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2)
                         subject = 'Critical Alarm for %s' % name
 
                         # Filter blank email addresses
@@ -400,7 +400,7 @@ class alarm(object):
                         if not record: break
                         emailList += record
 
-                    message = "This is the final remider that Freezer %s %s located in %s with description %s is in a high temperature range at %s degrees Celsius and is above the high temperature setting of %s degrees Celsius.  \n\nThe freezer has been out of range for at least an hour. \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1)
+                    message = "This is the final remider that Freezer %s %s located in %s with description %s is in a high temperature range at %s degrees Celsius and is above the high temperature setting of %s degrees Celsius.  \n\nThe freezer has been out of range for at least an hour. \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1)
                     subject = 'Final Reminder High Alarm for %s' % name
 
                     # Filter blank email addresses
@@ -431,7 +431,7 @@ class alarm(object):
                         if not record: break
                         emailList += record
 
-                    message = "Freezer %s %s located in %s with description %s is in a high temperature range at %s degrees Celsius and is above the high temperature setting of %s degrees Celsius.  \n\nThe temperature has been out of range for at least 30 min.  A final alarm will be send when the freezer has been out of range for 1 hour.\n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1)
+                    message = "Freezer %s %s located in %s with description %s is in a high temperature range at %s degrees Celsius and is above the high temperature setting of %s degrees Celsius.  \n\nThe temperature has been out of range for at least 30 min.  A final alarm will be send when the freezer has been out of range for 1 hour.\n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1)
                     subject = 'High Alarm for %s' % name
 
                     # Filter blank email addresses
@@ -461,7 +461,7 @@ class alarm(object):
                         if not record: break
                         emailList += record
 
-                    message = "Freezer %s %s located in %s with description %s is in a high temperature range at %s degrees Celsius and is above the high temperature setting of %s degrees Celsius.  \n\nThe freezer was previously in a Communication Alarm state and is no longer in a Communication alarm State.\n\nThe temperature has been out of range for at least 30 min.  A final alarm will be send when the freezer has been out of range for 1 hour.\n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1)
+                    message = "Freezer %s %s located in %s with description %s is in a high temperature range at %s degrees Celsius and is above the high temperature setting of %s degrees Celsius.  \n\nThe freezer was previously in a Communication Alarm state and is no longer in a Communication alarm State.\n\nThe temperature has been out of range for at least 30 min.  A final alarm will be send when the freezer has been out of range for 1 hour.\n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1)
                     subject = 'High Alarm for %s' % name
 
                     # Filter blank email addresses
@@ -493,7 +493,7 @@ class alarm(object):
                         if not record: break
                         emailList += record
 
-                    message = "Freezer %s %s located in %s with description %s has gone out of a critical temperature range and is now in a high temperature range at %s degrees Celsius which is below the critical temperature setting of %s and is above the high temperature setting of %s degrees Celsius.  \n\nThe temperature has been in the high temperature range for 30 minutes.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2, setpoint1)
+                    message = "Freezer %s %s located in %s with description %s has gone out of a critical temperature range and is now in a high temperature range at %s degrees Celsius which is below the critical temperature setting of %s and is above the high temperature setting of %s degrees Celsius.  \n\nThe temperature has been in the high temperature range for 30 minutes.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2, setpoint1)
                     subject = 'High Alarm: Freezer %s Out of Critical Range Notice' % name
 
                     # Filter blank email addresses
@@ -536,7 +536,7 @@ class alarm(object):
                             if not record: break
                             emailList += record
 
-                        message = "Freezer %s %s located in %s with description %s is now in a normal temperature range at %s degrees Celsius.  The freezer was previously in a high temperature range with the high temperature setting of %s degrees Celsius.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1)
+                        message = "Freezer %s %s located in %s with description %s is now in a normal temperature range at %s degrees Celsius.  The freezer was previously in a high temperature range with the high temperature setting of %s degrees Celsius.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1)
                         subject = 'Freezer %s Back in Normal Range Notice' % name
 
                         # Filter blank email addresses
@@ -565,7 +565,7 @@ class alarm(object):
                             if not record: break
                             emailList += record
 
-                        message = "Freezer %s %s located in %s with description %s is now in a normal temperature range at %s degrees Celsius.  The freezer was previously in a critical temperature range with the critical temperature setting of %s degrees Celsius.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2)
+                        message = "Freezer %s %s located in %s with description %s is now in a normal temperature range at %s degrees Celsius.  The freezer was previously in a critical temperature range with the critical temperature setting of %s degrees Celsius.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2)
                         subject = 'Freezer %s Back in Normal Range Notice' % name
 
                         # Filter blank email addresses
@@ -594,7 +594,7 @@ class alarm(object):
                             if not record: break
                             emailList += record
 
-                        message = "Freezer %s %s located in %s with description %s is now in a normal temperature range at %s degrees Celsius.  \n\nThe freezer was previously in a high temperature range with the high temperature setting of %s degrees Celsius.  The freezer had been in a critical temperature range above %s degrees Celsius and has cooled back down to a normal range.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1, setpoint2)
+                        message = "Freezer %s %s located in %s with description %s is now in a normal temperature range at %s degrees Celsius.  \n\nThe freezer was previously in a high temperature range with the high temperature setting of %s degrees Celsius.  The freezer had been in a critical temperature range above %s degrees Celsius and has cooled back down to a normal range.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1, setpoint2)
                         subject = 'Freezer %s Back in Normal Range Notice' % name
 
                         # Filter blank email addresses
@@ -623,7 +623,7 @@ class alarm(object):
                             if not record: break
                             emailList += record
 
-                        message = "Freezer %s %s located in %s with description %s was previously in a Communication Alarm state and is no longer in a Communication alarm State.\n\nThe freezer is in a normal state with a temperature of %s degrees Celsius where the high temperature setting is %s degrees Celsius.\n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1)
+                        message = "Freezer %s %s located in %s with description %s was previously in a Communication Alarm state and is no longer in a Communication alarm State.\n\nThe freezer is in a normal state with a temperature of %s degrees Celsius where the high temperature setting is %s degrees Celsius.\n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint1)
                         subject = 'Freezer %s Back in Normal Range Notice' % name
 
                         # Filter blank email addresses
@@ -652,7 +652,7 @@ class alarm(object):
                             if not record: break
                             emailList += record
 
-                        message = "Freezer %s %s located in %s with description %s has back into a normal range at %s degrees Celsius which is below the high temperature setting of %s degrees Celsius.  \n\nThe temperature has been in normal range for 15 minutes.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2, setpoint1)
+                        message = "Freezer %s %s located in %s with description %s has back into a normal range at %s degrees Celsius which is below the high temperature setting of %s degrees Celsius.  \n\nThe temperature has been in normal range for 15 minutes.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, currentTemp, setpoint2, setpoint1)
                         subject = 'Freezer %s Back in Normal Range Notice' % name
 
                         # Filter blank email addresses
@@ -862,7 +862,7 @@ class alarm(object):
                         if not record: break
                         emailList += record
 
-                    message = "This is a reminder the system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime)
+                    message = "This is a reminder the system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime)
                     subject = 'Reminder Communication Alarm for freezer %s' % name
 
                     # Filter blank email addresses
@@ -891,7 +891,7 @@ class alarm(object):
                     if not record: break
                     emailList += record
 
-                message = "The system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s. \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime)
+                message = "The system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s. \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime)
                 subject = 'Communication Alarm for freezer %s' % name
 
                 # Filter blank email addresses
@@ -918,7 +918,7 @@ class alarm(object):
                     if not record: break
                     emailList += record
 
-                message = "The system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s. \n\nThe freezer was previously in a high temperature range with the high temperature setting of %s degrees Celsius.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime, setpoint1)
+                message = "The system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s. \n\nThe freezer was previously in a high temperature range with the high temperature setting of %s degrees Celsius.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime, setpoint1)
                 subject = 'Communication Alarm for freezer %s' % name
 
                 # Filter blank email addresses
@@ -945,7 +945,7 @@ class alarm(object):
                     if not record: break
                     emailList += record
 
-                message = "The system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s. \n\nThe freezer was previously in a critical temperature range with the critical temperature setting of %s degrees Celsius.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime, setpoint2)
+                message = "The system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s. \n\nThe freezer was previously in a critical temperature range with the critical temperature setting of %s degrees Celsius.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime, setpoint2)
                 subject = 'Communication Alarm for freezer %s' % name
 
                 # Filter blank email addresses
@@ -972,7 +972,7 @@ class alarm(object):
                     if not record: break
                     emailList += record
 
-                message = "The system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s. \n\nThe freezer was previously in a high temperature range with the high temperature setting of %s degrees Celsius.  The freezer had been in a critical temperature range above %s degrees Celsius.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime, setpoint1, setpoint2)
+                message = "The system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s. \n\nThe freezer was previously in a high temperature range with the high temperature setting of %s degrees Celsius.  The freezer had been in a critical temperature range above %s degrees Celsius.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime, setpoint1, setpoint2)
                 subject = 'Communication Alarm for freezer %s' % name
 
                 # Filter blank email addresses
@@ -999,7 +999,7 @@ class alarm(object):
                     if not record: break
                     emailList += record
 
-                message = "The system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime)
+                message = "The system currently cannot get data for Freezer %s %s located in %s with description %s.  The last recorded temperature was %s degrees Celsius on %s.  \n\nThere are a number of reasons this could happen.\n1. Please check and make sure the probe is connected to the NTMS\n2. Check that the NTMS is connected to the network\n3. There may be a network outage\n\nNote: this will alarm every hour till the problem is fixed.  \n\nPlease go to http://daena.csbc.vcu.edu to monitor the status of this freezer." % (freezer, name, location, description, lastTemp, lastDateTime)
                 subject = 'Communication Alarm for freezer %s' % name
 
                 # Filter blank email addresses
