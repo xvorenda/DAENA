@@ -17,20 +17,13 @@ if ($login->isUserLoggedIn() == true) {
 
 	/* Ask MySQL about which probes exist and get their metadata */
 	$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
-	FROM daena_db.probes
-	ORDER BY ABS(probe_id)";
+		FROM daena_db.probes
+		ORDER BY ABS(freezer_id)";
 	$allprobes = $daenaDB->query($allprobesquery);
 	if($allprobes === FALSE)
 	{
 		die(mysqli_error()); // TODO: better error handling
 	}
-
-
-	/* Ask MySQL about which probes exist and get their metadata */
-	$allprobesquery = "SELECT SQL_CALC_FOUND_ROWS *
-		FROM daena_db.probes
-		ORDER BY ABS(freezer_id)";
-	$allprobes = $daenaDB->query($allprobesquery);
 
 
 	/* Draw Probe Mod Area */
@@ -82,9 +75,10 @@ if ($login->isUserLoggedIn() == true) {
 			<td class='field-narrow'><input type='checkbox' class='input-medium' name='probe_active' checked value='1'/></td>
 			<td class='field-wide'><input type='text' class='input-medium search-query' name='probe_hostport'/></td>
 			<td class='field-narrow'><input type='text' class='input-medium search-query' name='probe_ntms_port'/></td>
-			<td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add'/></td></form>
+			<td><input type='text' class='stealth' name='mysqlaction' value='add'/><input type='submit' name='submit' class='btn' value='Add*'/></td></form>
 		 </tr>
-	  </table></div></div>";
+	  </table>
+		<p>* - Freezer ID must already exist for new probe to be added.</p></div></div>";
 }
 else
 {
