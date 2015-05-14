@@ -22,6 +22,7 @@ if ($daenaDB === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
 mysql_select_db("daena_db");
+session_start();
 
 /* Add a Freezer */
 $freezeradd = "INSERT INTO daena_db.freezers
@@ -41,12 +42,13 @@ $freezerupdate = "UPDATE daena_db.freezers
 if ($mysqlaction = "modify")
 {
 
-	$onefreezer = mysql_query($freezerupdate);
-	if($onefreezer === FALSE)
-	{
-		die(mysql_error()); // TODO: better error handling
-	}
-	echo "Modification Success!";
+	$freezeraddquery = mysql_query($freezerupdate);
+  if(mysql_errno()){
+    $_SESSION['notification'] = "MySQL error ".mysql_errno().": "
+           .mysql_error()."\n<br>When executing <br>\n$freezeraddquery\n<br>";
+  } else {
+    $_SESSION['notification'] = "Modification Successful";
+  }
 	echo '<script>window.location.replace("';
 	$pageURL = 'https://';
 	if ($_SERVER["SERVER_PORT"] != "443")
@@ -64,24 +66,26 @@ if ($mysqlaction = "modify")
 if ($mysqlaction = "add")
 {
 
-	$onefreezer = mysql_query($freezeradd);
-	if($onefreezer === FALSE)
-	{
-		die(mysql_error()); // TODO: better error handling
-	}
-	echo 'Addition Success!';
-	echo '<script>window.location.replace("';
-	$pageURL = 'https://';
-	if ($_SERVER["SERVER_PORT"] != "443") 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	}
-	else
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"];
-	}
-	 echo $pageURL;
-	 echo '/admin/freezers.php");</script>';
+	$freezeraddquery = mysql_query($freezeradd);
+  if(mysql_errno()){
+    $_SESSION['notification'] = "MySQL error ".mysql_errno().": "
+           .mysql_error()."\n<br>When executing <br>\n$freezeraddquery\n<br>";
+  } else {
+    $_SESSION['notification'] = "Addition Successful";
+  }
+  echo '<script>window.location.replace("';
+  $pageURL = 'https://';
+  if ($_SERVER["SERVER_PORT"] != "443")
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+  }
+  else
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"];
+  }
+   echo $pageURL;
+   echo '/admin/freezers.php");</script>';
+  }/admin/freezers.php");</script>';
 }
 
 /* Wrap things up */
