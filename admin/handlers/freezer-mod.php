@@ -44,8 +44,7 @@ if ($mysqlaction = "modify")
 
 	$freezermodquery = mysql_query($freezerupdate);
   if(mysql_errno()){
-    $_SESSION['notification'] = "MySQL error ".mysql_errno().": "
-           .mysql_error()."\n<br>When executing <br>\n$freezeraddquery\n<br>";
+    $_SESSION['notification'] = "MySQL error ".mysql_errno().": ".mysql_error()."<br>When executing <br>".$freezermodquery."<br>";
   } else {
     $_SESSION['notification'] = "Modification Successful";
   }
@@ -68,8 +67,7 @@ if ($mysqlaction = "add")
 
 	$freezeraddquery = mysql_query($freezeradd);
   if(mysql_errno()){
-    $_SESSION['notification'] = "MySQL error ".mysql_errno().": "
-           .mysql_error()."\n<br>When executing <br>\n".$freezeraddquery".\n<br>";
+    $_SESSION['notification'] = "MySQL error ".mysql_errno().": ".mysql_error()."<br>When executing <br>".$freezeraddquery."<br>";
   } else {
     $_SESSION['notification'] = "Addition Successful";
   }
