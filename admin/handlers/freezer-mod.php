@@ -39,7 +39,7 @@ $freezerupdate = "UPDATE daena_db.freezers
 		freezer_temp_range='" . $freezer_temp_range . "'
 	WHERE freezer_id='" . $freezer_id . "'";
 
-if ($mysqlaction = "modify")
+if ($mysqlaction == "modify")
 {
 
 	$freezermodquery = mysql_query($freezerupdate);
@@ -62,7 +62,7 @@ if ($mysqlaction = "modify")
 	 echo '/admin/freezers.php");</script>';
 }
 
-if ($mysqlaction = "add")
+if ($mysqlaction == "add")
 {
 
 	$freezeraddquery = mysql_query($freezeradd);
