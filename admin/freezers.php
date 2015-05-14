@@ -34,10 +34,7 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Parse and Display Messages from Freezer-Mod Handler */
 	session_start();
-	$notification_message = $_SESSION['notification'];
-	echo "<div class='notification-window'>";
-	echo $notification_message;
-	echo "</div>";
+	echo "<div class='notification-window'>".$_SESSION['notification'];."</div>";
 
 
 	/* Draw Freezer Display/Mod Area */

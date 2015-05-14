@@ -22,7 +22,7 @@ if ($daenaDB === FALSE) {
     die(mysql_error()); // TODO: better error handling
 }
 mysql_select_db("daena_db");
-session_start();
+
 
 /* Add a Freezer */
 $freezeradd = "INSERT INTO daena_db.freezers
@@ -41,7 +41,7 @@ $freezerupdate = "UPDATE daena_db.freezers
 
 if ($mysqlaction = "modify")
 {
-
+  session_start();
 	$freezeraddquery = mysql_query($freezerupdate);
   if(mysql_errno()){
     $_SESSION['notification'] = "MySQL error ".mysql_errno().": "
@@ -65,7 +65,7 @@ if ($mysqlaction = "modify")
 
 if ($mysqlaction = "add")
 {
-
+  session_start();
 	$freezeraddquery = mysql_query($freezeradd);
   if(mysql_errno()){
     $_SESSION['notification'] = "MySQL error ".mysql_errno().": "
