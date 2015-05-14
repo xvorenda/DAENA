@@ -83,7 +83,6 @@ if ($mysqlaction = "add")
   }
    echo $pageURL;
    echo '/admin/freezers.php");</script>';
-  }/admin/freezers.php");</script>';
 }
 
 /* Wrap things up */
