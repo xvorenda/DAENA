@@ -10,14 +10,14 @@ $group_desc = filter_input(INPUT_POST, 'group_desc');
 include('../config/db.php');
 $daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 // Check connection
-if ($daenaDB->connect_errno) 
+if ($daenaDB->connect_errno)
 {
     printf("Connect failed: %s\n", $daenaDB->connect_error);
     exit();
 }
 
   /* Add a Group */
-$groupadd = "INSERT INTO daena_db.groups 
+$groupadd = "INSERT INTO daena_db.groups
     (group_id, group_name, group_desc)
 	VALUES
     ('".$group_id."', '".$group_name."', '".$group_desc."')";
@@ -27,31 +27,31 @@ $groupupdate = "UPDATE daena_db.groups
 	SET group_name='" . $group_name . "', group_desc='" . $group_desc . "'
 	WHERE group_id='" . $group_id . "'";
 
-if ($mysqlaction == "modify") 
+if ($mysqlaction == "modify")
 {
 
 	$onegroup = $daenaDB->query();
-	if (!$daenaDB->query("$groupupdate")) 
+	if (!$daenaDB->query("$groupupdate"))
 	{
 		printf("Errormessage: %s\n", $daenaDB->error);
 	}
 
 	echo "Modification Success!";
 	echo '<script>window.location.replace("';
-	$pageURL = 'http://';
-	if ($_SERVER["SERVER_PORT"] != "80") 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	} 
-	else 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"];
-	}
-	 echo $pageURL;
+  $pageURL = 'https://';
+  if ($_SERVER["SERVER_PORT"] != "443")
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+  }
+  else
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"];
+  }
+   echo $pageURL;
 	 echo '/admin/groups.php");</script>';
 }
 
-if ($mysqlaction == "add") 
+if ($mysqlaction == "add")
 {
 
 	if (!$daenaDB->query($groupadd)) {
@@ -59,16 +59,16 @@ if ($mysqlaction == "add")
 	}
 	echo 'Addition Success!';
 	echo '<script>window.location.replace("';
-	$pageURL = 'http://';
-	if ($_SERVER["SERVER_PORT"] != "80") 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	} 
-	else 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"];
-	}
-	 echo $pageURL;
+  $pageURL = 'https://';
+  if ($_SERVER["SERVER_PORT"] != "443")
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+  }
+  else
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"];
+  }
+   echo $pageURL;
 	 echo '/admin/groups.php");</script>';
 }
 ?>

@@ -8,7 +8,7 @@ $contact_id = filter_input(INPUT_POST, 'contact_id');
 include('../config/db.php');
 $daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 // Check connection
-if ($daenaDB->connect_errno) 
+if ($daenaDB->connect_errno)
 {
     printf("Connect failed: %s\n", $daenaDB->connect_error);
     exit();
@@ -16,13 +16,13 @@ if ($daenaDB->connect_errno)
 
   /* Add a Contact */
 /*
-$groupadd = "INSERT INTO daena_db.groups 
+$groupadd = "INSERT INTO daena_db.groups
     (group_id, group_name, group_desc)
 	VALUES
     ('".$group_id."', '".$group_name."', '".$group_desc."')";
 */
 $error = 0;
-foreach( $_POST['freezer_id'] as $current_freezer_id) 
+foreach( $_POST['freezer_id'] as $current_freezer_id)
 {
 	$alarm0 = (isset($_POST[$current_freezer_id.'alarm0'])) ? 1 : 0;
 	$alarm1 = (isset($_POST[$current_freezer_id.'alarm1'])) ? 1 : 0;
@@ -32,26 +32,26 @@ foreach( $_POST['freezer_id'] as $current_freezer_id)
 	$alarm5 = (isset($_POST[$current_freezer_id.'alarm5'])) ? 1 : 0;
 	$alarm6 = (isset($_POST[$current_freezer_id.'alarm6'])) ? 1 : 0;
 	$alarm7 = (isset($_POST[$current_freezer_id.'alarm7'])) ? 1 : 0;
-	
+
 
 	/* Mod a Contact */
 	$contactupdate = "UPDATE daena_db.freezer_alarm_contacts
-		SET alarm0='".$alarm0."', 
-			alarm1='".$alarm1."', 
-			alarm2='".$alarm2."', 
-			alarm3='".$alarm3."', 
-			alarm4='".$alarm4."', 
-			alarm5='".$alarm5."', 
-			alarm6='".$alarm6."', 
+		SET alarm0='".$alarm0."',
+			alarm1='".$alarm1."',
+			alarm2='".$alarm2."',
+			alarm3='".$alarm3."',
+			alarm4='".$alarm4."',
+			alarm5='".$alarm5."',
+			alarm6='".$alarm6."',
 			alarm7='".$alarm7."'
-		WHERE contact_id='".$contact_id."' 
+		WHERE contact_id='".$contact_id."'
 			AND freezer_id='".$current_freezer_id."'";
-	
 
 
-	if ($mysqlaction == "modify") 
+
+	if ($mysqlaction == "modify")
 	{
-		if (!$daenaDB->query($contactupdate)) 
+		if (!$daenaDB->query($contactupdate))
 		{
 			printf("Errormessage: %s\n", $daenaDB->error);
 			$error = 1;
@@ -66,21 +66,21 @@ foreach( $_POST['freezer_id'] as $current_freezer_id)
 if ($error == 0)
 {
 	echo '<script>window.location.replace("';
-	$pageURL = 'http://';
-	if ($_SERVER["SERVER_PORT"] != "80") 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	} 
-	else 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"];
-	}
-	 echo $pageURL;
+  $pageURL = 'https://';
+  if ($_SERVER["SERVER_PORT"] != "443")
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+  }
+  else
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"];
+  }
+   echo $pageURL;
 	 echo '/admin/contacts.php");</script>';
 }
 
 /*
-if ($mysqlaction == "add") 
+if ($mysqlaction == "add")
 {
 
 	if (!$daenaDB->query($contactadd)) {
@@ -89,11 +89,11 @@ if ($mysqlaction == "add")
 	echo 'Addition Success!';
 	echo '<script>window.location.replace("';
 	$pageURL = 'http://';
-	if ($_SERVER["SERVER_PORT"] != "80") 
+	if ($_SERVER["SERVER_PORT"] != "80")
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	} 
-	else 
+	}
+	else
 	{
 	  $pageURL .= $_SERVER["SERVER_NAME"];
 	}

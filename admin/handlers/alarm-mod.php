@@ -7,7 +7,7 @@ $login = new Login();
 if ($login->isUserLoggedIn() == true)
 {
 	$error = 0;
-	if(isset($_POST['modify'])) 
+	if(isset($_POST['modify']))
 	{
 		$searchUrl = filter_input(INPUT_POST, 'searchUrl');
 		$freezer_id = filter_input(INPUT_POST, 'freezer_id');
@@ -28,12 +28,12 @@ if ($login->isUserLoggedIn() == true)
 
 		/* Mod an Alarm */
 		$alarmupdate = "UPDATE daena_db.freezers
-			SET freezer_setpoint1='" . $freezer_setpoint1 . "', freezer_setpoint2='" . $freezer_setpoint2 . "', 
+			SET freezer_setpoint1='" . $freezer_setpoint1 . "', freezer_setpoint2='" . $freezer_setpoint2 . "',
 				freezer_send_alarm='" . $freezer_send_alarm . "'
 			WHERE freezer_id='" . $freezer_id . "'";
 
-	
-		if (!$daenaDB->query($alarmupdate)) 
+
+		if (!$daenaDB->query($alarmupdate))
 		{
 			printf("Errormessage: %s\n", $daenaDB->error);
 			$error=1;
@@ -44,13 +44,13 @@ if ($login->isUserLoggedIn() == true)
 			{
 				echo "Silence Success!";
 				//echo '<script>window.location.replace("';
-				$pageURL = 'http://';
-				if ($_SERVER["SERVER_PORT"] != "80") 
+				$pageURL = 'https://';
+				if ($_SERVER["SERVER_PORT"] != "443")
 				{
 				  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$searchUrl;
-			  
-				} 
-				else 
+
+				}
+				else
 				{
 				  $pageURL .= $_SERVER["SERVER_NAME"].$searchUrl;
 				}
@@ -72,24 +72,24 @@ if ($login->isUserLoggedIn() == true)
 
 		$sendemail = "".$_SERVER['DOCUMENT_ROOT']."/py/silenceAlarm.py -f ".$freezer_id." -a ".$alarm_level;
 		//$output = shell_exec($command);
-		if (!shell_exec($sendemail)) 
+		if (!shell_exec($sendemail))
 		{
 			printf("Error in Python Execution");
 			$error=1;
 		}
 
-		
+
 		if($error==0)
 		{
 			echo "Silence Success!";
 			//echo '<script>window.location.replace("';
-			$pageURL = 'http://';
-				if ($_SERVER["SERVER_PORT"] != "80") 
+			$pageURL = 'https://';
+				if ($_SERVER["SERVER_PORT"] != "443")
 				{
 				  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$searchUrl;
-			  
-				} 
-				else 
+
+				}
+				else
 				{
 				  $pageURL .= $_SERVER["SERVER_NAME"].$searchUrl;
 				}

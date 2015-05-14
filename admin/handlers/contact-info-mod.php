@@ -10,7 +10,7 @@ $contact_alt_email = filter_input(INPUT_POST, 'contact_alt_email');
 include('../config/db.php');
 $daenaDB = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 // Check connection
-if ($daenaDB->connect_errno) 
+if ($daenaDB->connect_errno)
 {
     printf("Connect failed: %s\n", $daenaDB->connect_error);
     exit();
@@ -18,40 +18,40 @@ if ($daenaDB->connect_errno)
 
   /* Add a Contact */
 /*
-$groupadd = "INSERT INTO daena_db.groups 
+$groupadd = "INSERT INTO daena_db.groups
     (group_id, group_name, group_desc)
 	VALUES
     ('".$group_id."', '".$group_name."', '".$group_desc."')";
 */
 /* Mod a Contact */
 $contactupdate = "UPDATE daena_db.contacts
-	SET name='".$contact_name."', email='".$contact_email."', 
+	SET name='".$contact_name."', email='".$contact_email."',
 		alt_email='".$contact_alt_email."'
 	WHERE contact_id='" . $contact_id . "'";
 
-if ($mysqlaction == "modify") 
+if ($mysqlaction == "modify")
 {
-	if (!$daenaDB->query($contactupdate)) 
+	if (!$daenaDB->query($contactupdate))
 	{
 		printf("Errormessage: %s\n", $daenaDB->error);
 	}
 
 	echo "Modification Success!";
 	echo '<script>window.location.replace("';
-	$pageURL = 'http://';
-	if ($_SERVER["SERVER_PORT"] != "80") 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	} 
-	else 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"];
-	}
-	 echo $pageURL;
+  $pageURL = 'https://';
+  if ($_SERVER["SERVER_PORT"] != "443")
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+  }
+  else
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"];
+  }
+   echo $pageURL;
 	 echo '/admin/contacts.php");</script>';
 }
 
-if ($mysqlaction == "add") 
+if ($mysqlaction == "add")
 {
 
 	if (!$daenaDB->query($contactadd)) {
@@ -59,16 +59,16 @@ if ($mysqlaction == "add")
 	}
 	echo 'Addition Success!';
 	echo '<script>window.location.replace("';
-	$pageURL = 'http://';
-	if ($_SERVER["SERVER_PORT"] != "80") 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	} 
-	else 
-	{
-	  $pageURL .= $_SERVER["SERVER_NAME"];
-	}
-	 echo $pageURL;
+  $pageURL = 'https://';
+  if ($_SERVER["SERVER_PORT"] != "443")
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+  }
+  else
+  {
+    $pageURL .= $_SERVER["SERVER_NAME"];
+  }
+   echo $pageURL;
 	 echo '/admin/contacts.php");</script>';
 }
 ?>
