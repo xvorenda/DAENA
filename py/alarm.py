@@ -822,7 +822,7 @@ class alarm(object):
 
 	try:
     		if data[0][1]:
-    	       alarmTime = int(data[0][0])
+    	       	       alarmTime = int(data[0][0])
 		       alarmLevel = data[0][1]
 		       alarmDateTime = time.strftime("%A, %B %d, %Y, at %H:%M:%S", time.localtime(alarmTime/1000))
 	except IndexError:
