@@ -34,7 +34,7 @@ if ($login->isUserLoggedIn() == true)
 
 	/* Parse and Display Messages from Freezer-Mod Handler */
 	session_start();
-	if isset($_SESSION['notification']){
+	if (isset($_SESSION['notification'])){
 		$notification_message = $_SESSION['notification'];
 		echo "<div class='notification-window'>".$notification_message."</div>";
 	}
