@@ -1,0 +1,5 @@
+TODO
+Fuse 'users' and 'contacts' tables
+Auto-add new freezers to freezer_alarm_contacts
+Fix handlers to conform to Freezers notification changes
+CSS style notifications
