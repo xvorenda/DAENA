@@ -132,6 +132,6 @@ else
 		. "</div>";
 }
 /* Wrap things up */
-session_unset();
+unset($_SESSION['notification']);
 include 'assets/admin-footer.php';
 ?>
